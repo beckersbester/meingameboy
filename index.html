@@ -290,7 +290,22 @@ h1{
 </style>
 </head>
 
+<script>
+function filterProducts(category) {
+  const products = document.querySelectorAll('.produkt');
+
+  products.forEach(product => {
+    if (category === 'all' || product.classList.contains(category)) {
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+}
+</script>
+  
 <body>
+  
 
 <header>
   <div class="badge">RESTORE GAMING</div>
@@ -303,10 +318,11 @@ h1{
 <h2>Aktuelle Angebote</h2>
 
 <div class="kategorien">
-  <a class="kategorie" href="#classic">Classic</a>
-  <a class="kategorie" href="#color">Pocket</a>
-  <a class="kategorie" href="#pocket">Color</a>
-  <a class="kategorie" href="#ips">IPS V5</a>
+  <button class="kategorie" onclick="filterProducts('all')">Alle</button>
+  <button class="kategorie" onclick="filterProducts('classic')">Classic</button>
+  <button class="kategorie" onclick="filterProducts('pocket')">Pocket</button>
+  <button class="kategorie" onclick="filterProducts('color')">Color</button>
+  <button class="kategorie" onclick="filterProducts('ips')">IPS V5</button>
 </div>
 
 <div class="produkte">
