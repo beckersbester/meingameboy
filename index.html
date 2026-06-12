@@ -42,7 +42,7 @@ header{
 h1{
   margin:0;
   font-family:'Press Start 2P',monospace;
-  font-size:clamp(22px, 7vw, 38px);
+  font-size:clamp(22px, 7vw, 32px);
   color:#fff;
   text-shadow:0 0 14px #ff4fa3;
   line-height:1.25;
@@ -78,6 +78,7 @@ h2{
 }
 
 .produkt{
+  position:relative;
   background:#0d1024;
   border:1px solid #ff4fa3;
   border-radius:12px;
@@ -116,6 +117,32 @@ h2{
   font-size:24px;
   font-weight:bold;
   margin:15px 0;
+}
+
+.badge-produkt{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:#ff4fa3;
+  color:white;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:bold;
+  box-shadow:0 0 12px rgba(255,79,163,.7);
+  z-index:5;
+}
+
+.badge-blue{
+  background:#00f5d4;
+  color:#070817;
+  box-shadow:0 0 12px rgba(0,245,212,.7);
+}
+
+.badge-yellow{
+  background:#ffe600;
+  color:#070817;
+  box-shadow:0 0 12px rgba(255,230,0,.7);
 }
 
 .button{
@@ -312,6 +339,7 @@ footer{
 </div>
 
 <div class="produkt">
+<div class="badge-produkt badge-blue">IPS V5</div>
 <img src="WhatsApp Image 2026-06-07 at 20.29.29.png">
 <h3>Game Boy Classic Black Button IPS V5</h3>
 <p>Weißes Gehäuse mit schwarzen Tasten.</p>
@@ -360,6 +388,7 @@ footer{
 </div>
 
 <div class="produkt">
+<div class="badge-produkt badge-blue">IPS V5</div>
 <img src="WhatsApp Image 2026-06-08 at 10.25.40.png">
 <h3>Game Boy Classic Grau IPS V5</h3>
 <p>Klassischer Look mit modernem Display.</p>
