@@ -42,9 +42,12 @@ header{
 h1{
   margin:0;
   font-family:'Press Start 2P',monospace;
-  font-size:42px;
+  font-size:clamp(22px, 7vw, 42px);
   color:#fff;
   text-shadow:0 0 14px #ff4fa3;
+  line-height:1.25;
+  max-width:100%;
+  overflow-wrap:break-word;
 }
 
 header p{
@@ -190,10 +193,43 @@ footer{
 }
 
 @media(max-width:600px){
-  h1{font-size:26px}
-  header p{font-size:10px}
-  .produkt img{height:220px}
+  body{
+    overflow-x:hidden;
+  }
+
+  header{
+    padding:40px 12px 35px;
+  }
+
+  .badge{
+    font-size:9px;
+    padding:8px 14px;
+  }
+
+  header p{
+    font-size:9px;
+    padding:0 8px;
+  }
+
+  .container{
+    padding:24px 12px;
+  }
+
+  h2{
+    font-size:16px;
+    line-height:1.5;
+  }
+
+  .produkt img{
+    height:220px;
+  }
+
+  footer{
+    font-size:9px;
+    line-height:1.6;
+  }
 }
+
 </style>
 </head>
 
