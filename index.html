@@ -2,140 +2,260 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>meingameboy.de</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:#f5f5f5;
-      color:#222;
-    }
+<title>meingameboy.de</title>
 
-    header{
-      background:#ff4fa3;
-      color:white;
-      text-align:center;
-      padding:60px 20px;
-    }
+<style>
 
-    h1{
-      margin:0;
-      font-size:42px;
-    }
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    color:#222;
+}
 
-    .container{
-      max-width:1000px;
-      margin:auto;
-      padding:20px;
-    }
+header{
+    background:linear-gradient(135deg,#ff4fa3,#ff7dc2);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
 
-    .box{
-      background:white;
-      padding:25px;
-      margin-top:20px;
-      border-radius:14px;
-    }
+header h1{
+    margin:0;
+    font-size:48px;
+}
 
-    .button{
-      display:inline-block;
-      margin-top:15px;
-      background:#ff4fa3;
-      color:white;
-      text-decoration:none;
-      padding:12px 20px;
-      border-radius:10px;
-      font-weight:bold;
-    }
+header p{
+    margin-top:15px;
+    font-size:20px;
+}
 
-    .produkte{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-    }
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+}
 
-    .produkt{
-      border:1px solid #ddd;
-      border-radius:12px;
-      padding:15px;
-      text-align:center;
-    }
+.box{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
 
-    .produkt img{
-      width:100%;
-      border-radius:10px;
-    }
+.box h2{
+    margin-top:0;
+    color:#ff4fa3;
+}
 
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      color:#666;
-    }
-  </style>
+.produkte{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.produkt{
+    background:#fafafa;
+    border-radius:16px;
+    overflow:hidden;
+    transition:0.2s;
+    border:1px solid #eee;
+}
+
+.produkt:hover{
+    transform:translateY(-5px);
+}
+
+.produkt img{
+    width:100%;
+    display:block;
+}
+
+.info{
+    padding:18px;
+}
+
+.info h3{
+    margin-top:0;
+}
+
+.preis{
+    font-size:22px;
+    font-weight:bold;
+    color:#ff4fa3;
+}
+
+.button{
+    display:inline-block;
+    margin-top:12px;
+    background:#ff4fa3;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.button:hover{
+    opacity:0.9;
+}
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#777;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>meingameboy.de</h1>
-  <p>Professionell aufbereitete Game Boys & Retro Konsolen</p>
+    <h1>meingameboy.de</h1>
+    <p>Professionell aufbereitete Game Boys & Retro Konsolen</p>
 </header>
 
 <div class="container">
 
-  <div class="box">
-    <h2>Aktuelle Produkte</h2>
+<div class="box">
+<h2>Aktuelle Angebote</h2>
 
-    <div class="produkte">
+<div class="produkte">
 
-      <div class="produkt">
-        <img src="https://via.placeholder.com/300x220">
-        <h3>Game Boy Classic</h3>
-        <p>Komplett geprüft und gereinigt</p>
-        <p><strong>109,99 €</strong></p>
-        <a class="button" href="mailto:DEINEEMAIL">Anfragen</a>
-      </div>
+<div class="produkt">
+<img src="WhatsApp Image 2026-06-07 at 20.16.09.png">
+<div class="info">
+<h3>Game Boy Color Mario Edition</h3>
+<p>Komplett geprüft und gereinigt.</p>
+<div class="preis">109,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Mario Game Boy Color">
+Anfragen
+</a>
+</div>
+</div>
 
-      <div class="produkt">
-        <img src="https://via.placeholder.com/300x220">
-        <h3>Game Boy Color</h3>
-        <p>Top Zustand & spielbereit</p>
-        <p><strong>113,99 €</strong></p>
-        <a class="button" href="mailto:DEINEEMAIL">Anfragen</a>
-      </div>
+<div class="produkt">
+<img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png">
+<div class="info">
+<h3>Nintendo Game Boy Classic</h3>
+<p>Original Look in schönem Zustand.</p>
+<div class="preis">113,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Classic">
+Anfragen
+</a>
+</div>
+</div>
 
-    </div>
-  </div>
+<div class="produkt">
+<img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png">
+<div class="info">
+<h3>Game Boy Pocket Orange</h3>
+<p>Retro Design mit auffälligen Buttons.</p>
+<div class="preis">99,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Pocket Orange">
+Anfragen
+</a>
+</div>
+</div>
 
-  <div class="box">
-    <h2>Ankauf</h2>
-    <p>
-      Du möchtest alte Game Boys, Konsolen oder Spiele verkaufen?
-      Dann sende einfach Bilder und Infos per E-Mail.
-    </p>
+<div class="produkt">
+<img src="WhatsApp Image 2026-06-07 at 20.16.13 (5).png">
+<div class="info">
+<h3>Pokémon Squirtle Edition</h3>
+<p>Transparentes Gehäuse mit Pokémon Design.</p>
+<div class="preis">119,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Pokémon Squirtle Edition">
+Anfragen
+</a>
+</div>
+</div>
 
-    <a class="button" href="mailto:DEINEEMAIL">
-      Ankauf anfragen
-    </a>
-  </div>
+<div class="produkt">
+<img src="WhatsApp Image 2026-06-07 at 20.16.13 (3).png">
+<div class="info">
+<h3>Pokémon Charizard Edition</h3>
+<p>Transparenter Pokémon Umbau.</p>
+<div class="preis">119,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Pokémon Charizard Edition">
+Anfragen
+</a>
+</div>
+</div>
 
-  <div class="box">
-    <h2>Sicher kaufen</h2>
-    <p>
-      Kaufabwicklung sicher über PayPal möglich.
-    </p>
+<div class="produkt">
+<img src="WhatsApp Image 2026-06-07 at 20.16.13 (1).png">
+<div class="info">
+<h3>Pikachu Edition</h3>
+<p>Gelbes Pokémon Design.</p>
+<div class="preis">109,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Pikachu Edition">
+Anfragen
+</a>
+</div>
+</div>
 
-    <a class="button" href="mailto:DEINEEMAIL">
-      Jetzt kontaktieren
-    </a>
-  </div>
+<div class="produkt">
+<img src="WhatsApp Image 2026-06-07 at 20.16.10.png">
+<div class="info">
+<h3>Game Boy Pocket Classic</h3>
+<p>Original Retro Feeling.</p>
+<div class="preis">89,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Pocket">
+Anfragen
+</a>
+</div>
+</div>
+
+<div class="produkt">
+<img src="WhatsApp Image 2026-06-07 at 20.16.09 (2).png">
+<div class="info">
+<h3>Wario Edition</h3>
+<p>Game Boy Color mit Wario Design.</p>
+<div class="preis">119,99 €</div>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Wario Edition">
+Anfragen
+</a>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="box">
+<h2>Ankauf</h2>
+
+<p>
+Du möchtest alte Game Boys, Spiele oder Konsolen verkaufen?
+Dann sende einfach Bilder und Infos per E-Mail.
+</p>
+
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Ankauf Anfrage">
+Ankauf anfragen
+</a>
+</div>
+
+<div class="box">
+<h2>Sicher kaufen</h2>
+
+<p>
+Kauf sicher per PayPal möglich.
+Einfach gewünschtes Produkt per E-Mail anfragen.
+</p>
+
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Kaufanfrage">
+Jetzt kontaktieren
+</a>
+</div>
 
 </div>
 
 <footer>
-  meingameboy.de by Restore Gaming
+meingameboy.de by Restore Gaming
 </footer>
 
 </body>
