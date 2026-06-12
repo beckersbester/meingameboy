@@ -70,6 +70,32 @@ h2{
   margin:25px 0 35px;
 }
 
+.kategorien{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:-10px 0 35px;
+}
+
+.kategorie{
+  border:2px solid #00f5d4;
+  color:#00f5d4;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.kategorie:hover{
+  background:#00f5d4;
+  color:#070817;
+  box-shadow:0 0 16px rgba(0,245,212,.7);
+}
+  
+  
 .produkte{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -276,9 +302,16 @@ h1{
 
 <h2>Aktuelle Angebote</h2>
 
+<div class="kategorien">
+  <a class="kategorie" href="#classic">Classic</a>
+  <a class="kategorie" href="#color">Pocket</a>
+  <a class="kategorie" href="#pocket">Color</a>
+  <a class="kategorie" href="#ips">IPS V5</a>
+</div>
+
 <div class="produkte">
 
-<div class="produkt">
+<div class="produkt" id="color">
   <div class="badge-produkt badge-blue">Super Mario</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.09.png" target="_blank">
@@ -292,7 +325,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="classic">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png">
@@ -305,7 +338,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="pocket">
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png">
@@ -318,7 +351,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="pocket">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" target="_blank">
@@ -332,7 +365,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="pocket">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" target="_blank">
@@ -346,7 +379,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="color">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" target="_blank">
@@ -360,7 +393,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="classic">
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.10.png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.10.png">
@@ -373,7 +406,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="color">
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.09 (2).png">
@@ -386,7 +419,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="classic ips">
 <div class="badge-produkt badge-blue">IPS V5</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.29.29.png" target="_blank">
@@ -400,7 +433,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="classic">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.14 (3).png">
@@ -413,7 +446,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="pocket">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.13 (14).png">
@@ -426,7 +459,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="color">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.13 (18).png">
@@ -439,7 +472,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="color">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" target="_blank">
@@ -453,7 +486,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="color">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-05-21 at 18.48.20.png" target="_blank">
@@ -467,7 +500,7 @@ h1{
 </div>
 
 
-<div class="produkt">
+<div class="produkt" id="classic ips">
 <div class="badge-produkt badge-blue">IPS V5</div>
 
   <a href="WhatsApp Image 2026-06-08 at 10.25.40.png" target="_blank">
