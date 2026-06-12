@@ -435,6 +435,11 @@ h1{
   <button class="kategorie" onclick="filterProducts('ips', this)">IPS V5</button>
 </div>
 
+<div class="kategorien" style="margin-top:-15px;">
+  <button class="kategorie" onclick="sortProducts('low')">Preis ↑</button>
+  <button class="kategorie" onclick="sortProducts('high')">Preis ↓</button>
+</div>
+
 <div class="produkte">
 
 <div class="produkt color">
@@ -708,6 +713,34 @@ function filterProducts(category, clickedButton) {
     }
   });
 }
+
+function sortProducts(direction) {
+  const container = document.querySelector('.produkte');
+  const products = Array.from(container.querySelectorAll('.produkt'));
+
+  products.sort((a, b) => {
+    const priceA = parseFloat(
+      a.querySelector('.preis').innerText
+        .replace('€','')
+        .replace('.','')
+        .replace(',','.')
+    );
+
+    const priceB = parseFloat(
+      b.querySelector('.preis').innerText
+        .replace('€','')
+        .replace('.','')
+        .replace(',','.')
+    );
+
+    return direction === 'low'
+      ? priceA - priceB
+      : priceB - priceA;
+  });
+
+  products.forEach(product => container.appendChild(product));
+}
 </script>
+
 </body>
 </html>
