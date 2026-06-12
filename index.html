@@ -9,47 +9,56 @@
 
 <style>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#f4f4f4;
-    color:#222;
+    background:#15151f;
+    color:#f2f2f2;
 }
 
 header{
-    background:linear-gradient(135deg,#ff4fa3,#ff7dc2);
+    background:linear-gradient(135deg,#ff4fa3,#7c3cff);
     color:white;
     text-align:center;
-    padding:70px 20px;
+    padding:80px 20px;
+    border-bottom:6px solid #00f5d4;
 }
 
 header h1{
     margin:0;
-    font-size:48px;
+    font-family:'Press Start 2P',monospace;
+    font-size:32px;
+    text-shadow:4px 4px 0 #222;
 }
 
 header p{
-    margin-top:15px;
-    font-size:20px;
+    margin-top:20px;
+    font-size:18px;
 }
 
 .container{
     max-width:1200px;
     margin:auto;
-    padding:30px 20px;
+    padding:35px 20px;
 }
 
 .box{
-    background:white;
+    background:#222232;
     border-radius:18px;
     padding:30px;
-    margin-bottom:30px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom:35px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.35);
+    border:2px solid #34344a;
 }
 
 .box h2{
     margin-top:0;
-    color:#ff4fa3;
+    color:#00f5d4;
+    font-family:'Press Start 2P',monospace;
+    font-size:18px;
 }
 
 .produkte{
@@ -59,56 +68,69 @@ header p{
 }
 
 .produkt{
-    background:#fafafa;
-    border-radius:16px;
+    background:#181824;
+    border-radius:18px;
     overflow:hidden;
-    transition:0.2s;
-    border:1px solid #eee;
+    transition:0.25s;
+    border:2px solid #33334d;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 .produkt:hover{
-    transform:translateY(-5px);
+    transform:translateY(-8px) scale(1.02);
+    border-color:#ff4fa3;
+    box-shadow:0 0 25px rgba(255,79,163,0.45);
 }
 
 .produkt img{
     width:100%;
     display:block;
+    background:white;
 }
 
 .info{
-    padding:18px;
+    padding:20px;
 }
 
 .info h3{
     margin-top:0;
+    color:white;
+}
+
+.info p{
+    color:#cfcfe6;
 }
 
 .preis{
     font-size:22px;
     font-weight:bold;
-    color:#ff4fa3;
+    color:#00f5d4;
 }
 
 .button{
     display:inline-block;
-    margin-top:12px;
-    background:#ff4fa3;
+    margin-top:14px;
+    background:linear-gradient(135deg,#ff4fa3,#7c3cff);
     color:white;
-    padding:12px 18px;
+    padding:13px 18px;
     border-radius:10px;
     text-decoration:none;
     font-weight:bold;
+    transition:0.2s;
 }
 
 .button:hover{
-    opacity:0.9;
+    transform:scale(1.05);
+    box-shadow:0 0 18px rgba(255,79,163,0.7);
 }
 
 footer{
     text-align:center;
-    padding:40px 20px;
-    color:#777;
+    padding:45px 20px;
+    color:#999;
+    border-top:2px solid #33334d;
 }
+</style>
 
 </style>
 </head>
