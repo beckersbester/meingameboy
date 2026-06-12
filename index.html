@@ -87,6 +87,15 @@ h2{
   font-weight:bold;
   text-decoration:none;
   transition:.2s;
+  background:transparent;
+  cursor:pointer;
+  font-family:Arial,sans-serif;
+}
+
+.kategorie.active{
+  background:#00f5d4;
+  color:#070817;
+  box-shadow:0 0 16px rgba(0,245,212,.7);
 }
 
 .kategorie:hover{
@@ -125,6 +134,14 @@ h2{
   background:#fff;
   border-radius:8px;
   padding:8px;
+}
+
+.produkt a{
+  display:block;
+}
+
+.produkt a img{
+  cursor:pointer;
 }
 
 .produkt h3{
@@ -291,12 +308,16 @@ h1{
 </head>
 
 <script>
-function filterProducts(category) {
+function filterProducts(category, clickedButton) {
   const products = document.querySelectorAll('.produkt');
+  const buttons = document.querySelectorAll('.kategorie');
+
+  buttons.forEach(button => button.classList.remove('active'));
+  clickedButton.classList.add('active');
 
   products.forEach(product => {
     if (category === 'all' || product.classList.contains(category)) {
-      product.style.display = 'block';
+      product.style.display = '';
     } else {
       product.style.display = 'none';
     }
@@ -318,16 +339,16 @@ function filterProducts(category) {
 <h2>Aktuelle Angebote</h2>
 
 <div class="kategorien">
-  <button class="kategorie" onclick="filterProducts('all')">Alle</button>
-  <button class="kategorie" onclick="filterProducts('classic')">Classic</button>
-  <button class="kategorie" onclick="filterProducts('pocket')">Pocket</button>
-  <button class="kategorie" onclick="filterProducts('color')">Color</button>
-  <button class="kategorie" onclick="filterProducts('ips')">IPS V5</button>
+  <button class="kategorie active" onclick="filterProducts('all', this)">Alle</button>
+  <button class="kategorie" onclick="filterProducts('classic', this)">Classic</button>
+  <button class="kategorie" onclick="filterProducts('pocket', this)">Pocket</button>
+  <button class="kategorie" onclick="filterProducts('color', this)">Color</button>
+  <button class="kategorie" onclick="filterProducts('ips', this)">IPS V5</button>
 </div>
 
 <div class="produkte">
 
-<div class="produkt" id="color">
+<div class="produkt color">
   <div class="badge-produkt badge-blue">Super Mario</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.09.png" target="_blank">
@@ -341,7 +362,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="classic">
+<div class="produkt classic">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png">
@@ -354,7 +375,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="pocket">
+<div class="produkt pocket">
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png">
@@ -367,7 +388,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="pocket">
+<div class="produkt pocket">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" target="_blank">
@@ -381,7 +402,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="pocket">
+<div class="produkt pocket">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" target="_blank">
@@ -395,7 +416,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="color">
+<div class="produkt color">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" target="_blank">
@@ -409,7 +430,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="classic">
+<div class="produkt pocket">
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.10.png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.10.png">
@@ -422,7 +443,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="color">
+<div class="produkt color">
 
   <a href="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.09 (2).png">
@@ -435,7 +456,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="classic ips">
+<div class="produkt classic ips">
 <div class="badge-produkt badge-blue">IPS V5</div>
 
   <a href="WhatsApp Image 2026-06-07 at 20.29.29.png" target="_blank">
@@ -449,7 +470,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="classic">
+<div class="produkt classic">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.14 (3).png">
@@ -462,7 +483,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="pocket">
+<div class="produkt pocket">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.13 (14).png">
@@ -475,7 +496,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="color">
+<div class="produkt color">
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.13 (18).png">
@@ -488,7 +509,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="color">
+<div class="produkt color">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" target="_blank">
@@ -502,7 +523,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="color">
+<div class="produkt color">
 <div class="badge-produkt badge-blue">Pokémon</div>
 
   <a href="WhatsApp Image 2026-05-21 at 18.48.20.png" target="_blank">
@@ -516,7 +537,7 @@ function filterProducts(category) {
 </div>
 
 
-<div class="produkt" id="classic ips">
+<div class="produkt classic ips">
 <div class="badge-produkt badge-blue">IPS V5</div>
 
   <a href="WhatsApp Image 2026-06-08 at 10.25.40.png" target="_blank">
