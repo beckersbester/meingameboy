@@ -154,6 +154,21 @@ h2{
   line-height:1.5;
 }
 
+.features{
+  list-style:none;
+  padding:0;
+  margin:12px 0 0;
+  color:#ddd;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.features li::before{
+  content:"✓ ";
+  color:#00f5d4;
+  font-weight:bold;
+}
+
 .preis{
   color:#00f5d4;
   font-size:24px;
@@ -252,9 +267,86 @@ h2{
   color:#00f5d4;
 }
 
+
+.about-box{
+  background:linear-gradient(135deg,#0d1024,#141836);
+  border:2px solid #ff4fa3;
+  border-radius:16px;
+  padding:32px;
+  margin-top:35px;
+  box-shadow:0 0 24px rgba(255,79,163,.25);
+}
+
+.about-box h2{
+  text-align:left;
+  margin:0 0 18px;
+  font-size:18px;
+}
+
+.about-box p{
+  color:#ddd;
+  line-height:1.7;
+  max-width:900px;
+}
+
+.legal-box{
+  background:#0b0e20;
+  border:1px solid #24284d;
+  border-radius:14px;
+  padding:24px;
+  margin-top:28px;
+  color:#ccc;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.legal-box h2{
+  text-align:left;
+  font-size:16px;
+  margin:0 0 14px;
+}
+
+.sticky-contact{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:999;
+  background:#ff4fa3;
+  color:#070817;
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 0 22px rgba(255,79,163,.8);
+  border:2px solid #fff;
+  transition:.2s;
+}
+
+.sticky-contact:hover{
+  transform:scale(1.05);
+  background:#00f5d4;
+  box-shadow:0 0 22px rgba(0,245,212,.8);
+}
+
+.footer-links{
+  margin-bottom:18px;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+}
+
+.footer-links a{
+  color:#00f5d4;
+  text-decoration:none;
+  margin:0 10px;
+}
+
+.footer-links a:hover{
+  color:#ff4fa3;
+}
+
 footer{
   text-align:center;
-  padding:35px 20px;
+  padding:35px 20px 80px;
   color:#ff4fa3;
   font-family:'Press Start 2P',monospace;
   font-size:12px;
@@ -298,6 +390,18 @@ h1{
     height:220px;
   }
 
+  .sticky-contact{
+    right:12px;
+    bottom:12px;
+    padding:12px 14px;
+    font-size:13px;
+  }
+
+  .about-box,
+  .legal-box{
+    padding:22px;
+  }
+
   footer{
     font-size:9px;
     line-height:1.6;
@@ -307,23 +411,8 @@ h1{
 </style>
 </head>
 
-<script>
-function filterProducts(category, clickedButton) {
-  const products = document.querySelectorAll('.produkt');
-  const buttons = document.querySelectorAll('.kategorie');
 
-  buttons.forEach(button => button.classList.remove('active'));
-  clickedButton.classList.add('active');
 
-  products.forEach(product => {
-    if (category === 'all' || product.classList.contains(category)) {
-      product.style.display = '';
-    } else {
-      product.style.display = 'none';
-    }
-  });
-}
-</script>
   
 <body>
   
@@ -356,7 +445,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Color Wario Edition</h3>
-<p>Komplett geprüft und gereinigt.</p>
+<ul class="features"><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li><li>Versicherter Versand möglich</li></ul>
 <div class="preis">115,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Mario Game Boy Color">✉ Anfragen</a>
 </div>
@@ -369,7 +458,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Nintendo Game Boy Classic</h3>
-<p>Original Look in schönem Zustand.</p>
+<ul class="features"><li>Original Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
 <div class="preis">109,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Classic">✉ Anfragen</a>
 </div>
@@ -382,7 +471,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Pocket Orange</h3>
-<p>Retro Design mit auffälligen Buttons.</p>
+<ul class="features"><li>Auffälliges Retro Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
 <div class="preis">105,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Pocket Orange">✉ Anfragen</a>
 </div>
@@ -396,7 +485,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Pocket Pokémon Squirtle Edition</h3>
-<p>Transparentes Gehäuse mit Pokémon Design.</p>
+<ul class="features"><li>Transparentes Gehäuse</li><li>Pokémon Design</li><li>Geprüft & gereinigt</li></ul>
 <div class="preis">109,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Squirtle Edition">✉ Anfragen</a>
 </div>
@@ -410,7 +499,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Pocket Pokémon Charizard Edition</h3>
-<p>Transparenter Pokémon Umbau.</p>
+<ul class="features"><li>Transparenter Pokémon Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
 <div class="preis">109,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Charizard Edition">✉ Anfragen</a>
 </div>
@@ -424,7 +513,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Pocket Pikachu Edition</h3>
-<p>Gelbes Pokémon Design.</p>
+<ul class="features"><li>Gelbes Pokémon Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
 <div class="preis">109,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Pikachu Edition">✉ Anfragen</a>
 </div>
@@ -437,7 +526,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Pocket Classic Design</h3>
-<p>Original Retro Feeling.</p>
+<ul class="features"><li>Classic Retro Feeling</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
 <div class="preis">99,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Pocket Classic">✉ Anfragen</a>
 </div>
@@ -450,7 +539,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Color Mario Edition</h3>
-<p>Game Boy Color mit Mario Scheibe.</p>
+<ul class="features"><li>Mario Scheibe</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
 <div class="preis">114,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Wario Edition">✉ Anfragen</a>
 </div>
@@ -464,7 +553,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Classic Black Button IPS V5</h3>
-<p>Weißes Gehäuse mit schwarzen Tasten.</p>
+<ul class="features"><li>IPS V5 Display</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
 <div class="preis">149,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Black Button">✉ Anfragen</a>
 </div>
@@ -477,7 +566,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Classic Red Button</h3>
-<p>Weißes Gehäuse mit roten Tasten.</p>
+<ul class="features"><li>Weißes Gehäuse</li><li>Rote Tasten</li><li>Geprüft & gereinigt</li></ul>
 <div class="preis">109,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Red Button">✉ Anfragen</a>
 </div>
@@ -490,7 +579,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Pocket Transparent</h3>
-<p>Transparentes Gehäuse im Retro Look.</p>
+<ul class="features"><li>Transparentes Gehäuse</li><li>Retro Look</li><li>Geprüft & gereinigt</li></ul>
 <div class="preis">95,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Pocket Transparent">✉ Anfragen</a>
 </div>
@@ -503,7 +592,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Color Pokémon</h3>
-<p>Weißes Gehäuse mit Pokémon Scheibe.</p>
+<ul class="features"><li>Pokémon Scheibe</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
 <div class="preis">105,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Color Pokémon">✉ Anfragen</a>
 </div>
@@ -517,7 +606,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Color Charizard Orange Edition</h3>
-<p>Oranges transparentes Pokémon Design.</p>
+<ul class="features"><li>Transparent Orange</li><li>Charizard Design</li><li>Geprüft & gereinigt</li></ul>
 <div class="preis">109,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Charizard Orange Edition">✉ Anfragen</a>
 </div>
@@ -531,7 +620,7 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Color Pokémon Yellow Edition</h3>
-<p>Gelber Game Boy Color Pokémon Style.</p>
+<ul class="features"><li>Pokémon Yellow Style</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
 <div class="preis">109,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Pokémon Yellow Edition">✉ Anfragen</a>
 </div>
@@ -545,12 +634,21 @@ function filterProducts(category, clickedButton) {
   </a>
 
 <h3>Game Boy Classic Grau IPS V5</h3>
-<p>Klassischer Look mit modernem Display.</p>
+<ul class="features"><li>IPS V5 Display</li><li>Klassischer Look</li><li>Geprüft & gereinigt</li></ul>
 <div class="preis">149,99 €</div>
 <a class="button" href="mailto:restore.mail@gmx.de?subject=Anfrage Game Boy Black Button">✉ Anfragen</a>
 </div>
 
 
+</div>
+
+<div class="about-box">
+<h2>Über Restore Gaming</h2>
+<p>
+Restore Gaming steht für professionell aufbereitete Retro-Konsolen mit Liebe zum Detail.
+Jede Konsole wird sorgfältig geprüft, gereinigt und verkaufsfertig vorbereitet.
+So bekommst du echten Retro-Charme mit einem sicheren und unkomplizierten Kaufgefühl.
+</p>
 </div>
 
 
@@ -574,17 +672,52 @@ function filterProducts(category, clickedButton) {
 
 
 <div class="vorteile">
-<div class="vorteil"><strong>Geprüfte Qualität</strong><br>Jede Konsole wird gründlich geprüft und gereinigt.</div>
+<div class="vorteil"><strong>Geprüfte Qualität</strong><br>Jede Konsole wird sorgfältig geprüft, gereinigt und vorbereitet.</div>
 <div class="vorteil"><strong>Retro Leidenschaft</strong><br>Für echte Retro-Fans mit Liebe zum Detail.</div>
-<div class="vorteil"><strong>Sichere Zahlung</strong><br>Sicher bezahlen per PayPal.</div>
+<div class="vorteil"><strong>Sichere Zahlung</strong><br>Kaufabwicklung bequem und sicher per PayPal möglich.</div>
 <div class="vorteil"><strong>Versicherter Versand</strong><br>Schnell, sicher und versichert versendet.</div>
 </div>
 
+<div class="legal-box" id="rechtliches">
+<h2>Rechtliches</h2>
+<p>
+Hinweis: Bitte ergänze vor der dauerhaften Nutzung noch dein vollständiges Impressum und eine Datenschutzerklärung.
+Für eine gewerbliche Webseite in Deutschland sind diese Angaben wichtig.
+</p>
+<p>
+Kontakt: <a class="button" href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">restore.mail@gmx.de</a>
+</p>
 </div>
 
+</div>
+
+<a class="sticky-contact" href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">✉ Kontakt</a>
+
 <footer>
+<div class="footer-links">
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+<a href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">Kontakt</a>
+</div>
 meingameboy.de by Restore Gaming
 </footer>
 
+<script>
+function filterProducts(category, clickedButton) {
+  const products = document.querySelectorAll('.produkt');
+  const buttons = document.querySelectorAll('.kategorie');
+
+  buttons.forEach(button => button.classList.remove('active'));
+  clickedButton.classList.add('active');
+
+  products.forEach(product => {
+    if (category === 'all' || product.classList.contains(category)) {
+      product.style.display = '';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>
