@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>meingameboy.de – Angebote</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:#070817;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(255,79,163,.12), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(0,245,212,.08), transparent 50%);
+}
+
+header{
+  text-align:center;
+  padding:55px 20px 45px;
+  background:
+    linear-gradient(rgba(255,79,163,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,212,.08) 1px, transparent 1px),
+    linear-gradient(135deg,#08091f,#1b0838 60%,#09091c);
+  background-size:35px 35px,35px 35px,auto;
+  border-bottom:4px solid #00f5d4;
+}
+
+.badge{
+  display:inline-block;
+  border:2px solid #ff4fa3;
+  color:#ff4fa3;
+  padding:10px 22px;
+  border-radius:10px;
+  font-family:'Press Start 2P',monospace;
+  font-size:12px;
+  margin-bottom:22px;
+}
+
+h1{
+  margin:0;
+  font-family:'Press Start 2P',monospace;
+  font-size:42px;
+  color:#fff;
+  text-shadow:0 0 14px #ff4fa3;
+  line-height:1.25;
+  white-space:nowrap;
+}
+
+header p{
+  color:#00f5d4;
+  font-family:'Press Start 2P',monospace;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.container{
+  max-width:1300px;
+  margin:auto;
+  padding:30px 22px;
+}
+
+h2{
+  text-align:center;
+  color:#00f5d4;
+  font-family:'Press Start 2P',monospace;
+  font-size:22px;
+  margin:25px 0 10px;
+}
+
+.shop-beschreibung{
+  text-align:center;
+  color:#bbb;
+  font-size:15px;
+  line-height:1.6;
+  max-width:640px;
+  margin:0 auto 35px;
+}
+
+.shop-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin:-10px 0 28px;
+}
+
+.zurueck{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:2px solid #ff4fa3;
+  color:#ff4fa3;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.zurueck:hover{
+  background:#ff4fa3;
+  color:#070817;
+}
+
+.kategorien{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:0 0 35px;
+}
+
+.kategorie{
+  border:2px solid #00f5d4;
+  color:#00f5d4;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.2s;
+  background:transparent;
+  cursor:pointer;
+  font-family:Arial,sans-serif;
+}
+
+.kategorie.active{
+  background:#00f5d4;
+  color:#070817;
+  box-shadow:0 0 16px rgba(0,245,212,.7);
+}
+
+.kategorie:hover{
+  background:#00f5d4;
+  color:#070817;
+  box-shadow:0 0 16px rgba(0,245,212,.7);
+}
+
+.sortierung{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:-20px 0 35px;
+}
+
+.produkte{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px;
+  align-items:stretch;
+}
+
+.produkt{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  background:linear-gradient(160deg,#0d1024 0%,#121530 100%);
+  border:2px solid rgba(255,79,163,.45);
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(255,79,163,.2);
+  transition:.3s ease;
+  overflow:hidden;
+}
+
+.produkt::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,79,163,.06),transparent 40%,rgba(0,245,212,.05));
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .3s;
+}
+
+.produkt:hover::before{
+  opacity:1;
+}
+
+.produkt:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:#00f5d4;
+  box-shadow:0 12px 40px rgba(0,245,212,.25),0 0 30px rgba(255,79,163,.35);
+}
+
+.produkt.ausverkauft{
+  opacity:.88;
+}
+
+.produkt.ausverkauft:hover{
+  transform:none;
+  box-shadow:0 0 18px rgba(255,79,163,.25);
+}
+
+.status-ausverkauft{
+  display:inline-block;
+  margin:10px 0 0;
+  padding:6px 12px;
+  border-radius:8px;
+  background:#555;
+  color:#ddd;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.button-ausverkauft{
+  display:block;
+  width:100%;
+  margin-top:12px;
+  box-sizing:border-box;
+  border:2px solid #555;
+  color:#888;
+  padding:10px 16px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:not-allowed;
+  background:#1a1d30;
+}
+
+.produkt img{
+  width:100%;
+  height:260px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:8px;
+  padding:8px;
+}
+
+.produkt a:not(.button){
+  display:block;
+  flex-shrink:0;
+}
+
+.produkt a img{
+  cursor:pointer;
+}
+
+.produkt h3{
+  flex-shrink:0;
+  margin:14px 0 0;
+  font-size:18px;
+  line-height:1.4;
+  min-height:calc(1.4em * 3);
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.features{
+  list-style:none;
+  flex:1 1 auto;
+  padding:0;
+  margin:12px 0 0;
+  color:#ddd;
+  line-height:1.7;
+  font-size:14px;
+  text-align:left;
+}
+
+.features li::before{
+  content:"✓ ";
+  color:#00f5d4;
+  font-weight:bold;
+}
+
+.preis{
+  color:#00f5d4;
+  font-size:24px;
+  font-weight:bold;
+  margin:0;
+  margin-top:auto;
+  padding-top:16px;
+  border-top:1px solid rgba(255,79,163,.25);
+}
+
+.preis-block{
+  margin-top:auto;
+  padding:16px 12px 12px;
+  border-top:1px solid rgba(255,79,163,.3);
+  text-align:center;
+  background:rgba(0,0,0,.2);
+  border-radius:0 0 10px 10px;
+  margin-left:-18px;
+  margin-right:-18px;
+  margin-bottom:-18px;
+}
+
+.preis-label{
+  display:block;
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+
+.preis-label-alt{
+  color:#888;
+}
+
+.preis-label-neu{
+  color:#ff4fa3;
+  margin-top:10px;
+}
+
+.preis-alt{
+  display:block;
+  color:#777;
+  font-size:16px;
+  text-decoration:line-through;
+  margin-bottom:2px;
+}
+
+.preis-aktuell{
+  display:block;
+  color:#00f5d4;
+  font-size:28px;
+  font-weight:bold;
+  line-height:1.2;
+  text-shadow:0 0 18px rgba(0,245,212,.45);
+}
+
+.preis-hinweis{
+  display:inline-block;
+  margin-top:10px;
+  padding:5px 12px;
+  border-radius:999px;
+  background:linear-gradient(90deg,rgba(255,79,163,.25),rgba(0,245,212,.2));
+  border:1px solid rgba(255,79,163,.45);
+  color:#fff;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.04em;
+}
+
+@keyframes bannerGlow{
+  0%,100%{box-shadow:0 0 24px rgba(255,79,163,.35),0 0 40px rgba(0,245,212,.15)}
+  50%{box-shadow:0 0 36px rgba(255,79,163,.55),0 0 60px rgba(0,245,212,.25)}
+}
+
+.aktions-banner{
+  position:relative;
+  text-align:center;
+  margin:0 0 22px;
+  padding:24px 26px;
+  border-radius:16px;
+  border:2px solid #ff4fa3;
+  background:linear-gradient(135deg,rgba(255,79,163,.22),rgba(0,245,212,.14));
+  animation:bannerGlow 3s ease-in-out infinite;
+  overflow:hidden;
+}
+
+.aktions-banner::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.04) 50%,transparent 60%);
+  animation:bannerShine 4s linear infinite;
+}
+
+@keyframes bannerShine{
+  0%{transform:translateX(-30%) translateY(-30%) rotate(0deg)}
+  100%{transform:translateX(30%) translateY(30%) rotate(0deg)}
+}
+
+.aktions-tag{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:5px 14px;
+  border-radius:999px;
+  background:#00f5d4;
+  color:#070817;
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:.14em;
+  font-family:'Press Start 2P',monospace;
+}
+
+.aktions-banner strong{
+  position:relative;
+  display:block;
+  font-family:'Press Start 2P',monospace;
+  font-size:15px;
+  color:#fff;
+  margin-bottom:12px;
+  line-height:1.7;
+  text-shadow:0 0 20px rgba(255,79,163,.8);
+}
+
+.aktions-banner span,
+.aktions-text{
+  position:relative;
+  color:#eee;
+  font-size:15px;
+  line-height:1.65;
+  margin:0;
+}
+
+.kauf-info{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:0 auto 32px;
+  max-width:820px;
+}
+
+.kauf-perk{
+  flex:1 1 220px;
+  text-align:center;
+  padding:14px 16px;
+  border-radius:12px;
+  border:2px solid rgba(0,245,212,.35);
+  background:rgba(0,245,212,.06);
+  color:#ddd;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.kauf-perk strong{
+  display:block;
+  color:#00f5d4;
+  font-size:12px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.badge-rabatt{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:linear-gradient(135deg,#ff4fa3,#c93d8a);
+  color:#fff;
+  padding:7px 11px;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:.04em;
+  box-shadow:0 0 16px rgba(255,79,163,.8);
+  z-index:5;
+  border:1px solid rgba(255,255,255,.25);
+}
+
+.produkt .button{
+  display:block;
+  width:100%;
+  margin-top:12px;
+  box-sizing:border-box;
+}
+
+.badge-produkt{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:#ff4fa3;
+  color:white;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:bold;
+  box-shadow:0 0 12px rgba(255,79,163,.7);
+  z-index:5;
+}
+
+.badge-blue{
+  background:#00f5d4;
+  color:#070817;
+  box-shadow:0 0 12px rgba(0,245,212,.7);
+}
+
+.button{
+  display:inline-block;
+  border:2px solid #ff4fa3;
+  color:#ff4fa3;
+  padding:10px 16px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.button:hover{
+  background:#ff4fa3;
+  color:#070817;
+}
+
+.button-paypal{
+  background:linear-gradient(180deg,#009cde,#0070ba);
+  border-color:#0070ba;
+  color:#fff;
+  font-size:13px;
+  line-height:1.35;
+  box-shadow:0 4px 16px rgba(0,112,186,.45);
+}
+
+.button-paypal:hover{
+  background:linear-gradient(180deg,#0070ba,#003087);
+  border-color:#003087;
+  color:#fff;
+  box-shadow:0 6px 22px rgba(0,112,186,.6);
+  transform:translateY(-1px);
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  margin-top:35px;
+}
+
+.info-box{
+  background:#0d1024;
+  border:2px solid #00f5d4;
+  border-radius:14px;
+  padding:30px;
+  box-shadow:0 0 22px rgba(0,245,212,.25);
+}
+
+.info-box.pink{
+  border-color:#ff4fa3;
+  box-shadow:0 0 22px rgba(255,79,163,.3);
+}
+
+.info-box h2{
+  text-align:left;
+  margin:0 0 18px;
+  font-size:18px;
+}
+
+.info-box p{
+  line-height:1.6;
+}
+
+.vorteile{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:35px;
+  border-top:1px solid #24284d;
+  padding-top:28px;
+}
+
+.vorteil{
+  background:#0b0e20;
+  padding:20px;
+  border-radius:12px;
+}
+
+.vorteil strong{
+  color:#00f5d4;
+}
+
+.about-box{
+  background:linear-gradient(135deg,#0d1024,#141836);
+  border:2px solid #ff4fa3;
+  border-radius:16px;
+  padding:32px;
+  margin-top:35px;
+  box-shadow:0 0 24px rgba(255,79,163,.25);
+}
+
+.about-box h2{
+  text-align:left;
+  margin:0 0 18px;
+  font-size:18px;
+}
+
+.about-box p{
+  color:#ddd;
+  line-height:1.75;
+  max-width:900px;
+  margin:0;
+}
+
+.about-box p + p{
+  margin-top:14px;
+}
+
+.about-box .about-highlight{
+  color:#00f5d4;
+  font-weight:bold;
+}
+
+.sticky-contact{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:999;
+  background:#ff4fa3;
+  color:#070817;
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 0 22px rgba(255,79,163,.8);
+  border:2px solid #fff;
+  transition:.2s;
+}
+
+.sticky-contact:hover{
+  transform:scale(1.05);
+  background:#00f5d4;
+  box-shadow:0 0 22px rgba(0,245,212,.8);
+}
+
+.footer-links{
+  margin-bottom:18px;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+}
+
+.footer-links a{
+  color:#00f5d4;
+  text-decoration:none;
+  margin:0 10px;
+}
+
+.footer-links a:hover{
+  color:#ff4fa3;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px 80px;
+  color:#ff4fa3;
+  font-family:'Press Start 2P',monospace;
+  font-size:12px;
+  border-top:1px solid #24284d;
+}
+
+.keine-treffer{
+  display:none;
+  grid-column:1 / -1;
+  text-align:center;
+  color:#aaa;
+  padding:40px 20px;
+  border:1px dashed #24284d;
+  border-radius:12px;
+}
+
+@media(max-width:600px){
+  body{overflow-x:hidden}
+
+  h1{
+    font-size:18px;
+    letter-spacing:-1px;
+  }
+
+  header{padding:40px 12px 35px}
+
+  .badge{
+    font-size:9px;
+    padding:8px 14px;
+  }
+
+  header p{
+    font-size:10px;
+    padding:0 10px;
+    line-height:1.7;
+  }
+
+  .container{padding:20px 12px}
+
+  h2{
+    font-size:15px;
+    line-height:1.5;
+  }
+
+  .shop-nav{
+    flex-direction:column;
+    align-items:stretch;
+    margin-bottom:20px;
+  }
+
+  .zurueck{justify-content:center}
+
+  .aktions-banner{
+    padding:18px 14px;
+    margin-bottom:18px;
+    animation:none;
+  }
+
+  .aktions-banner::before{display:none}
+
+  .aktions-tag{
+    font-size:8px;
+    padding:4px 10px;
+    margin-bottom:10px;
+  }
+
+  .aktions-banner strong{
+    font-size:10px;
+    line-height:1.75;
+    margin-bottom:10px;
+  }
+
+  .aktions-banner span,
+  .aktions-text{
+    font-size:13px;
+    line-height:1.6;
+  }
+
+  .kauf-info{
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:24px;
+  }
+
+  .kauf-perk{
+    font-size:12px;
+    padding:12px 14px;
+    flex:1 1 auto;
+  }
+
+  .kategorien{
+    gap:8px;
+    margin-bottom:24px;
+  }
+
+  .kategorie{
+    padding:8px 12px;
+    font-size:12px;
+  }
+
+  .sortierung{
+    margin:-12px 0 24px;
+    gap:8px;
+  }
+
+  .produkte{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .produkt{
+    padding:14px;
+  }
+
+  .produkt:hover{
+    transform:none;
+    box-shadow:0 0 20px rgba(255,79,163,.25);
+  }
+
+  .produkt::before{display:none}
+
+  .produkt img{height:200px}
+
+  .produkt h3{
+    font-size:16px;
+    min-height:auto;
+    -webkit-line-clamp:unset;
+  }
+
+  .badge-rabatt{
+    top:8px;
+    left:8px;
+    font-size:9px;
+    padding:5px 8px;
+  }
+
+  .badge-produkt{
+    top:8px;
+    right:8px;
+    font-size:10px;
+    padding:5px 8px;
+  }
+
+  .preis-block{
+    margin-left:-14px;
+    margin-right:-14px;
+    margin-bottom:-14px;
+    padding:14px 10px 12px;
+  }
+
+  .preis-label{font-size:9px;letter-spacing:.08em}
+
+  .preis-aktuell{font-size:24px}
+
+  .preis-hinweis{
+    font-size:10px;
+    padding:4px 10px;
+    margin-top:8px;
+  }
+
+  .button-paypal{
+    font-size:12px;
+    padding:12px 10px;
+    line-height:1.4;
+  }
+
+  .info-box{padding:22px}
+
+  .vorteile{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .sticky-contact{
+    right:12px;
+    bottom:12px;
+    padding:12px 14px;
+    font-size:13px;
+  }
+
+  .about-box{padding:22px 18px}
+
+  .about-box h2{font-size:14px;line-height:1.6}
+
+  .about-box p{font-size:13px;line-height:1.65}
+
+  footer{
+    font-size:9px;
+    line-height:1.6;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="badge">RESTORE GAMING</div>
+  <h1><a href="index.html" style="color:inherit;text-decoration:none">meingameboy.de</a></h1>
+  <p>Dein Retro-Shop – geprüfte Game Boys, Website-Preise &amp; kostenloser Versand</p>
+</header>
+
+<div class="container">
+
+<div class="shop-nav">
+  <a class="zurueck" href="index.html">← Kategorie wählen</a>
+</div>
+
+<h2 id="shop-titel">Aktuelle Angebote</h2>
+<p class="shop-beschreibung" id="shop-beschreibung"></p>
+
+<div class="aktions-banner">
+  <span class="aktions-tag">NUR AUF MEINGAMEBOY.DE</span>
+  <strong>5% WEBSITE-EXKLUSIV</strong>
+  <p class="aktions-text">Du sparst 5&nbsp;% gegenüber dem Standardpreis.<br>Der günstigere Website-Preis gilt nur hier im Shop.</p>
+</div>
+
+<div class="kauf-info">
+  <div class="kauf-perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf inklusive – ohne Aufpreis.</div>
+  <div class="kauf-perk"><strong>30 Tage Rückgabe</strong>Du kannst deinen Kauf innerhalb von 30 Tagen zurückgeben.</div>
+  <div class="kauf-perk"><strong>PayPal-Käuferschutz</strong>Sicher bezahlen, ohne extra Gebühren für dich.</div>
+  <div class="kauf-perk"><strong>Sofort spielbereit</strong>Geprüft, gereinigt &amp; versandfertig.</div>
+</div>
+
+<div class="kategorien">
+  <a class="kategorie" href="shop.html?kategorie=all" data-kategorie="all">Alle</a>
+  <a class="kategorie" href="shop.html?kategorie=classic" data-kategorie="classic">Classic</a>
+  <a class="kategorie" href="shop.html?kategorie=pocket" data-kategorie="pocket">Pocket</a>
+  <a class="kategorie" href="shop.html?kategorie=color" data-kategorie="color">Color</a>
+  <a class="kategorie" href="shop.html?kategorie=gba" data-kategorie="gba">Advance</a>
+  <a class="kategorie" href="shop.html?kategorie=ips" data-kategorie="ips">IPS V5</a>
+</div>
+
+<div class="sortierung">
+  <button class="kategorie" onclick="sortProducts('low')">Preis ↑</button>
+  <button class="kategorie" onclick="sortProducts('high')">Preis ↓</button>
+</div>
+
+<div class="produkte">
+
+<div class="produkt color">
+  <div class="badge-produkt badge-blue">Super Mario</div>
+  <a href="WhatsApp Image 2026-06-07 at 20.16.09.png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.16.09.png" alt="Game Boy Color Wario Edition">
+  </a>
+  <h3>Game Boy Color Wario Edition</h3>
+  <ul class="features"><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="124,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt classic">
+  <a href="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" target="_blank">
+    <img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" alt="Nintendo Game Boy Classic">
+  </a>
+  <h3>Nintendo Game Boy Classic</h3>
+  <ul class="features"><li>Original Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
+  <div class="preis-block" data-uvp="109,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt pocket">
+  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" alt="Game Boy Pocket Orange">
+  </a>
+  <h3>Game Boy Pocket Orange</h3>
+  <ul class="features"><li>Auffälliges Retro Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
+  <div class="preis-block" data-uvp="114,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt pocket">
+  <div class="badge-produkt badge-blue">Pokémon</div>
+  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" alt="Game Boy Pocket Squirtle Edition">
+  </a>
+  <h3>Game Boy Pocket Pokémon Squirtle Edition</h3>
+  <ul class="features"><li>Transparentes Gehäuse</li><li>Pokémon Design</li><li>Geprüft & gereinigt</li></ul>
+  <div class="preis-block" data-uvp="119,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt pocket">
+  <div class="badge-produkt badge-blue">Pokémon</div>
+  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" alt="Game Boy Pocket Charizard Edition">
+  </a>
+  <h3>Game Boy Pocket Pokémon Charizard Edition</h3>
+  <ul class="features"><li>Transparenter Pokémon Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
+  <div class="preis-block" data-uvp="119,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt pocket">
+  <div class="badge-produkt badge-blue">Pokémon</div>
+  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" alt="Game Boy Pocket Pikachu Edition">
+  </a>
+  <h3>Game Boy Pocket Pikachu Edition</h3>
+  <ul class="features"><li>Gelbes Pokémon Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
+  <div class="preis-block" data-uvp="119,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt pocket">
+  <a href="WhatsApp Image 2026-06-07 at 20.16.10.png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.16.10.png" alt="Game Boy Pocket Classic Design">
+  </a>
+  <h3>Game Boy Pocket Classic Design</h3>
+  <ul class="features"><li>Classic Retro Feeling</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
+  <div class="preis-block" data-uvp="114,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt color">
+  <a href="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" alt="Game Boy Color Mario Edition">
+  </a>
+  <h3>Game Boy Color Mario Edition</h3>
+  <ul class="features"><li>Mario Scheibe</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
+  <div class="preis-block" data-uvp="114,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt classic ips">
+  <div class="badge-produkt badge-blue">IPS V5</div>
+  <a href="WhatsApp Image 2026-06-07 at 20.29.29.png" target="_blank">
+    <img src="WhatsApp Image 2026-06-07 at 20.29.29.png" alt="Game Boy Classic Black Button IPS V5">
+  </a>
+  <h3>Game Boy Classic Black Button IPS V5</h3>
+  <ul class="features"><li>IPS V5 Display</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
+  <div class="preis-block" data-uvp="159,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt classic">
+  <a href="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" target="_blank">
+    <img src="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" alt="Game Boy Classic Red Button">
+  </a>
+  <h3>Game Boy Classic Red Button</h3>
+  <ul class="features"><li>Weißes Gehäuse</li><li>Rote Tasten</li><li>Geprüft & gereinigt</li></ul>
+  <div class="preis-block" data-uvp="109,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt pocket">
+  <a href="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" target="_blank">
+    <img src="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" alt="Game Boy Pocket Transparent">
+  </a>
+  <h3>Game Boy Pocket Transparent</h3>
+  <ul class="features"><li>Transparentes Gehäuse</li><li>Retro Look</li><li>Geprüft & gereinigt</li></ul>
+  <div class="preis-block" data-uvp="99,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt color">
+  <a href="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" target="_blank">
+    <img src="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" alt="Game Boy Color Pokémon">
+  </a>
+  <h3>Game Boy Color Pokémon</h3>
+  <ul class="features"><li>Pokémon Scheibe</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
+  <div class="preis-block" data-uvp="114,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt color">
+  <div class="badge-produkt badge-blue">Pokémon</div>
+  <a href="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" target="_blank">
+    <img src="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" alt="Game Boy Color Charizard Orange Edition">
+  </a>
+  <h3>Game Boy Color Charizard Orange Edition</h3>
+  <ul class="features"><li>Transparent Orange</li><li>Charizard Design</li><li>Geprüft & gereinigt</li></ul>
+  <div class="preis-block" data-uvp="119,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt color">
+  <div class="badge-produkt badge-blue">Pokémon</div>
+  <a href="WhatsApp Image 2026-05-21 at 18.48.20.png" target="_blank">
+    <img src="WhatsApp Image 2026-05-21 at 18.48.20.png" alt="Game Boy Color Pokémon Yellow Edition">
+  </a>
+  <h3>Game Boy Color Pokémon Yellow Edition</h3>
+  <ul class="features"><li>Pokémon Yellow Style</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
+  <div class="preis-block" data-uvp="119,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt classic ips">
+  <div class="badge-produkt badge-blue">IPS V5</div>
+  <a href="WhatsApp Image 2026-06-08 at 10.25.40.png" target="_blank">
+    <img src="WhatsApp Image 2026-06-08 at 10.25.40.png" alt="Game Boy Classic Grau IPS V5">
+  </a>
+  <h3>Game Boy Classic Grau IPS V5</h3>
+  <ul class="features"><li>IPS V5 Display</li><li>Klassischer Look</li><li>Geprüft & gereinigt</li></ul>
+  <div class="preis-block" data-uvp="159,99 €"></div>
+  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+</div>
+
+<div class="produkt gba ausverkauft">
+  <div class="badge-produkt badge-blue">Pokémon</div>
+  <a href="gba-gengar-edition.png" target="_blank">
+    <img src="gba-gengar-edition.png" alt="Game Boy Advance Gengar Edition">
+  </a>
+  <h3>Game Boy Advance Gengar Edition</h3>
+  <p class="status-ausverkauft">Ausverkauft</p>
+  <ul class="features"><li>Custom Gengar Design</li><li>Transluzentes Gehäuse</li><li>Technisch geprüft &amp; gereinigt</li></ul>
+  <div class="preis-block" data-uvp="129,99 €"></div>
+  <span class="button-ausverkauft">Ausverkauft</span>
+</div>
+
+<div class="produkt gba ausverkauft">
+  <div class="badge-produkt badge-blue">Pokémon</div>
+  <a href="gba-charmander-edition.png" target="_blank">
+    <img src="gba-charmander-edition.png" alt="Game Boy Advance Charmander Edition">
+  </a>
+  <h3>Game Boy Advance Charmander Edition</h3>
+  <p class="status-ausverkauft">Ausverkauft</p>
+  <ul class="features"><li>Custom Charmander Design</li><li>Transluzentes Orange-Gehäuse</li><li>Technisch geprüft &amp; gereinigt</li></ul>
+  <div class="preis-block" data-uvp="129,99 €"></div>
+  <span class="button-ausverkauft">Ausverkauft</span>
+</div>
+
+<p class="keine-treffer" id="keine-treffer">In dieser Kategorie sind aktuell keine Angebote verfügbar.</p>
+
+</div>
+
+<div class="about-box">
+<h2>Über uns</h2>
+<p>
+Restore Gaming steht für professionell aufbereitete Retro-Konsolen mit Liebe zum Detail.
+Jede Konsole wird sorgfältig geprüft, gereinigt und verkaufsfertig vorbereitet.
+</p>
+<p>
+Diese Website ist <span class="about-highlight">komplett selbst entwickelt</span> – ohne Shopify,
+teure Shop-Systeme oder monatliche Website-Dienste. Viele andere Shops nutzen genau solche
+Plattformen, weil es einfach geht – aber sie kosten laufend Geld, und das landet am Ende
+oft beim Kunden.
+</p>
+<p>
+Wir versuchen stattdessen, <span class="about-highlight">Kosten und Qualität bewusst zu optimieren</span>:
+fair kalkulierte Website-Preise, kostenloser Versand, direkter PayPal-Kauf – ohne Zwischenhändler
+und ohne unnötige Gebühren. Deshalb sieht und funktioniert manches hier vielleicht etwas anders
+als auf anderen Seiten. Das ist Absicht – und soll dir einen ehrlichen, guten Deal bieten.
+</p>
+<p>
+Du kaufst bei uns Retro mit Herz – und unterstützt einen kleinen Shop, der lieber in
+<span class="about-highlight">Qualität und faire Preise</span> investiert als in teure Verkaufsportale.
+</p>
+</div>
+
+<div class="info-grid">
+<div class="info-box pink">
+<h2>Sicher kaufen</h2>
+<p>Direkt im Shop über PayPal bezahlen – mit <strong>Website-Preisen</strong> und Käuferschutz.</p>
+<p><strong>Kostenloser Versand</strong> inklusive. <strong>30 Tage Rückgabe</strong> möglich. Keine extra Gebühren für dich als Käufer.</p>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Frage zu meingameboy.de">Fragen? Kontakt</a>
+</div>
+<div class="info-box">
+<h2>Ankauf</h2>
+<p>Du möchtest alte Game Boys, Spiele oder Konsolen verkaufen?</p>
+<p>Dann sende einfach Bilder und Infos per E-Mail.</p>
+<a class="button" href="mailto:restore.mail@gmx.de?subject=Ankauf Anfrage">Ankauf anfragen</a>
+</div>
+</div>
+
+<div class="vorteile">
+<div class="vorteil"><strong>Website-Preis</strong><br>5&nbsp;% unter dem Standardpreis – nur auf meingameboy.de.</div>
+<div class="vorteil"><strong>Sichere Zahlung</strong><br>Direkt per PayPal – mit Käuferschutz, ohne Zusatzgebühren.</div>
+<div class="vorteil"><strong>Kostenloser Versand</strong><br>Versichert und kostenlos bei jedem Kauf inklusive.</div>
+<div class="vorteil"><strong>30 Tage Rückgabe</strong><br>Nicht zufrieden? Innerhalb von 30 Tagen zurückgeben.</div>
+<div class="vorteil"><strong>Sofort spielbereit</strong><br>Geprüft, gereinigt und versandfertig vorbereitet.</div>
+</div>
+
+</div>
+
+<a class="sticky-contact" href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">✉ Kontakt</a>
+
+<footer>
+<div class="footer-links">
+<a href="index.html">Startseite</a>
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+<a href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">Kontakt</a>
+</div>
+meingameboy.de by Restore Gaming
+</footer>
+
+<script>
+const RABATT = 0.05;
+const RABATT_PROZENT = Math.round(RABATT * 100);
+const PAYPAL_EMAIL = 'restore.info@gmx.de';
+
+const kategorieTitel = {
+  all: 'Alle Angebote',
+  classic: 'Game Boy Classic',
+  pocket: 'Game Boy Pocket',
+  color: 'Game Boy Color',
+  gba: 'Game Boy Advance',
+  ips: 'IPS V5 Editionen'
+};
+
+const kategorieBeschreibung = {
+  all: 'Classic, Pocket, Color & Advance – alle Modelle und Editionen auf einen Blick.',
+  classic: 'Der legendäre Original-Game Boy – klassisch, robust und voller Retro-Charme.',
+  pocket: 'Der schlanke Game Boy Pocket – kompakt, stylisch, auch als Pokémon- & Sonderedition.',
+  color: 'Der farbige Game Boy Color – lebendige Spiele mit Mario- & Pokémon-Designs.',
+  gba: 'Der Game Boy Advance – horizontal, farbenfroh und ideal für Pokémon-Custom-Designs.',
+  ips: 'Game Boy Classic mit IPS V5 Display – heller, schärfer und noch besser zum Spielen.'
+};
+
+function filterProducts(category) {
+  const products = document.querySelectorAll('.produkt');
+  const buttons = document.querySelectorAll('.kategorien .kategorie');
+  let sichtbar = 0;
+
+  buttons.forEach(button => {
+    button.classList.toggle('active', button.dataset.kategorie === category);
+  });
+
+  products.forEach(product => {
+    const show = category === 'all' || product.classList.contains(category);
+    product.style.display = show ? '' : 'none';
+    if (show) sichtbar++;
+  });
+
+  document.getElementById('keine-treffer').style.display = sichtbar ? 'none' : 'block';
+  document.getElementById('shop-titel').textContent = kategorieTitel[category] || 'Aktuelle Angebote';
+  document.getElementById('shop-beschreibung').textContent = kategorieBeschreibung[category] || '';
+  document.title = 'meingameboy.de – ' + (kategorieTitel[category] || 'Angebote');
+}
+
+function parsePreis(text) {
+  return parseFloat(
+    text.replace('€', '').trim().replace(/\./g, '').replace(',', '.')
+  );
+}
+
+function formatPreis(value) {
+  return value.toFixed(2).replace('.', ',') + ' €';
+}
+
+function berechneRabattpreis(uvp) {
+  return Math.round(uvp * (1 - RABATT) * 100) / 100;
+}
+
+function buildPayPalUrl(itemName, amount) {
+  const params = new URLSearchParams({
+    cmd: '_xclick',
+    business: PAYPAL_EMAIL,
+    item_name: itemName,
+    amount: amount.toFixed(2),
+    currency_code: 'EUR',
+    charset: 'utf-8',
+    no_shipping: '0'
+  });
+  return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
+}
+
+function initPayPalButtons() {
+  document.querySelectorAll('.button-paypal').forEach(button => {
+    const produkt = button.closest('.produkt');
+    const rabatt = parseFloat(produkt.querySelector('.preis-block').dataset.rabatt);
+    const itemName = button.dataset.paypalItem || produkt.querySelector('h3').textContent.trim();
+    button.href = buildPayPalUrl(itemName, rabatt);
+  });
+}
+
+function renderPreise() {
+  document.querySelectorAll('.preis-block').forEach(block => {
+    const uvpText = block.dataset.uvp;
+    const uvp = parsePreis(uvpText);
+    const rabatt = berechneRabattpreis(uvp);
+
+    block.dataset.rabatt = String(rabatt);
+    block.innerHTML =
+      '<span class="preis-label preis-label-alt">Standardpreis</span>' +
+      '<span class="preis-alt">' + uvpText + '</span>' +
+      '<span class="preis-label preis-label-neu">Website-Preis</span>' +
+      '<span class="preis-aktuell">' + formatPreis(rabatt) + '</span>' +
+      '<span class="preis-hinweis">5&nbsp;% günstiger · nur hier</span>';
+  });
+
+  document.querySelectorAll('.produkt').forEach(produkt => {
+    let badge = produkt.querySelector('.badge-rabatt');
+    if (!badge) {
+      badge = document.createElement('div');
+      badge.className = 'badge-rabatt';
+      produkt.prepend(badge);
+    }
+    badge.textContent = '−' + RABATT_PROZENT + '%';
+  });
+
+  initPayPalButtons();
+}
+
+function sortProducts(direction) {
+  const container = document.querySelector('.produkte');
+  const empty = document.getElementById('keine-treffer');
+  const products = Array.from(container.querySelectorAll('.produkt'));
+
+  products.sort((a, b) => {
+    const priceA = parseFloat(a.querySelector('.preis-block').dataset.rabatt);
+    const priceB = parseFloat(b.querySelector('.preis-block').dataset.rabatt);
+    return direction === 'low' ? priceA - priceB : priceB - priceA;
+  });
+
+  products.forEach(product => container.insertBefore(product, empty));
+}
+
+const params = new URLSearchParams(window.location.search);
+const kategorie = params.get('kategorie') || 'all';
+renderPreise();
+filterProducts(kategorie);
+</script>
+
+</body>
+</html>
