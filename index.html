@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>meingameboy.de – Restore Gaming</title>
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=20260617">
 <style>
 .kategorie-auswahl{
   display:grid;
@@ -31,24 +31,6 @@
   transform:translateY(-8px);
   border-color:#00f5d4;
   box-shadow:0 12px 36px rgba(0,245,212,.35);
-}
-
-.kategorie-karte img{
-  width:100%;
-  height:220px;
-  object-fit:contain;
-  object-position:center;
-  background:#fff;
-  padding:14px;
-  box-sizing:border-box;
-}
-
-.kategorie-karte .kategorie-bild--float img{
-  width:auto;
-  height:200px;
-  max-width:88%;
-  background:transparent;
-  padding:0;
 }
 
 .kategorie-karte-body{
@@ -107,10 +89,37 @@
 @media(max-width:600px){
   .kategorie-auswahl{grid-template-columns:1fr;gap:18px}
   .kategorie-karte:hover{transform:none}
-  .kategorie-karte img{height:200px;padding:12px}
-  .kategorie-karte .kategorie-bild--float img{height:180px;padding:0}
-  .kategorie-karte.kategorie-alle .kategorie-bild--float{height:200px}
-  .kategorie-karte.kategorie-alle .kategorie-bild--float img{height:190px}
+}
+
+/* Schweb-Bilder – Fallback falls site.css gecacht/fehlt */
+.kategorie-bild--float{
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(160deg,#0d1024,#121530);
+  overflow:visible;
+}
+
+.kategorie-bild--float img{
+  width:auto !important;
+  max-width:88% !important;
+  height:200px !important;
+  object-fit:contain !important;
+  background:transparent !important;
+  padding:0 !important;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.5)) drop-shadow(0 4px 8px rgba(0,245,212,.12));
+  animation:produktSchweben 5s ease-in-out infinite;
+}
+
+.kategorie-karte.kategorie-alle .kategorie-bild--float img{
+  max-width:94% !important;
+  height:210px !important;
+}
+
+@keyframes produktSchweben{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
 </style>
 </head>
@@ -229,6 +238,6 @@
 
 <footer></footer>
 
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=20260617"></script>
 </body>
 </html>
