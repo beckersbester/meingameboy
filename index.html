@@ -3,270 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>meingameboy.de – Kategorien</title>
-
+<title>meingameboy.de – Restore Gaming</title>
+<link rel="stylesheet" href="assets/site.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  background:#070817;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  background-image:
-    radial-gradient(ellipse at 20% 0%, rgba(255,79,163,.12), transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(0,245,212,.08), transparent 50%);
-}
-
-header{
-  text-align:center;
-  padding:55px 20px 45px;
-  background:
-    linear-gradient(rgba(255,79,163,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,245,212,.08) 1px, transparent 1px),
-    linear-gradient(135deg,#08091f,#1b0838 60%,#09091c);
-  background-size:35px 35px,35px 35px,auto;
-  border-bottom:4px solid #00f5d4;
-}
-
-.badge{
-  display:inline-block;
-  border:2px solid #ff4fa3;
-  color:#ff4fa3;
-  padding:10px 22px;
-  border-radius:10px;
-  font-family:'Press Start 2P',monospace;
-  font-size:12px;
-  margin-bottom:22px;
-}
-
-h1{
-  margin:0;
-  font-family:'Press Start 2P',monospace;
-  font-size:42px;
-  color:#fff;
-  text-shadow:0 0 14px #ff4fa3;
-  line-height:1.25;
-  white-space:nowrap;
-}
-
-header p{
-  color:#00f5d4;
-  font-family:'Press Start 2P',monospace;
-  font-size:14px;
-  line-height:1.8;
-}
-
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 22px 50px;
-  flex:1;
-  width:100%;
-}
-
-h2{
-  text-align:center;
-  color:#00f5d4;
-  font-family:'Press Start 2P',monospace;
-  font-size:22px;
-  margin:25px 0 12px;
-}
-
-.intro{
-  text-align:center;
-  color:#bbb;
-  font-size:15px;
-  line-height:1.6;
-  max-width:520px;
-  margin:0 auto 24px;
-}
-
-.aktions-banner{
-  position:relative;
-  text-align:center;
-  margin:0 auto 22px;
-  max-width:680px;
-  padding:24px 26px;
-  border-radius:16px;
-  border:2px solid #ff4fa3;
-  background:linear-gradient(135deg,rgba(255,79,163,.22),rgba(0,245,212,.14));
-  box-shadow:0 0 28px rgba(255,79,163,.35);
-  overflow:hidden;
-}
-
-.aktions-tag{
-  display:inline-block;
-  margin-bottom:12px;
-  padding:5px 14px;
-  border-radius:999px;
-  background:#00f5d4;
-  color:#070817;
-  font-size:9px;
-  font-weight:bold;
-  letter-spacing:.14em;
-  font-family:'Press Start 2P',monospace;
-}
-
-.aktions-banner strong{
-  display:block;
-  font-family:'Press Start 2P',monospace;
-  font-size:13px;
-  color:#fff;
-  margin-bottom:12px;
-  line-height:1.7;
-  text-shadow:0 0 20px rgba(255,79,163,.8);
-}
-
-.aktions-banner span,
-.aktions-text{
-  color:#eee;
-  font-size:14px;
-  line-height:1.65;
-  margin:0;
-}
-
-.kauf-info{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:12px;
-  margin:0 auto 36px;
-  max-width:820px;
-}
-
-.kauf-perk{
-  flex:1 1 220px;
-  text-align:center;
-  padding:14px 16px;
-  border-radius:12px;
-  border:2px solid rgba(0,245,212,.35);
-  background:rgba(0,245,212,.06);
-  color:#ddd;
-  font-size:13px;
-  line-height:1.55;
-}
-
-.kauf-perk strong{
-  display:block;
-  color:#00f5d4;
-  font-size:12px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  margin-bottom:6px;
-}
-
-.verkaeufe-box{
-  max-width:820px;
-  margin:0 auto 32px;
-  padding:18px 20px;
-  border-radius:14px;
-  border:2px solid rgba(255,79,163,.35);
-  background:rgba(255,79,163,.06);
-}
-
-.verkaeufe-box h3{
-  margin:0 0 14px;
-  text-align:center;
-  font-family:'Press Start 2P',monospace;
-  font-size:10px;
-  color:#ff4fa3;
-  line-height:1.6;
-}
-
-.verkaeufe-liste{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-.verkaeufe-liste li{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:12px 0;
-  border-bottom:1px solid rgba(255,79,163,.2);
-  font-size:14px;
-  color:#ddd;
-}
-
-.verkaeufe-bild{
-  width:58px;
-  height:58px;
-  flex-shrink:0;
-  object-fit:contain;
-  background:#fff;
-  border-radius:8px;
-  padding:5px;
-  border:1px solid rgba(255,79,163,.25);
-}
-
-.verkaeufe-inhalt{
-  flex:1;
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-
-.verkaeufe-name{
-  color:#fff;
-  font-weight:bold;
-  line-height:1.4;
-}
-
-.verkaeufe-datum{
-  color:#888;
-  font-size:12px;
-}
-
-.verkaeufe-liste li:last-child{border-bottom:none;padding-bottom:0}
-.verkaeufe-liste li:first-child{padding-top:0}
-
 .kategorie-auswahl{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:24px;
   max-width:720px;
   margin:0 auto;
-}
-
-.kategorie-karte.kategorie-alle{
-  grid-column:1 / -1;
-  border-color:#00f5d4;
-  box-shadow:0 0 28px rgba(0,245,212,.3);
-}
-
-.kategorie-karte.kategorie-alle:hover{
-  box-shadow:0 12px 40px rgba(0,245,212,.4);
-}
-
-@media(min-width:601px){
-  .kategorie-karte.kategorie-alle{
-    flex-direction:row;
-    align-items:stretch;
-  }
-
-  .kategorie-karte.kategorie-alle img{
-    width:50%;
-    height:auto;
-    min-height:220px;
-    flex-shrink:0;
-  }
-
-  .kategorie-karte.kategorie-alle .kategorie-karte-body{
-    width:50%;
-    padding:28px 24px;
-  }
-
-  .kategorie-karte.kategorie-alle h3{
-    font-size:15px;
-  }
 }
 
 .kategorie-karte{
@@ -283,459 +28,99 @@ h2{
 }
 
 .kategorie-karte:hover{
-  transform:translateY(-10px);
+  transform:translateY(-8px);
   border-color:#00f5d4;
   box-shadow:0 12px 36px rgba(0,245,212,.35);
 }
 
 .kategorie-karte img{
   width:100%;
-  height:210px;
-  object-fit:contain;
+  height:200px;
+  object-fit:cover;
   background:#fff;
-  padding:14px;
 }
 
-.kategorie-karte-body{
-  padding:20px 18px 22px;
-  text-align:center;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
+.kategorie-karte-body{padding:18px 16px 20px;flex:1}
 
 .kategorie-karte h3{
+  margin:0 0 8px;
   font-family:'Press Start 2P',monospace;
-  font-size:13px;
+  font-size:11px;
   color:#00f5d4;
-  margin:0 0 10px;
-  line-height:1.5;
+  line-height:1.6;
 }
 
 .kategorie-karte p{
-  color:#aaa;
+  margin:0 0 12px;
   font-size:13px;
-  margin:0;
   line-height:1.55;
+  color:#aaa;
 }
 
 .kategorie-karte .count{
   display:inline-block;
-  margin-top:12px;
-  padding:5px 12px;
+  padding:4px 10px;
   border-radius:999px;
-  background:linear-gradient(90deg,rgba(255,79,163,.2),rgba(0,245,212,.15));
-  border:1px solid rgba(0,245,212,.35);
-  color:#00f5d4;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.about-box{
-  background:linear-gradient(135deg,#0d1024,#141836);
-  border:2px solid #ff4fa3;
-  border-radius:16px;
-  padding:32px;
-  margin-top:40px;
-  box-shadow:0 0 24px rgba(255,79,163,.25);
-}
-
-.about-box h2{
-  text-align:left;
-  margin:0 0 18px;
-  font-size:18px;
-  color:#00f5d4;
-  font-family:'Press Start 2P',monospace;
-}
-
-.about-box p{
-  color:#ddd;
-  line-height:1.75;
-  margin:0;
-  font-size:15px;
-}
-
-.about-box p + p{
-  margin-top:14px;
-}
-
-.about-box .about-highlight{
-  color:#00f5d4;
-  font-weight:bold;
-}
-
-.bewertungen{
-  margin-top:40px;
-  padding-top:10px;
-}
-
-.bewertungen-intro{
-  text-align:center;
-  color:#bbb;
-  font-size:15px;
-  line-height:1.65;
-  max-width:640px;
-  margin:0 auto 28px;
-}
-
-.bewertungen-stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:16px;
-  max-width:900px;
-  margin:0 auto 32px;
-}
-
-.bewertung-stat{
-  text-align:center;
-  padding:18px 14px;
-  border-radius:14px;
-  border:2px solid rgba(0,245,212,.35);
-  background:rgba(0,245,212,.06);
-}
-
-.bewertung-stat strong{
-  display:block;
-  font-family:'Press Start 2P',monospace;
-  font-size:18px;
-  color:#00f5d4;
-  margin-bottom:8px;
-  line-height:1.4;
-}
-
-.bewertung-stat span{
-  color:#ccc;
-  font-size:13px;
-  line-height:1.45;
-}
-
-.bewertung-stat.highlight{
-  border-color:#ff4fa3;
-  background:rgba(255,79,163,.1);
-}
-
-.bewertung-stat.highlight strong{
+  background:rgba(255,79,163,.15);
+  border:1px solid rgba(255,79,163,.4);
   color:#ff4fa3;
-}
-
-.bewertungen-details{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:12px;
-  max-width:900px;
-  margin:0 auto 32px;
-}
-
-.bewertung-detail{
-  text-align:center;
-  padding:12px 10px;
-  border-radius:10px;
-  background:#0b0e20;
-  border:1px solid #24284d;
-  font-size:13px;
-  color:#aaa;
-}
-
-.bewertung-detail .stars{
-  display:block;
-  color:#ffd700;
-  font-size:14px;
-  letter-spacing:2px;
-  margin-bottom:6px;
-}
-
-.bewertungen-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-  max-width:1100px;
-  margin:0 auto;
-}
-
-.bewertung-karte{
-  margin:0;
-  padding:16px 15px;
-  border-radius:12px;
-  border:1px solid rgba(255,79,163,.35);
-  background:linear-gradient(160deg,#0d1024,#121530);
-  box-shadow:0 0 14px rgba(255,79,163,.12);
-}
-
-.bewertung-karte .stars{
-  color:#ffd700;
-  font-size:14px;
-  letter-spacing:2px;
-  margin-bottom:8px;
-}
-
-.bewertung-text{
-  color:#eee;
-  font-size:13px;
-  line-height:1.6;
-  margin:0 0 10px;
-  font-style:italic;
-}
-
-.bewertung-meta{
-  padding-top:10px;
-  border-top:1px solid rgba(255,79,163,.2);
-  font-size:12px;
-}
-
-.bewertung-user{
-  color:#00f5d4;
+  font-size:11px;
   font-weight:bold;
 }
 
-.bewertungen-hinweis{
-  text-align:center;
-  color:#777;
-  font-size:12px;
-  margin-top:24px;
+.kategorie-karte.kategorie-alle{
+  grid-column:1 / -1;
+  border-color:#00f5d4;
+  box-shadow:0 0 28px rgba(0,245,212,.3);
 }
 
-.sticky-contact{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:999;
-  background:#ff4fa3;
-  color:#070817;
-  padding:14px 18px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 22px rgba(255,79,163,.8);
-  border:2px solid #fff;
-  transition:.2s;
-}
-
-.sticky-contact:hover{
-  transform:scale(1.05);
-  background:#00f5d4;
-  box-shadow:0 0 22px rgba(0,245,212,.8);
-}
-
-.footer-links{
-  margin-bottom:18px;
-  font-family:Arial,sans-serif;
-  font-size:14px;
-}
-
-.footer-links a{
-  color:#00f5d4;
-  text-decoration:none;
-  margin:0 10px;
-}
-
-.footer-links a:hover{
-  color:#ff4fa3;
-}
-
-footer{
-  text-align:center;
-  padding:35px 20px 80px;
-  color:#ff4fa3;
-  font-family:'Press Start 2P',monospace;
-  font-size:12px;
-  border-top:1px solid #24284d;
+@media(min-width:601px){
+  .kategorie-karte.kategorie-alle{flex-direction:row;align-items:stretch}
+  .kategorie-karte.kategorie-alle img{width:50%;height:auto;min-height:220px;flex-shrink:0}
+  .kategorie-karte.kategorie-alle .kategorie-karte-body{width:50%;padding:28px 24px;display:flex;flex-direction:column;justify-content:center}
+  .kategorie-karte.kategorie-alle h3{font-size:14px}
 }
 
 @media(max-width:600px){
-  body{overflow-x:hidden}
-
-  h1{
-    font-size:18px;
-    letter-spacing:-1px;
-  }
-
-  header{padding:40px 12px 35px}
-
-  .badge{
-    font-size:9px;
-    padding:8px 14px;
-  }
-
-  header p{
-    font-size:10px;
-    padding:0 10px;
-    line-height:1.7;
-  }
-
-  .intro{
-    margin-bottom:18px;
-    font-size:14px;
-    padding:0 4px;
-  }
-
-  .container{padding:20px 12px 40px}
-
-  .aktions-banner{
-    margin-bottom:18px;
-    padding:18px 14px;
-  }
-
-  .aktions-tag{
-    font-size:8px;
-    padding:4px 10px;
-    margin-bottom:10px;
-  }
-
-  .aktions-banner strong{
-    font-size:10px;
-    line-height:1.75;
-    margin-bottom:10px;
-  }
-
-  .aktions-banner span,
-  .aktions-text{
-    font-size:13px;
-    line-height:1.6;
-  }
-
-  .kauf-info{
-    flex-direction:column;
-    gap:10px;
-    margin-bottom:24px;
-  }
-
-  .kauf-perk{
-    font-size:12px;
-    padding:12px 14px;
-    flex:1 1 auto;
-  }
-
-  .verkaeufe-box{
-    margin-bottom:24px;
-    padding:16px 14px;
-  }
-
-  .verkaeufe-box h3{font-size:8px}
-
-  .verkaeufe-liste li{
-    gap:12px;
-    font-size:13px;
-  }
-
-  .verkaeufe-bild{
-    width:50px;
-    height:50px;
-  }
-
-  h2{
-    font-size:15px;
-    line-height:1.5;
-  }
-
-  .kategorie-auswahl{
-    grid-template-columns:1fr;
-    gap:18px;
-  }
-
-  .kategorie-karte:hover{
-    transform:none;
-  }
-
+  .kategorie-auswahl{grid-template-columns:1fr;gap:18px}
+  .kategorie-karte:hover{transform:none}
   .kategorie-karte img{height:190px}
-
-  .kategorie-karte h3{font-size:12px}
-
-  .kategorie-karte p{font-size:12px}
-
-  .bewertungen-stats{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .bewertung-stat strong{font-size:14px}
-
-  .bewertung-stat span{font-size:11px}
-
-  .bewertungen-details{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .bewertungen-grid{
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-
-  .bewertung-karte{padding:14px 13px}
-
-  .about-box{
-    padding:22px 18px;
-    margin-top:32px;
-  }
-
-  .about-box h2{font-size:14px;line-height:1.6}
-
-  .about-box p{font-size:13px;line-height:1.65}
-
-  .kategorie-karte.kategorie-alle{
-    flex-direction:column;
-  }
-
-  .kategorie-karte.kategorie-alle img{
-    width:100%;
-    min-height:unset;
-    height:190px;
-  }
-
-  .kategorie-karte.kategorie-alle .kategorie-karte-body{
-    width:100%;
-    padding:20px 18px 22px;
-  }
-
-  .kategorie-karte.kategorie-alle h3{
-    font-size:12px;
-  }
-
-  .sticky-contact{
-    right:12px;
-    bottom:12px;
-    padding:12px 14px;
-    font-size:13px;
-  }
-
-  footer{
-    font-size:9px;
-    line-height:1.6;
-  }
+  .kategorie-karte.kategorie-alle img{width:100%;min-height:unset;height:190px}
 }
 </style>
 </head>
-
-<body>
+<body data-page="start">
 
 <header>
   <div class="badge">RESTORE GAMING</div>
-  <h1>meingameboy.de</h1>
-  <p>Dein Retro-Shop – geprüfte Game Boys, Website-Preise &amp; kostenloser Versand</p>
+  <h1><a href="index.html">meingameboy.de</a></h1>
+  <p class="tagline">Geprüfte Game Boys · 5&nbsp;% Website-Rabatt · Kostenloser Versand</p>
 </header>
 
 <div class="container">
 
-<h2>Kategorie wählen</h2>
-<p class="intro">Wähle dein Modell – 5&nbsp;% Website-Rabatt, kostenloser Versand, 30 Tage Rückgabe und PayPal-Käuferschutz.</p>
+<div class="page-hero">
+  <p class="section-label">Willkommen</p>
+  <h2 class="section-title">Dein Retro-Shop</h2>
+  <p class="section-intro">Professionell aufbereitete Game Boys – fair kalkuliert, direkt per PayPal, ohne unnötige Zwischenhändler.</p>
+</div>
 
 <div class="aktions-banner">
   <span class="aktions-tag">NUR AUF MEINGAMEBOY.DE</span>
   <strong>5% WEBSITE-EXKLUSIV</strong>
-  <p class="aktions-text">Du sparst 5&nbsp;% gegenüber dem Standardpreis.<br>Der günstigere Website-Preis gilt nur hier im Shop.</p>
+  <p class="aktions-text">Du sparst 5&nbsp;% gegenüber dem Standardpreis – nur hier im Shop.</p>
 </div>
 
-<div class="kauf-info">
-  <div class="kauf-perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf inklusive.</div>
-  <div class="kauf-perk"><strong>30 Tage Rückgabe</strong>Innerhalb von 30 Tagen zurückgeben.</div>
-  <div class="kauf-perk"><strong>PayPal-Käuferschutz</strong>Sicher bezahlen, ohne extra Gebühren.</div>
-  <div class="kauf-perk"><strong>5&nbsp;% sparen</strong>Website-Preis nur auf meingameboy.de.</div>
+<div class="perks">
+  <div class="perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf inklusive</div>
+  <div class="perk"><strong>30 Tage Rückgabe</strong>Ohne Risiko bestellen</div>
+  <div class="perk"><strong>PayPal-Schutz</strong>Sicher bezahlen</div>
+  <div class="perk"><strong>Sofort spielbereit</strong>Geprüft &amp; gereinigt</div>
 </div>
 
-<div class="verkaeufe-box" id="verkaeufe-box" hidden>
-  <h3>Kürzlich verkauft</h3>
-  <ul class="verkaeufe-liste" id="verkaeufe-liste"></ul>
+<div class="page-hero" style="margin-bottom:24px">
+  <p class="section-label">Modelle</p>
+  <h2 class="section-title">Finde deinen Game Boy</h2>
 </div>
 
 <div class="kategorie-auswahl">
@@ -743,8 +128,8 @@ footer{
   <a href="shop.html?kategorie=all" class="kategorie-karte kategorie-alle">
     <img src="WhatsApp Image 2026-06-07 at 20.29.28.png" alt="Alle Game Boys">
     <div class="kategorie-karte-body">
-      <h3>Alle</h3>
-      <p>Classic, Pocket, Color &amp; Advance – alle Modelle und Editionen auf einen Blick</p>
+      <h3>Alle Angebote</h3>
+      <p>Classic, Pocket, Color &amp; Advance – alle Modelle auf einen Blick</p>
       <span class="count">17 Angebote</span>
     </div>
   </a>
@@ -753,7 +138,7 @@ footer{
     <img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" alt="Game Boy Classic">
     <div class="kategorie-karte-body">
       <h3>Classic</h3>
-      <p>Der legendäre Original-Game Boy – klassisch, robust und voller Retro-Charme</p>
+      <p>Der legendäre Original-Game Boy</p>
       <span class="count">4 Angebote</span>
     </div>
   </a>
@@ -762,7 +147,7 @@ footer{
     <img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" alt="Game Boy Pocket">
     <div class="kategorie-karte-body">
       <h3>Pocket</h3>
-      <p>Der schlanke Game Boy Pocket – kompakt, stylisch, auch als Pokémon- &amp; Sonderedition</p>
+      <p>Kompakt, stylisch – auch Pokémon-Editionen</p>
       <span class="count">6 Angebote</span>
     </div>
   </a>
@@ -771,7 +156,7 @@ footer{
     <img src="WhatsApp Image 2026-06-07 at 20.16.09.png" alt="Game Boy Color">
     <div class="kategorie-karte-body">
       <h3>Color</h3>
-      <p>Der farbige Game Boy Color – lebendige Spiele mit Mario- &amp; Pokémon-Designs</p>
+      <p>Farbenfroh – Mario &amp; Pokémon Designs</p>
       <span class="count">5 Angebote</span>
     </div>
   </a>
@@ -780,218 +165,42 @@ footer{
     <img src="gba-gengar-edition.png" alt="Game Boy Advance">
     <div class="kategorie-karte-body">
       <h3>Advance</h3>
-      <p>Der Game Boy Advance – horizontal, farbenfroh und mit Pokémon-Custom-Designs</p>
-      <span class="count">2 Angebote · aktuell ausverkauft</span>
+      <p>GBA mit Custom Pokémon-Designs</p>
+      <span class="count">2 Angebote · ausverkauft</span>
     </div>
   </a>
 
 </div>
 
-<section class="bewertungen">
-<h2>Kundenbewertungen</h2>
-<p class="bewertungen-intro">Echte Rückmeldungen von Käufern – Restore Gaming ist seit 2024 im Retro-Bereich aktiv und bestens bewertet.</p>
-
-<div class="bewertungen-stats">
-  <div class="bewertung-stat"><strong>2.000+</strong><span>Verkaufte Artikel</span></div>
-  <div class="bewertung-stat"><strong>1.000+</strong><span>Positive Bewertungen</span></div>
-  <div class="bewertung-stat highlight"><strong>100&nbsp;%</strong><span>Positiv in den letzten 12 Monaten</span></div>
-  <div class="bewertung-stat"><strong>565+</strong><span>Positive Bewertungen allein im letzten Jahr</span></div>
-</div>
-
-<div class="bewertungen-details">
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Genaue Beschreibung</div>
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Lieferzeit</div>
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Angemessene Versandkosten</div>
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Kommunikation</div>
-</div>
-
-<div class="bewertungen-grid">
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Zweifelsohne einer der allerbesten Verkäufer auf eBay! Sehr schneller Versand und eine absolut reibungslose und ausgesprochen freundliche, sehr hilfreiche Kommunikation. Hier wird Kundenservice groß geschrieben. 5 Sterne von mir.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">vwgolfgtdriver</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Der Gameboy ist in einem einwandfreien Zustand und funktioniert zu 100 Prozent. Ich kann den Verkäufer nur empfehlen.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">martina6513</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Der Gameboy sieht wie neu aus und funktioniert auch einwandfrei. Top Zustand – genau wie beschrieben.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">krc_car_kq3bfvcz</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Schneller Versand und Zustand wie beschrieben. Endlich kann ich wieder meine Kindheit aufleben lassen. Kann ich bedenkenlos weiterempfehlen.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">madsecruity</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Alles super! Der Artikel entspricht genau der Beschreibung, war sicher verpackt und wurde sehr schnell geliefert. Top Verkäufer – absolut empfehlenswert!“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">brickbrick01</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„5 von 5 Sternen! Schnelle Lieferung und der Zustand des Artikels war wie beschrieben. Ein sehr zuverlässiger Verkäufer, den man bedenkenlos weiterempfehlen kann!“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">theroaring1920s</span></footer>
-  </blockquote>
-
-</div>
-<p class="bewertungen-hinweis">Auszug echter Kundenbewertungen · Alle Bewertungen stammen von verifizierten Käufen</p>
-</section>
-
-<div class="about-box">
-<h2>Über uns</h2>
-<p>
-Restore Gaming steht für professionell aufbereitete Retro-Konsolen mit Liebe zum Detail.
-Jede Konsole wird sorgfältig geprüft, gereinigt und verkaufsfertig vorbereitet.
-</p>
-<p>
-Diese Website ist <span class="about-highlight">komplett selbst entwickelt</span> – ohne Shopify,
-teure Shop-Systeme oder monatliche Website-Dienste. Viele andere Shops nutzen genau solche
-Plattformen, weil es einfach geht – aber sie kosten laufend Geld, und das landet am Ende
-oft beim Kunden.
-</p>
-<p>
-Wir versuchen stattdessen, <span class="about-highlight">Kosten und Qualität bewusst zu optimieren</span>:
-fair kalkulierte Website-Preise, kostenloser Versand, direkter PayPal-Kauf – ohne Zwischenhändler
-und ohne unnötige Gebühren. Deshalb sieht und funktioniert manches hier vielleicht etwas anders
-als auf anderen Seiten. Das ist Absicht – und soll dir einen ehrlichen, guten Deal bieten.
-</p>
-<p>
-Du kaufst bei uns Retro mit Herz – und unterstützt einen kleinen Shop, der lieber in
-<span class="about-highlight">Qualität und faire Preise</span> investiert als in teure Verkaufsportale.
-</p>
+<div class="teaser-grid">
+  <a href="verkaeufe.html" class="teaser-card pink">
+    <h3>Kürzlich verkauft</h3>
+    <p>Sieh, welche Konsolen gerade weggegangen sind – ein gutes Zeichen für beliebte Angebote.</p>
+    <span class="teaser-link">Ansehen →</span>
+  </a>
+  <a href="bewertungen.html" class="teaser-card">
+    <h3>Bewertungen</h3>
+    <p>2.000+ verkaufte Artikel, 100&nbsp;% positiv in den letzten 12 Monaten – echte Kundenstimmen.</p>
+    <span class="teaser-link">Ansehen →</span>
+  </a>
+  <a href="ueber-uns.html" class="teaser-card">
+    <h3>Über uns</h3>
+    <p>Warum wir bewusst auf teure Shop-Plattformen verzichten – und was das für dich bedeutet.</p>
+    <span class="teaser-link">Mehr erfahren →</span>
+  </a>
 </div>
 
 </div>
-
-<a class="sticky-contact" href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">✉ Kontakt</a>
 
 <footer>
 <div class="footer-links">
+<a href="shop.html">Shop</a>
 <a href="impressum.html">Impressum</a>
 <a href="datenschutz.html">Datenschutz</a>
-<a href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">Kontakt</a>
 </div>
-meingameboy.de by Restore Gaming
+<p class="footer-brand">meingameboy.de by Restore Gaming</p>
 </footer>
 
-<script>
-/* Nach Einrichtung: Web-App-URL aus google-apps-script/lager-api.gs eintragen */
-const LAGER_API_URL = 'https://script.google.com/macros/s/AKfycbyNYtUSgXDSb-jhofgXPWr_xrTCR4MaL5I01qrCTnmNQRb85EfRDTVnnEfSeTCdVLvl/exec';
-
-const PRODUKT_NAMEN = {
-  'color-wario': 'Game Boy Color Wario Edition',
-  'classic': 'Nintendo Game Boy Classic',
-  'pocket-orange': 'Game Boy Pocket Orange',
-  'pocket-squirtle': 'Game Boy Pocket Pokémon Squirtle Edition',
-  'pocket-charizard': 'Game Boy Pocket Pokémon Charizard Edition',
-  'pocket-pikachu': 'Game Boy Pocket Pikachu Edition',
-  'pocket-classic': 'Game Boy Pocket Classic Design',
-  'color-mario': 'Game Boy Color Mario Edition',
-  'classic-black-ips': 'Game Boy Classic Black Button IPS V5',
-  'classic-red': 'Game Boy Classic Red Button',
-  'pocket-transparent': 'Game Boy Pocket Transparent',
-  'color-pokemon': 'Game Boy Color Pokémon',
-  'color-charizard-orange': 'Game Boy Color Charizard Orange Edition',
-  'color-yellow': 'Game Boy Color Pokémon Yellow Edition',
-  'classic-grau-ips': 'Game Boy Classic Grau IPS V5',
-  'gba-gengar': 'Game Boy Advance Gengar Edition',
-  'gba-charmander': 'Game Boy Advance Charmander Edition'
-};
-
-const PRODUKT_BILDER = {
-  'color-wario': 'WhatsApp Image 2026-06-07 at 20.16.09.png',
-  'classic': 'WhatsApp Image 2026-05-21 at 18.26.14 (5).png',
-  'pocket-orange': 'WhatsApp Image 2026-06-07 at 20.16.13 (9).png',
-  'pocket-squirtle': 'WhatsApp Image 2026-06-07 at 20.16.13 (5).png',
-  'pocket-charizard': 'WhatsApp Image 2026-06-07 at 20.16.13 (3).png',
-  'pocket-pikachu': 'WhatsApp Image 2026-06-07 at 20.16.13 (1).png',
-  'pocket-classic': 'WhatsApp Image 2026-06-07 at 20.16.10.png',
-  'color-mario': 'WhatsApp Image 2026-06-07 at 20.16.09 (2).png',
-  'classic-black-ips': 'WhatsApp Image 2026-06-07 at 20.29.29.png',
-  'classic-red': 'WhatsApp Image 2026-05-21 at 18.26.14 (3).png',
-  'pocket-transparent': 'WhatsApp Image 2026-05-21 at 18.26.13 (14).png',
-  'color-pokemon': 'WhatsApp Image 2026-05-21 at 18.26.13 (18).png',
-  'color-charizard-orange': 'WhatsApp Image 2026-05-21 at 18.26.13 (16).png',
-  'color-yellow': 'WhatsApp Image 2026-05-21 at 18.48.20.png',
-  'classic-grau-ips': 'WhatsApp Image 2026-06-08 at 10.25.40.png',
-  'gba-gengar': 'gba-gengar-edition.png',
-  'gba-charmander': 'gba-charmander-edition.png'
-};
-
-const VERKAUFE_DEFAULT = [
-  { produktId: 'classic', datum: '2026-06-13' }
-];
-
-function formatVerkaufsDatum(datum) {
-  const parts = datum.split('-');
-  if (parts.length === 3) return parts[2] + '.' + parts[1] + '.' + parts[0];
-  return datum;
-}
-
-function renderVerkaeufe(verkaeufe, maxAnzahl) {
-  const box = document.getElementById('verkaeufe-box');
-  const liste = document.getElementById('verkaeufe-liste');
-  if (!box || !liste || !Array.isArray(verkaeufe) || verkaeufe.length === 0) return;
-
-  liste.innerHTML = '';
-  verkaeufe.slice(0, maxAnzahl).forEach(verkauf => {
-    const name = PRODUKT_NAMEN[verkauf.produktId] || verkauf.name || verkauf.produktId;
-    const bild = verkauf.bild || PRODUKT_BILDER[verkauf.produktId] || '';
-    const li = document.createElement('li');
-    li.innerHTML =
-      (bild ? '<img class="verkaeufe-bild" src="' + bild + '" alt="">' : '') +
-      '<div class="verkaeufe-inhalt">' +
-        '<span class="verkaeufe-name">' + name + '</span>' +
-        '<span class="verkaeufe-datum">' + formatVerkaufsDatum(verkauf.datum) + '</span>' +
-      '</div>';
-    liste.appendChild(li);
-  });
-
-  box.hidden = false;
-}
-
-async function ladeVerkaeufe() {
-  let verkaeufe = VERKAUFE_DEFAULT;
-
-  if (LAGER_API_URL) {
-    try {
-      const response = await fetch(LAGER_API_URL + '?t=' + Date.now());
-      if (response.ok) {
-        const data = await response.json();
-        if (Array.isArray(data.verkaeufe)) {
-          renderVerkaeufe(data.verkaeufe, 3);
-          return;
-        }
-      }
-    } catch (error) {
-      /* Fallback auf verkaufe.json */
-    }
-  }
-
-  try {
-    const response = await fetch('verkaeufe.json?t=' + Date.now());
-    if (response.ok) {
-      verkaeufe = await response.json();
-    }
-  } catch (error) {
-    /* lokal per Doppelklick: Fallback aus VERKAUFE_DEFAULT */
-  }
-
-  renderVerkaeufe(verkaeufe, 3);
-}
-
-ladeVerkaeufe();
-</script>
-
+<script src="assets/site.js"></script>
 </body>
 </html>

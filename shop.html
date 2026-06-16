@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>meingameboy.de – Angebote</title>
+<title>Shop – meingameboy.de</title>
+<link rel="stylesheet" href="assets/site.css">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -1092,34 +1093,27 @@ footer{
 </style>
 </head>
 
-<body>
+<body data-page="shop">
 
 <header>
   <div class="badge">RESTORE GAMING</div>
-  <h1><a href="index.html" style="color:inherit;text-decoration:none">meingameboy.de</a></h1>
-  <p>Dein Retro-Shop – geprüfte Game Boys, Website-Preise &amp; kostenloser Versand</p>
+  <h1><a href="index.html">meingameboy.de</a></h1>
+  <p class="tagline">Shop – geprüfte Game Boys mit Website-Preis</p>
 </header>
 
-<div class="container">
+<div class="container wide">
 
-<div class="shop-nav">
-  <a class="zurueck" href="index.html">← Kategorie wählen</a>
+<div class="page-hero">
+  <p class="section-label">Shop</p>
+  <h2 class="section-title" id="shop-titel">Alle Angebote</h2>
+  <p class="section-intro" id="shop-beschreibung"></p>
 </div>
 
-<h2 id="shop-titel">Aktuelle Angebote</h2>
-<p class="shop-beschreibung" id="shop-beschreibung"></p>
-
-<div class="aktions-banner">
-  <span class="aktions-tag">NUR AUF MEINGAMEBOY.DE</span>
-  <strong>5% WEBSITE-EXKLUSIV</strong>
-  <p class="aktions-text">Du sparst 5&nbsp;% gegenüber dem Standardpreis.<br>Der günstigere Website-Preis gilt nur hier im Shop.</p>
-</div>
-
-<div class="kauf-info">
-  <div class="kauf-perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf inklusive – ohne Aufpreis.</div>
-  <div class="kauf-perk"><strong>30 Tage Rückgabe</strong>Du kannst deinen Kauf innerhalb von 30 Tagen zurückgeben.</div>
-  <div class="kauf-perk"><strong>PayPal-Käuferschutz</strong>Sicher bezahlen, ohne extra Gebühren für dich.</div>
-  <div class="kauf-perk"><strong>Sofort spielbereit</strong>Geprüft, gereinigt &amp; versandfertig.</div>
+<div class="perks">
+  <div class="perk"><strong>5&nbsp;% sparen</strong>Nur auf meingameboy.de</div>
+  <div class="perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf</div>
+  <div class="perk"><strong>30 Tage Rückgabe</strong>Ohne Risiko</div>
+  <div class="perk"><strong>PayPal-Schutz</strong>Sicher bezahlen</div>
 </div>
 
 <div class="kategorien">
@@ -1324,138 +1318,25 @@ footer{
 
 </div>
 
-<div class="verkaeufe-box" id="verkaeufe-box" hidden>
-  <h3>Kürzlich verkauft</h3>
-  <ul class="verkaeufe-liste" id="verkaeufe-liste"></ul>
 </div>
-
-<section class="bewertungen">
-<h2>Kundenbewertungen</h2>
-<p class="bewertungen-intro">Echte Rückmeldungen von Käufern – Restore Gaming ist seit 2024 im Retro-Bereich aktiv und bestens bewertet.</p>
-
-<div class="bewertungen-stats">
-  <div class="bewertung-stat"><strong>2.000+</strong><span>Verkaufte Artikel</span></div>
-  <div class="bewertung-stat"><strong>1.000+</strong><span>Positive Bewertungen</span></div>
-  <div class="bewertung-stat highlight"><strong>100&nbsp;%</strong><span>Positiv in den letzten 12 Monaten</span></div>
-  <div class="bewertung-stat"><strong>565+</strong><span>Positive Bewertungen allein im letzten Jahr</span></div>
-</div>
-
-<div class="bewertungen-details">
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Genaue Beschreibung</div>
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Lieferzeit</div>
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Angemessene Versandkosten</div>
-  <div class="bewertung-detail"><span class="stars">★★★★★</span>Kommunikation</div>
-</div>
-
-<div class="bewertungen-grid">
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Zweifelsohne einer der allerbesten Verkäufer auf eBay! Sehr schneller Versand und eine absolut reibungslose und ausgesprochen freundliche, sehr hilfreiche Kommunikation. Hier wird Kundenservice groß geschrieben. 5 Sterne von mir.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">vwgolfgtdriver</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Der Gameboy ist in einem einwandfreien Zustand und funktioniert zu 100 Prozent. Ich kann den Verkäufer nur empfehlen.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">martina6513</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Der Gameboy sieht wie neu aus und funktioniert auch einwandfrei. Top Zustand – genau wie beschrieben.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">krc_car_kq3bfvcz</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Schneller Versand und Zustand wie beschrieben. Endlich kann ich wieder meine Kindheit aufleben lassen. Kann ich bedenkenlos weiterempfehlen.“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">madsecruity</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„Alles super! Der Artikel entspricht genau der Beschreibung, war sicher verpackt und wurde sehr schnell geliefert. Top Verkäufer – absolut empfehlenswert!“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">brickbrick01</span></footer>
-  </blockquote>
-
-  <blockquote class="bewertung-karte">
-    <div class="stars">★★★★★</div>
-    <p class="bewertung-text">„5 von 5 Sternen! Schnelle Lieferung und der Zustand des Artikels war wie beschrieben. Ein sehr zuverlässiger Verkäufer, den man bedenkenlos weiterempfehlen kann!“</p>
-    <footer class="bewertung-meta"><span class="bewertung-user">theroaring1920s</span></footer>
-  </blockquote>
-
-</div>
-<p class="bewertungen-hinweis">Auszug echter Kundenbewertungen · Alle Bewertungen stammen von verifizierten Käufen</p>
-</section>
-
-<div class="about-box">
-<h2>Über uns</h2>
-<p>
-Restore Gaming steht für professionell aufbereitete Retro-Konsolen mit Liebe zum Detail.
-Jede Konsole wird sorgfältig geprüft, gereinigt und verkaufsfertig vorbereitet.
-</p>
-<p>
-Diese Website ist <span class="about-highlight">komplett selbst entwickelt</span> – ohne Shopify,
-teure Shop-Systeme oder monatliche Website-Dienste. Viele andere Shops nutzen genau solche
-Plattformen, weil es einfach geht – aber sie kosten laufend Geld, und das landet am Ende
-oft beim Kunden.
-</p>
-<p>
-Wir versuchen stattdessen, <span class="about-highlight">Kosten und Qualität bewusst zu optimieren</span>:
-fair kalkulierte Website-Preise, kostenloser Versand, direkter PayPal-Kauf – ohne Zwischenhändler
-und ohne unnötige Gebühren. Deshalb sieht und funktioniert manches hier vielleicht etwas anders
-als auf anderen Seiten. Das ist Absicht – und soll dir einen ehrlichen, guten Deal bieten.
-</p>
-<p>
-Du kaufst bei uns Retro mit Herz – und unterstützt einen kleinen Shop, der lieber in
-<span class="about-highlight">Qualität und faire Preise</span> investiert als in teure Verkaufsportale.
-</p>
-</div>
-
-<div class="info-grid">
-<div class="info-box pink">
-<h2>Sicher kaufen</h2>
-<p>Direkt im Shop über PayPal bezahlen – mit <strong>Website-Preisen</strong> und Käuferschutz.</p>
-<p><strong>Kostenloser Versand</strong> inklusive. <strong>30 Tage Rückgabe</strong> möglich. Keine extra Gebühren für dich als Käufer.</p>
-<a class="button" href="mailto:restore.mail@gmx.de?subject=Frage zu meingameboy.de">Fragen? Kontakt</a>
-</div>
-<div class="info-box">
-<h2>Ankauf</h2>
-<p>Du möchtest alte Game Boys, Spiele oder Konsolen verkaufen?</p>
-<p>Dann sende einfach Bilder und Infos per E-Mail.</p>
-<a class="button" href="mailto:restore.mail@gmx.de?subject=Ankauf Anfrage">Ankauf anfragen</a>
-</div>
-</div>
-
-<div class="vorteile">
-<div class="vorteil"><strong>Website-Preis</strong><br>5&nbsp;% unter dem Standardpreis – nur auf meingameboy.de.</div>
-<div class="vorteil"><strong>Sichere Zahlung</strong><br>Direkt per PayPal – mit Käuferschutz, ohne Zusatzgebühren.</div>
-<div class="vorteil"><strong>Kostenloser Versand</strong><br>Versichert und kostenlos bei jedem Kauf inklusive.</div>
-<div class="vorteil"><strong>30 Tage Rückgabe</strong><br>Nicht zufrieden? Innerhalb von 30 Tagen zurückgeben.</div>
-<div class="vorteil"><strong>Sofort spielbereit</strong><br>Geprüft, gereinigt und versandfertig vorbereitet.</div>
-</div>
-
-</div>
-
-<a class="sticky-contact" href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">✉ Kontakt</a>
 
 <footer>
 <div class="footer-links">
-<a href="index.html">Startseite</a>
+<a href="index.html">Start</a>
+<a href="verkaeufe.html">Verkäufe</a>
+<a href="bewertungen.html">Bewertungen</a>
 <a href="impressum.html">Impressum</a>
 <a href="datenschutz.html">Datenschutz</a>
-<a href="mailto:restore.mail@gmx.de?subject=Kontakt über meingameboy.de">Kontakt</a>
 </div>
-meingameboy.de by Restore Gaming
+<p class="footer-brand">meingameboy.de by Restore Gaming</p>
 </footer>
 
+<script src="assets/site.js"></script>
 <script>
 const RABATT = 0.05;
 const RABATT_PROZENT = Math.round(RABATT * 100);
 const PAYPAL_EMAIL = 'restore.info@gmx.de';
-/* Nach Einrichtung: Web-App-URL aus google-apps-script/lager-api.gs eintragen */
-const LAGER_API_URL = 'https://script.google.com/macros/s/AKfycbyNYtUSgXDSb-jhofgXPWr_xrTCR4MaL5I01qrCTnmNQRb85EfRDTVnnEfSeTCdVLvl/exec';
+const LAGER_API_URL = typeof SITE_API_URL !== 'undefined' ? SITE_API_URL : '';
 
 const kategorieTitel = {
   all: 'Alle Angebote',
@@ -1551,78 +1432,9 @@ const BESTAND_DEFAULT = {
 
 let bestandDaten = { ...BESTAND_DEFAULT };
 
-const PRODUKT_NAMEN = {
-  'color-wario': 'Game Boy Color Wario Edition',
-  'classic': 'Nintendo Game Boy Classic',
-  'pocket-orange': 'Game Boy Pocket Orange',
-  'pocket-squirtle': 'Game Boy Pocket Pokémon Squirtle Edition',
-  'pocket-charizard': 'Game Boy Pocket Pokémon Charizard Edition',
-  'pocket-pikachu': 'Game Boy Pocket Pikachu Edition',
-  'pocket-classic': 'Game Boy Pocket Classic Design',
-  'color-mario': 'Game Boy Color Mario Edition',
-  'classic-black-ips': 'Game Boy Classic Black Button IPS V5',
-  'classic-red': 'Game Boy Classic Red Button',
-  'pocket-transparent': 'Game Boy Pocket Transparent',
-  'color-pokemon': 'Game Boy Color Pokémon',
-  'color-charizard-orange': 'Game Boy Color Charizard Orange Edition',
-  'color-yellow': 'Game Boy Color Pokémon Yellow Edition',
-  'classic-grau-ips': 'Game Boy Classic Grau IPS V5',
-  'gba-gengar': 'Game Boy Advance Gengar Edition',
-  'gba-charmander': 'Game Boy Advance Charmander Edition'
-};
-
-const PRODUKT_BILDER = {
-  'color-wario': 'WhatsApp Image 2026-06-07 at 20.16.09.png',
-  'classic': 'WhatsApp Image 2026-05-21 at 18.26.14 (5).png',
-  'pocket-orange': 'WhatsApp Image 2026-06-07 at 20.16.13 (9).png',
-  'pocket-squirtle': 'WhatsApp Image 2026-06-07 at 20.16.13 (5).png',
-  'pocket-charizard': 'WhatsApp Image 2026-06-07 at 20.16.13 (3).png',
-  'pocket-pikachu': 'WhatsApp Image 2026-06-07 at 20.16.13 (1).png',
-  'pocket-classic': 'WhatsApp Image 2026-06-07 at 20.16.10.png',
-  'color-mario': 'WhatsApp Image 2026-06-07 at 20.16.09 (2).png',
-  'classic-black-ips': 'WhatsApp Image 2026-06-07 at 20.29.29.png',
-  'classic-red': 'WhatsApp Image 2026-05-21 at 18.26.14 (3).png',
-  'pocket-transparent': 'WhatsApp Image 2026-05-21 at 18.26.13 (14).png',
-  'color-pokemon': 'WhatsApp Image 2026-05-21 at 18.26.13 (18).png',
-  'color-charizard-orange': 'WhatsApp Image 2026-05-21 at 18.26.13 (16).png',
-  'color-yellow': 'WhatsApp Image 2026-05-21 at 18.48.20.png',
-  'classic-grau-ips': 'WhatsApp Image 2026-06-08 at 10.25.40.png',
-  'gba-gengar': 'gba-gengar-edition.png',
-  'gba-charmander': 'gba-charmander-edition.png'
-};
-
-const MAX_VERKAEUFE = 5;
-
-const VERKAUFE_DEFAULT = [
-  { produktId: 'classic', datum: '2026-06-13' }
-];
-
-function formatVerkaufsDatum(datum) {
-  const parts = datum.split('-');
-  if (parts.length === 3) return parts[2] + '.' + parts[1] + '.' + parts[0];
-  return datum;
-}
-
-function renderVerkaeufe(verkaeufe) {
-  const box = document.getElementById('verkaeufe-box');
-  const liste = document.getElementById('verkaeufe-liste');
-  if (!box || !liste || !Array.isArray(verkaeufe) || verkaeufe.length === 0) return;
-
-  liste.innerHTML = '';
-  verkaeufe.slice(0, MAX_VERKAEUFE).forEach(verkauf => {
-    const name = PRODUKT_NAMEN[verkauf.produktId] || verkauf.name || verkauf.produktId;
-    const bild = verkauf.bild || PRODUKT_BILDER[verkauf.produktId] || '';
-    const li = document.createElement('li');
-    li.innerHTML =
-      (bild ? '<img class="verkaeufe-bild" src="' + bild + '" alt="">' : '') +
-      '<div class="verkaeufe-inhalt">' +
-        '<span class="verkaeufe-name">' + name + '</span>' +
-        '<span class="verkaeufe-datum">' + formatVerkaufsDatum(verkauf.datum) + '</span>' +
-      '</div>';
-    liste.appendChild(li);
-  });
-
-  box.hidden = false;
+async function aktualisiereLagerDaten() {
+  await ladeLagerDaten();
+  renderBestand();
 }
 
 async function ladeBestandAusJson() {
@@ -1638,18 +1450,6 @@ async function ladeBestandAusJson() {
   bestandDaten = { ...BESTAND_DEFAULT };
 }
 
-async function ladeVerkaeufeAusJson() {
-  try {
-    const response = await fetch('verkaeufe.json?t=' + Date.now());
-    if (response.ok) {
-      return await response.json();
-    }
-  } catch (error) {
-    /* lokal per Doppelklick: Fallback unten */
-  }
-  return VERKAUFE_DEFAULT;
-}
-
 async function ladeLagerDaten() {
   if (LAGER_API_URL) {
     try {
@@ -1658,9 +1458,7 @@ async function ladeLagerDaten() {
         const data = await response.json();
         if (data.bestand && typeof data.bestand === 'object') {
           bestandDaten = data.bestand;
-        }
-        if (Array.isArray(data.verkaeufe)) {
-          return data.verkaeufe;
+          return;
         }
       }
     } catch (error) {
@@ -1669,7 +1467,6 @@ async function ladeLagerDaten() {
   }
 
   await ladeBestandAusJson();
-  return ladeVerkaeufeAusJson();
 }
 
 function getBestand(produktId) {
@@ -1800,12 +1597,11 @@ function sortProducts(direction) {
 const params = new URLSearchParams(window.location.search);
 const kategorie = params.get('kategorie') || 'all';
 
-async function initShop() {
-  const verkaeufe = await ladeLagerDaten();
+function initShop() {
   renderPreise();
   renderBestand();
-  renderVerkaeufe(verkaeufe);
   filterProducts(kategorie);
+  aktualisiereLagerDaten();
 
   if (params.get('kauf') === 'erfolg') {
     const hinweis = document.createElement('div');

@@ -3,34 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impressum - meingameboy.de</title>
+<title>Impressum – meingameboy.de</title>
+<link rel="stylesheet" href="assets/site.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-*{box-sizing:border-box}
-body{margin:0;background:#070817;color:#fff;font-family:Arial,sans-serif;line-height:1.6;}
-header{text-align:center;padding:45px 20px 35px;background:linear-gradient(rgba(255,79,163,.08) 1px, transparent 1px),linear-gradient(90deg, rgba(0,245,212,.08) 1px, transparent 1px),linear-gradient(135deg,#08091f,#1b0838 60%,#09091c);background-size:35px 35px,35px 35px,auto;border-bottom:4px solid #00f5d4;}
-.badge{display:inline-block;border:2px solid #ff4fa3;color:#ff4fa3;padding:10px 22px;border-radius:10px;font-family:'Press Start 2P',monospace;font-size:12px;margin-bottom:22px;}
-h1{margin:0;font-family:'Press Start 2P',monospace;font-size:34px;color:#fff;text-shadow:0 0 14px #ff4fa3;line-height:1.25;white-space:nowrap;}
-header p{color:#00f5d4;font-family:'Press Start 2P',monospace;font-size:12px;line-height:1.8;}
-.container{max-width:950px;margin:auto;padding:30px 22px;}
-.box{background:#0d1024;border:2px solid #00f5d4;border-radius:14px;padding:30px;box-shadow:0 0 22px rgba(0,245,212,.25);margin-bottom:26px;}
-.box.pink{border-color:#ff4fa3;box-shadow:0 0 22px rgba(255,79,163,.3);}
-h2{color:#00f5d4;font-family:'Press Start 2P',monospace;font-size:18px;margin:0 0 22px;line-height:1.5;}
-h3{color:#ff4fa3;margin-top:28px;}
-a{color:#00f5d4;}
-.button{display:inline-block;border:2px solid #ff4fa3;color:#ff4fa3;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:bold;transition:.2s;margin-top:15px;}
-.button:hover{background:#ff4fa3;color:#070817;}
-.notice{background:#0b0e20;border-left:4px solid #ffe600;padding:14px 16px;border-radius:8px;color:#eee;}
-footer{text-align:center;padding:35px 20px;color:#ff4fa3;font-family:'Press Start 2P',monospace;font-size:12px;border-top:1px solid #24284d;}
-@media(max-width:600px){body{overflow-x:hidden}h1{font-size:18px;letter-spacing:-1px}header{padding:40px 12px 35px}.badge{font-size:9px;padding:8px 14px}header p{font-size:9px;padding:0 8px}.container{padding:24px 12px}h2{font-size:15px}footer{font-size:9px;line-height:1.6}}
-
+.container{max-width:950px}
+.box{background:#0d1024;border:2px solid #00f5d4;border-radius:14px;padding:30px;box-shadow:0 0 22px rgba(0,245,212,.25);margin-bottom:26px}
+.box.pink{border-color:#ff4fa3;box-shadow:0 0 22px rgba(255,79,163,.3)}
+.box h2{color:#00f5d4;font-family:'Press Start 2P',monospace;font-size:16px;margin:0 0 22px;line-height:1.5}
+.box h3{color:#ff4fa3;margin-top:28px}
+.box a{color:#00f5d4}
 </style>
 </head>
-<body>
+<body data-page="">
+
 <header>
   <div class="badge">RESTORE GAMING</div>
-  <h1>meingameboy.de</h1>
-  <p>Impressum</p>
+  <h1><a href="index.html">meingameboy.de</a></h1>
+  <p class="tagline">Impressum</p>
 </header>
 <div class="container">
 
@@ -44,7 +33,7 @@ Gerhart-Hauptmann-Straße <br>38239 Salzgitter
 </p>
 
 <h3>Kontakt</h3>
-<p>E-Mail: <a href="mailto:restore.mail@gmx.de">restore.mail@gmx.de</a></p>
+<p>E-Mail: <a href="#" data-kontakt>restore.mail@gmx.de</a> (Kontaktformular)</p>
 
 <h3>Umsatzsteuer</h3>
 <p>Es wird keine Umsatzsteuer ausgewiesen, da die Kleinunternehmerregelung gemäß § 19 UStG angewendet wird.</p>
@@ -53,8 +42,17 @@ Gerhart-Hauptmann-Straße <br>38239 Salzgitter
 <p>David Becker<br>Gerhart-Hauptmann-Straße <br>38239 Salzgitter</p>
 
 
-<a class="button" href="index.html">← Zurück zur Startseite</a>
+<a class="button" href="index.html">← Zur Startseite</a>
 </div>
-<footer>meingameboy.de by Restore Gaming</footer>
+
+<footer>
+<div class="footer-links">
+<a href="index.html">Start</a>
+<a href="shop.html">Shop</a>
+<a href="datenschutz.html">Datenschutz</a>
+</div>
+<p class="footer-brand">meingameboy.de by Restore Gaming</p>
+</footer>
+<script src="assets/site.js"></script>
 </body>
 </html>
