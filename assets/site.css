@@ -1171,6 +1171,15 @@ footer{
 
 @media(max-width:900px){
   .teaser-grid{grid-template-columns:1fr}
+  .perks{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .perk{
+    flex:none;
+    max-width:none;
+  }
   .bewertungen-stats{grid-template-columns:repeat(2,1fr)}
   .bewertungen-details{grid-template-columns:repeat(2,1fr)}
   .bewertungen-grid{grid-template-columns:1fr}
@@ -1192,8 +1201,56 @@ footer{
   .site-nav{gap:6px;padding:10px 8px}
   .site-nav a,.site-nav button{padding:8px 10px;font-size:11px}
   .container{padding:22px 12px 40px}
-  .section-title{font-size:14px}
-  .perks{flex-direction:column;align-items:stretch}
-  .perk{max-width:none}
+  .page-hero{margin-bottom:20px}
+  .section-title{font-size:14px;margin-bottom:8px}
+  .section-intro{font-size:14px;line-height:1.55}
+  .aktions-banner{
+    padding:14px 12px;
+    margin-bottom:16px;
+    border-radius:12px;
+  }
+  .aktions-tag{
+    font-size:7px;
+    padding:4px 10px;
+    margin-bottom:8px;
+  }
+  .aktions-banner strong{
+    font-size:10px;
+    margin-bottom:6px;
+    line-height:1.6;
+  }
+  .aktions-text{font-size:13px;line-height:1.5}
+  .perks{
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .perk{
+    padding:10px 8px;
+    border-radius:10px;
+    font-size:11px;
+    line-height:1.4;
+  }
+  .perk strong{
+    font-size:9px;
+    margin-bottom:3px;
+    line-height:1.35;
+  }
+  .teaser-card{padding:16px 14px}
+  .teaser-card h3{font-size:9px}
+  .teaser-card p{font-size:12px;line-height:1.5}
+  .bewertungen-stats{gap:8px;margin-bottom:16px}
+  .bewertung-stat{padding:12px 8px;border-radius:10px}
+  .bewertung-stat strong{font-size:12px;margin-bottom:4px}
+  .bewertung-stat span{font-size:10px;line-height:1.35}
+  .bewertungen-details{gap:8px;margin-bottom:20px}
+  .bewertung-detail{padding:10px 8px;font-size:11px}
+  .bewertung-karte{padding:16px 14px}
+  .info-grid{gap:12px;margin-top:24px}
+  .info-box{padding:16px 14px}
+  .info-box h2{font-size:11px;margin-bottom:10px}
+  .info-box p{font-size:13px;line-height:1.55;margin-bottom:8px}
+  .about-box{padding:18px 14px}
+  .about-box h2{font-size:12px;margin-bottom:12px}
+  .about-box p{font-size:14px;line-height:1.6;margin-bottom:12px}
   footer{font-size:11px}
 }

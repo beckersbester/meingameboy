@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop – meingameboy.de</title>
-<link rel="stylesheet" href="assets/site.css?v=20260617">
+<link rel="stylesheet" href="assets/site.css?v=20260618">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -886,15 +886,21 @@ h2{
   }
 
   .kauf-info{
-    flex-direction:column;
-    gap:10px;
-    margin-bottom:24px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-bottom:20px;
   }
 
   .kauf-perk{
-    font-size:12px;
-    padding:12px 14px;
-    flex:1 1 auto;
+    font-size:11px;
+    padding:10px 8px;
+    flex:none;
+  }
+
+  .kauf-perk strong{
+    font-size:9px;
+    margin-bottom:4px;
   }
 
   .verkaeufe-box{
@@ -988,12 +994,16 @@ h2{
     line-height:1.4;
   }
 
-  .info-box{padding:22px}
+  .info-box{padding:16px 14px}
 
   .vorteile{
     grid-template-columns:1fr;
-    gap:14px;
+    gap:10px;
+    margin-top:24px;
+    padding-top:20px;
   }
+
+  .vorteil{padding:14px 12px}
 
   .sticky-contact{
     right:12px;
@@ -1002,7 +1012,7 @@ h2{
     font-size:13px;
   }
 
-  .about-box{padding:22px 18px}
+  .about-box{padding:18px 14px}
 
   .about-box h2{font-size:14px;line-height:1.6}
 
@@ -1300,7 +1310,7 @@ h2{
 
 <footer></footer>
 
-<script src="assets/site.js?v=20260617"></script>
+<script src="assets/site.js?v=20260618"></script>
 <script>
 const RABATT = 0.05;
 const RABATT_PROZENT = Math.round(RABATT * 100);
