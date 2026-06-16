@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -214,6 +214,23 @@ h2{
   font-weight:bold;
   letter-spacing:.04em;
   text-transform:uppercase;
+}
+
+.lager-info{
+  margin:10px 0 0;
+  padding:6px 12px;
+  border-radius:8px;
+  background:rgba(0,245,212,.1);
+  border:1px solid rgba(0,245,212,.35);
+  color:#00f5d4;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.lager-info.lager-knapp{
+  background:rgba(255,79,163,.12);
+  border-color:rgba(255,79,163,.45);
+  color:#ff4fa3;
 }
 
 .button-ausverkauft{
@@ -443,6 +460,79 @@ h2{
   margin-bottom:6px;
 }
 
+.verkaeufe-box{
+  max-width:820px;
+  margin:32px auto;
+  padding:18px 20px;
+  border-radius:14px;
+  border:2px solid rgba(255,79,163,.35);
+  background:rgba(255,79,163,.06);
+}
+
+.verkaeufe-box h3{
+  margin:0 0 14px;
+  text-align:center;
+  font-family:'Press Start 2P',monospace;
+  font-size:11px;
+  color:#ff4fa3;
+  line-height:1.6;
+}
+
+.verkaeufe-liste{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.verkaeufe-liste li{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,79,163,.2);
+  font-size:14px;
+  color:#ddd;
+}
+
+.verkaeufe-liste li:last-child{
+  border-bottom:none;
+  padding-bottom:0;
+}
+
+.verkaeufe-liste li:first-child{
+  padding-top:0;
+}
+
+.verkaeufe-bild{
+  width:58px;
+  height:58px;
+  flex-shrink:0;
+  object-fit:contain;
+  background:#fff;
+  border-radius:8px;
+  padding:5px;
+  border:1px solid rgba(255,79,163,.25);
+}
+
+.verkaeufe-inhalt{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.verkaeufe-name{
+  color:#fff;
+  font-weight:bold;
+  line-height:1.4;
+}
+
+.verkaeufe-datum{
+  color:#888;
+  font-size:12px;
+}
+
 .badge-rabatt{
   position:absolute;
   top:12px;
@@ -599,6 +689,136 @@ h2{
   font-weight:bold;
 }
 
+.bewertungen{
+  margin-top:40px;
+  padding-top:10px;
+}
+
+.bewertungen-intro{
+  text-align:center;
+  color:#bbb;
+  font-size:15px;
+  line-height:1.65;
+  max-width:640px;
+  margin:0 auto 28px;
+}
+
+.bewertungen-stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:16px;
+  max-width:900px;
+  margin:0 auto 32px;
+}
+
+.bewertung-stat{
+  text-align:center;
+  padding:18px 14px;
+  border-radius:14px;
+  border:2px solid rgba(0,245,212,.35);
+  background:rgba(0,245,212,.06);
+}
+
+.bewertung-stat strong{
+  display:block;
+  font-family:'Press Start 2P',monospace;
+  font-size:18px;
+  color:#00f5d4;
+  margin-bottom:8px;
+  line-height:1.4;
+}
+
+.bewertung-stat span{
+  color:#ccc;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.bewertung-stat.highlight{
+  border-color:#ff4fa3;
+  background:rgba(255,79,163,.1);
+}
+
+.bewertung-stat.highlight strong{
+  color:#ff4fa3;
+}
+
+.bewertungen-details{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  max-width:900px;
+  margin:0 auto 32px;
+}
+
+.bewertung-detail{
+  text-align:center;
+  padding:12px 10px;
+  border-radius:10px;
+  background:#0b0e20;
+  border:1px solid #24284d;
+  font-size:13px;
+  color:#aaa;
+}
+
+.bewertung-detail .stars{
+  display:block;
+  color:#ffd700;
+  font-size:14px;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+
+.bewertungen-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.bewertung-karte{
+  margin:0;
+  padding:16px 15px;
+  border-radius:12px;
+  border:1px solid rgba(255,79,163,.35);
+  background:linear-gradient(160deg,#0d1024,#121530);
+  box-shadow:0 0 14px rgba(255,79,163,.12);
+}
+
+.bewertung-karte .stars{
+  color:#ffd700;
+  font-size:14px;
+  letter-spacing:2px;
+  margin-bottom:8px;
+}
+
+.bewertung-text{
+  color:#eee;
+  font-size:13px;
+  line-height:1.6;
+  margin:0 0 10px;
+  font-style:italic;
+}
+
+.bewertung-meta{
+  padding-top:10px;
+  border-top:1px solid rgba(255,79,163,.2);
+  font-size:12px;
+}
+
+.bewertung-user{
+  color:#00f5d4;
+  font-weight:bold;
+}
+
+.bewertungen-hinweis{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  margin-top:24px;
+}
+
 .sticky-contact{
   position:fixed;
   right:18px;
@@ -730,6 +950,23 @@ footer{
     flex:1 1 auto;
   }
 
+  .verkaeufe-box{
+    margin-bottom:24px;
+    padding:16px 14px;
+  }
+
+  .verkaeufe-box h3{font-size:9px}
+
+  .verkaeufe-liste li{
+    gap:12px;
+    font-size:13px;
+  }
+
+  .verkaeufe-bild{
+    width:50px;
+    height:50px;
+  }
+
   .kategorien{
     gap:8px;
     margin-bottom:24px;
@@ -826,6 +1063,27 @@ footer{
 
   .about-box p{font-size:13px;line-height:1.65}
 
+  .bewertungen-stats{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .bewertung-stat strong{font-size:14px}
+
+  .bewertung-stat span{font-size:11px}
+
+  .bewertungen-details{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .bewertungen-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .bewertung-karte{padding:14px 13px}
+
   footer{
     font-size:9px;
     line-height:1.6;
@@ -880,7 +1138,7 @@ footer{
 
 <div class="produkte">
 
-<div class="produkt color">
+<div class="produkt color" data-produkt-id="color-wario">
   <div class="badge-produkt badge-blue">Super Mario</div>
   <a href="WhatsApp Image 2026-06-07 at 20.16.09.png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.09.png" alt="Game Boy Color Wario Edition">
@@ -891,7 +1149,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt classic">
+<div class="produkt classic" data-produkt-id="classic">
   <a href="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" alt="Nintendo Game Boy Classic">
   </a>
@@ -901,7 +1159,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt pocket">
+<div class="produkt pocket" data-produkt-id="pocket-orange">
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" alt="Game Boy Pocket Orange">
   </a>
@@ -911,7 +1169,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt pocket">
+<div class="produkt pocket" data-produkt-id="pocket-squirtle">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" alt="Game Boy Pocket Squirtle Edition">
@@ -922,7 +1180,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt pocket">
+<div class="produkt pocket" data-produkt-id="pocket-charizard">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" alt="Game Boy Pocket Charizard Edition">
@@ -933,7 +1191,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt pocket">
+<div class="produkt pocket" data-produkt-id="pocket-pikachu">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <a href="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" alt="Game Boy Pocket Pikachu Edition">
@@ -944,7 +1202,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt pocket">
+<div class="produkt pocket" data-produkt-id="pocket-classic">
   <a href="WhatsApp Image 2026-06-07 at 20.16.10.png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.10.png" alt="Game Boy Pocket Classic Design">
   </a>
@@ -954,7 +1212,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt color">
+<div class="produkt color" data-produkt-id="color-mario">
   <a href="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" alt="Game Boy Color Mario Edition">
   </a>
@@ -964,7 +1222,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt classic ips">
+<div class="produkt classic ips" data-produkt-id="classic-black-ips">
   <div class="badge-produkt badge-blue">IPS V5</div>
   <a href="WhatsApp Image 2026-06-07 at 20.29.29.png" target="_blank">
     <img src="WhatsApp Image 2026-06-07 at 20.29.29.png" alt="Game Boy Classic Black Button IPS V5">
@@ -975,7 +1233,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt classic">
+<div class="produkt classic" data-produkt-id="classic-red">
   <a href="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" alt="Game Boy Classic Red Button">
   </a>
@@ -985,7 +1243,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt pocket">
+<div class="produkt pocket" data-produkt-id="pocket-transparent">
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" alt="Game Boy Pocket Transparent">
   </a>
@@ -995,7 +1253,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt color">
+<div class="produkt color" data-produkt-id="color-pokemon">
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" alt="Game Boy Color Pokémon">
   </a>
@@ -1005,7 +1263,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt color">
+<div class="produkt color" data-produkt-id="color-charizard-orange">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <a href="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" alt="Game Boy Color Charizard Orange Edition">
@@ -1016,7 +1274,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt color">
+<div class="produkt color" data-produkt-id="color-yellow">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <a href="WhatsApp Image 2026-05-21 at 18.48.20.png" target="_blank">
     <img src="WhatsApp Image 2026-05-21 at 18.48.20.png" alt="Game Boy Color Pokémon Yellow Edition">
@@ -1027,7 +1285,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt classic ips">
+<div class="produkt classic ips" data-produkt-id="classic-grau-ips">
   <div class="badge-produkt badge-blue">IPS V5</div>
   <a href="WhatsApp Image 2026-06-08 at 10.25.40.png" target="_blank">
     <img src="WhatsApp Image 2026-06-08 at 10.25.40.png" alt="Game Boy Classic Grau IPS V5">
@@ -1038,7 +1296,7 @@ footer{
   <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
 </div>
 
-<div class="produkt gba ausverkauft">
+<div class="produkt gba ausverkauft" data-produkt-id="gba-gengar">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <a href="gba-gengar-edition.png" target="_blank">
     <img src="gba-gengar-edition.png" alt="Game Boy Advance Gengar Edition">
@@ -1050,7 +1308,7 @@ footer{
   <span class="button-ausverkauft">Ausverkauft</span>
 </div>
 
-<div class="produkt gba ausverkauft">
+<div class="produkt gba ausverkauft" data-produkt-id="gba-charmander">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <a href="gba-charmander-edition.png" target="_blank">
     <img src="gba-charmander-edition.png" alt="Game Boy Advance Charmander Edition">
@@ -1065,6 +1323,71 @@ footer{
 <p class="keine-treffer" id="keine-treffer">In dieser Kategorie sind aktuell keine Angebote verfügbar.</p>
 
 </div>
+
+<div class="verkaeufe-box" id="verkaeufe-box" hidden>
+  <h3>Kürzlich verkauft</h3>
+  <ul class="verkaeufe-liste" id="verkaeufe-liste"></ul>
+</div>
+
+<section class="bewertungen">
+<h2>Kundenbewertungen</h2>
+<p class="bewertungen-intro">Echte Rückmeldungen von Käufern – Restore Gaming ist seit 2024 im Retro-Bereich aktiv und bestens bewertet.</p>
+
+<div class="bewertungen-stats">
+  <div class="bewertung-stat"><strong>2.000+</strong><span>Verkaufte Artikel</span></div>
+  <div class="bewertung-stat"><strong>1.000+</strong><span>Positive Bewertungen</span></div>
+  <div class="bewertung-stat highlight"><strong>100&nbsp;%</strong><span>Positiv in den letzten 12 Monaten</span></div>
+  <div class="bewertung-stat"><strong>565+</strong><span>Positive Bewertungen allein im letzten Jahr</span></div>
+</div>
+
+<div class="bewertungen-details">
+  <div class="bewertung-detail"><span class="stars">★★★★★</span>Genaue Beschreibung</div>
+  <div class="bewertung-detail"><span class="stars">★★★★★</span>Lieferzeit</div>
+  <div class="bewertung-detail"><span class="stars">★★★★★</span>Angemessene Versandkosten</div>
+  <div class="bewertung-detail"><span class="stars">★★★★★</span>Kommunikation</div>
+</div>
+
+<div class="bewertungen-grid">
+
+  <blockquote class="bewertung-karte">
+    <div class="stars">★★★★★</div>
+    <p class="bewertung-text">„Zweifelsohne einer der allerbesten Verkäufer auf eBay! Sehr schneller Versand und eine absolut reibungslose und ausgesprochen freundliche, sehr hilfreiche Kommunikation. Hier wird Kundenservice groß geschrieben. 5 Sterne von mir.“</p>
+    <footer class="bewertung-meta"><span class="bewertung-user">vwgolfgtdriver</span></footer>
+  </blockquote>
+
+  <blockquote class="bewertung-karte">
+    <div class="stars">★★★★★</div>
+    <p class="bewertung-text">„Der Gameboy ist in einem einwandfreien Zustand und funktioniert zu 100 Prozent. Ich kann den Verkäufer nur empfehlen.“</p>
+    <footer class="bewertung-meta"><span class="bewertung-user">martina6513</span></footer>
+  </blockquote>
+
+  <blockquote class="bewertung-karte">
+    <div class="stars">★★★★★</div>
+    <p class="bewertung-text">„Der Gameboy sieht wie neu aus und funktioniert auch einwandfrei. Top Zustand – genau wie beschrieben.“</p>
+    <footer class="bewertung-meta"><span class="bewertung-user">krc_car_kq3bfvcz</span></footer>
+  </blockquote>
+
+  <blockquote class="bewertung-karte">
+    <div class="stars">★★★★★</div>
+    <p class="bewertung-text">„Schneller Versand und Zustand wie beschrieben. Endlich kann ich wieder meine Kindheit aufleben lassen. Kann ich bedenkenlos weiterempfehlen.“</p>
+    <footer class="bewertung-meta"><span class="bewertung-user">madsecruity</span></footer>
+  </blockquote>
+
+  <blockquote class="bewertung-karte">
+    <div class="stars">★★★★★</div>
+    <p class="bewertung-text">„Alles super! Der Artikel entspricht genau der Beschreibung, war sicher verpackt und wurde sehr schnell geliefert. Top Verkäufer – absolut empfehlenswert!“</p>
+    <footer class="bewertung-meta"><span class="bewertung-user">brickbrick01</span></footer>
+  </blockquote>
+
+  <blockquote class="bewertung-karte">
+    <div class="stars">★★★★★</div>
+    <p class="bewertung-text">„5 von 5 Sternen! Schnelle Lieferung und der Zustand des Artikels war wie beschrieben. Ein sehr zuverlässiger Verkäufer, den man bedenkenlos weiterempfehlen kann!“</p>
+    <footer class="bewertung-meta"><span class="bewertung-user">theroaring1920s</span></footer>
+  </blockquote>
+
+</div>
+<p class="bewertungen-hinweis">Auszug echter Kundenbewertungen · Alle Bewertungen stammen von verifizierten Käufen</p>
+</section>
 
 <div class="about-box">
 <h2>Über uns</h2>
@@ -1131,6 +1454,8 @@ meingameboy.de by Restore Gaming
 const RABATT = 0.05;
 const RABATT_PROZENT = Math.round(RABATT * 100);
 const PAYPAL_EMAIL = 'restore.info@gmx.de';
+/* Nach Einrichtung: Web-App-URL aus google-apps-script/lager-api.gs eintragen */
+const LAGER_API_URL = 'https://script.google.com/macros/s/AKfycbyNYtUSgXDSb-jhofgXPWr_xrTCR4MaL5I01qrCTnmNQRb85EfRDTVnnEfSeTCdVLvl/exec';
 
 const kategorieTitel = {
   all: 'Alle Angebote',
@@ -1185,25 +1510,250 @@ function berechneRabattpreis(uvp) {
   return Math.round(uvp * (1 - RABATT) * 100) / 100;
 }
 
-function buildPayPalUrl(itemName, amount) {
+function buildPayPalUrl(itemName, amount, produktId) {
   const params = new URLSearchParams({
     cmd: '_xclick',
     business: PAYPAL_EMAIL,
     item_name: itemName,
+    item_number: produktId,
     amount: amount.toFixed(2),
     currency_code: 'EUR',
     charset: 'utf-8',
-    no_shipping: '0'
+    no_shipping: '0',
+    return: 'https://meingameboy.de/shop.html?kauf=erfolg',
+    cancel_return: 'https://meingameboy.de/shop.html'
   });
+  if (LAGER_API_URL) {
+    params.notify_url = LAGER_API_URL;
+  }
   return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
+}
+
+const BESTAND_DEFAULT = {
+  'color-wario': 1,
+  'classic': 1,
+  'pocket-orange': 1,
+  'pocket-squirtle': 2,
+  'pocket-charizard': 1,
+  'pocket-pikachu': 2,
+  'pocket-classic': 2,
+  'color-mario': 1,
+  'classic-black-ips': 1,
+  'classic-red': 1,
+  'pocket-transparent': 1,
+  'color-pokemon': 1,
+  'color-charizard-orange': 1,
+  'color-yellow': 3,
+  'classic-grau-ips': 1,
+  'gba-gengar': 0,
+  'gba-charmander': 0
+};
+
+let bestandDaten = { ...BESTAND_DEFAULT };
+
+const PRODUKT_NAMEN = {
+  'color-wario': 'Game Boy Color Wario Edition',
+  'classic': 'Nintendo Game Boy Classic',
+  'pocket-orange': 'Game Boy Pocket Orange',
+  'pocket-squirtle': 'Game Boy Pocket Pokémon Squirtle Edition',
+  'pocket-charizard': 'Game Boy Pocket Pokémon Charizard Edition',
+  'pocket-pikachu': 'Game Boy Pocket Pikachu Edition',
+  'pocket-classic': 'Game Boy Pocket Classic Design',
+  'color-mario': 'Game Boy Color Mario Edition',
+  'classic-black-ips': 'Game Boy Classic Black Button IPS V5',
+  'classic-red': 'Game Boy Classic Red Button',
+  'pocket-transparent': 'Game Boy Pocket Transparent',
+  'color-pokemon': 'Game Boy Color Pokémon',
+  'color-charizard-orange': 'Game Boy Color Charizard Orange Edition',
+  'color-yellow': 'Game Boy Color Pokémon Yellow Edition',
+  'classic-grau-ips': 'Game Boy Classic Grau IPS V5',
+  'gba-gengar': 'Game Boy Advance Gengar Edition',
+  'gba-charmander': 'Game Boy Advance Charmander Edition'
+};
+
+const PRODUKT_BILDER = {
+  'color-wario': 'WhatsApp Image 2026-06-07 at 20.16.09.png',
+  'classic': 'WhatsApp Image 2026-05-21 at 18.26.14 (5).png',
+  'pocket-orange': 'WhatsApp Image 2026-06-07 at 20.16.13 (9).png',
+  'pocket-squirtle': 'WhatsApp Image 2026-06-07 at 20.16.13 (5).png',
+  'pocket-charizard': 'WhatsApp Image 2026-06-07 at 20.16.13 (3).png',
+  'pocket-pikachu': 'WhatsApp Image 2026-06-07 at 20.16.13 (1).png',
+  'pocket-classic': 'WhatsApp Image 2026-06-07 at 20.16.10.png',
+  'color-mario': 'WhatsApp Image 2026-06-07 at 20.16.09 (2).png',
+  'classic-black-ips': 'WhatsApp Image 2026-06-07 at 20.29.29.png',
+  'classic-red': 'WhatsApp Image 2026-05-21 at 18.26.14 (3).png',
+  'pocket-transparent': 'WhatsApp Image 2026-05-21 at 18.26.13 (14).png',
+  'color-pokemon': 'WhatsApp Image 2026-05-21 at 18.26.13 (18).png',
+  'color-charizard-orange': 'WhatsApp Image 2026-05-21 at 18.26.13 (16).png',
+  'color-yellow': 'WhatsApp Image 2026-05-21 at 18.48.20.png',
+  'classic-grau-ips': 'WhatsApp Image 2026-06-08 at 10.25.40.png',
+  'gba-gengar': 'gba-gengar-edition.png',
+  'gba-charmander': 'gba-charmander-edition.png'
+};
+
+const MAX_VERKAEUFE = 5;
+
+const VERKAUFE_DEFAULT = [
+  { produktId: 'classic', datum: '2026-06-13' }
+];
+
+function formatVerkaufsDatum(datum) {
+  const parts = datum.split('-');
+  if (parts.length === 3) return parts[2] + '.' + parts[1] + '.' + parts[0];
+  return datum;
+}
+
+function renderVerkaeufe(verkaeufe) {
+  const box = document.getElementById('verkaeufe-box');
+  const liste = document.getElementById('verkaeufe-liste');
+  if (!box || !liste || !Array.isArray(verkaeufe) || verkaeufe.length === 0) return;
+
+  liste.innerHTML = '';
+  verkaeufe.slice(0, MAX_VERKAEUFE).forEach(verkauf => {
+    const name = PRODUKT_NAMEN[verkauf.produktId] || verkauf.name || verkauf.produktId;
+    const bild = verkauf.bild || PRODUKT_BILDER[verkauf.produktId] || '';
+    const li = document.createElement('li');
+    li.innerHTML =
+      (bild ? '<img class="verkaeufe-bild" src="' + bild + '" alt="">' : '') +
+      '<div class="verkaeufe-inhalt">' +
+        '<span class="verkaeufe-name">' + name + '</span>' +
+        '<span class="verkaeufe-datum">' + formatVerkaufsDatum(verkauf.datum) + '</span>' +
+      '</div>';
+    liste.appendChild(li);
+  });
+
+  box.hidden = false;
+}
+
+async function ladeBestandAusJson() {
+  try {
+    const response = await fetch('bestand.json?t=' + Date.now());
+    if (response.ok) {
+      bestandDaten = await response.json();
+      return;
+    }
+  } catch (error) {
+    /* lokal per Doppelklick: Fallback unten */
+  }
+  bestandDaten = { ...BESTAND_DEFAULT };
+}
+
+async function ladeVerkaeufeAusJson() {
+  try {
+    const response = await fetch('verkaeufe.json?t=' + Date.now());
+    if (response.ok) {
+      return await response.json();
+    }
+  } catch (error) {
+    /* lokal per Doppelklick: Fallback unten */
+  }
+  return VERKAUFE_DEFAULT;
+}
+
+async function ladeLagerDaten() {
+  if (LAGER_API_URL) {
+    try {
+      const response = await fetch(LAGER_API_URL + '?t=' + Date.now());
+      if (response.ok) {
+        const data = await response.json();
+        if (data.bestand && typeof data.bestand === 'object') {
+          bestandDaten = data.bestand;
+        }
+        if (Array.isArray(data.verkaeufe)) {
+          return data.verkaeufe;
+        }
+      }
+    } catch (error) {
+      /* Fallback auf lokale JSON-Dateien */
+    }
+  }
+
+  await ladeBestandAusJson();
+  return ladeVerkaeufeAusJson();
+}
+
+function getBestand(produktId) {
+  return bestandDaten[produktId] ?? 0;
+}
+
+function lagerText(bestand) {
+  if (bestand === 1) return 'Nur noch 1 Stück verfügbar';
+  return 'Noch ' + bestand + ' Stück verfügbar';
+}
+
+function setAusverkauft(produkt) {
+  produkt.classList.add('ausverkauft');
+
+  const lager = produkt.querySelector('.lager-info');
+  if (lager) lager.remove();
+
+  if (!produkt.querySelector('.status-ausverkauft')) {
+    const status = document.createElement('p');
+    status.className = 'status-ausverkauft';
+    status.textContent = 'Ausverkauft';
+    produkt.querySelector('h3').after(status);
+  }
+
+  produkt.querySelector('.button-paypal')?.remove();
+
+  if (!produkt.querySelector('.button-ausverkauft')) {
+    const btn = document.createElement('span');
+    btn.className = 'button-ausverkauft';
+    btn.textContent = 'Ausverkauft';
+    produkt.appendChild(btn);
+  }
+}
+
+function setVerfuegbar(produkt, bestand) {
+  produkt.classList.remove('ausverkauft');
+  produkt.dataset.bestand = String(bestand);
+
+  produkt.querySelector('.status-ausverkauft')?.remove();
+  produkt.querySelector('.button-ausverkauft')?.remove();
+
+  let lager = produkt.querySelector('.lager-info');
+  if (!lager) {
+    lager = document.createElement('p');
+    lager.className = 'lager-info';
+    produkt.querySelector('h3').after(lager);
+  }
+
+  lager.textContent = lagerText(bestand);
+  lager.classList.toggle('lager-knapp', bestand <= 2);
+
+  if (!produkt.querySelector('.button-paypal')) {
+    const btn = document.createElement('a');
+    btn.className = 'button button-paypal';
+    btn.href = '#';
+    btn.target = '_blank';
+    btn.rel = 'noopener noreferrer';
+    btn.textContent = 'Jetzt über PayPal sicher kaufen';
+    produkt.appendChild(btn);
+  }
+}
+
+function renderBestand() {
+  document.querySelectorAll('.produkt[data-produkt-id]').forEach(produkt => {
+    const bestand = getBestand(produkt.dataset.produktId);
+    if (bestand <= 0) {
+      setAusverkauft(produkt);
+    } else {
+      setVerfuegbar(produkt, bestand);
+    }
+  });
+
+  initPayPalButtons();
 }
 
 function initPayPalButtons() {
   document.querySelectorAll('.button-paypal').forEach(button => {
     const produkt = button.closest('.produkt');
+    if (produkt.classList.contains('ausverkauft')) return;
+
     const rabatt = parseFloat(produkt.querySelector('.preis-block').dataset.rabatt);
-    const itemName = button.dataset.paypalItem || produkt.querySelector('h3').textContent.trim();
-    button.href = buildPayPalUrl(itemName, rabatt);
+    const itemName = produkt.querySelector('h3').textContent.trim();
+    const produktId = produkt.dataset.produktId;
+    button.href = buildPayPalUrl(itemName, rabatt, produktId);
   });
 }
 
@@ -1231,8 +1781,6 @@ function renderPreise() {
     }
     badge.textContent = '−' + RABATT_PROZENT + '%';
   });
-
-  initPayPalButtons();
 }
 
 function sortProducts(direction) {
@@ -1251,8 +1799,24 @@ function sortProducts(direction) {
 
 const params = new URLSearchParams(window.location.search);
 const kategorie = params.get('kategorie') || 'all';
-renderPreise();
-filterProducts(kategorie);
+
+async function initShop() {
+  const verkaeufe = await ladeLagerDaten();
+  renderPreise();
+  renderBestand();
+  renderVerkaeufe(verkaeufe);
+  filterProducts(kategorie);
+
+  if (params.get('kauf') === 'erfolg') {
+    const hinweis = document.createElement('div');
+    hinweis.className = 'kauf-info';
+    hinweis.style.marginBottom = '24px';
+    hinweis.innerHTML = '<div class="kauf-perk" style="flex:1 1 100%"><strong>Vielen Dank für deinen Kauf!</strong>Die PayPal-Zahlung war erfolgreich – wir bereiten deinen Versand vor und melden uns bei dir.</div>';
+    document.querySelector('.sortierung').after(hinweis);
+  }
+}
+
+initShop();
 </script>
 
 </body>
