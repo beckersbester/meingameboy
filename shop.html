@@ -21,49 +21,11 @@ body{
     radial-gradient(ellipse at 80% 100%, rgba(0,245,212,.08), transparent 50%);
 }
 
-header{
-  text-align:center;
-  padding:55px 20px 45px;
-  background:
-    linear-gradient(rgba(255,79,163,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,245,212,.08) 1px, transparent 1px),
-    linear-gradient(135deg,#08091f,#1b0838 60%,#09091c);
-  background-size:35px 35px,35px 35px,auto;
-  border-bottom:4px solid #00f5d4;
-}
-
-.badge{
-  display:inline-block;
-  border:2px solid #ff4fa3;
-  color:#ff4fa3;
-  padding:10px 22px;
-  border-radius:10px;
-  font-family:'Press Start 2P',monospace;
-  font-size:12px;
-  margin-bottom:22px;
-}
-
-h1{
-  margin:0;
-  font-family:'Press Start 2P',monospace;
-  font-size:42px;
-  color:#fff;
-  text-shadow:0 0 14px #ff4fa3;
-  line-height:1.25;
-  white-space:nowrap;
-}
-
-header p{
-  color:#00f5d4;
-  font-family:'Press Start 2P',monospace;
-  font-size:14px;
-  line-height:1.8;
-}
-
 .container{
-  max-width:1300px;
+  max-width:min(1300px,100%);
   margin:auto;
   padding:30px 22px;
+  width:100%;
 }
 
 h2{
@@ -158,6 +120,8 @@ h2{
   grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
   gap:24px;
   align-items:stretch;
+  width:100%;
+  max-width:100%;
 }
 
 .produkt{
@@ -190,7 +154,7 @@ h2{
 }
 
 .produkt:hover{
-  transform:translateY(-10px) scale(1.02);
+  transform:translateY(-8px);
   border-color:#00f5d4;
   box-shadow:0 12px 40px rgba(0,245,212,.25),0 0 30px rgba(255,79,163,.35);
 }
@@ -248,15 +212,6 @@ h2{
   background:#1a1d30;
 }
 
-.produkt img{
-  width:100%;
-  height:260px;
-  object-fit:contain;
-  background:#fff;
-  border-radius:8px;
-  padding:8px;
-}
-
 .produkt a:not(.button){
   display:block;
   flex-shrink:0;
@@ -269,11 +224,11 @@ h2{
 .produkt h3{
   flex-shrink:0;
   margin:14px 0 0;
-  font-size:18px;
+  font-size:17px;
   line-height:1.4;
-  min-height:calc(1.4em * 3);
+  min-height:2.8em;
   display:-webkit-box;
-  -webkit-line-clamp:3;
+  -webkit-line-clamp:2;
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
@@ -508,11 +463,6 @@ h2{
   width:58px;
   height:58px;
   flex-shrink:0;
-  object-fit:contain;
-  background:#fff;
-  border-radius:8px;
-  padding:5px;
-  border:1px solid rgba(255,79,163,.25);
 }
 
 .verkaeufe-inhalt{
@@ -842,31 +792,6 @@ h2{
   box-shadow:0 0 22px rgba(0,245,212,.8);
 }
 
-.footer-links{
-  margin-bottom:18px;
-  font-family:Arial,sans-serif;
-  font-size:14px;
-}
-
-.footer-links a{
-  color:#00f5d4;
-  text-decoration:none;
-  margin:0 10px;
-}
-
-.footer-links a:hover{
-  color:#ff4fa3;
-}
-
-footer{
-  text-align:center;
-  padding:35px 20px 80px;
-  color:#ff4fa3;
-  font-family:'Press Start 2P',monospace;
-  font-size:12px;
-  border-top:1px solid #24284d;
-}
-
 .keine-treffer{
   display:none;
   grid-column:1 / -1;
@@ -878,26 +803,6 @@ footer{
 }
 
 @media(max-width:600px){
-  body{overflow-x:hidden}
-
-  h1{
-    font-size:18px;
-    letter-spacing:-1px;
-  }
-
-  header{padding:40px 12px 35px}
-
-  .badge{
-    font-size:9px;
-    padding:8px 14px;
-  }
-
-  header p{
-    font-size:10px;
-    padding:0 10px;
-    line-height:1.7;
-  }
-
   .container{padding:20px 12px}
 
   h2{
@@ -999,8 +904,6 @@ footer{
 
   .produkt::before{display:none}
 
-  .produkt img{height:200px}
-
   .produkt h3{
     font-size:16px;
     min-height:auto;
@@ -1098,7 +1001,7 @@ footer{
 <header>
   <div class="badge">RESTORE GAMING</div>
   <h1><a href="index.html">meingameboy.de</a></h1>
-  <p class="tagline">Shop – geprüfte Game Boys mit Website-Preis</p>
+  <p class="tagline">Alle Angebote · 5&nbsp;% Rabatt · Versand gratis</p>
 </header>
 
 <div class="container wide">
@@ -1134,9 +1037,11 @@ footer{
 
 <div class="produkt color" data-produkt-id="color-wario">
   <div class="badge-produkt badge-blue">Super Mario</div>
-  <a href="WhatsApp Image 2026-06-07 at 20.16.09.png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.16.09.png" alt="Game Boy Color Wario Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/color-wario-float.png" target="_blank">
+      <img src="assets/products/color-wario-float.png" alt="Game Boy Color Wario Edition">
+    </a>
+  </div>
   <h3>Game Boy Color Wario Edition</h3>
   <ul class="features"><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li><li>Kostenloser Versand</li></ul>
   <div class="preis-block" data-uvp="124,99 €"></div>
@@ -1144,9 +1049,11 @@ footer{
 </div>
 
 <div class="produkt classic" data-produkt-id="classic">
-  <a href="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" target="_blank">
-    <img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" alt="Nintendo Game Boy Classic">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/classic-float.png" target="_blank">
+      <img src="assets/products/classic-float.png" alt="Nintendo Game Boy Classic">
+    </a>
+  </div>
   <h3>Nintendo Game Boy Classic</h3>
   <ul class="features"><li>Original Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
   <div class="preis-block" data-uvp="109,99 €"></div>
@@ -1154,9 +1061,11 @@ footer{
 </div>
 
 <div class="produkt pocket" data-produkt-id="pocket-orange">
-  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" alt="Game Boy Pocket Orange">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/pocket-orange-float.png" target="_blank">
+      <img src="assets/products/pocket-orange-float.png" alt="Game Boy Pocket Orange">
+    </a>
+  </div>
   <h3>Game Boy Pocket Orange</h3>
   <ul class="features"><li>Auffälliges Retro Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
@@ -1165,9 +1074,11 @@ footer{
 
 <div class="produkt pocket" data-produkt-id="pocket-squirtle">
   <div class="badge-produkt badge-blue">Pokémon</div>
-  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (5).png" alt="Game Boy Pocket Squirtle Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/pocket-squirtle-float.png" target="_blank">
+      <img src="assets/products/pocket-squirtle-float.png" alt="Game Boy Pocket Squirtle Edition">
+    </a>
+  </div>
   <h3>Game Boy Pocket Pokémon Squirtle Edition</h3>
   <ul class="features"><li>Transparentes Gehäuse</li><li>Pokémon Design</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
@@ -1176,9 +1087,11 @@ footer{
 
 <div class="produkt pocket" data-produkt-id="pocket-charizard">
   <div class="badge-produkt badge-blue">Pokémon</div>
-  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (3).png" alt="Game Boy Pocket Charizard Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/pocket-charizard-float.png" target="_blank">
+      <img src="assets/products/pocket-charizard-float.png" alt="Game Boy Pocket Charizard Edition">
+    </a>
+  </div>
   <h3>Game Boy Pocket Pokémon Charizard Edition</h3>
   <ul class="features"><li>Transparenter Pokémon Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
@@ -1187,9 +1100,11 @@ footer{
 
 <div class="produkt pocket" data-produkt-id="pocket-pikachu">
   <div class="badge-produkt badge-blue">Pokémon</div>
-  <a href="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (1).png" alt="Game Boy Pocket Pikachu Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/pocket-pikachu-float.png" target="_blank">
+      <img src="assets/products/pocket-pikachu-float.png" alt="Game Boy Pocket Pikachu Edition">
+    </a>
+  </div>
   <h3>Game Boy Pocket Pikachu Edition</h3>
   <ul class="features"><li>Gelbes Pokémon Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
@@ -1197,9 +1112,11 @@ footer{
 </div>
 
 <div class="produkt pocket" data-produkt-id="pocket-classic">
-  <a href="WhatsApp Image 2026-06-07 at 20.16.10.png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.16.10.png" alt="Game Boy Pocket Classic Design">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/pocket-classic-float.png" target="_blank">
+      <img src="assets/products/pocket-classic-float.png" alt="Game Boy Pocket Classic Design">
+    </a>
+  </div>
   <h3>Game Boy Pocket Classic Design</h3>
   <ul class="features"><li>Classic Retro Feeling</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
@@ -1207,9 +1124,11 @@ footer{
 </div>
 
 <div class="produkt color" data-produkt-id="color-mario">
-  <a href="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.16.09 (2).png" alt="Game Boy Color Mario Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/color-mario-float.png" target="_blank">
+      <img src="assets/products/color-mario-float.png" alt="Game Boy Color Mario Edition">
+    </a>
+  </div>
   <h3>Game Boy Color Mario Edition</h3>
   <ul class="features"><li>Mario Scheibe</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
@@ -1218,9 +1137,11 @@ footer{
 
 <div class="produkt classic ips" data-produkt-id="classic-black-ips">
   <div class="badge-produkt badge-blue">IPS V5</div>
-  <a href="WhatsApp Image 2026-06-07 at 20.29.29.png" target="_blank">
-    <img src="WhatsApp Image 2026-06-07 at 20.29.29.png" alt="Game Boy Classic Black Button IPS V5">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/classic-black-ips-float.png" target="_blank">
+      <img src="assets/products/classic-black-ips-float.png" alt="Game Boy Classic Black Button IPS V5">
+    </a>
+  </div>
   <h3>Game Boy Classic Black Button IPS V5</h3>
   <ul class="features"><li>IPS V5 Display</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="159,99 €"></div>
@@ -1228,9 +1149,11 @@ footer{
 </div>
 
 <div class="produkt classic" data-produkt-id="classic-red">
-  <a href="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" target="_blank">
-    <img src="WhatsApp Image 2026-05-21 at 18.26.14 (3).png" alt="Game Boy Classic Red Button">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/classic-red-float.png" target="_blank">
+      <img src="assets/products/classic-red-float.png" alt="Game Boy Classic Red Button">
+    </a>
+  </div>
   <h3>Game Boy Classic Red Button</h3>
   <ul class="features"><li>Weißes Gehäuse</li><li>Rote Tasten</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="109,99 €"></div>
@@ -1238,9 +1161,11 @@ footer{
 </div>
 
 <div class="produkt pocket" data-produkt-id="pocket-transparent">
-  <a href="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" target="_blank">
-    <img src="WhatsApp Image 2026-05-21 at 18.26.13 (14).png" alt="Game Boy Pocket Transparent">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/pocket-transparent-float.png" target="_blank">
+      <img src="assets/products/pocket-transparent-float.png" alt="Game Boy Pocket Transparent">
+    </a>
+  </div>
   <h3>Game Boy Pocket Transparent</h3>
   <ul class="features"><li>Transparentes Gehäuse</li><li>Retro Look</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="99,99 €"></div>
@@ -1248,9 +1173,11 @@ footer{
 </div>
 
 <div class="produkt color" data-produkt-id="color-pokemon">
-  <a href="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" target="_blank">
-    <img src="WhatsApp Image 2026-05-21 at 18.26.13 (18).png" alt="Game Boy Color Pokémon">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/color-pokemon-float.png" target="_blank">
+      <img src="assets/products/color-pokemon-float.png" alt="Game Boy Color Pokémon">
+    </a>
+  </div>
   <h3>Game Boy Color Pokémon</h3>
   <ul class="features"><li>Pokémon Scheibe</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
@@ -1259,9 +1186,11 @@ footer{
 
 <div class="produkt color" data-produkt-id="color-charizard-orange">
   <div class="badge-produkt badge-blue">Pokémon</div>
-  <a href="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" target="_blank">
-    <img src="WhatsApp Image 2026-05-21 at 18.26.13 (16).png" alt="Game Boy Color Charizard Orange Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/color-charizard-orange-float.png" target="_blank">
+      <img src="assets/products/color-charizard-orange-float.png" alt="Game Boy Color Charizard Orange Edition">
+    </a>
+  </div>
   <h3>Game Boy Color Charizard Orange Edition</h3>
   <ul class="features"><li>Transparent Orange</li><li>Charizard Design</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
@@ -1270,9 +1199,11 @@ footer{
 
 <div class="produkt color" data-produkt-id="color-yellow">
   <div class="badge-produkt badge-blue">Pokémon</div>
-  <a href="WhatsApp Image 2026-05-21 at 18.48.20.png" target="_blank">
-    <img src="WhatsApp Image 2026-05-21 at 18.48.20.png" alt="Game Boy Color Pokémon Yellow Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/color-yellow-float.png" target="_blank">
+      <img src="assets/products/color-yellow-float.png" alt="Game Boy Color Pokémon Yellow Edition">
+    </a>
+  </div>
   <h3>Game Boy Color Pokémon Yellow Edition</h3>
   <ul class="features"><li>Pokémon Yellow Style</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
@@ -1281,9 +1212,11 @@ footer{
 
 <div class="produkt classic ips" data-produkt-id="classic-grau-ips">
   <div class="badge-produkt badge-blue">IPS V5</div>
-  <a href="WhatsApp Image 2026-06-08 at 10.25.40.png" target="_blank">
-    <img src="WhatsApp Image 2026-06-08 at 10.25.40.png" alt="Game Boy Classic Grau IPS V5">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/classic-grau-ips-float.png" target="_blank">
+      <img src="assets/products/classic-grau-ips-float.png" alt="Game Boy Classic Grau IPS V5">
+    </a>
+  </div>
   <h3>Game Boy Classic Grau IPS V5</h3>
   <ul class="features"><li>IPS V5 Display</li><li>Klassischer Look</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="159,99 €"></div>
@@ -1292,9 +1225,11 @@ footer{
 
 <div class="produkt gba ausverkauft" data-produkt-id="gba-gengar">
   <div class="badge-produkt badge-blue">Pokémon</div>
-  <a href="gba-gengar-edition.png" target="_blank">
-    <img src="gba-gengar-edition.png" alt="Game Boy Advance Gengar Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/gba-gengar-float.png" target="_blank">
+      <img src="assets/products/gba-gengar-float.png" alt="Game Boy Advance Gengar Edition">
+    </a>
+  </div>
   <h3>Game Boy Advance Gengar Edition</h3>
   <p class="status-ausverkauft">Ausverkauft</p>
   <ul class="features"><li>Custom Gengar Design</li><li>Transluzentes Gehäuse</li><li>Technisch geprüft &amp; gereinigt</li></ul>
@@ -1304,9 +1239,11 @@ footer{
 
 <div class="produkt gba ausverkauft" data-produkt-id="gba-charmander">
   <div class="badge-produkt badge-blue">Pokémon</div>
-  <a href="gba-charmander-edition.png" target="_blank">
-    <img src="gba-charmander-edition.png" alt="Game Boy Advance Charmander Edition">
-  </a>
+  <div class="produkt-bild produkt-bild--float">
+    <a href="assets/products/gba-charmander-float.png" target="_blank">
+      <img src="assets/products/gba-charmander-float.png" alt="Game Boy Advance Charmander Edition">
+    </a>
+  </div>
   <h3>Game Boy Advance Charmander Edition</h3>
   <p class="status-ausverkauft">Ausverkauft</p>
   <ul class="features"><li>Custom Charmander Design</li><li>Transluzentes Orange-Gehäuse</li><li>Technisch geprüft &amp; gereinigt</li></ul>
@@ -1320,16 +1257,7 @@ footer{
 
 </div>
 
-<footer>
-<div class="footer-links">
-<a href="index.html">Start</a>
-<a href="verkaeufe.html">Verkäufe</a>
-<a href="bewertungen.html">Bewertungen</a>
-<a href="impressum.html">Impressum</a>
-<a href="datenschutz.html">Datenschutz</a>
-</div>
-<p class="footer-brand">meingameboy.de by Restore Gaming</p>
-</footer>
+<footer></footer>
 
 <script src="assets/site.js"></script>
 <script>

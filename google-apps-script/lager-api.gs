@@ -103,9 +103,15 @@ function setupLagerSheet() {
   }
 }
 
-/** Website ruft diese URL per GET auf */
-function doGet() {
+/** Website ruft diese URL per GET auf (Lager + Kontaktformular) */
+function doGet(e) {
   try {
+    const params = getRequestParams_(e);
+
+    if (params.action === 'kontakt') {
+      return handleKontakt_(params);
+    }
+
     const data = {
       bestand: leseBestand_(),
       verkaeufe: leseVerkaeufe_(20)
@@ -119,19 +125,19 @@ function doGet() {
 /** PayPal sendet nach jedem Kauf eine POST-Anfrage (IPN) – oder Kontaktformular */
 function doPost(e) {
   try {
-    if (!e || !e.parameter) {
+    const params = getRequestParams_(e);
+
+    if (!params || Object.keys(params).length === 0) {
       return textResponse_('NO DATA');
     }
 
-    if (e.parameter.action === 'kontakt') {
-      return handleKontakt_(e.parameter);
+    if (params.action === 'kontakt') {
+      return handleKontakt_(params);
     }
-
-    if (!paypalVerifiziert_(e.parameter)) {
+    if (!paypalVerifiziert_(params)) {
       return textResponse_('INVALID');
     }
 
-    const params = e.parameter;
     const status = params.payment_status || '';
     const txnId = params.txn_id || '';
 
@@ -158,6 +164,72 @@ function doPost(e) {
   }
 }
 
+function parseUrlEncoded_(raw) {
+  const params = {};
+  raw.split('&').forEach(function (pair) {
+    const idx = pair.indexOf('=');
+    if (idx === -1) return;
+    const key = decodeURIComponent(pair.substring(0, idx).replace(/\+/g, ' '));
+    const val = decodeURIComponent(pair.substring(idx + 1).replace(/\+/g, ' '));
+    params[key] = val;
+  });
+  return params;
+}
+
+function getRequestParams_(e) {
+  if (!e) return {};
+
+  let params = {};
+  if (e.parameter && Object.keys(e.parameter).length > 0) {
+    params = Object.assign({}, e.parameter);
+  }
+
+  if (e.postData && e.postData.contents) {
+    const type = e.postData.type || '';
+    if (type.indexOf('application/x-www-form-urlencoded') !== -1 || !e.parameter || Object.keys(e.parameter).length === 0) {
+      params = Object.assign(params, parseUrlEncoded_(e.postData.contents));
+    }
+  }
+
+  return params;
+}
+
+function parseKontaktBilder_(params) {
+  const attachments = [];
+  const names = [];
+
+  if (params.bilder) {
+    const liste = JSON.parse(params.bilder);
+    if (!Array.isArray(liste)) {
+      throw new Error('Ungültige Bilddaten');
+    }
+    if (liste.length > 5) {
+      throw new Error('Zu viele Bilder');
+    }
+    liste.forEach(function (bild, index) {
+      attachments.push(Utilities.newBlob(
+        Utilities.base64Decode(bild.data),
+        bild.type || 'image/jpeg',
+        bild.name || ('kundenbild-' + (index + 1) + '.jpg')
+      ));
+      names.push(bild.name || ('bild-' + (index + 1)));
+    });
+    return { attachments: attachments, names: names };
+  }
+
+  const bildData = (params.bildData || '').trim();
+  if (bildData) {
+    attachments.push(Utilities.newBlob(
+      Utilities.base64Decode(bildData),
+      (params.bildType || 'image/jpeg').trim(),
+      (params.bildName || 'kundenbild.jpg').trim()
+    ));
+    names.push((params.bildName || 'kundenbild.jpg').trim());
+  }
+
+  return { attachments: attachments, names: names };
+}
+
 function handleKontakt_(params) {
   const email = (params.email || '').trim();
   const name = (params.name || '').trim();
@@ -171,14 +243,73 @@ function handleKontakt_(params) {
     return textResponse_('TOO LONG');
   }
 
-  MailApp.sendEmail({
-    to: KONTAKT_EMAIL,
-    replyTo: email,
-    subject: 'Kontakt meingameboy.de – ' + (name || email),
-    body: 'Name: ' + (name || '–') + '\nE-Mail: ' + email + '\n\n' + nachricht
+  const subject = 'Kontakt meingameboy.de – ' + (name || email);
+  const body = 'Name: ' + (name || '–') + '\nE-Mail: ' + email + '\n\n' + nachricht;
+
+  try {
+    const bilder = parseKontaktBilder_(params);
+    const mailOptions = {
+      to: KONTAKT_EMAIL,
+      replyTo: email,
+      subject: subject,
+      body: body + (bilder.names.length
+        ? '\n\n(Bilder im Anhang: ' + bilder.names.join(', ') + ')'
+        : '')
+    };
+
+    if (bilder.attachments.length > 0) {
+      mailOptions.attachments = bilder.attachments;
+    }
+
+    MailApp.sendEmail(mailOptions);
+
+    kontaktMerken_(
+      name,
+      email,
+      nachricht,
+      'gesendet' + (bilder.names.length ? ' + ' + bilder.names.length + ' Bild(er)' : '')
+    );
+    return textResponse_('OK');
+  } catch (err) {
+    kontaktMerken_(name, email, nachricht, 'Fehler: ' + err);
+    return textResponse_('ERROR');
+  }
+}
+
+/** Im Script-Editor ausführen – zeigt echte Fehler im Protokoll */
+function testKontaktSend() {
+  const result = handleKontakt_({
+    name: 'Test',
+    email: 'brother.louie007@gmail.com',
+    nachricht: 'Test vom Apps Script Editor – wenn du das liest, funktioniert der Mailversand.'
   });
 
-  return textResponse_('OK');
+  const antwort = result.getContent();
+  Logger.log('Antwort: ' + antwort);
+
+  if (antwort !== 'OK') {
+    throw new Error(
+      'E-Mail konnte nicht gesendet werden (Antwort: ' + antwort + '). ' +
+      'Tab „Kontakt“ im Google Sheet prüfen – dort steht der genaue Fehler.'
+    );
+  }
+
+  Logger.log('Erfolg! Prüfe restore.mail@gmx.de (ggf. Spam-Ordner).');
+}
+
+function kontaktMerken_(name, email, nachricht, status) {
+  try {
+    const ss = getSpreadsheet_();
+    let sheet = ss.getSheetByName('Kontakt');
+    if (!sheet) {
+      sheet = ss.insertSheet('Kontakt');
+      sheet.getRange(1, 1, 1, 5).setValues([['zeit', 'name', 'email', 'nachricht', 'status']]);
+      sheet.getRange(1, 1, 1, 5).setFontWeight('bold');
+    }
+    sheet.appendRow([new Date().toISOString(), name, email, nachricht.substring(0, 500), status]);
+  } catch (err) {
+    /* Protokoll optional */
+  }
 }
 
 function paypalVerifiziert_(params) {

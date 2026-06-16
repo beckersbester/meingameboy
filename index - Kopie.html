@@ -43,14 +43,6 @@
   box-sizing:border-box;
 }
 
-.kategorie-karte .kategorie-bild--float img{
-  width:auto;
-  height:200px;
-  max-width:88%;
-  background:transparent;
-  padding:0;
-}
-
 .kategorie-karte-body{
   padding:18px 16px 20px;
   flex:1;
@@ -93,7 +85,7 @@
 
 @media(min-width:601px){
   .kategorie-karte.kategorie-alle{flex-direction:row;align-items:stretch}
-  .kategorie-karte.kategorie-alle .kategorie-bild--float{
+  .kategorie-karte.kategorie-alle img{
     width:50%;
     height:auto;
     min-height:220px;
@@ -108,9 +100,7 @@
   .kategorie-auswahl{grid-template-columns:1fr;gap:18px}
   .kategorie-karte:hover{transform:none}
   .kategorie-karte img{height:200px;padding:12px}
-  .kategorie-karte .kategorie-bild--float img{height:180px;padding:0}
-  .kategorie-karte.kategorie-alle .kategorie-bild--float{height:200px}
-  .kategorie-karte.kategorie-alle .kategorie-bild--float img{height:190px}
+  .kategorie-karte.kategorie-alle img{width:100%;min-height:unset;height:200px;max-height:none}
 }
 </style>
 </head>
@@ -151,9 +141,7 @@
 <div class="kategorie-auswahl">
 
   <a href="shop.html?kategorie=all" class="kategorie-karte kategorie-alle">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/kategorie-alle-float.png" alt="Alle Game Boys">
-    </div>
+    <img src="WhatsApp Image 2026-06-07 at 20.29.28.png" alt="Alle Game Boys">
     <div class="kategorie-karte-body">
       <h3>Alle Angebote</h3>
       <p>Classic, Pocket, Color &amp; Advance – alle Modelle auf einen Blick</p>
@@ -162,9 +150,7 @@
   </a>
 
   <a href="shop.html?kategorie=classic" class="kategorie-karte">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/classic-float.png" alt="Game Boy Classic">
-    </div>
+    <img src="WhatsApp Image 2026-05-21 at 18.26.14 (5).png" alt="Game Boy Classic">
     <div class="kategorie-karte-body">
       <h3>Classic</h3>
       <p>Der legendäre Original-Game Boy</p>
@@ -173,9 +159,7 @@
   </a>
 
   <a href="shop.html?kategorie=pocket" class="kategorie-karte">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/pocket-orange-float.png" alt="Game Boy Pocket">
-    </div>
+    <img src="WhatsApp Image 2026-06-07 at 20.16.13 (9).png" alt="Game Boy Pocket">
     <div class="kategorie-karte-body">
       <h3>Pocket</h3>
       <p>Kompakt &amp; stylisch – Pokémon-Editionen</p>
@@ -184,9 +168,7 @@
   </a>
 
   <a href="shop.html?kategorie=color" class="kategorie-karte">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/color-wario-float.png" alt="Game Boy Color">
-    </div>
+    <img src="WhatsApp Image 2026-06-07 at 20.16.09.png" alt="Game Boy Color">
     <div class="kategorie-karte-body">
       <h3>Color</h3>
       <p>Farbenfroh – Mario &amp; Pokémon</p>
@@ -195,9 +177,7 @@
   </a>
 
   <a href="shop.html?kategorie=gba" class="kategorie-karte">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/gba-gengar-float.png" alt="Game Boy Advance">
-    </div>
+    <img src="gba-gengar-edition.png" alt="Game Boy Advance">
     <div class="kategorie-karte-body">
       <h3>Advance</h3>
       <p>GBA mit Custom Pokémon-Designs</p>

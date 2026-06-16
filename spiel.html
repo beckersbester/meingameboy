@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RGB-Checker – meingameboy.de</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="spiel">
+
+<header>
+  <div class="badge">RESTORE GAMING</div>
+  <h1><a href="index.html">meingameboy.de</a></h1>
+  <p class="tagline">Merke dir die Gehäuse-Farbe – triff sie mit RGB</p>
+</header>
+
+<div class="container">
+
+<div class="page-hero spiel-hero">
+  <p class="section-label">Mini-Game</p>
+  <h2 class="section-title">RGB-Checker</h2>
+  <button type="button" class="button spiel-btn-start" id="spiel-btn-start">Los geht's</button>
+</div>
+
+<div class="spiel-wrap">
+
+  <section class="spiel-phase" id="spiel-countdown" hidden>
+    <p class="spiel-countdown-text" id="spiel-countdown-text">Auf die Plätze…</p>
+  </section>
+
+  <section class="spiel-phase" id="spiel-memorize" hidden>
+    <p class="spiel-memorize-timer" id="spiel-memorize-timer">5</p>
+    <div class="spiel-gb spiel-gb--lg" id="spiel-memorize-gb" aria-label="Game Boy in Ziel-Farbe"></div>
+  </section>
+
+  <section class="spiel-phase" id="spiel-guess" hidden>
+    <p class="spiel-phase-hint">Stell die Gehäuse-Farbe nach:</p>
+    <div class="spiel-guess-layout">
+      <div class="spiel-gb spiel-gb--md" id="spiel-guess-gb" aria-label="Dein Game Boy"></div>
+      <div class="spiel-sliders">
+        <label class="spiel-slider spiel-slider--r">
+          <span>Rot <output id="spiel-r-val">128</output></span>
+          <input type="range" id="spiel-r" min="0" max="255" value="128">
+        </label>
+        <label class="spiel-slider spiel-slider--g">
+          <span>Grün <output id="spiel-g-val">128</output></span>
+          <input type="range" id="spiel-g" min="0" max="255" value="128">
+        </label>
+        <label class="spiel-slider spiel-slider--b">
+          <span>Blau <output id="spiel-b-val">128</output></span>
+          <input type="range" id="spiel-b" min="0" max="255" value="128">
+        </label>
+        <div class="spiel-farbe-vorschau">
+          <span>Vorschau</span>
+          <div id="spiel-guess-preview"></div>
+        </div>
+        <button type="button" class="button" id="spiel-confirm">Farbe bestätigen</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="spiel-phase" id="spiel-result" hidden>
+    <p class="spiel-score" id="spiel-score">0%</p>
+    <p class="spiel-score-label" id="spiel-score-label"></p>
+    <div class="spiel-result-vergleich">
+      <div class="spiel-result-box">
+        <span class="spiel-result-titel">Original-Gehäuse</span>
+        <div class="spiel-gb spiel-gb--sm" id="spiel-result-target-gb"></div>
+        <code id="spiel-result-target">rgb(0,0,0)</code>
+      </div>
+      <div class="spiel-result-box">
+        <span class="spiel-result-titel">Dein Gehäuse</span>
+        <div class="spiel-gb spiel-gb--sm" id="spiel-result-guess-gb"></div>
+        <code id="spiel-result-guess">rgb(0,0,0)</code>
+      </div>
+    </div>
+    <button type="button" class="button" id="spiel-again">Nochmal spielen</button>
+  </section>
+
+</div>
+
+</div>
+
+<footer></footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/spiel.js"></script>
+</body>
+</html>

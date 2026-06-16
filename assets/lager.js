@@ -21,23 +21,23 @@ const PRODUKT_NAMEN = {
 };
 
 const PRODUKT_BILDER = {
-  'color-wario': 'WhatsApp Image 2026-06-07 at 20.16.09.png',
-  'classic': 'WhatsApp Image 2026-05-21 at 18.26.14 (5).png',
-  'pocket-orange': 'WhatsApp Image 2026-06-07 at 20.16.13 (9).png',
-  'pocket-squirtle': 'WhatsApp Image 2026-06-07 at 20.16.13 (5).png',
-  'pocket-charizard': 'WhatsApp Image 2026-06-07 at 20.16.13 (3).png',
-  'pocket-pikachu': 'WhatsApp Image 2026-06-07 at 20.16.13 (1).png',
-  'pocket-classic': 'WhatsApp Image 2026-06-07 at 20.16.10.png',
-  'color-mario': 'WhatsApp Image 2026-06-07 at 20.16.09 (2).png',
-  'classic-black-ips': 'WhatsApp Image 2026-06-07 at 20.29.29.png',
-  'classic-red': 'WhatsApp Image 2026-05-21 at 18.26.14 (3).png',
-  'pocket-transparent': 'WhatsApp Image 2026-05-21 at 18.26.13 (14).png',
-  'color-pokemon': 'WhatsApp Image 2026-05-21 at 18.26.13 (18).png',
-  'color-charizard-orange': 'WhatsApp Image 2026-05-21 at 18.26.13 (16).png',
-  'color-yellow': 'WhatsApp Image 2026-05-21 at 18.48.20.png',
-  'classic-grau-ips': 'WhatsApp Image 2026-06-08 at 10.25.40.png',
-  'gba-gengar': 'gba-gengar-edition.png',
-  'gba-charmander': 'gba-charmander-edition.png'
+  'color-wario': 'assets/products/color-wario-float.png',
+  'classic': 'assets/products/classic-float.png',
+  'pocket-orange': 'assets/products/pocket-orange-float.png',
+  'pocket-squirtle': 'assets/products/pocket-squirtle-float.png',
+  'pocket-charizard': 'assets/products/pocket-charizard-float.png',
+  'pocket-pikachu': 'assets/products/pocket-pikachu-float.png',
+  'pocket-classic': 'assets/products/pocket-classic-float.png',
+  'color-mario': 'assets/products/color-mario-float.png',
+  'classic-black-ips': 'assets/products/classic-black-ips-float.png',
+  'classic-red': 'assets/products/classic-red-float.png',
+  'pocket-transparent': 'assets/products/pocket-transparent-float.png',
+  'color-pokemon': 'assets/products/color-pokemon-float.png',
+  'color-charizard-orange': 'assets/products/color-charizard-orange-float.png',
+  'color-yellow': 'assets/products/color-yellow-float.png',
+  'classic-grau-ips': 'assets/products/classic-grau-ips-float.png',
+  'gba-gengar': 'assets/products/gba-gengar-float.png',
+  'gba-charmander': 'assets/products/gba-charmander-float.png'
 };
 
 const VERKAUFE_DEFAULT = [
