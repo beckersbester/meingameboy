@@ -47,6 +47,7 @@
     again: document.getElementById('spiel-again'),
     btnStart: document.getElementById('spiel-btn-start'),
     rabattBox: document.getElementById('spiel-rabatt-box'),
+    rabattWert: document.getElementById('spiel-rabatt-wert'),
     rabattProzent: document.getElementById('spiel-rabatt-prozent'),
     rabattCode: document.getElementById('spiel-rabatt-code'),
     rabattInfo: document.getElementById('spiel-rabatt-info'),
@@ -200,9 +201,12 @@
     if (rabatt >= 1 && code) {
       el.rabattBox.hidden = false;
       el.rabattFallback.hidden = true;
-      el.rabattProzent.textContent = score + ' % Treffer – dein persönlicher Rabattcode';
+      if (el.rabattWert) el.rabattWert.textContent = rabatt + ' %';
+      if (el.rabattProzent) {
+        el.rabattProzent.textContent = score + ' % Treffer – dieser Code bringt dir ' + rabatt + ' % Rabatt im Shop';
+      }
       el.rabattCode.textContent = code;
-      el.rabattInfo.textContent = 'Im Warenkorb einlösen. Pro Bestellung nur ein Code – nimm den, der dir mehr bringt.';
+      el.rabattInfo.textContent = 'Im Warenkorb einlösen und „Code prüfen“ klicken – dort siehst du den Endpreis.';
     } else {
       el.rabattBox.hidden = true;
       el.rabattFallback.hidden = false;

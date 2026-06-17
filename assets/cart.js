@@ -343,6 +343,7 @@ const ShopCart = {
     const endpreisEl = document.getElementById('warenkorb-endpreis');
     const rabattZeile = document.getElementById('warenkorb-rabatt-zeile');
     const rabattBetragEl = document.getElementById('warenkorb-rabatt-betrag');
+    const rabattProzentEl = document.getElementById('warenkorb-rabatt-prozent');
     const rabattHinweisEl = document.getElementById('warenkorb-rabatt-hinweis');
     const checkBtn = document.getElementById('warenkorb-rabatt-check');
 
@@ -370,6 +371,13 @@ const ShopCart = {
     if (rabattZeile && rabattBetragEl) {
       if (data.discount > 0) {
         rabattZeile.hidden = false;
+        let prozent = data.rabattProzent;
+        if (prozent == null && data.subtotal > 0) {
+          prozent = Math.round(data.discount / data.subtotal * 100);
+        }
+        if (rabattProzentEl) {
+          rabattProzentEl.textContent = prozent != null ? prozent + ' %' : 'Festbetrag';
+        }
         rabattBetragEl.textContent = '−' + Number(data.discount).toFixed(2).replace('.', ',') + ' €';
       } else {
         rabattZeile.hidden = true;

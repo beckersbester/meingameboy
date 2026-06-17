@@ -295,10 +295,11 @@ function buildValidatedCart_(cart) {
 function buildRabattHinweis_(rabattCode, priced) {
   if (!rabattCode) return '';
   if (priced.rabattCode) {
+    const prozentText = priced.rabattProzent != null ? ' (' + priced.rabattProzent + ' % Rabatt)' : '';
     if (priced.discount > 0) {
-      return 'Code ' + priced.rabattCode + ' erkannt – du sparst ' + priced.discount.toFixed(2).replace('.', ',') + ' €.';
+      return 'Code ' + priced.rabattCode + ' erkannt' + prozentText + ' – du sparst ' + priced.discount.toFixed(2).replace('.', ',') + ' €.';
     }
-    return 'Code ' + priced.rabattCode + ' erkannt.';
+    return 'Code ' + priced.rabattCode + ' erkannt' + prozentText + '.';
   }
   return 'Code „' + rabattCode + '“ ist ungültig oder nicht aktiv.';
 }
@@ -320,6 +321,7 @@ function handleQuote_(params) {
       discount: priced.discount,
       total: priced.total,
       rabattGueltig: rabattCode ? !!priced.rabattCode : null,
+      rabattProzent: priced.rabattProzent,
       rabattHinweis: buildRabattHinweis_(rabattCode, priced)
     });
   } catch (err) {
@@ -342,6 +344,7 @@ function handleCheckout_(params) {
       discount: priced.discount,
       total: priced.total,
       rabattCode: priced.rabattCode || '',
+      rabattProzent: priced.rabattProzent,
       rabattHinweis: buildRabattHinweis_(rabattCode, priced)
     });
   } catch (err) {
@@ -388,7 +391,9 @@ function berechneWarenkorbPreise_(lines, rabattCode) {
     subtotal: subtotal,
     discount: round2_(subtotal - total),
     total: total,
-    rabattCode: appliedCode
+    rabattCode: appliedCode,
+    rabattProzent: rabatt && rabatt.typ === 'prozent' ? rabatt.wert : null,
+    rabattTyp: rabatt ? rabatt.typ : ''
   };
 }
 

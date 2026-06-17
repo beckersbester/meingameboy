@@ -76,20 +76,6 @@ const VERKAUFE_DEFAULT = [
   { produktId: 'classic', datum: '2026-06-13' }
 ];
 
-function formatVerkaufsDatum(datum) {
-  if (!datum) return '';
-  const s = String(datum);
-  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (iso) return iso[3] + '.' + iso[2] + '.' + iso[1];
-  const parsed = new Date(s);
-  if (!isNaN(parsed.getTime())) {
-    const d = String(parsed.getDate()).padStart(2, '0');
-    const m = String(parsed.getMonth() + 1).padStart(2, '0');
-    return d + '.' + m + '.' + parsed.getFullYear();
-  }
-  return s;
-}
-
 function renderVerkaeufe(verkaeufe, maxAnzahl) {
   const box = document.getElementById('verkaeufe-box');
   const liste = document.getElementById('verkaeufe-liste');
@@ -104,7 +90,6 @@ function renderVerkaeufe(verkaeufe, maxAnzahl) {
       (bild ? '<img class="verkaeufe-bild" src="' + bild + '" alt="">' : '') +
       '<div class="verkaeufe-inhalt">' +
         '<span class="verkaeufe-name">' + name + '</span>' +
-        '<span class="verkaeufe-datum">' + formatVerkaufsDatum(verkauf.datum) + '</span>' +
       '</div>';
     liste.appendChild(li);
   });

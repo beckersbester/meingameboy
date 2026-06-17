@@ -4,9 +4,7 @@ const NAV_ITEMS = [
   { id: 'start', label: 'Start', href: 'index.html' },
   { id: 'shop', label: 'Shop', href: 'shop.html' },
   { id: 'geschichte', label: 'Geschichte', href: 'geschichte.html' },
-  { id: 'verkaeufe', label: 'Verkäufe', href: 'verkaeufe.html' },
-  { id: 'bewertungen', label: 'Bewertungen', href: 'bewertungen.html' },
-  { id: 'ueber-uns', label: 'Über uns', href: 'ueber-uns.html' }
+  { id: 'bewertungen', label: 'Bewertungen', href: 'bewertungen.html' }
 ];
 
 const MINI_GAME_NAV = { id: 'spiel', label: 'Mini-Game', href: 'spiel.html' };
@@ -48,7 +46,7 @@ function buildWarenkorbModal() {
           '<p class="warenkorb-rabatt-hinweis" id="warenkorb-rabatt-hinweis" aria-live="polite">Code eingeben und auf „Code prüfen“ klicken.</p>' +
           '<div class="warenkorb-preise-box" id="warenkorb-preise-box">' +
             '<p class="warenkorb-zwischensumme">Zwischensumme: <strong id="warenkorb-zwischensumme">0,00 €</strong></p>' +
-            '<p class="warenkorb-rabatt-zeile" id="warenkorb-rabatt-zeile" hidden>Rabatt: <strong id="warenkorb-rabatt-betrag">−0,00 €</strong></p>' +
+            '<p class="warenkorb-rabatt-zeile" id="warenkorb-rabatt-zeile" hidden>Rabatt (<span id="warenkorb-rabatt-prozent">0&nbsp;%</span>): <strong id="warenkorb-rabatt-betrag">−0,00 €</strong></p>' +
             '<p class="warenkorb-endpreis">Du zahlst: <strong id="warenkorb-endpreis">0,00 €</strong></p>' +
           '</div>' +
           '<button type="button" class="button button-checkout" id="warenkorb-checkout">Zur Kasse mit PayPal</button>' +
@@ -64,7 +62,7 @@ function buildKontaktModal() {
       '<div class="modal" role="dialog" aria-labelledby="kontakt-titel">' +
         '<button type="button" class="modal-close" id="kontakt-close" aria-label="Schließen">&times;</button>' +
         '<h2 id="kontakt-titel">Kontakt</h2>' +
-        '<p class="modal-intro">Schreib uns deine Frage – wir melden uns per E-Mail zurück.</p>' +
+        '<p class="modal-intro">Schreib mir deine Frage – ich melde mich per E-Mail zurück.</p>' +
         '<form class="kontakt-form" id="kontakt-form">' +
           '<label>Name<input type="text" name="name" autocomplete="name" placeholder="Dein Name"></label>' +
           '<label>E-Mail *<input type="email" name="email" required autocomplete="email" placeholder="deine@email.de"></label>' +
@@ -84,11 +82,7 @@ function buildKontaktModal() {
 
 function buildSiteFooter() {
   const links = [
-    { href: 'index.html', label: 'Start' },
-    { href: 'shop.html', label: 'Shop' },
-    { href: 'verkaeufe.html', label: 'Verkäufe' },
-    { href: 'bewertungen.html', label: 'Bewertungen' },
-    { href: 'ueber-uns.html', label: 'Über uns' },
+    { href: 'ueber-uns.html', label: 'Über mich' },
     { href: 'impressum.html', label: 'Impressum' },
     { href: 'datenschutz.html', label: 'Datenschutz' }
   ].map(function (item) {
@@ -234,7 +228,7 @@ function sendKontaktRequest(params, usePost) {
 
 function handleKontaktResponse(text, form, status, button) {
   if (text.trim() === 'OK') {
-    status.textContent = 'Danke! Deine Nachricht wurde gesendet – wir melden uns bald.';
+    status.textContent = 'Danke! Deine Nachricht wurde gesendet – ich melde mich bald.';
     status.className = 'kontakt-status ok';
     form.reset();
     const dateiname = document.getElementById('kontakt-dateiname');
@@ -301,7 +295,18 @@ async function submitKontaktForm(e) {
   }
 }
 
+function initSiteHeader() {
+  const h1Link = document.querySelector('header h1 a');
+  if (h1Link && !h1Link.querySelector('.site-domain')) {
+    const text = h1Link.textContent.trim();
+    if (text === 'meingameboy.de') {
+      h1Link.innerHTML = 'meingameboy<span class="site-domain">.de</span>';
+    }
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+  initSiteHeader();
   initSiteNav();
   initSiteFooter();
 });
