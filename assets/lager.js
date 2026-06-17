@@ -17,8 +17,28 @@ const PRODUKT_NAMEN = {
   'color-yellow': 'Game Boy Color Pokémon Yellow Edition',
   'classic-grau-ips': 'Game Boy Classic Grau IPS V5',
   'gba-gengar': 'Game Boy Advance Gengar Edition',
-  'gba-charmander': 'Game Boy Advance Charmander Edition'
+  'gba-charmander': 'Game Boy Advance Charmander Edition',
+  'spiel-sm1-z1': 'Super Mario Land – Akzeptabel',
+  'spiel-sm1-z2': 'Super Mario Land – Gut',
+  'spiel-sm1-z3': 'Super Mario Land – Sehr gut',
+  'spiel-sm1-z4': 'Super Mario Land – Neuwertig',
+  'spiel-sm2-z1': 'Super Mario Land 2 – Akzeptabel',
+  'spiel-sm2-z2': 'Super Mario Land 2 – Gut',
+  'spiel-sm2-z3': 'Super Mario Land 2 – Sehr gut',
+  'spiel-sm2-z4': 'Super Mario Land 2 – Neuwertig',
+  'spiel-sm3-z1': 'Super Mario Land 3 – Akzeptabel',
+  'spiel-sm3-z2': 'Super Mario Land 3 – Gut',
+  'spiel-sm3-z3': 'Super Mario Land 3 – Sehr gut',
+  'spiel-sm3-z4': 'Super Mario Land 3 – Neuwertig'
 };
+
+const SPIEL_BILD_EXT = { 'sm2-z1': 'jpeg' };
+
+function spielBildPfadLager(spiel, zKey) {
+  const num = spiel.replace('sm', '');
+  const ext = SPIEL_BILD_EXT[spiel + '-' + zKey] || 'webp';
+  return 'assets/products/SM' + num + '_' + zKey.toUpperCase() + '.' + ext;
+}
 
 const PRODUKT_BILDER = {
   'color-wario': 'assets/products/color-wario-float.png',
@@ -37,7 +57,19 @@ const PRODUKT_BILDER = {
   'color-yellow': 'assets/products/color-yellow-float.png',
   'classic-grau-ips': 'assets/products/classic-grau-ips-float.png',
   'gba-gengar': 'assets/products/gba-gengar-float.png',
-  'gba-charmander': 'assets/products/gba-charmander-float.png'
+  'gba-charmander': 'assets/products/gba-charmander-float.png',
+  'spiel-sm1-z1': spielBildPfadLager('sm1', 'z1'),
+  'spiel-sm1-z2': spielBildPfadLager('sm1', 'z2'),
+  'spiel-sm1-z3': spielBildPfadLager('sm1', 'z3'),
+  'spiel-sm1-z4': spielBildPfadLager('sm1', 'z4'),
+  'spiel-sm2-z1': spielBildPfadLager('sm2', 'z1'),
+  'spiel-sm2-z2': spielBildPfadLager('sm2', 'z2'),
+  'spiel-sm2-z3': spielBildPfadLager('sm2', 'z3'),
+  'spiel-sm2-z4': spielBildPfadLager('sm2', 'z4'),
+  'spiel-sm3-z1': spielBildPfadLager('sm3', 'z1'),
+  'spiel-sm3-z2': spielBildPfadLager('sm3', 'z2'),
+  'spiel-sm3-z3': spielBildPfadLager('sm3', 'z3'),
+  'spiel-sm3-z4': spielBildPfadLager('sm3', 'z4')
 };
 
 const VERKAUFE_DEFAULT = [

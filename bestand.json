@@ -15,5 +15,17 @@
   "color-yellow": 3,
   "classic-grau-ips": 1,
   "gba-gengar": 0,
-  "gba-charmander": 0
+  "gba-charmander": 0,
+  "spiel-sm1-z1": 1,
+  "spiel-sm1-z2": 1,
+  "spiel-sm1-z3": 1,
+  "spiel-sm1-z4": 0,
+  "spiel-sm2-z1": 1,
+  "spiel-sm2-z2": 0,
+  "spiel-sm2-z3": 1,
+  "spiel-sm2-z4": 1,
+  "spiel-sm3-z1": 1,
+  "spiel-sm3-z2": 1,
+  "spiel-sm3-z3": 1,
+  "spiel-sm3-z4": 1
 }

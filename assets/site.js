@@ -22,9 +22,39 @@ function buildSiteNav(activeId) {
   return (
     '<nav class="site-nav" aria-label="Hauptnavigation">' +
       links +
+      '<button type="button" class="nav-warenkorb" id="warenkorb-open">Warenkorb <span class="warenkorb-badge" id="warenkorb-badge" hidden>0</span></button>' +
       '<button type="button" class="nav-kontakt" id="kontakt-open">Kontakt</button>' +
       '<a href="' + MINI_GAME_NAV.href + '"' + miniGameCls + '>' + MINI_GAME_NAV.label + '</a>' +
     '</nav>'
+  );
+}
+
+function buildWarenkorbModal() {
+  return (
+    '<div class="modal-overlay" id="warenkorb-modal" aria-hidden="true">' +
+      '<div class="modal modal-wide" role="dialog" aria-labelledby="warenkorb-titel">' +
+        '<button type="button" class="modal-close" id="warenkorb-close" aria-label="Schließen">&times;</button>' +
+        '<h2 id="warenkorb-titel">Warenkorb</h2>' +
+        '<p class="modal-intro">Artikel hinzufügen, Rabattcode eingeben – sicher bezahlen über PayPal.</p>' +
+        '<p class="warenkorb-leer" id="warenkorb-leer">Dein Warenkorb ist noch leer.</p>' +
+        '<ul class="warenkorb-liste" id="warenkorb-liste"></ul>' +
+        '<div class="warenkorb-summary" id="warenkorb-summary" hidden>' +
+          '<label class="warenkorb-rabatt-label">Rabattcode (optional)' +
+            '<div class="warenkorb-rabatt-row">' +
+              '<input type="text" id="warenkorb-rabatt" placeholder="z.B. GAMEBOY5" autocapitalize="characters">' +
+              '<button type="button" class="button button-rabatt-check" id="warenkorb-rabatt-check">Code prüfen</button>' +
+            '</div>' +
+          '</label>' +
+          '<p class="warenkorb-rabatt-hinweis" id="warenkorb-rabatt-hinweis" aria-live="polite">Code eingeben und auf „Code prüfen“ klicken.</p>' +
+          '<div class="warenkorb-preise-box" id="warenkorb-preise-box">' +
+            '<p class="warenkorb-zwischensumme">Zwischensumme: <strong id="warenkorb-zwischensumme">0,00 €</strong></p>' +
+            '<p class="warenkorb-rabatt-zeile" id="warenkorb-rabatt-zeile" hidden>Rabatt: <strong id="warenkorb-rabatt-betrag">−0,00 €</strong></p>' +
+            '<p class="warenkorb-endpreis">Du zahlst: <strong id="warenkorb-endpreis">0,00 €</strong></p>' +
+          '</div>' +
+          '<button type="button" class="button button-checkout" id="warenkorb-checkout">Zur Kasse mit PayPal</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
   );
 }
 
@@ -85,6 +115,7 @@ function initSiteNav() {
   header.insertAdjacentHTML('afterend', buildSiteNav(activeId));
 
   document.body.insertAdjacentHTML('beforeend', buildKontaktModal());
+  document.body.insertAdjacentHTML('beforeend', buildWarenkorbModal());
 
   document.getElementById('kontakt-open').addEventListener('click', openKontaktModal);
   document.getElementById('kontakt-close').addEventListener('click', closeKontaktModal);
@@ -120,7 +151,10 @@ function initSiteNav() {
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeKontaktModal();
+    if (e.key === 'Escape') {
+      closeKontaktModal();
+      if (typeof ShopCart !== 'undefined') ShopCart.closeModal();
+    }
   });
 
   if (window.location.hash === '#kontakt') openKontaktModal();

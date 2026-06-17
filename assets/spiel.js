@@ -5,6 +5,19 @@
   var RACE_WORDS = ['Auf die Plätze…', 'Fertig…', 'Los!'];
   var RACE_MS = 900;
 
+  var SPIEL_RABATT_CODES = {
+    1: 'PIXELDK',
+    2: 'WARIOWX',
+    3: 'MARIOGB',
+    4: 'LANDONE',
+    5: 'DMGSCOR',
+    6: 'LINKCAB',
+    7: 'KONAMIX',
+    8: 'POCKETX',
+    9: 'RETROFX',
+    10: 'FULLRGB'
+  };
+
   var target = { r: 0, g: 0, b: 0 };
   var timerId = null;
 
@@ -32,7 +45,13 @@
     resultTargetGb: document.getElementById('spiel-result-target-gb'),
     resultGuessGb: document.getElementById('spiel-result-guess-gb'),
     again: document.getElementById('spiel-again'),
-    btnStart: document.getElementById('spiel-btn-start')
+    btnStart: document.getElementById('spiel-btn-start'),
+    rabattBox: document.getElementById('spiel-rabatt-box'),
+    rabattProzent: document.getElementById('spiel-rabatt-prozent'),
+    rabattCode: document.getElementById('spiel-rabatt-code'),
+    rabattInfo: document.getElementById('spiel-rabatt-info'),
+    rabattCopy: document.getElementById('spiel-rabatt-copy'),
+    rabattFallback: document.getElementById('spiel-rabatt-fallback')
   };
 
   function sleep(ms) {
@@ -162,6 +181,65 @@
     return 'Ups – nächste Runde wird besser!';
   }
 
+  /** Zehnerstelle der Score-Anzeige = Rabatt in % (max. 10). 67 % → 6 %, 100 % → 10 %. */
+  function rabattProzentFromScore(score) {
+    return Math.min(10, Math.floor(score / 10));
+  }
+
+  function rabattCodeFromScore(score) {
+    var rabatt = rabattProzentFromScore(score);
+    return SPIEL_RABATT_CODES[rabatt] || null;
+  }
+
+  function showRabattResult(score) {
+    var rabatt = rabattProzentFromScore(score);
+    var code = rabattCodeFromScore(score);
+
+    if (!el.rabattBox || !el.rabattFallback) return;
+
+    if (rabatt >= 1 && code) {
+      el.rabattBox.hidden = false;
+      el.rabattFallback.hidden = true;
+      el.rabattProzent.textContent = score + ' % Treffer – dein persönlicher Rabattcode';
+      el.rabattCode.textContent = code;
+      el.rabattInfo.textContent = 'Im Warenkorb einlösen. Pro Bestellung nur ein Code – nimm den, der dir mehr bringt.';
+    } else {
+      el.rabattBox.hidden = true;
+      el.rabattFallback.hidden = false;
+    }
+  }
+
+  function copyRabattCode() {
+    if (!el.rabattCode || !el.rabattCode.textContent) return;
+    var code = el.rabattCode.textContent;
+    function done() {
+      if (el.rabattInfo) {
+        el.rabattInfo.textContent = 'Code „' + code + '“ kopiert – einfach im Warenkorb einfügen.';
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done).catch(function () {
+        fallbackCopy(code);
+        done();
+      });
+    } else {
+      fallbackCopy(code);
+      done();
+    }
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'absolute';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) { /* ignore */ }
+    document.body.removeChild(ta);
+  }
+
   function updateSliders() {
     var c = readGuess();
     el.valR.textContent = c.r;
@@ -226,6 +304,7 @@
     el.score.textContent = score + '%';
     el.scoreLabel.textContent = scoreLabelText(score);
     el.score.className = 'spiel-score spiel-score--' + (score >= 85 ? 'high' : score >= 60 ? 'mid' : 'low');
+    showRabattResult(score);
 
     showPhase('result');
   }
@@ -245,6 +324,7 @@
   el.btnStart.addEventListener('click', startGame);
   el.again.addEventListener('click', hideAllPhases);
   el.confirm.addEventListener('click', showResult);
+  if (el.rabattCopy) el.rabattCopy.addEventListener('click', copyRabattCode);
 
   [el.sliderR, el.sliderG, el.sliderB].forEach(function (slider) {
     slider.addEventListener('input', updateSliders);

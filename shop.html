@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop – meingameboy.de</title>
-<link rel="stylesheet" href="assets/site.css?v=20260618">
+<link rel="stylesheet" href="assets/site.css?v=20260628">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -289,6 +289,46 @@ h2{
   content:"✓ ";
   color:#00f5d4;
   font-weight:bold;
+}
+
+.zustand-wahl{
+  flex-shrink:0;
+  margin:12px 0 0;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  text-align:left;
+}
+
+.zustand-wahl span{
+  font-size:11px;
+  color:#888;
+  font-weight:bold;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.zustand-select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:2px solid rgba(0,245,212,.35);
+  background:#0b0e20;
+  color:#fff;
+  font-size:14px;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.zustand-select:focus{
+  outline:none;
+  border-color:#00f5d4;
+  box-shadow:0 0 12px rgba(0,245,212,.25);
+}
+
+.produkt.spiel-variante.ausverkauft .zustand-select{
+  opacity:.55;
+  cursor:not-allowed;
 }
 
 .preis{
@@ -582,6 +622,27 @@ h2{
 .button:hover{
   background:#ff4fa3;
   color:#070817;
+}
+
+.button-warenkorb{
+  display:block;
+  width:100%;
+  margin-top:12px;
+  box-sizing:border-box;
+  border:2px solid #0070ba;
+  color:#fff;
+  padding:12px 16px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#0070ba,#003087);
+  font-size:13px;
+  font-family:Arial,sans-serif;
+}
+
+.button-warenkorb:hover{
+  filter:brightness(1.08);
+  transform:translateY(-1px);
 }
 
 .button-paypal{
@@ -1052,7 +1113,7 @@ h2{
 <header>
   <div class="badge">RESTORE GAMING</div>
   <h1><a href="index.html">meingameboy.de</a></h1>
-  <p class="tagline">Alle Angebote · 5&nbsp;% Rabatt · Versand gratis</p>
+  <p class="tagline">Alle Angebote · Warenkorb · Rabattcode · Versand gratis</p>
 </header>
 
 <div class="container wide">
@@ -1064,7 +1125,7 @@ h2{
 </div>
 
 <div class="perks">
-  <div class="perk"><strong>5&nbsp;% sparen</strong>Nur auf meingameboy.de</div>
+  <div class="perk"><strong>5&nbsp;% Rabatt</strong>Code GAMEBOY5 im Warenkorb</div>
   <div class="perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf</div>
   <div class="perk"><strong>30 Tage Rückgabe</strong>Ohne Risiko</div>
   <div class="perk"><strong>PayPal-Schutz</strong>Sicher bezahlen</div>
@@ -1072,6 +1133,8 @@ h2{
 
 <div class="kategorien">
   <a class="kategorie" href="shop.html?kategorie=all" data-kategorie="all">Alle</a>
+  <a class="kategorie" href="shop.html?kategorie=konsolen" data-kategorie="konsolen">Konsolen</a>
+  <a class="kategorie" href="shop.html?kategorie=spiele" data-kategorie="spiele">Spiele</a>
   <a class="kategorie" href="shop.html?kategorie=classic" data-kategorie="classic">Classic</a>
   <a class="kategorie" href="shop.html?kategorie=pocket" data-kategorie="pocket">Pocket</a>
   <a class="kategorie" href="shop.html?kategorie=color" data-kategorie="color">Color</a>
@@ -1086,7 +1149,7 @@ h2{
 
 <div class="produkte">
 
-<div class="produkt color" data-produkt-id="color-wario">
+<div class="produkt konsolen color" data-produkt-id="color-wario">
   <div class="badge-produkt badge-blue">Super Mario</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/color-wario-float.png" target="_blank">
@@ -1096,10 +1159,10 @@ h2{
   <h3>Game Boy Color Wario Edition</h3>
   <ul class="features"><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li><li>Kostenloser Versand</li></ul>
   <div class="preis-block" data-uvp="124,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt classic" data-produkt-id="classic">
+<div class="produkt konsolen classic" data-produkt-id="classic">
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/classic-float.png" target="_blank">
       <img src="assets/products/classic-float.png" alt="Nintendo Game Boy Classic">
@@ -1108,10 +1171,10 @@ h2{
   <h3>Nintendo Game Boy Classic</h3>
   <ul class="features"><li>Original Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
   <div class="preis-block" data-uvp="109,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt pocket" data-produkt-id="pocket-orange">
+<div class="produkt konsolen pocket" data-produkt-id="pocket-orange">
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/pocket-orange-float.png" target="_blank">
       <img src="assets/products/pocket-orange-float.png" alt="Game Boy Pocket Orange">
@@ -1120,10 +1183,10 @@ h2{
   <h3>Game Boy Pocket Orange</h3>
   <ul class="features"><li>Auffälliges Retro Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt pocket" data-produkt-id="pocket-squirtle">
+<div class="produkt konsolen pocket" data-produkt-id="pocket-squirtle">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/pocket-squirtle-float.png" target="_blank">
@@ -1133,10 +1196,10 @@ h2{
   <h3>Game Boy Pocket Pokémon Squirtle Edition</h3>
   <ul class="features"><li>Transparentes Gehäuse</li><li>Pokémon Design</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt pocket" data-produkt-id="pocket-charizard">
+<div class="produkt konsolen pocket" data-produkt-id="pocket-charizard">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/pocket-charizard-float.png" target="_blank">
@@ -1146,10 +1209,10 @@ h2{
   <h3>Game Boy Pocket Pokémon Charizard Edition</h3>
   <ul class="features"><li>Transparenter Pokémon Look</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt pocket" data-produkt-id="pocket-pikachu">
+<div class="produkt konsolen pocket" data-produkt-id="pocket-pikachu">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/pocket-pikachu-float.png" target="_blank">
@@ -1159,10 +1222,10 @@ h2{
   <h3>Game Boy Pocket Pikachu Edition</h3>
   <ul class="features"><li>Gelbes Pokémon Design</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt pocket" data-produkt-id="pocket-classic">
+<div class="produkt konsolen pocket" data-produkt-id="pocket-classic">
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/pocket-classic-float.png" target="_blank">
       <img src="assets/products/pocket-classic-float.png" alt="Game Boy Pocket Classic Design">
@@ -1171,10 +1234,10 @@ h2{
   <h3>Game Boy Pocket Classic Design</h3>
   <ul class="features"><li>Classic Retro Feeling</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt color" data-produkt-id="color-mario">
+<div class="produkt konsolen color" data-produkt-id="color-mario">
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/color-mario-float.png" target="_blank">
       <img src="assets/products/color-mario-float.png" alt="Game Boy Color Mario Edition">
@@ -1183,10 +1246,10 @@ h2{
   <h3>Game Boy Color Mario Edition</h3>
   <ul class="features"><li>Mario Scheibe</li><li>Technisch geprüft</li><li>Gereinigt & sofort spielbereit</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt classic ips" data-produkt-id="classic-black-ips">
+<div class="produkt konsolen classic ips" data-produkt-id="classic-black-ips">
   <div class="badge-produkt badge-blue">IPS V5</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/classic-black-ips-float.png" target="_blank">
@@ -1196,10 +1259,10 @@ h2{
   <h3>Game Boy Classic Black Button IPS V5</h3>
   <ul class="features"><li>IPS V5 Display</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="159,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt classic" data-produkt-id="classic-red">
+<div class="produkt konsolen classic" data-produkt-id="classic-red">
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/classic-red-float.png" target="_blank">
       <img src="assets/products/classic-red-float.png" alt="Game Boy Classic Red Button">
@@ -1208,10 +1271,10 @@ h2{
   <h3>Game Boy Classic Red Button</h3>
   <ul class="features"><li>Weißes Gehäuse</li><li>Rote Tasten</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="109,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt pocket" data-produkt-id="pocket-transparent">
+<div class="produkt konsolen pocket" data-produkt-id="pocket-transparent">
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/pocket-transparent-float.png" target="_blank">
       <img src="assets/products/pocket-transparent-float.png" alt="Game Boy Pocket Transparent">
@@ -1220,10 +1283,10 @@ h2{
   <h3>Game Boy Pocket Transparent</h3>
   <ul class="features"><li>Transparentes Gehäuse</li><li>Retro Look</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="99,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt color" data-produkt-id="color-pokemon">
+<div class="produkt konsolen color" data-produkt-id="color-pokemon">
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/color-pokemon-float.png" target="_blank">
       <img src="assets/products/color-pokemon-float.png" alt="Game Boy Color Pokémon">
@@ -1232,10 +1295,10 @@ h2{
   <h3>Game Boy Color Pokémon</h3>
   <ul class="features"><li>Pokémon Scheibe</li><li>Weißes Gehäuse</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="114,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt color" data-produkt-id="color-charizard-orange">
+<div class="produkt konsolen color" data-produkt-id="color-charizard-orange">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/color-charizard-orange-float.png" target="_blank">
@@ -1245,10 +1308,10 @@ h2{
   <h3>Game Boy Color Charizard Orange Edition</h3>
   <ul class="features"><li>Transparent Orange</li><li>Charizard Design</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt color" data-produkt-id="color-yellow">
+<div class="produkt konsolen color" data-produkt-id="color-yellow">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/color-yellow-float.png" target="_blank">
@@ -1258,10 +1321,10 @@ h2{
   <h3>Game Boy Color Pokémon Yellow Edition</h3>
   <ul class="features"><li>Pokémon Yellow Style</li><li>Technisch geprüft</li><li>Gereinigt & spielbereit</li></ul>
   <div class="preis-block" data-uvp="119,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt classic ips" data-produkt-id="classic-grau-ips">
+<div class="produkt konsolen classic ips" data-produkt-id="classic-grau-ips">
   <div class="badge-produkt badge-blue">IPS V5</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/classic-grau-ips-float.png" target="_blank">
@@ -1271,10 +1334,10 @@ h2{
   <h3>Game Boy Classic Grau IPS V5</h3>
   <ul class="features"><li>IPS V5 Display</li><li>Klassischer Look</li><li>Geprüft & gereinigt</li></ul>
   <div class="preis-block" data-uvp="159,99 €"></div>
-  <a class="button button-paypal" href="#" target="_blank" rel="noopener noreferrer">Jetzt über PayPal sicher kaufen</a>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
-<div class="produkt gba ausverkauft" data-produkt-id="gba-gengar">
+<div class="produkt konsolen gba ausverkauft" data-produkt-id="gba-gengar">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/gba-gengar-float.png" target="_blank">
@@ -1288,7 +1351,7 @@ h2{
   <span class="button-ausverkauft">Ausverkauft</span>
 </div>
 
-<div class="produkt gba ausverkauft" data-produkt-id="gba-charmander">
+<div class="produkt konsolen gba ausverkauft" data-produkt-id="gba-charmander">
   <div class="badge-produkt badge-blue">Pokémon</div>
   <div class="produkt-bild produkt-bild--float">
     <a href="assets/products/gba-charmander-float.png" target="_blank">
@@ -1302,6 +1365,72 @@ h2{
   <span class="button-ausverkauft">Ausverkauft</span>
 </div>
 
+<div class="produkt spiele spiel-variante" data-spiel="sm1">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/SM1_Z3.webp" target="_blank">
+      <img class="spiel-bild" src="assets/products/SM1_Z3.webp" alt="Super Mario Land">
+    </a>
+  </div>
+  <h3>Super Mario Land</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Super Mario Land">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3" selected>Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="24,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="sm2">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/SM2_Z3.webp" target="_blank">
+      <img class="spiel-bild" src="assets/products/SM2_Z3.webp" alt="Super Mario Land 2">
+    </a>
+  </div>
+  <h3>Super Mario Land 2</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Super Mario Land 2">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3" selected>Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="24,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="sm3">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/SM3_Z3.webp" target="_blank">
+      <img class="spiel-bild" src="assets/products/SM3_Z3.webp" alt="Super Mario Land 3">
+    </a>
+  </div>
+  <h3>Super Mario Land 3</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Super Mario Land 3">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3" selected>Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="26,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
 <p class="keine-treffer" id="keine-treffer">In dieser Kategorie sind aktuell keine Angebote verfügbar.</p>
 
 </div>
@@ -1310,15 +1439,15 @@ h2{
 
 <footer></footer>
 
-<script src="assets/site.js?v=20260618"></script>
+<script src="assets/site.js?v=20260628"></script>
+<script src="assets/cart.js?v=20260628"></script>
 <script>
-const RABATT = 0.05;
-const RABATT_PROZENT = Math.round(RABATT * 100);
-const PAYPAL_EMAIL = 'restore.info@gmx.de';
 const LAGER_API_URL = typeof SITE_API_URL !== 'undefined' ? SITE_API_URL : '';
 
 const kategorieTitel = {
   all: 'Alle Angebote',
+  konsolen: 'Game Boy Konsolen',
+  spiele: 'Game Boy Spiele',
   classic: 'Game Boy Classic',
   pocket: 'Game Boy Pocket',
   color: 'Game Boy Color',
@@ -1327,7 +1456,9 @@ const kategorieTitel = {
 };
 
 const kategorieBeschreibung = {
-  all: 'Classic, Pocket, Color & Advance – alle Modelle und Editionen auf einen Blick.',
+  all: 'Konsolen & Spiele – alle Angebote auf einen Blick.',
+  konsolen: 'Classic, Pocket, Color & Advance – professionell aufbereitete Konsolen.',
+  spiele: 'Super Mario Land 1, 2 & 3 – Originalmodule, Zustand frei wählbar.',
   classic: 'Der legendäre Original-Game Boy – klassisch, robust und voller Retro-Charme.',
   pocket: 'Der schlanke Game Boy Pocket – kompakt, stylisch, auch als Pokémon- & Sonderedition.',
   color: 'Der farbige Game Boy Color – lebendige Spiele mit Mario- & Pokémon-Designs.',
@@ -1345,7 +1476,16 @@ function filterProducts(category) {
   });
 
   products.forEach(product => {
-    const show = category === 'all' || product.classList.contains(category);
+    let show = false;
+    if (category === 'all') {
+      show = true;
+    } else if (category === 'konsolen') {
+      show = product.classList.contains('konsolen');
+    } else if (category === 'spiele') {
+      show = product.classList.contains('spiele');
+    } else {
+      show = product.classList.contains(category);
+    }
     product.style.display = show ? '' : 'none';
     if (show) sichtbar++;
   });
@@ -1366,28 +1506,55 @@ function formatPreis(value) {
   return value.toFixed(2).replace('.', ',') + ' €';
 }
 
-function berechneRabattpreis(uvp) {
-  return Math.round(uvp * (1 - RABATT) * 100) / 100;
+function ensureWarenkorbButton(produkt) {
+  if (!produkt.querySelector('.button-warenkorb')) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'button button-warenkorb';
+    btn.textContent = 'In den Warenkorb';
+    produkt.appendChild(btn);
+  }
 }
 
-function buildPayPalUrl(itemName, amount, produktId) {
-  const params = new URLSearchParams({
-    cmd: '_xclick',
-    business: PAYPAL_EMAIL,
-    item_name: itemName,
-    item_number: produktId,
-    amount: amount.toFixed(2),
-    currency_code: 'EUR',
-    charset: 'utf-8',
-    no_shipping: '0',
-    return: 'https://meingameboy.de/shop.html?kauf=erfolg',
-    cancel_return: 'https://meingameboy.de/shop.html'
+function initWarenkorbButtons() {
+  document.querySelectorAll('.button-warenkorb').forEach(function (btn) {
+    btn.onclick = function () {
+      const produkt = btn.closest('.produkt');
+      if (!produkt || produkt.classList.contains('ausverkauft')) return;
+      const produktId = produkt.dataset.produktId;
+      if (!produktId) return;
+      let name = produkt.querySelector('h3').textContent.trim();
+      if (produkt.classList.contains('spiel-variante')) {
+        name = spielVollerName(produkt, produkt.dataset.aktiveVariante || produkt.querySelector('.zustand-select')?.value || 'z3');
+      }
+      const preis = parseFloat(produkt.querySelector('.preis-block')?.dataset.preis) || 0;
+      if (typeof ShopCart !== 'undefined') {
+        ShopCart.add(produktId, name, preis);
+      }
+    };
   });
-  if (LAGER_API_URL) {
-    params.notify_url = LAGER_API_URL;
-  }
-  return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
 }
+
+let shopPreise = {};
+
+window.applyShopPreise = function (preise, bestand) {
+  if (bestand) mergeBestandDaten(bestand);
+  if (preise) shopPreise = preise;
+  if (preise) {
+    Object.keys(preise).forEach(function (id) {
+      const produkt = document.querySelector('.produkt[data-produkt-id="' + id + '"]');
+      if (produkt) {
+        const block = produkt.querySelector('.preis-block');
+        if (block) renderPreisBlock(block, Number(preise[id]));
+      }
+    });
+  }
+  renderSpielVarianten();
+  renderBestand();
+  if (typeof ShopCart !== 'undefined') {
+    ShopCart.syncBestand(bestandDaten);
+  }
+};
 
 const BESTAND_DEFAULT = {
   'color-wario': 1,
@@ -1406,8 +1573,205 @@ const BESTAND_DEFAULT = {
   'color-yellow': 3,
   'classic-grau-ips': 1,
   'gba-gengar': 0,
-  'gba-charmander': 0
+  'gba-charmander': 0,
+  'spiel-sm1-z1': 1,
+  'spiel-sm1-z2': 1,
+  'spiel-sm1-z3': 1,
+  'spiel-sm1-z4': 0,
+  'spiel-sm2-z1': 1,
+  'spiel-sm2-z2': 0,
+  'spiel-sm2-z3': 1,
+  'spiel-sm2-z4': 1,
+  'spiel-sm3-z1': 1,
+  'spiel-sm3-z2': 1,
+  'spiel-sm3-z3': 1,
+  'spiel-sm3-z4': 1
 };
+
+const SPIEL_ZUSTAENDE = [
+  { key: 'z1', label: 'Akzeptabel' },
+  { key: 'z2', label: 'Gut' },
+  { key: 'z3', label: 'Sehr gut' },
+  { key: 'z4', label: 'Neuwertig' }
+];
+
+const SPIEL_PREISE = {
+  sm1: { z1: '14,99 €', z2: '19,99 €', z3: '24,99 €', z4: '49,99 €' },
+  sm2: { z1: '14,99 €', z2: '19,99 €', z3: '24,99 €', z4: '49,99 €' },
+  sm3: { z1: '16,99 €', z2: '21,99 €', z3: '26,99 €', z4: '59,99 €' }
+};
+
+const SPIEL_BILD_EXT = {
+  'sm2-z1': 'jpeg'
+};
+
+function spielProduktId(spiel, zKey) {
+  return 'spiel-' + spiel + '-' + zKey;
+}
+
+function spielBildPfad(spiel, zKey) {
+  const num = spiel.replace('sm', '');
+  const z = zKey.toUpperCase();
+  const ext = SPIEL_BILD_EXT[spiel + '-' + zKey] || 'webp';
+  return 'assets/products/SM' + num + '_' + z + '.' + ext;
+}
+
+function spielVollerName(produkt, zKey) {
+  const titel = produkt.querySelector('h3').textContent.trim();
+  const zustand = SPIEL_ZUSTAENDE.find(function (z) { return z.key === zKey; });
+  return titel + ' – ' + (zustand ? zustand.label : zKey);
+}
+
+function spielHatBestand(spiel) {
+  return SPIEL_ZUSTAENDE.some(function (z) {
+    return getBestand(spielProduktId(spiel, z.key)) > 0;
+  });
+}
+
+const SPIEL_ZUSTAND_PRIO = ['z3', 'z2', 'z4', 'z1'];
+
+function bevorzugteSpielVariante(spiel) {
+  for (let i = 0; i < SPIEL_ZUSTAND_PRIO.length; i++) {
+    const zKey = SPIEL_ZUSTAND_PRIO[i];
+    if (getBestand(spielProduktId(spiel, zKey)) > 0) return zKey;
+  }
+  return 'z3';
+}
+
+function mergeBestandDaten(fetched) {
+  bestandDaten = Object.assign({}, BESTAND_DEFAULT, fetched || {});
+}
+
+function renderPreisBlock(block, preisOverride) {
+  const uvpText = block.dataset.uvp;
+  const preis = preisOverride != null ? Number(preisOverride) : parsePreis(uvpText);
+  block.dataset.preis = String(preis);
+  block.innerHTML =
+    '<span class="preis-label preis-label-neu">Preis</span>' +
+    '<span class="preis-aktuell">' + formatPreis(preis) + '</span>';
+}
+
+function updateSpielZustandSelect(produkt) {
+  const spiel = produkt.dataset.spiel;
+  const select = produkt.querySelector('.zustand-select');
+  if (!select) return;
+
+  SPIEL_ZUSTAENDE.forEach(function (z) {
+    const option = select.querySelector('option[value="' + z.key + '"]');
+    if (!option) return;
+    const bestand = getBestand(spielProduktId(spiel, z.key));
+    option.disabled = bestand <= 0;
+    option.textContent = z.label + (bestand <= 0 ? ' (ausverkauft)' : '');
+  });
+}
+
+function applySpielVariante(produkt, zKey) {
+  const spiel = produkt.dataset.spiel;
+  const produktId = spielProduktId(spiel, zKey);
+  const bestand = getBestand(produktId);
+  const bildPfad = spielBildPfad(spiel, zKey);
+  const preisBlock = produkt.querySelector('.preis-block');
+
+  produkt.dataset.produktId = produktId;
+  produkt.dataset.aktiveVariante = zKey;
+  produkt.querySelector('.status-ausverkauft')?.remove();
+
+  const bildLink = produkt.querySelector('.spiel-bild-link');
+  const bild = produkt.querySelector('.spiel-bild');
+  if (bildLink) bildLink.href = bildPfad;
+  if (bild) bild.src = bildPfad;
+
+  if (preisBlock && SPIEL_PREISE[spiel]) {
+    preisBlock.dataset.uvp = SPIEL_PREISE[spiel][zKey];
+    const apiPreis = shopPreise[produktId];
+    renderPreisBlock(preisBlock, apiPreis != null ? Number(apiPreis) : undefined);
+  }
+
+  produkt.querySelector('.status-ausverkauft')?.remove();
+  produkt.querySelector('.button-ausverkauft')?.remove();
+
+  let lager = produkt.querySelector('.lager-info');
+  if (bestand <= 0) {
+    if (lager) lager.remove();
+    produkt.querySelector('.button-warenkorb')?.remove();
+    if (!produkt.querySelector('.button-ausverkauft')) {
+      const btn = document.createElement('span');
+      btn.className = 'button-ausverkauft';
+      btn.textContent = 'In diesem Zustand ausverkauft';
+      produkt.appendChild(btn);
+    }
+  } else {
+    if (!lager) {
+      lager = document.createElement('p');
+      lager.className = 'lager-info';
+    }
+    const anchor = produkt.querySelector('.zustand-wahl') || produkt.querySelector('h3');
+    anchor.after(lager);
+    lager.textContent = lagerText(bestand);
+    lager.classList.toggle('lager-knapp', bestand <= 2);
+
+    produkt.querySelector('.button-ausverkauft')?.remove();
+    ensureWarenkorbButton(produkt);
+  }
+
+  if (!spielHatBestand(spiel)) {
+    produkt.classList.add('ausverkauft');
+    if (!produkt.querySelector('.status-ausverkauft')) {
+      const status = document.createElement('p');
+      status.className = 'status-ausverkauft';
+      status.textContent = 'Ausverkauft';
+      produkt.querySelector('h3').after(status);
+    }
+    produkt.querySelector('.button-warenkorb')?.remove();
+    produkt.querySelector('.button-ausverkauft')?.remove();
+    if (!produkt.querySelector('.button-ausverkauft')) {
+      const btn = document.createElement('span');
+      btn.className = 'button-ausverkauft';
+      btn.textContent = 'Ausverkauft';
+      produkt.appendChild(btn);
+    }
+    if (produkt.querySelector('.zustand-select')) {
+      produkt.querySelector('.zustand-select').disabled = true;
+    }
+  } else {
+    produkt.classList.remove('ausverkauft');
+    if (produkt.querySelector('.zustand-select')) {
+      produkt.querySelector('.zustand-select').disabled = false;
+    }
+  }
+}
+
+function renderSpielVarianten() {
+  document.querySelectorAll('.produkt.spiel-variante').forEach(function (produkt) {
+    const spiel = produkt.dataset.spiel;
+    const select = produkt.querySelector('.zustand-select');
+    if (!select) return;
+
+    updateSpielZustandSelect(produkt);
+
+    let zKey = select.value;
+    if (!produkt.dataset.variantGewaehlt) {
+      zKey = bevorzugteSpielVariante(spiel);
+      select.value = zKey;
+    } else if (getBestand(spielProduktId(spiel, zKey)) <= 0) {
+      zKey = bevorzugteSpielVariante(spiel);
+      select.value = zKey;
+    }
+
+    applySpielVariante(produkt, zKey);
+  });
+}
+
+function initSpielVarianten() {
+  document.querySelectorAll('.produkt.spiel-variante .zustand-select').forEach(function (select) {
+    select.addEventListener('change', function () {
+      const produkt = select.closest('.produkt');
+      produkt.dataset.variantGewaehlt = '1';
+      applySpielVariante(produkt, select.value);
+      initWarenkorbButtons();
+    });
+  });
+}
 
 let bestandDaten = { ...BESTAND_DEFAULT };
 
@@ -1420,13 +1784,13 @@ async function ladeBestandAusJson() {
   try {
     const response = await fetch('bestand.json?t=' + Date.now());
     if (response.ok) {
-      bestandDaten = await response.json();
+      mergeBestandDaten(await response.json());
       return;
     }
   } catch (error) {
     /* lokal per Doppelklick: Fallback unten */
   }
-  bestandDaten = { ...BESTAND_DEFAULT };
+  mergeBestandDaten(null);
 }
 
 async function ladeLagerDaten() {
@@ -1436,9 +1800,14 @@ async function ladeLagerDaten() {
       if (response.ok) {
         const data = await response.json();
         if (data.bestand && typeof data.bestand === 'object') {
-          bestandDaten = data.bestand;
-          return;
+          mergeBestandDaten(data.bestand);
         }
+        if (typeof window.applyShopPreise === 'function') {
+          window.applyShopPreise(data.preise || {}, data.bestand || bestandDaten);
+        } else if (data.bestand) {
+          renderBestand();
+        }
+        return;
       }
     } catch (error) {
       /* Fallback auf lokale JSON-Dateien */
@@ -1449,8 +1818,13 @@ async function ladeLagerDaten() {
 }
 
 function getBestand(produktId) {
-  return bestandDaten[produktId] ?? 0;
+  if (Object.prototype.hasOwnProperty.call(bestandDaten, produktId)) {
+    return Number(bestandDaten[produktId]) || 0;
+  }
+  return BESTAND_DEFAULT[produktId] ?? 0;
 }
+
+window.getShopBestand = getBestand;
 
 function lagerText(bestand) {
   if (bestand === 1) return 'Nur noch 1 Stück verfügbar';
@@ -1470,7 +1844,7 @@ function setAusverkauft(produkt) {
     produkt.querySelector('h3').after(status);
   }
 
-  produkt.querySelector('.button-paypal')?.remove();
+  produkt.querySelector('.button-warenkorb')?.remove();
 
   if (!produkt.querySelector('.button-ausverkauft')) {
     const btn = document.createElement('span');
@@ -1497,19 +1871,17 @@ function setVerfuegbar(produkt, bestand) {
   lager.textContent = lagerText(bestand);
   lager.classList.toggle('lager-knapp', bestand <= 2);
 
-  if (!produkt.querySelector('.button-paypal')) {
-    const btn = document.createElement('a');
-    btn.className = 'button button-paypal';
-    btn.href = '#';
-    btn.target = '_blank';
-    btn.rel = 'noopener noreferrer';
-    btn.textContent = 'Jetzt über PayPal sicher kaufen';
+  if (!produkt.querySelector('.button-warenkorb')) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'button button-warenkorb';
+    btn.textContent = 'In den Warenkorb';
     produkt.appendChild(btn);
   }
 }
 
 function renderBestand() {
-  document.querySelectorAll('.produkt[data-produkt-id]').forEach(produkt => {
+  document.querySelectorAll('.produkt[data-produkt-id]:not(.spiel-variante)').forEach(produkt => {
     const bestand = getBestand(produkt.dataset.produktId);
     if (bestand <= 0) {
       setAusverkauft(produkt);
@@ -1518,44 +1890,16 @@ function renderBestand() {
     }
   });
 
-  initPayPalButtons();
-}
-
-function initPayPalButtons() {
-  document.querySelectorAll('.button-paypal').forEach(button => {
-    const produkt = button.closest('.produkt');
-    if (produkt.classList.contains('ausverkauft')) return;
-
-    const rabatt = parseFloat(produkt.querySelector('.preis-block').dataset.rabatt);
-    const itemName = produkt.querySelector('h3').textContent.trim();
-    const produktId = produkt.dataset.produktId;
-    button.href = buildPayPalUrl(itemName, rabatt, produktId);
-  });
+  renderSpielVarianten();
+  initWarenkorbButtons();
 }
 
 function renderPreise() {
-  document.querySelectorAll('.preis-block').forEach(block => {
-    const uvpText = block.dataset.uvp;
-    const uvp = parsePreis(uvpText);
-    const rabatt = berechneRabattpreis(uvp);
-
-    block.dataset.rabatt = String(rabatt);
-    block.innerHTML =
-      '<span class="preis-label preis-label-alt">Standardpreis</span>' +
-      '<span class="preis-alt">' + uvpText + '</span>' +
-      '<span class="preis-label preis-label-neu">Website-Preis</span>' +
-      '<span class="preis-aktuell">' + formatPreis(rabatt) + '</span>' +
-      '<span class="preis-hinweis">5&nbsp;% günstiger · nur hier</span>';
+  document.querySelectorAll('.preis-block').forEach(function (block) {
+    renderPreisBlock(block);
   });
-
-  document.querySelectorAll('.produkt').forEach(produkt => {
-    let badge = produkt.querySelector('.badge-rabatt');
-    if (!badge) {
-      badge = document.createElement('div');
-      badge.className = 'badge-rabatt';
-      produkt.prepend(badge);
-    }
-    badge.textContent = '−' + RABATT_PROZENT + '%';
+  document.querySelectorAll('.badge-rabatt').forEach(function (badge) {
+    badge.remove();
   });
 }
 
@@ -1565,8 +1909,8 @@ function sortProducts(direction) {
   const products = Array.from(container.querySelectorAll('.produkt'));
 
   products.sort((a, b) => {
-    const priceA = parseFloat(a.querySelector('.preis-block').dataset.rabatt);
-    const priceB = parseFloat(b.querySelector('.preis-block').dataset.rabatt);
+    const priceA = parseFloat(a.querySelector('.preis-block').dataset.preis);
+    const priceB = parseFloat(b.querySelector('.preis-block').dataset.preis);
     return direction === 'low' ? priceA - priceB : priceB - priceA;
   });
 
@@ -1578,11 +1922,14 @@ const kategorie = params.get('kategorie') || 'all';
 
 function initShop() {
   renderPreise();
+  initSpielVarianten();
   renderBestand();
+  if (typeof ShopCart !== 'undefined') ShopCart.syncBestand(bestandDaten);
   filterProducts(kategorie);
   aktualisiereLagerDaten();
 
   if (params.get('kauf') === 'erfolg') {
+    if (typeof ShopCart !== 'undefined') ShopCart.clear();
     const hinweis = document.createElement('div');
     hinweis.className = 'kauf-info';
     hinweis.style.marginBottom = '24px';

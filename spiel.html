@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RGB-Checker – meingameboy.de</title>
-<link rel="stylesheet" href="assets/site.css?v=20260618">
+<link rel="stylesheet" href="assets/site.css?v=20260628">
 </head>
 <body data-page="spiel">
 
@@ -19,6 +19,11 @@
 <div class="page-hero spiel-hero">
   <p class="section-label">Mini-Game</p>
   <h2 class="section-title">RGB-Checker</h2>
+  <div class="spiel-regeln">
+    <p><strong>Standard-Rabatt:</strong> Im Shop gilt <strong>GAMEBOY5</strong> für 5&nbsp;% – für alle sichtbar.</p>
+    <p><strong>Extra durchs Spiel:</strong> Deine Trefferquote (z.&nbsp;B. <strong>67&nbsp;%</strong>) → die <strong>Zehnerstelle</strong> ist dein Bonus-Rabatt → hier <strong>6&nbsp;%</strong> mit Code. Bei <strong>100&nbsp;%</strong> gibt es maximal <strong>10&nbsp;%</strong>.</p>
+    <p>Code nach der Runde kopieren und im Warenkorb einlösen – nur <strong>ein</strong> Code pro Bestellung.</p>
+  </div>
   <button type="button" class="button spiel-btn-start" id="spiel-btn-start">Los geht's</button>
 </div>
 
@@ -62,6 +67,14 @@
   <section class="spiel-phase" id="spiel-result" hidden>
     <p class="spiel-score" id="spiel-score">0%</p>
     <p class="spiel-score-label" id="spiel-score-label"></p>
+    <div class="spiel-rabatt-box" id="spiel-rabatt-box" hidden>
+      <p class="spiel-rabatt-titel">Dein Shop-Rabattcode</p>
+      <p class="spiel-rabatt-prozent" id="spiel-rabatt-prozent"></p>
+      <p class="spiel-rabatt-code-wrap"><code class="spiel-rabatt-code" id="spiel-rabatt-code"></code></p>
+      <p class="spiel-rabatt-info" id="spiel-rabatt-info"></p>
+      <button type="button" class="button spiel-rabatt-copy" id="spiel-rabatt-copy">Code kopieren</button>
+    </div>
+    <p class="spiel-rabatt-fallback" id="spiel-rabatt-fallback" hidden>Ab 10&nbsp;% Trefferqualität gibt es einen Extra-Code. Bis dahin: <strong>GAMEBOY5</strong> (5&nbsp;%) im Warenkorb.</p>
     <div class="spiel-result-vergleich">
       <div class="spiel-result-box">
         <span class="spiel-result-titel">Original-Gehäuse</span>
@@ -83,7 +96,8 @@
 
 <footer></footer>
 
-<script src="assets/site.js?v=20260618"></script>
-<script src="assets/spiel.js"></script>
+<script src="assets/site.js?v=20260628"></script>
+<script src="assets/cart.js?v=20260628"></script>
+<script src="assets/spiel.js?v=20260628"></script>
 </body>
 </html>
