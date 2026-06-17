@@ -141,6 +141,22 @@ function round2_(n) {
   return Math.round(Number(n) * 100) / 100;
 }
 
+/** Sheet-Prozent: 5 oder 0,05 (Google-Tabellen %) → 5 */
+function normalizeProzentWert_(wert) {
+  const n = Number(wert);
+  if (!isFinite(n) || n <= 0) return 0;
+  if (n > 0 && n <= 1) return round2_(n * 100);
+  return round2_(n);
+}
+
+function parseRabattWert_(typ, wert) {
+  const t = String(typ || 'prozent').trim().toLowerCase();
+  const n = Number(wert);
+  if (!isFinite(n) || n <= 0) return 0;
+  if (t === 'fest') return round2_(n);
+  return normalizeProzentWert_(n);
+}
+
 function formatDatumZelle_(value) {
   if (value instanceof Date && !isNaN(value.getTime())) {
     return Utilities.formatDate(value, ZEITZONE, 'yyyy-MM-dd');
@@ -322,6 +338,7 @@ function handleQuote_(params) {
       total: priced.total,
       rabattGueltig: rabattCode ? !!priced.rabattCode : null,
       rabattProzent: priced.rabattProzent,
+      rabattTyp: priced.rabattTyp || '',
       rabattHinweis: buildRabattHinweis_(rabattCode, priced)
     });
   } catch (err) {
@@ -345,6 +362,7 @@ function handleCheckout_(params) {
       total: priced.total,
       rabattCode: priced.rabattCode || '',
       rabattProzent: priced.rabattProzent,
+      rabattTyp: priced.rabattTyp || '',
       rabattHinweis: buildRabattHinweis_(rabattCode, priced)
     });
   } catch (err) {
@@ -359,12 +377,16 @@ function berechneWarenkorbPreise_(lines, rabattCode) {
 
   let discount = 0;
   let appliedCode = '';
+  let rabattProzent = null;
+  let rabattTyp = '';
   const rabatt = lookupRabatt_(rabattCode);
 
   if (rabatt) {
     appliedCode = rabatt.code;
+    rabattTyp = rabatt.typ;
     if (rabatt.typ === 'prozent') {
-      discount = round2_(subtotal * rabatt.wert / 100);
+      rabattProzent = normalizeProzentWert_(rabatt.wert);
+      discount = round2_(subtotal * rabattProzent / 100);
     } else if (rabatt.typ === 'fest') {
       discount = round2_(Math.min(subtotal, rabatt.wert));
     }
@@ -386,14 +408,19 @@ function berechneWarenkorbPreise_(lines, rabattCode) {
     return sum + line.unitPrice * line.qty;
   }, 0));
 
+  const actualDiscount = round2_(subtotal - total);
+  if (actualDiscount > 0 && subtotal > 0 && (!rabattProzent || rabattProzent <= 0)) {
+    rabattProzent = Math.round(actualDiscount / subtotal * 100);
+  }
+
   return {
     lines: discountedLines,
     subtotal: subtotal,
-    discount: round2_(subtotal - total),
+    discount: actualDiscount,
     total: total,
     rabattCode: appliedCode,
-    rabattProzent: rabatt && rabatt.typ === 'prozent' ? rabatt.wert : null,
-    rabattTyp: rabatt ? rabatt.typ : ''
+    rabattProzent: rabattProzent,
+    rabattTyp: rabattTyp
   };
 }
 
@@ -557,11 +584,12 @@ function lookupRabatt_(code) {
   for (let i = 1; i < values.length; i++) {
     const rowCode = String(values[i][0] || '').trim().toUpperCase();
     const aktiv = String(values[i][3] || '').trim().toLowerCase();
+    const typ = String(values[i][1] || 'prozent').trim().toLowerCase();
     if (rowCode !== normalized || aktiv === 'nein') continue;
     return {
       code: rowCode,
-      typ: String(values[i][1] || 'prozent').trim().toLowerCase(),
-      wert: Number(values[i][2]) || 0
+      typ: typ,
+      wert: parseRabattWert_(typ, values[i][2])
     };
   }
 

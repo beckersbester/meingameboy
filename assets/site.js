@@ -104,9 +104,17 @@ function initSiteFooter() {
 function initSiteNav() {
   const activeId = document.body.dataset.page || '';
   const header = document.querySelector('header');
-  if (!header || document.querySelector('.site-nav')) return;
+  if (!header) return;
 
-  header.insertAdjacentHTML('afterend', buildSiteNav(activeId));
+  const existingNav = document.querySelector('.site-nav');
+  if (existingNav) {
+    existingNav.outerHTML = buildSiteNav(activeId);
+  } else {
+    header.insertAdjacentHTML('afterend', buildSiteNav(activeId));
+  }
+
+  if (document.body.dataset.siteShellReady === '1') return;
+  document.body.dataset.siteShellReady = '1';
 
   document.body.insertAdjacentHTML('beforeend', buildKontaktModal());
   document.body.insertAdjacentHTML('beforeend', buildWarenkorbModal());

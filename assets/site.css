@@ -36,7 +36,7 @@ a{color:inherit}
 header{
   text-align:center;
   padding:40px 20px 36px;
-  min-height:210px;
+  min-height:243px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -87,6 +87,10 @@ header .tagline{
   margin:12px auto 0;
   max-width:760px;
   padding:0 16px;
+  min-height:3.8em;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 header .tagline .tagline-zweite{
@@ -1332,7 +1336,7 @@ footer{
   header h1{font-size:20px;letter-spacing:-0.5px;line-height:1.4}
   header h1 .site-domain{white-space:nowrap}
   .badge{font-size:9px;padding:8px 14px;margin-bottom:12px}
-  header .tagline{font-size:11px;padding:0 10px;margin-top:10px;line-height:1.55}
+  header .tagline{font-size:11px;padding:0 10px;margin-top:10px;line-height:1.55;min-height:3.1em}
   header .tagline .tagline-zweite{margin-top:6px;font-size:1em}
   .site-nav{gap:6px;padding:10px 8px}
   .site-nav a,.site-nav button{padding:8px 10px;font-size:11px}

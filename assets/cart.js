@@ -365,22 +365,33 @@ const ShopCart = {
 
     this.rabattApplied = true;
 
-    if (subtotalEl) subtotalEl.textContent = formatCartPreis(data.subtotal);
-    if (endpreisEl) endpreisEl.textContent = formatCartPreis(data.total);
+    const subtotal = Number(data.subtotal) || 0;
+    const discount = Number(data.discount) || 0;
+    const total = Number(data.total) || 0;
+
+    if (subtotalEl) subtotalEl.textContent = formatCartPreis(subtotal);
+    if (endpreisEl) endpreisEl.textContent = formatCartPreis(total);
 
     if (rabattZeile && rabattBetragEl) {
-      if (data.discount > 0) {
+      if (discount > 0.004) {
         rabattZeile.hidden = false;
-        let prozent = data.rabattProzent;
-        if (prozent == null && data.subtotal > 0) {
-          prozent = Math.round(data.discount / data.subtotal * 100);
+        let prozent = Number(data.rabattProzent);
+        if ((!prozent || prozent <= 0) && subtotal > 0) {
+          prozent = Math.round(discount / subtotal * 100);
         }
         if (rabattProzentEl) {
-          rabattProzentEl.textContent = prozent != null ? prozent + ' %' : 'Festbetrag';
+          if (data.rabattTyp === 'fest' && (!prozent || prozent <= 0)) {
+            rabattProzentEl.textContent = 'Festbetrag';
+          } else if (prozent > 0) {
+            rabattProzentEl.textContent = prozent + ' %';
+          } else {
+            rabattProzentEl.textContent = 'Rabatt';
+          }
         }
-        rabattBetragEl.textContent = '−' + Number(data.discount).toFixed(2).replace('.', ',') + ' €';
+        rabattBetragEl.textContent = '−' + discount.toFixed(2).replace('.', ',') + ' €';
       } else {
         rabattZeile.hidden = true;
+        if (rabattProzentEl) rabattProzentEl.textContent = '0 %';
       }
     }
 
