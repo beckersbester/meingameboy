@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop – meingameboy.de</title>
-<link rel="stylesheet" href="assets/site.css?v=20260635">
+<link rel="stylesheet" href="assets/site.css?v=20260641">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -73,46 +73,64 @@ h2{
   color:#070817;
 }
 
-.kategorien{
+.shop-filter-bar{
   display:flex;
   justify-content:center;
+  align-items:flex-end;
   flex-wrap:wrap;
-  gap:12px;
+  gap:16px 20px;
   margin:0 0 35px;
 }
 
-.kategorie{
+.shop-filter{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-width:160px;
+}
+
+.shop-filter span{
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#ff4fa3;
+}
+
+.shop-filter select{
+  appearance:none;
+  -webkit-appearance:none;
   border:2px solid #00f5d4;
-  color:#00f5d4;
-  padding:10px 14px;
+  color:#fff;
+  background:#0d1024 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2300f5d4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 14px center;
+  padding:10px 36px 10px 14px;
   border-radius:999px;
   font-size:13px;
   font-weight:bold;
-  text-decoration:none;
-  transition:.2s;
-  background:transparent;
-  cursor:pointer;
   font-family:Arial,sans-serif;
+  cursor:pointer;
+  transition:.2s;
 }
 
-.kategorie.active{
-  background:#00f5d4;
-  color:#070817;
-  box-shadow:0 0 16px rgba(0,245,212,.7);
+.shop-filter select:hover,
+.shop-filter select:focus{
+  outline:none;
+  background-color:#101530;
+  box-shadow:0 0 16px rgba(0,245,212,.35);
 }
 
-.kategorie:hover{
-  background:#00f5d4;
-  color:#070817;
-  box-shadow:0 0 16px rgba(0,245,212,.7);
+.shop-filter select.is-filter-off{
+  border-color:#555;
+  color:#999;
 }
 
-.sortierung{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin:-20px 0 35px;
+.shop-filter-hinweis{
+  flex:1 1 100%;
+  margin:-8px 0 0;
+  text-align:center;
+  color:#888;
+  font-size:13px;
+  line-height:1.5;
 }
 
 .produkte{
@@ -981,19 +999,25 @@ h2{
     height:50px;
   }
 
-  .kategorien{
-    gap:8px;
+  .shop-filter-bar{
+    gap:12px;
     margin-bottom:24px;
   }
 
-  .kategorie{
-    padding:8px 12px;
-    font-size:12px;
+  .shop-filter{
+    min-width:calc(50% - 8px);
+    flex:1 1 calc(50% - 8px);
   }
 
-  .sortierung{
-    margin:-12px 0 24px;
-    gap:8px;
+  .shop-filter select{
+    width:100%;
+    font-size:12px;
+    padding:9px 32px 9px 12px;
+  }
+
+  .shop-filter:last-child{
+    min-width:100%;
+    flex:1 1 100%;
   }
 
   .produkte{
@@ -1105,6 +1129,117 @@ h2{
     line-height:1.6;
   }
 }
+
+.versand-bedingungen{
+  max-width:920px;
+  margin:50px auto 40px;
+  padding-top:10px;
+}
+
+.versand-titel{
+  text-align:center;
+  color:#00f5d4;
+  font-family:'Press Start 2P',monospace;
+  font-size:14px;
+  line-height:1.7;
+  margin:0 0 24px;
+}
+
+.versand-hinweis{
+  text-align:center;
+  margin:0 0 28px;
+  padding:16px 20px;
+  border-radius:14px;
+  background:rgba(0,245,212,.08);
+  border:1px solid rgba(0,245,212,.35);
+  color:#ddd;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.versand-hinweis strong{
+  color:#00f5d4;
+}
+
+.versand-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.versand-karte{
+  position:relative;
+  padding:24px 22px 22px;
+  border-radius:16px;
+  background:linear-gradient(145deg,rgba(18,22,48,.95),rgba(10,12,28,.98));
+  border:2px solid rgba(0,245,212,.45);
+  box-shadow:0 8px 28px rgba(0,0,0,.35);
+  transition:.2s;
+}
+
+.versand-karte:hover{
+  border-color:#00f5d4;
+  box-shadow:0 12px 36px rgba(0,245,212,.18);
+  transform:translateY(-4px);
+}
+
+.versand-karte-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  margin-bottom:14px;
+  border-radius:12px;
+  background:rgba(0,245,212,.12);
+  border:1px solid rgba(0,245,212,.45);
+  font-size:22px;
+  line-height:1;
+}
+
+.versand-karte h3{
+  margin:0 0 10px;
+  color:#00f5d4;
+  font-family:'Press Start 2P',monospace;
+  font-size:11px;
+  line-height:1.7;
+}
+
+.versand-karte p{
+  margin:0 0 14px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.65;
+}
+
+.versand-karte ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.versand-karte li{
+  position:relative;
+  padding:8px 0 8px 22px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#fff;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.versand-karte li::before{
+  content:'▸';
+  position:absolute;
+  left:0;
+  color:#00f5d4;
+  font-weight:bold;
+}
+
+@media (max-width:640px){
+  .versand-karte:hover{transform:none}
+  .versand-karte h3{font-size:10px}
+  .versand-titel{font-size:12px}
+}
 </style>
 </head>
 
@@ -1131,20 +1266,39 @@ h2{
   <div class="perk"><strong>PayPal-Schutz</strong>Sicher bezahlen</div>
 </div>
 
-<div class="kategorien">
-  <a class="kategorie" href="shop.html?kategorie=all" data-kategorie="all">Alle</a>
-  <a class="kategorie" href="shop.html?kategorie=konsolen" data-kategorie="konsolen">Konsolen</a>
-  <a class="kategorie" href="shop.html?kategorie=spiele" data-kategorie="spiele">Spiele</a>
-  <a class="kategorie" href="shop.html?kategorie=classic" data-kategorie="classic">Classic</a>
-  <a class="kategorie" href="shop.html?kategorie=pocket" data-kategorie="pocket">Pocket</a>
-  <a class="kategorie" href="shop.html?kategorie=color" data-kategorie="color">Color</a>
-  <a class="kategorie" href="shop.html?kategorie=gba" data-kategorie="gba">Advance</a>
-  <a class="kategorie" href="shop.html?kategorie=ips" data-kategorie="ips">IPS V5</a>
-</div>
-
-<div class="sortierung">
-  <button class="kategorie" onclick="sortProducts('low')">Preis ↑</button>
-  <button class="kategorie" onclick="sortProducts('high')">Preis ↓</button>
+<div class="shop-filter-bar">
+  <label class="shop-filter">
+    <span>Konsolen</span>
+    <select id="filter-konsolen" aria-label="Konsolen filtern">
+      <option value="all">Alle</option>
+      <option value="none">—</option>
+      <option value="classic">Classic</option>
+      <option value="pocket">Pocket</option>
+      <option value="color">Color</option>
+      <option value="gba">Advance</option>
+      <option value="ips">IPS V5</option>
+    </select>
+  </label>
+  <label class="shop-filter">
+    <span>Spiele</span>
+    <select id="filter-spiele" aria-label="Spiele filtern">
+      <option value="all">Alle</option>
+      <option value="none">—</option>
+      <option value="pokemon">Pokémon</option>
+      <option value="mario">Mario</option>
+      <option value="zelda">Zelda</option>
+      <option value="sonstiges">Sonstiges</option>
+    </select>
+  </label>
+  <label class="shop-filter">
+    <span>Sortierung</span>
+    <select id="filter-sort" aria-label="Sortierung">
+      <option value="default">Standard</option>
+      <option value="low">Preis aufsteigend</option>
+      <option value="high">Preis absteigend</option>
+    </select>
+  </label>
+  <p class="shop-filter-hinweis">„—“ blendet eine Kategorie aus – z.&nbsp;B. nur Spiele oder nur Konsolen anzeigen.</p>
 </div>
 
 <div class="produkte">
@@ -1431,15 +1585,228 @@ h2{
   <button type="button" class="button button-warenkorb">In den Warenkorb</button>
 </div>
 
+<div class="produkt spiele spiel-variante" data-spiel="pb">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/PB_Z2.jpeg" target="_blank">
+      <img class="spiel-bild" src="assets/products/PB_Z2.jpeg" alt="Pokémon Blau">
+    </a>
+  </div>
+  <h3>Pokémon Blau</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Pokémon Blau">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2" selected>Gut</option>
+      <option value="z3">Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="39,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="pr">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/PR_Z1.jpg" target="_blank">
+      <img class="spiel-bild" src="assets/products/PR_Z1.jpg" alt="Pokémon Rot">
+    </a>
+  </div>
+  <h3>Pokémon Rot</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Pokémon Rot">
+      <option value="z1" selected>Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3">Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="34,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="pg">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/PG_Z4.jpeg" target="_blank">
+      <img class="spiel-bild" src="assets/products/PG_Z4.jpeg" alt="Pokémon Gelb">
+    </a>
+  </div>
+  <h3>Pokémon Gelb</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Pokémon Gelb">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3">Sehr gut</option>
+      <option value="z4" selected>Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="89,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="pk">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/PK_Z3.jpeg" target="_blank">
+      <img class="spiel-bild" src="assets/products/PK_Z3.jpeg" alt="Pokémon Kristall">
+    </a>
+  </div>
+  <h3>Pokémon Kristall</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Pokémon Kristall">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3" selected>Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="114,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="pt">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/PT_Z3.jpeg" target="_blank">
+      <img class="spiel-bild" src="assets/products/PT_Z3.jpeg" alt="Pokémon Trading Card">
+    </a>
+  </div>
+  <h3>Pokémon Trading Card</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Pokémon Trading Card">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3" selected>Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="18,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="dbz">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/DBZ_Z3.jpeg" target="_blank">
+      <img class="spiel-bild" src="assets/products/DBZ_Z3.jpeg" alt="Dragon Ball Z">
+    </a>
+  </div>
+  <h3>Dragon Ball Z</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Dragon Ball Z">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2">Gut</option>
+      <option value="z3" selected>Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="18,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="zla">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/ZLA_Z2.jpeg" target="_blank">
+      <img class="spiel-bild" src="assets/products/ZLA_Z2.jpeg" alt="Zelda: Link's Awakening">
+    </a>
+  </div>
+  <h3>Zelda: Link's Awakening</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Zelda: Link's Awakening">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2" selected>Gut</option>
+      <option value="z3">Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="38,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
+<div class="produkt spiele spiel-variante" data-spiel="t">
+  <div class="badge-produkt badge-blue">Spielmodul</div>
+  <div class="produkt-bild produkt-bild--float">
+    <a class="spiel-bild-link" href="assets/products/T_Z2.jpeg" target="_blank">
+      <img class="spiel-bild" src="assets/products/T_Z2.jpeg" alt="Tetris">
+    </a>
+  </div>
+  <h3>Tetris</h3>
+  <label class="zustand-wahl">
+    <span>Zustand wählen</span>
+    <select class="zustand-select" aria-label="Zustand für Tetris">
+      <option value="z1">Akzeptabel</option>
+      <option value="z2" selected>Gut</option>
+      <option value="z3">Sehr gut</option>
+      <option value="z4">Neuwertig</option>
+    </select>
+  </label>
+  <ul class="features"><li>Original Game Boy Modul</li><li>Speichert (neue Batterie)</li><li>Kostenloser Versand</li></ul>
+  <div class="preis-block" data-uvp="15,99 €"></div>
+  <button type="button" class="button button-warenkorb">In den Warenkorb</button>
+</div>
+
 <p class="keine-treffer" id="keine-treffer">In dieser Kategorie sind aktuell keine Angebote verfügbar.</p>
 
 </div>
+
+<section class="versand-bedingungen" id="versand">
+  <h2 class="versand-titel">Versandbedingungen</h2>
+  <p class="versand-hinweis"><strong>Versand ist bei jedem Kauf kostenlos inklusive.</strong> Je nach Artikel und Wert wähle ich die passende, sichere Versandart – transparent und zuverlässig.</p>
+  <div class="versand-grid">
+    <article class="versand-karte">
+      <div class="versand-karte-icon" aria-hidden="true">🎮</div>
+      <h3>Spiele bis 50&nbsp;€</h3>
+      <p>Game-Boy-Spielmodule im günstigeren Preissegment:</p>
+      <ul>
+        <li>Versand als <strong>Großbrief</strong> oder <strong>Maxibrief</strong></li>
+        <li><strong>Sendungsverfolgung</strong> inklusive</li>
+        <li>Kompakt, geschützt verpackt</li>
+      </ul>
+    </article>
+    <article class="versand-karte">
+      <div class="versand-karte-icon" aria-hidden="true">📦</div>
+      <h3>Spiele über 50&nbsp;€</h3>
+      <p>Wertvolle Spiele über 50&nbsp;€ erhalten extra Schutz:</p>
+      <ul>
+        <li><strong>Versichert</strong> als Einschreiben oder DHL-Paket</li>
+        <li>Sendungsverfolgung inklusive</li>
+        <li>Sicherer Versand für Sammlerstücke</li>
+      </ul>
+    </article>
+    <article class="versand-karte">
+      <div class="versand-karte-icon" aria-hidden="true">🕹️</div>
+      <h3>Konsolen aller Art</h3>
+      <p>Classic, Pocket, Color, Advance &amp; IPS – immer Premium-Versand:</p>
+      <ul>
+        <li>Immer <strong>versichertes DHL-Paket</strong></li>
+        <li>Sorgfältig gepolstert &amp; geschützt</li>
+        <li>Sendungsverfolgung von Anfang bis Ankunft</li>
+      </ul>
+    </article>
+  </div>
+</section>
 
 </div>
 
 <footer></footer>
 
-<script src="assets/site.js?v=20260635"></script>
+<script src="assets/site.js?v=20260640"></script>
 <script src="assets/cart.js?v=20260636"></script>
 <script>
 const LAGER_API_URL = typeof SITE_API_URL !== 'undefined' ? SITE_API_URL : '';
@@ -1452,48 +1819,220 @@ const kategorieTitel = {
   pocket: 'Game Boy Pocket',
   color: 'Game Boy Color',
   gba: 'Game Boy Advance',
-  ips: 'IPS V5 Editionen'
+  ips: 'IPS V5 Editionen',
+  pokemon: 'Pokémon-Spiele',
+  mario: 'Mario-Spiele',
+  zelda: 'Zelda-Spiele',
+  sonstiges: 'Weitere Spiele'
 };
 
 const kategorieBeschreibung = {
   all: 'Konsolen & Spiele – alle Angebote auf einen Blick.',
   konsolen: 'Classic, Pocket, Color & Advance – professionell aufbereitete Konsolen.',
-  spiele: 'Super Mario Land 1, 2 & 3 – Originalmodule, Zustand frei wählbar.',
+  spiele: 'Super Mario Land, Pokémon, Zelda & mehr – Originalmodule, Zustand frei wählbar.',
   classic: 'Der legendäre Original-Game Boy – klassisch, robust und voller Retro-Charme.',
   pocket: 'Der schlanke Game Boy Pocket – kompakt, stylisch, auch als Pokémon- & Sonderedition.',
   color: 'Der farbige Game Boy Color – lebendige Spiele mit Mario- & Pokémon-Designs.',
   gba: 'Der Game Boy Advance – horizontal, farbenfroh und ideal für Pokémon-Custom-Designs.',
-  ips: 'Game Boy Classic mit IPS V5 Display – heller, schärfer und noch besser zum Spielen.'
+  ips: 'Game Boy Classic mit IPS V5 Display – heller, schärfer und noch besser zum Spielen.',
+  pokemon: 'Pokémon Blau, Rot, Gelb, Kristall & Trading Card – Originalmodule.',
+  mario: 'Super Mario Land 1, 2 & 3 – Originalmodule, Zustand frei wählbar.',
+  zelda: 'Zelda: Link\'s Awakening – Originalmodule, Zustand frei wählbar.',
+  sonstiges: 'Dragon Ball Z, Tetris & weitere Klassiker – Originalmodule.'
 };
 
-function filterProducts(category) {
+const SPIEL_SERIE = {
+  sm1: 'mario', sm2: 'mario', sm3: 'mario',
+  pb: 'pokemon', pr: 'pokemon', pg: 'pokemon', pk: 'pokemon', pt: 'pokemon',
+  zla: 'zelda',
+  dbz: 'sonstiges', t: 'sonstiges'
+};
+
+let shopFilterKonsolen = 'all';
+let shopFilterSpiele = 'all';
+let originalProductOrder = [];
+
+function matchesKonsolenFilter(product, filter) {
+  if (!product.classList.contains('konsolen')) return false;
+  if (filter === 'none') return false;
+  if (filter === 'all') return true;
+  return product.classList.contains(filter);
+}
+
+function matchesSpieleFilter(product, filter) {
+  if (!product.classList.contains('spiele')) return false;
+  if (filter === 'none') return false;
+  if (filter === 'all') return true;
+  const spiel = product.dataset.spiel;
+  return SPIEL_SERIE[spiel] === filter;
+}
+
+function productIsVisible(product) {
+  const isK = product.classList.contains('konsolen');
+  const isS = product.classList.contains('spiele');
+  const showK = shopFilterKonsolen !== 'none';
+  const showS = shopFilterSpiele !== 'none';
+
+  if (isK && showK && matchesKonsolenFilter(product, shopFilterKonsolen)) return true;
+  if (isS && showS && matchesSpieleFilter(product, shopFilterSpiele)) return true;
+  return false;
+}
+
+function updateShopHeading() {
+  const k = shopFilterKonsolen;
+  const s = shopFilterSpiele;
+  let titel = 'Aktuelle Angebote';
+  let beschreibung = '';
+
+  if (k === 'none' && s === 'none') {
+    titel = 'Keine Kategorie gewählt';
+    beschreibung = 'Bitte mindestens Konsolen oder Spiele auf „Alle“ oder eine Unterkategorie stellen.';
+  } else if (k === 'none' && s === 'all') {
+    titel = kategorieTitel.spiele;
+    beschreibung = kategorieBeschreibung.spiele;
+  } else if (k === 'none' && s !== 'all') {
+    titel = kategorieTitel[s] || kategorieTitel.spiele;
+    beschreibung = kategorieBeschreibung[s] || kategorieBeschreibung.spiele;
+  } else if (s === 'none' && k === 'all') {
+    titel = kategorieTitel.konsolen;
+    beschreibung = kategorieBeschreibung.konsolen;
+  } else if (s === 'none' && k !== 'all') {
+    titel = kategorieTitel[k] || kategorieTitel.konsolen;
+    beschreibung = kategorieBeschreibung[k] || '';
+  } else if (k === 'all' && s === 'all') {
+    titel = kategorieTitel.all;
+    beschreibung = kategorieBeschreibung.all;
+  } else if (k === 'all' && s !== 'all' && s !== 'none') {
+    titel = kategorieTitel[s] || kategorieTitel.spiele;
+    beschreibung = kategorieBeschreibung[s] || kategorieBeschreibung.spiele;
+  } else if (k !== 'all' && k !== 'none' && s === 'all') {
+    titel = kategorieTitel[k] || 'Angebote';
+    beschreibung = kategorieBeschreibung[k] || '';
+  } else {
+    titel = kategorieTitel.all;
+    beschreibung = kategorieBeschreibung.all;
+  }
+
+  document.getElementById('shop-titel').textContent = titel;
+  document.getElementById('shop-beschreibung').textContent = beschreibung;
+  document.title = 'meingameboy.de – ' + titel;
+}
+
+function applyShopFilters() {
   const products = document.querySelectorAll('.produkt');
-  const buttons = document.querySelectorAll('.kategorien .kategorie');
   let sichtbar = 0;
 
-  buttons.forEach(button => {
-    button.classList.toggle('active', button.dataset.kategorie === category);
-  });
-
-  products.forEach(product => {
-    let show = false;
-    if (category === 'all') {
-      show = true;
-    } else if (category === 'konsolen') {
-      show = product.classList.contains('konsolen');
-    } else if (category === 'spiele') {
-      show = product.classList.contains('spiele');
-    } else {
-      show = product.classList.contains(category);
-    }
+  products.forEach(function (product) {
+    const show = productIsVisible(product);
     product.style.display = show ? '' : 'none';
     if (show) sichtbar++;
   });
 
   document.getElementById('keine-treffer').style.display = sichtbar ? 'none' : 'block';
-  document.getElementById('shop-titel').textContent = kategorieTitel[category] || 'Aktuelle Angebote';
-  document.getElementById('shop-beschreibung').textContent = kategorieBeschreibung[category] || '';
-  document.title = 'meingameboy.de – ' + (kategorieTitel[category] || 'Angebote');
+  updateShopHeading();
+  updateShopUrl();
+}
+
+function parseLegacyKategorie(kategorie) {
+  switch (kategorie) {
+    case 'versand':
+    case 'all':
+      return { konsolen: 'all', spiele: 'all' };
+    case 'konsolen':
+      return { konsolen: 'all', spiele: 'none' };
+    case 'spiele':
+      return { konsolen: 'none', spiele: 'all' };
+    case 'classic':
+    case 'pocket':
+    case 'color':
+    case 'gba':
+    case 'ips':
+      return { konsolen: kategorie, spiele: 'none' };
+    default:
+      return { konsolen: 'all', spiele: 'all' };
+  }
+}
+
+function readFiltersFromUrl() {
+  const legacy = params.get('kategorie');
+  if (legacy) return parseLegacyKategorie(legacy);
+
+  const validKonsolen = ['all', 'none', 'classic', 'pocket', 'color', 'gba', 'ips'];
+  const validSpiele = ['all', 'none', 'pokemon', 'mario', 'zelda', 'sonstiges'];
+  const konsolen = params.get('konsolen');
+  const spiele = params.get('spiele');
+
+  return {
+    konsolen: validKonsolen.includes(konsolen) ? konsolen : 'all',
+    spiele: validSpiele.includes(spiele) ? spiele : 'all'
+  };
+}
+
+function syncFilterSelects() {
+  const konsolenEl = document.getElementById('filter-konsolen');
+  const spieleEl = document.getElementById('filter-spiele');
+  if (konsolenEl) {
+    konsolenEl.value = shopFilterKonsolen;
+    konsolenEl.classList.toggle('is-filter-off', shopFilterKonsolen === 'none');
+  }
+  if (spieleEl) {
+    spieleEl.value = shopFilterSpiele;
+    spieleEl.classList.toggle('is-filter-off', shopFilterSpiele === 'none');
+  }
+}
+
+function updateShopUrl() {
+  const url = new URL(window.location.href);
+  url.searchParams.delete('kategorie');
+
+  if (shopFilterKonsolen === 'all' && shopFilterSpiele === 'all') {
+    url.searchParams.delete('konsolen');
+    url.searchParams.delete('spiele');
+  } else if (shopFilterSpiele !== 'all' && shopFilterSpiele !== 'none') {
+    url.searchParams.delete('konsolen');
+    url.searchParams.set('spiele', shopFilterSpiele);
+  } else if (shopFilterKonsolen !== 'all' && shopFilterKonsolen !== 'none') {
+    url.searchParams.delete('spiele');
+    url.searchParams.set('konsolen', shopFilterKonsolen);
+  } else {
+    url.searchParams.set('konsolen', shopFilterKonsolen);
+    url.searchParams.set('spiele', shopFilterSpiele);
+  }
+
+  history.replaceState(null, '', url.pathname + url.search + url.hash);
+}
+
+function initShopFilters() {
+  const filters = readFiltersFromUrl();
+  shopFilterKonsolen = filters.konsolen;
+  shopFilterSpiele = filters.spiele;
+  syncFilterSelects();
+
+  document.getElementById('filter-konsolen').addEventListener('change', function () {
+    shopFilterKonsolen = this.value;
+    if (this.value !== 'all' && this.value !== 'none') {
+      shopFilterSpiele = 'none';
+    }
+    syncFilterSelects();
+    applyShopFilters();
+  });
+
+  document.getElementById('filter-spiele').addEventListener('change', function () {
+    shopFilterSpiele = this.value;
+    if (this.value !== 'all' && this.value !== 'none') {
+      shopFilterKonsolen = 'none';
+    }
+    syncFilterSelects();
+    applyShopFilters();
+  });
+
+  document.getElementById('filter-sort').addEventListener('change', function () {
+    sortProducts(this.value);
+  });
+}
+
+function cacheProductOrder() {
+  originalProductOrder = Array.from(document.querySelectorAll('.produkte .produkt'));
 }
 
 function parsePreis(text) {
@@ -1585,7 +2124,39 @@ const BESTAND_DEFAULT = {
   'spiel-sm3-z1': 1,
   'spiel-sm3-z2': 1,
   'spiel-sm3-z3': 1,
-  'spiel-sm3-z4': 1
+  'spiel-sm3-z4': 1,
+  'spiel-pb-z1': 0,
+  'spiel-pb-z2': 1,
+  'spiel-pb-z3': 0,
+  'spiel-pb-z4': 1,
+  'spiel-pr-z1': 2,
+  'spiel-pr-z2': 0,
+  'spiel-pr-z3': 0,
+  'spiel-pr-z4': 0,
+  'spiel-pg-z1': 0,
+  'spiel-pg-z2': 0,
+  'spiel-pg-z3': 0,
+  'spiel-pg-z4': 0,
+  'spiel-pk-z1': 0,
+  'spiel-pk-z2': 0,
+  'spiel-pk-z3': 0,
+  'spiel-pk-z4': 0,
+  'spiel-pt-z1': 0,
+  'spiel-pt-z2': 0,
+  'spiel-pt-z3': 1,
+  'spiel-pt-z4': 0,
+  'spiel-dbz-z1': 0,
+  'spiel-dbz-z2': 0,
+  'spiel-dbz-z3': 1,
+  'spiel-dbz-z4': 0,
+  'spiel-zla-z1': 0,
+  'spiel-zla-z2': 1,
+  'spiel-zla-z3': 1,
+  'spiel-zla-z4': 0,
+  'spiel-t-z1': 0,
+  'spiel-t-z2': 2,
+  'spiel-t-z3': 1,
+  'spiel-t-z4': 0
 };
 
 const SPIEL_ZUSTAENDE = [
@@ -1598,11 +2169,33 @@ const SPIEL_ZUSTAENDE = [
 const SPIEL_PREISE = {
   sm1: { z1: '14,99 €', z2: '19,99 €', z3: '24,99 €', z4: '49,99 €' },
   sm2: { z1: '14,99 €', z2: '19,99 €', z3: '24,99 €', z4: '49,99 €' },
-  sm3: { z1: '16,99 €', z2: '21,99 €', z3: '26,99 €', z4: '59,99 €' }
+  sm3: { z1: '16,99 €', z2: '21,99 €', z3: '26,99 €', z4: '59,99 €' },
+  pb: { z1: '34,99 €', z2: '39,99 €', z3: '49,99 €', z4: '89,99 €' },
+  pr: { z1: '34,99 €', z2: '39,99 €', z3: '49,99 €', z4: '89,99 €' },
+  pg: { z1: '34,99 €', z2: '39,99 €', z3: '49,99 €', z4: '89,99 €' },
+  pk: { z1: '89,99 €', z2: '99,99 €', z3: '114,99 €', z4: '169,99 €' },
+  pt: { z1: '12,99 €', z2: '15,99 €', z3: '18,99 €', z4: '29,99 €' },
+  dbz: { z1: '12,99 €', z2: '15,99 €', z3: '18,99 €', z4: '29,99 €' },
+  zla: { z1: '33,99 €', z2: '38,99 €', z3: '48,99 €', z4: '68,99 €' },
+  t: { z1: '12,99 €', z2: '15,99 €', z3: '19,99 €', z4: '29,99 €' }
+};
+
+const SPIEL_BILD_CODE = {
+  sm1: 'SM1', sm2: 'SM2', sm3: 'SM3',
+  pb: 'PB', pr: 'PR', pg: 'PG', pk: 'PK', pt: 'PT',
+  dbz: 'DBZ', zla: 'ZLA', t: 'T'
 };
 
 const SPIEL_BILD_EXT = {
-  'sm2-z1': 'jpeg'
+  'sm2-z1': 'jpeg',
+  'pb-z2': 'jpeg', 'pb-z4': 'jpeg',
+  'pr-z1': 'jpg', 'pr-z3': 'jpeg',
+  'pg-z4': 'jpeg',
+  'pk-z3': 'jpeg',
+  'pt-z3': 'jpeg',
+  'dbz-z3': 'jpeg',
+  'zla-z2': 'jpeg', 'zla-z3': 'jpg',
+  't-z2': 'jpeg', 't-z3': 'jpeg'
 };
 
 function spielProduktId(spiel, zKey) {
@@ -1610,10 +2203,10 @@ function spielProduktId(spiel, zKey) {
 }
 
 function spielBildPfad(spiel, zKey) {
-  const num = spiel.replace('sm', '');
+  const code = SPIEL_BILD_CODE[spiel] || spiel.toUpperCase();
   const z = zKey.toUpperCase();
   const ext = SPIEL_BILD_EXT[spiel + '-' + zKey] || 'webp';
-  return 'assets/products/SM' + num + '_' + z + '.' + ext;
+  return 'assets/products/' + code + '_' + z + '.' + ext;
 }
 
 function spielVollerName(produkt, zKey) {
@@ -1634,6 +2227,10 @@ function bevorzugteSpielVariante(spiel) {
   for (let i = 0; i < SPIEL_ZUSTAND_PRIO.length; i++) {
     const zKey = SPIEL_ZUSTAND_PRIO[i];
     if (getBestand(spielProduktId(spiel, zKey)) > 0) return zKey;
+  }
+  for (let i = 0; i < SPIEL_ZUSTAND_PRIO.length; i++) {
+    const zKey = SPIEL_ZUSTAND_PRIO[i];
+    if (SPIEL_BILD_EXT[spiel + '-' + zKey]) return zKey;
   }
   return 'z3';
 }
@@ -1906,35 +2503,50 @@ function renderPreise() {
 function sortProducts(direction) {
   const container = document.querySelector('.produkte');
   const empty = document.getElementById('keine-treffer');
+
+  if (direction === 'default') {
+    originalProductOrder.forEach(function (product) {
+      container.insertBefore(product, empty);
+    });
+    return;
+  }
+
   const products = Array.from(container.querySelectorAll('.produkt'));
 
-  products.sort((a, b) => {
-    const priceA = parseFloat(a.querySelector('.preis-block').dataset.preis);
-    const priceB = parseFloat(b.querySelector('.preis-block').dataset.preis);
+  products.sort(function (a, b) {
+    const priceA = parseFloat(a.querySelector('.preis-block')?.dataset.preis) || 0;
+    const priceB = parseFloat(b.querySelector('.preis-block')?.dataset.preis) || 0;
     return direction === 'low' ? priceA - priceB : priceB - priceA;
   });
 
-  products.forEach(product => container.insertBefore(product, empty));
+  products.forEach(function (product) {
+    container.insertBefore(product, empty);
+  });
 }
 
 const params = new URLSearchParams(window.location.search);
-const kategorie = params.get('kategorie') || 'all';
 
 function initShop() {
+  cacheProductOrder();
+  initShopFilters();
   renderPreise();
   initSpielVarianten();
   renderBestand();
   if (typeof ShopCart !== 'undefined') ShopCart.syncBestand(bestandDaten);
-  filterProducts(kategorie);
+  applyShopFilters();
   aktualisiereLagerDaten();
 
   if (params.get('kauf') === 'erfolg') {
     if (typeof ShopCart !== 'undefined') ShopCart.clear();
     const hinweis = document.createElement('div');
-    hinweis.className = 'kauf-info';
-    hinweis.style.marginBottom = '24px';
-    hinweis.innerHTML = '<div class="kauf-perk" style="flex:1 1 100%"><strong>Vielen Dank für deinen Kauf!</strong>Die PayPal-Zahlung war erfolgreich – ich bereite deinen Versand vor und melde mich bei dir.</div>';
-    document.querySelector('.sortierung').after(hinweis);
+    hinweis.className = 'kauf-erfolg-banner';
+    hinweis.innerHTML = '<div class="kauf-perk"><strong>Vielen Dank für deinen Kauf!</strong>Die PayPal-Zahlung war erfolgreich – ich bereite deinen Versand vor und melde mich bei dir.</div>';
+    document.querySelector('.shop-filter-bar').after(hinweis);
+  }
+
+  if (window.location.hash === '#versand') {
+    const versand = document.getElementById('versand');
+    if (versand) versand.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 

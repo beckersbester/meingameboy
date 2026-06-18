@@ -83,6 +83,7 @@ function buildKontaktModal() {
 function buildSiteFooter() {
   const links = [
     { href: 'ueber-uns.html', label: 'Über mich' },
+    { href: 'shop.html#versand', label: 'Versandbedingungen' },
     { href: 'impressum.html', label: 'Impressum' },
     { href: 'datenschutz.html', label: 'Datenschutz' }
   ].map(function (item) {

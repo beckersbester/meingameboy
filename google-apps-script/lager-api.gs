@@ -44,7 +44,39 @@ const BESTAND_START = {
   'spiel-sm3-z1': 1,
   'spiel-sm3-z2': 1,
   'spiel-sm3-z3': 1,
-  'spiel-sm3-z4': 1
+  'spiel-sm3-z4': 1,
+  'spiel-pb-z1': 0,
+  'spiel-pb-z2': 1,
+  'spiel-pb-z3': 0,
+  'spiel-pb-z4': 1,
+  'spiel-pr-z1': 2,
+  'spiel-pr-z2': 0,
+  'spiel-pr-z3': 0,
+  'spiel-pr-z4': 0,
+  'spiel-pg-z1': 0,
+  'spiel-pg-z2': 0,
+  'spiel-pg-z3': 0,
+  'spiel-pg-z4': 0,
+  'spiel-pk-z1': 0,
+  'spiel-pk-z2': 0,
+  'spiel-pk-z3': 0,
+  'spiel-pk-z4': 0,
+  'spiel-pt-z1': 0,
+  'spiel-pt-z2': 0,
+  'spiel-pt-z3': 1,
+  'spiel-pt-z4': 0,
+  'spiel-dbz-z1': 0,
+  'spiel-dbz-z2': 0,
+  'spiel-dbz-z3': 1,
+  'spiel-dbz-z4': 0,
+  'spiel-zla-z1': 0,
+  'spiel-zla-z2': 1,
+  'spiel-zla-z3': 1,
+  'spiel-zla-z4': 0,
+  'spiel-t-z1': 0,
+  'spiel-t-z2': 2,
+  'spiel-t-z3': 1,
+  'spiel-t-z4': 0
 };
 
 const PREISE_START = {
@@ -76,7 +108,39 @@ const PREISE_START = {
   'spiel-sm3-z1': 16.99,
   'spiel-sm3-z2': 21.99,
   'spiel-sm3-z3': 26.99,
-  'spiel-sm3-z4': 59.99
+  'spiel-sm3-z4': 59.99,
+  'spiel-pb-z1': 34.99,
+  'spiel-pb-z2': 39.99,
+  'spiel-pb-z3': 49.99,
+  'spiel-pb-z4': 89.99,
+  'spiel-pr-z1': 34.99,
+  'spiel-pr-z2': 39.99,
+  'spiel-pr-z3': 49.99,
+  'spiel-pr-z4': 89.99,
+  'spiel-pg-z1': 34.99,
+  'spiel-pg-z2': 39.99,
+  'spiel-pg-z3': 49.99,
+  'spiel-pg-z4': 89.99,
+  'spiel-pk-z1': 89.99,
+  'spiel-pk-z2': 99.99,
+  'spiel-pk-z3': 114.99,
+  'spiel-pk-z4': 169.99,
+  'spiel-pt-z1': 12.99,
+  'spiel-pt-z2': 15.99,
+  'spiel-pt-z3': 18.99,
+  'spiel-pt-z4': 29.99,
+  'spiel-dbz-z1': 12.99,
+  'spiel-dbz-z2': 15.99,
+  'spiel-dbz-z3': 18.99,
+  'spiel-dbz-z4': 29.99,
+  'spiel-zla-z1': 33.99,
+  'spiel-zla-z2': 38.99,
+  'spiel-zla-z3': 48.99,
+  'spiel-zla-z4': 68.99,
+  'spiel-t-z1': 12.99,
+  'spiel-t-z2': 15.99,
+  'spiel-t-z3': 19.99,
+  'spiel-t-z4': 29.99
 };
 
 const PRODUKT_NAMEN = {
@@ -108,7 +172,39 @@ const PRODUKT_NAMEN = {
   'spiel-sm3-z1': 'Super Mario Land 3 – Akzeptabel',
   'spiel-sm3-z2': 'Super Mario Land 3 – Gut',
   'spiel-sm3-z3': 'Super Mario Land 3 – Sehr gut',
-  'spiel-sm3-z4': 'Super Mario Land 3 – Neuwertig'
+  'spiel-sm3-z4': 'Super Mario Land 3 – Neuwertig',
+  'spiel-pb-z1': 'Pokémon Blau – Akzeptabel',
+  'spiel-pb-z2': 'Pokémon Blau – Gut',
+  'spiel-pb-z3': 'Pokémon Blau – Sehr gut',
+  'spiel-pb-z4': 'Pokémon Blau – Neuwertig',
+  'spiel-pr-z1': 'Pokémon Rot – Akzeptabel',
+  'spiel-pr-z2': 'Pokémon Rot – Gut',
+  'spiel-pr-z3': 'Pokémon Rot – Sehr gut',
+  'spiel-pr-z4': 'Pokémon Rot – Neuwertig',
+  'spiel-pg-z1': 'Pokémon Gelb – Akzeptabel',
+  'spiel-pg-z2': 'Pokémon Gelb – Gut',
+  'spiel-pg-z3': 'Pokémon Gelb – Sehr gut',
+  'spiel-pg-z4': 'Pokémon Gelb – Neuwertig',
+  'spiel-pk-z1': 'Pokémon Kristall – Akzeptabel',
+  'spiel-pk-z2': 'Pokémon Kristall – Gut',
+  'spiel-pk-z3': 'Pokémon Kristall – Sehr gut',
+  'spiel-pk-z4': 'Pokémon Kristall – Neuwertig',
+  'spiel-pt-z1': 'Pokémon Trading Card – Akzeptabel',
+  'spiel-pt-z2': 'Pokémon Trading Card – Gut',
+  'spiel-pt-z3': 'Pokémon Trading Card – Sehr gut',
+  'spiel-pt-z4': 'Pokémon Trading Card – Neuwertig',
+  'spiel-dbz-z1': 'Dragon Ball Z – Akzeptabel',
+  'spiel-dbz-z2': 'Dragon Ball Z – Gut',
+  'spiel-dbz-z3': 'Dragon Ball Z – Sehr gut',
+  'spiel-dbz-z4': 'Dragon Ball Z – Neuwertig',
+  'spiel-zla-z1': 'Zelda: Link\'s Awakening – Akzeptabel',
+  'spiel-zla-z2': 'Zelda: Link\'s Awakening – Gut',
+  'spiel-zla-z3': 'Zelda: Link\'s Awakening – Sehr gut',
+  'spiel-zla-z4': 'Zelda: Link\'s Awakening – Neuwertig',
+  'spiel-t-z1': 'Tetris – Akzeptabel',
+  'spiel-t-z2': 'Tetris – Gut',
+  'spiel-t-z3': 'Tetris – Sehr gut',
+  'spiel-t-z4': 'Tetris – Neuwertig'
 };
 
 const RABATT_START = [
@@ -487,8 +583,8 @@ function handlePaypalIpn_(params) {
 
   items.forEach(function (item) {
     for (let i = 0; i < item.qty; i++) {
-      bestandVerringern_(item.produktId);
       verkaufEintragen_(item.produktId, heuteIso_());
+      bestandVerringern_(item.produktId);
     }
   });
 
@@ -497,26 +593,37 @@ function handlePaypalIpn_(params) {
 }
 
 function parseIpnItems_(params) {
-  const num = parseInt(params.num_cart_items || '0', 10);
+  let num = parseInt(params.num_cart_items || '0', 10);
+  if (!(num > 0)) {
+    for (let i = 1; i <= 10; i++) {
+      if (params['item_number' + i] || params['item_name' + i]) num = i;
+    }
+  }
+
   const items = [];
 
   if (num > 0) {
     for (let i = 1; i <= num; i++) {
       const produktId = String(params['item_number' + i] || '').trim();
       const qty = Math.max(1, parseInt(params['quantity' + i] || '1', 10));
-      const amount = parseFloat(params['mc_gross_' + i] || '0');
+      const amount = parseFloat(
+        params['mc_gross_' + i] ||
+        params['payment_gross_' + i] ||
+        params['amount' + i] ||
+        '0'
+      );
       if (!produktId) continue;
       items.push({ produktId: produktId, qty: qty, lineTotal: round2_(amount) });
     }
     return items;
   }
 
-  const produktId = String(params.item_number || '').trim();
+  const produktId = String(params.item_number || params.item_number1 || '').trim();
   if (!produktId) return [];
   return [{
     produktId: produktId,
-    qty: Math.max(1, parseInt(params.quantity || '1', 10)),
-    lineTotal: round2_(parseFloat(params.mc_gross || '0'))
+    qty: Math.max(1, parseInt(params.quantity || params.quantity1 || '1', 10)),
+    lineTotal: round2_(parseFloat(params.mc_gross || params.mc_gross_1 || '0'))
   }];
 }
 
@@ -524,7 +631,8 @@ function validiereIpnBetrag_(ipnItems, rabattCode, paidTotal) {
   const preise = lesePreise_();
   const lines = [];
 
-  ipnItems.forEach(function (item) {
+  for (let index = 0; index < ipnItems.length; index++) {
+    const item = ipnItems[index];
     if (!preise[item.produktId]) {
       return { ok: false, grund: 'Unbekannte produktId: ' + item.produktId, erwartet: '' };
     }
@@ -534,7 +642,7 @@ function validiereIpnBetrag_(ipnItems, rabattCode, paidTotal) {
       qty: item.qty,
       unitPrice: round2_(preise[item.produktId])
     });
-  });
+  }
 
   const priced = berechneWarenkorbPreise_(lines, rabattCode);
   const expectedLineTotal = round2_(priced.total);
@@ -812,9 +920,14 @@ function bestandVerringern_(produktId) {
 }
 
 function verkaufEintragen_(produktId, datum) {
-  const sheet = getSpreadsheet_().getSheetByName('Verkaeufe');
+  const ss = getSpreadsheet_();
+  let sheet = ss.getSheetByName('Verkaeufe');
+  if (!sheet) {
+    sheet = ss.insertSheet('Verkaeufe');
+    sheet.getRange(1, 1, 1, 2).setValues([['produktId', 'datum']]).setFontWeight('bold');
+  }
   sheet.insertRowBefore(2);
-  sheet.getRange(2, 1, 2, 2).setValues([[produktId, datum]]);
+  sheet.getRange(2, 1, 1, 2).setValues([[produktId, datum]]);
 }
 
 function txnBereitsVerarbeitet_(txnId) {

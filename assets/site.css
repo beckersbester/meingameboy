@@ -333,6 +333,36 @@ header .tagline .tagline-zweite{
 
 .teaser-card.pink .teaser-link{color:#ff4fa3}
 
+.kauf-erfolg-banner{
+  width:100%;
+  max-width:680px;
+  margin:0 auto 28px;
+}
+
+.kauf-erfolg-banner .kauf-perk{
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  text-align:center;
+  padding:22px 20px;
+  border-radius:14px;
+  border:2px solid rgba(0,245,212,.5);
+  background:rgba(0,245,212,.1);
+  color:#eee;
+  font-size:15px;
+  line-height:1.65;
+  box-shadow:0 0 24px rgba(0,245,212,.15);
+}
+
+.kauf-erfolg-banner .kauf-perk strong{
+  display:block;
+  color:#00f5d4;
+  font-family:'Press Start 2P',monospace;
+  font-size:11px;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
 .verkaeufe-box{
   max-width:820px;
   margin:0 auto;
@@ -1332,12 +1362,25 @@ footer{
 }
 
 @media(max-width:600px){
-  header{padding:32px 12px 28px;min-height:185px}
+  header{padding:28px 12px 24px;min-height:218px}
   header h1{font-size:20px;letter-spacing:-0.5px;line-height:1.4}
   header h1 .site-domain{white-space:nowrap}
   .badge{font-size:9px;padding:8px 14px;margin-bottom:12px}
-  header .tagline{font-size:11px;padding:0 10px;margin-top:10px;line-height:1.55;min-height:3.1em}
+  header .tagline{font-size:11px;padding:0 10px;margin-top:10px;line-height:1.55;min-height:4.65em}
   header .tagline .tagline-zweite{margin-top:6px;font-size:1em}
+  .kauf-erfolg-banner{
+    max-width:100%;
+    margin:0 0 22px;
+  }
+  .kauf-erfolg-banner .kauf-perk{
+    padding:24px 18px;
+    font-size:15px;
+    line-height:1.7;
+  }
+  .kauf-erfolg-banner .kauf-perk strong{
+    font-size:10px;
+    margin-bottom:12px;
+  }
   .site-nav{gap:6px;padding:10px 8px}
   .site-nav a,.site-nav button{padding:8px 10px;font-size:11px}
   .container{padding:22px 12px 40px}
