@@ -60,10 +60,15 @@ const ShopCart = {
   },
 
   fetchShopData: function () {
+    if (document.body && document.body.dataset.page === 'shop') return;
     const self = this;
-    fetch(SITE_API_URL + '?t=' + Date.now())
-      .then(function (response) { return response.json(); })
+    const load = typeof window.fetchShopApiData === 'function'
+      ? window.fetchShopApiData()
+      : fetch(SITE_API_URL + '?t=' + Date.now()).then(function (response) { return response.json(); });
+
+    load
       .then(function (data) {
+        if (!data) return;
         if (data.preise) self.preise = data.preise;
         if (data.bestand) self.syncBestand(data.bestand);
         if (typeof window.applyShopPreise === 'function') {
