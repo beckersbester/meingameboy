@@ -1,8 +1,8 @@
 /**
  * Restore Gaming – Lager, Warenkorb-Checkout, Rabattcodes, PayPal IPN
  *
- * Tabs im Google Sheet: Bestand, Preise, Rabattcodes, Verkaeufe, Verarbeitet, Verdaechtig, Kontakt
- * setupLagerSheet einmal ausführen nach Update.
+ * Tabs im Google Sheet: Bestand, Preise, Katalog, Rabattcodes, Verkaeufe, Verarbeitet, Verdaechtig, Kontakt
+ * setupLagerSheet einmal ausführen nach Update (legt Tab „Katalog“ an).
  */
 
 const SPREADSHEET_ID = '14KYd7DKgw6rUoM7CxylOSBxcfK4zt-3qXy5j0ZleJ-E';
@@ -33,6 +33,13 @@ const BESTAND_START = {
   'classic-grau-ips': 1,
   'gba-gengar': 0,
   'gba-charmander': 0,
+  'gbasp-pokemon-g': 1,
+  'gbasp-pokemon-k': 1,
+  'gbasp-pokemon-r': 1,
+  'gbasp-blau': 1,
+  'gbasp-schwarz': 1,
+  'gbasp-silber': 1,
+  'gbasp-mario': 1,
   'spiel-sm1-z1': 1,
   'spiel-sm1-z2': 1,
   'spiel-sm1-z3': 1,
@@ -97,6 +104,13 @@ const PREISE_START = {
   'classic-grau-ips': 159.99,
   'gba-gengar': 129.99,
   'gba-charmander': 129.99,
+  'gbasp-pokemon-g': 144.99,
+  'gbasp-pokemon-k': 144.99,
+  'gbasp-pokemon-r': 144.99,
+  'gbasp-blau': 129.99,
+  'gbasp-schwarz': 129.99,
+  'gbasp-silber': 129.99,
+  'gbasp-mario': 129.99,
   'spiel-sm1-z1': 14.99,
   'spiel-sm1-z2': 19.99,
   'spiel-sm1-z3': 24.99,
@@ -147,8 +161,8 @@ const PRODUKT_NAMEN = {
   'color-wario': 'Game Boy Color Wario Edition',
   'classic': 'Nintendo Game Boy Classic',
   'pocket-orange': 'Game Boy Pocket Orange',
-  'pocket-squirtle': 'Game Boy Pocket Pokémon Squirtle Edition',
-  'pocket-charizard': 'Game Boy Pocket Pokémon Charizard Edition',
+  'pocket-squirtle': 'Game Boy Pocket Pokémon Schiggy Edition',
+  'pocket-charizard': 'Game Boy Pocket Pokémon Glurak Edition',
   'pocket-pikachu': 'Game Boy Pocket Pikachu Edition',
   'pocket-classic': 'Game Boy Pocket Classic Design',
   'color-mario': 'Game Boy Color Mario Edition',
@@ -156,11 +170,18 @@ const PRODUKT_NAMEN = {
   'classic-red': 'Game Boy Classic Red Button',
   'pocket-transparent': 'Game Boy Pocket Transparent',
   'color-pokemon': 'Game Boy Color Pokémon',
-  'color-charizard-orange': 'Game Boy Color Charizard Orange Edition',
+  'color-charizard-orange': 'Game Boy Color Charizard Red Edition',
   'color-yellow': 'Game Boy Color Pokémon Yellow Edition',
   'classic-grau-ips': 'Game Boy Classic Grau IPS V5',
   'gba-gengar': 'Game Boy Advance Gengar Edition',
-  'gba-charmander': 'Game Boy Advance Charmander Edition',
+  'gba-charmander': 'Game Boy Advance Glumanda Edition',
+  'gbasp-pokemon-g': 'Game Boy Advance SP Pokémon Groudon Edition',
+  'gbasp-pokemon-k': 'Game Boy Advance SP Pokémon Kyogre Edition',
+  'gbasp-pokemon-r': 'Game Boy Advance SP Pokémon Rayquaza Edition',
+  'gbasp-blau': 'Game Boy Advance SP Blau',
+  'gbasp-schwarz': 'Game Boy Advance SP Schwarz',
+  'gbasp-silber': 'Game Boy Advance SP Silber',
+  'gbasp-mario': 'Game Boy Advance SP Mario Edition',
   'spiel-sm1-z1': 'Super Mario Land – Akzeptabel',
   'spiel-sm1-z2': 'Super Mario Land – Gut',
   'spiel-sm1-z3': 'Super Mario Land – Sehr gut',
@@ -206,6 +227,49 @@ const PRODUKT_NAMEN = {
   'spiel-t-z3': 'Tetris – Sehr gut',
   'spiel-t-z4': 'Tetris – Neuwertig'
 };
+
+const KATALOG_HEADERS = [
+  'reihenfolge', 'typ', 'id', 'titel', 'bild', 'klassen', 'badge',
+  'features', 'startZustand', 'bildCode', 'bildExt', 'aktiv'
+];
+
+const KATALOG_START_ROWS = [
+  [1, "konsolen", "color-wario", "Game Boy Color Wario Edition", "assets/products/color-wario-float.png", "konsolen color", "", "Wario Edition – gelbes Retro-Design|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [2, "konsolen", "classic", "Nintendo Game Boy Classic", "assets/products/classic-float.png", "konsolen classic", "", "Der klassische DMG-Look|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [3, "konsolen", "pocket-orange", "Game Boy Pocket Orange", "assets/products/pocket-orange-float.png", "konsolen pocket", "", "Knalliges Orange – fällt auf|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [4, "konsolen", "pocket-squirtle", "Game Boy Pocket Pokémon Schiggy Edition", "assets/products/pocket-squirtle-float.png", "konsolen pocket", "", "Pokémon Schiggy Edition – transparent blau|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [5, "konsolen", "pocket-charizard", "Game Boy Pocket Pokémon Glurak Edition", "assets/products/pocket-charizard-float.png", "konsolen pocket", "", "Pokémon Glurak Edition – transparenter Look|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [6, "konsolen", "pocket-pikachu", "Game Boy Pocket Pikachu Edition", "assets/products/pocket-pikachu-float.png", "konsolen pocket", "", "Pikachu Edition – ikonisches Gelb|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [7, "konsolen", "pocket-classic", "Game Boy Pocket Classic Design", "assets/products/pocket-classic-float.png", "konsolen pocket", "", "Pocket im Classic-Design|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [8, "konsolen", "color-mario", "Game Boy Color Mario Edition", "assets/products/color-mario-float.png", "konsolen color", "", "Offizielle Mario-Scheibe|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [9, "konsolen", "classic-black-ips", "Game Boy Classic Black Button IPS V5", "assets/products/classic-black-ips-float.png", "konsolen classic ips", "", "IPS V5 Display – hell, scharf & farbecht|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [10, "konsolen", "classic-red", "Game Boy Classic Red Button", "assets/products/classic-red-float.png", "konsolen classic", "", "Weißes Gehäuse · rote Tasten|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [11, "konsolen", "pocket-transparent", "Game Boy Pocket Transparent", "assets/products/pocket-transparent-float.png", "konsolen pocket", "", "Transparent – Innere Technik sichtbar|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [12, "konsolen", "color-pokemon", "Game Boy Color Pokémon", "assets/products/color-pokemon-float.png", "konsolen color", "", "Pokémon-Scheibe · weißes Gehäuse|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [13, "konsolen", "color-charizard-orange", "Game Boy Color Charizard Red Edition", "assets/products/color-charizard-orange-float.png", "konsolen color", "", "Charizard Red Edition – Pokémon Design|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [14, "konsolen", "color-yellow", "Game Boy Color Pokémon Yellow Edition", "assets/products/color-yellow-float.png", "konsolen color", "", "Pokémon Yellow Edition|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [15, "konsolen", "classic-grau-ips", "Game Boy Classic Grau IPS V5", "assets/products/classic-grau-ips-float.png", "konsolen classic ips", "", "IPS V5 Display – hell, scharf & farbecht|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [16, "konsolen", "gba-gengar", "Game Boy Advance Gengar Edition", "assets/products/gba-gengar-float.png", "konsolen gba", "", "Custom Gengar Design – transluzent|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [17, "konsolen", "gba-charmander", "Game Boy Advance Glumanda Edition", "assets/products/gba-charmander-float.png", "konsolen gba", "", "Custom Glumanda Design – transluzent orange|Neues Austauschgehäuse & frische Display-Scheibe|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [18, "konsolen", "gbasp-pokemon-g", "Game Boy Advance SP Pokémon Groudon Edition", "assets/products/GBASP_G_float.png", "konsolen gbasp", "", "Frisches Groudon-Austauschgehäuse – top Zustand|AGS-001 Original-Display|USB-Ladekabel inklusive|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [19, "konsolen", "gbasp-pokemon-k", "Game Boy Advance SP Pokémon Kyogre Edition", "assets/products/GBASP_K_float.png", "konsolen gbasp", "", "Frisches Kyogre-Austauschgehäuse – top Zustand|AGS-001 Original-Display|USB-Ladekabel inklusive|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [20, "konsolen", "gbasp-pokemon-r", "Game Boy Advance SP Pokémon Rayquaza Edition", "assets/products/GBASP_R_float.png", "konsolen gbasp", "", "Frisches Rayquaza-Austauschgehäuse – top Zustand|AGS-001 Original-Display|USB-Ladekabel inklusive|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [21, "konsolen", "gbasp-blau", "Game Boy Advance SP Blau", "assets/products/GBASP_blau_float.png", "konsolen gbasp", "", "Original Nintendo-Gehäuse · guter Gebrauchtzustand|AGS-001 Original-Display|USB-Ladekabel inklusive|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [22, "konsolen", "gbasp-schwarz", "Game Boy Advance SP Schwarz", "assets/products/GBASP_black_float.png", "konsolen gbasp", "", "Original Nintendo-Gehäuse · guter Gebrauchtzustand|AGS-001 Original-Display|USB-Ladekabel inklusive|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [23, "konsolen", "gbasp-silber", "Game Boy Advance SP Silber", "assets/products/GBASP_silber_float.png", "konsolen gbasp", "", "Original Nintendo-Gehäuse · guter Gebrauchtzustand|AGS-001 Original-Display|USB-Ladekabel inklusive|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [24, "konsolen", "gbasp-mario", "Game Boy Advance SP Mario Edition", "assets/products/GBASP_mario_float.png", "konsolen gbasp", "", "Original Nintendo-Gehäuse · guter Gebrauchtzustand|AGS-001 Original-Display|USB-Ladekabel inklusive|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "", "", "", "ja"],
+  [25, "spiel", "sm1", "Super Mario Land", "assets/products/SM1_Z3.webp", "spiele spiel-variante", "Mario", "Original Game Boy Modul|Wartungsfrei – keine Speicherbatterie nötig|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "SM1", "", "ja"],
+  [26, "spiel", "sm2", "Super Mario Land 2", "assets/products/SM2_Z3.webp", "spiele spiel-variante", "Mario", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "SM2", "z1:jpeg", "ja"],
+  [27, "spiel", "sm3", "Super Mario Land 3", "assets/products/SM3_Z3.webp", "spiele spiel-variante", "Mario", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "SM3", "", "ja"],
+  [28, "spiel", "pb", "Pokémon Blau", "assets/products/PB_Z2.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z2", "PB", "z2:jpeg|z4:jpeg", "ja"],
+  [29, "spiel", "pr", "Pokémon Rot", "assets/products/PR_Z1.jpg", "spiele spiel-variante", "Pokémon", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z1", "PR", "z1:jpg|z3:jpeg", "ja"],
+  [30, "spiel", "pg", "Pokémon Gelb", "assets/products/PG_Z4.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z4", "PG", "z4:jpeg", "ja"],
+  [31, "spiel", "pk", "Pokémon Kristall", "assets/products/PK_Z3.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "PK", "z3:jpeg", "ja"],
+  [32, "spiel", "pt", "Pokémon Trading Card", "assets/products/PT_Z3.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "PT", "z3:jpeg", "ja"],
+  [33, "spiel", "dbz", "Dragon Ball Z", "assets/products/DBZ_Z3.jpeg", "spiele spiel-variante", "Klassiker", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "DBZ", "z3:jpeg", "ja"],
+  [34, "spiel", "zla", "Zelda: Link's Awakening", "assets/products/ZLA_Z2.jpeg", "spiele spiel-variante", "Zelda", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z2", "ZLA", "z2:jpeg|z3:jpg", "ja"],
+  [35, "spiel", "t", "Tetris", "assets/products/T_Z2.jpeg", "spiele spiel-variante", "Klassiker", "Original Game Boy Modul|Wartungsfrei – keine Speicherbatterie nötig|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z2", "T", "z2:jpeg|z3:jpeg", "ja"]
+];
 
 const RABATT_START = [
   ['code', 'typ', 'wert', 'aktiv', 'notiz'],
@@ -287,6 +351,12 @@ function setupLagerSheet() {
   });
   preise.getRange(2, 1, preisRows.length, 3).setValues(preisRows);
 
+  let katalog = ss.getSheetByName('Katalog');
+  if (!katalog) katalog = ss.insertSheet('Katalog');
+  katalog.clearContents();
+  katalog.getRange(1, 1, 1, KATALOG_HEADERS.length).setValues([KATALOG_HEADERS]).setFontWeight('bold');
+  katalog.getRange(2, 1, KATALOG_START_ROWS.length, KATALOG_HEADERS.length).setValues(KATALOG_START_ROWS);
+
   let rabatt = ss.getSheetByName('Rabattcodes');
   if (!rabatt) rabatt = ss.insertSheet('Rabattcodes');
   rabatt.clearContents();
@@ -322,6 +392,7 @@ function doGet(e) {
     const data = {
       bestand: leseBestand_(),
       preise: lesePreise_(),
+      katalog: leseKatalog_(),
       verkaeufe: leseVerkaeufe_(20)
     };
     return jsonResponse_(data);
@@ -702,6 +773,80 @@ function lookupRabatt_(code) {
   }
 
   return null;
+}
+
+function parseKatalogBildExt_(value) {
+  const ext = {};
+  String(value || '').split('|').forEach(function (part) {
+    const pair = part.split(':');
+    if (pair.length !== 2) return;
+    const key = String(pair[0] || '').trim();
+    const val = String(pair[1] || '').trim();
+    if (key && val) ext[key] = val;
+  });
+  return ext;
+}
+
+function parseKatalogRow_(row) {
+  const aktiv = String(row[11] || 'ja').trim().toLowerCase();
+  if (aktiv === 'nein' || aktiv === '0' || aktiv === 'false') return null;
+
+  const features = String(row[7] || '').split('|').map(function (part) {
+    return String(part || '').trim();
+  }).filter(Boolean);
+
+  const item = {
+    reihenfolge: Number(row[0]) || 0,
+    typ: String(row[1] || '').trim(),
+    id: String(row[2] || '').trim(),
+    titel: String(row[3] || '').trim(),
+    bild: String(row[4] || '').trim(),
+    klassen: String(row[5] || '').trim(),
+    features: features,
+    aktiv: 'ja'
+  };
+
+  const badge = String(row[6] || '').trim();
+  if (badge) item.badge = badge;
+
+  const startZustand = String(row[8] || '').trim();
+  if (startZustand) item.startZustand = startZustand;
+
+  const bildCode = String(row[9] || '').trim();
+  if (bildCode) item.bildCode = bildCode;
+
+  const bildExt = parseKatalogBildExt_(row[10]);
+  if (Object.keys(bildExt).length) item.bildExt = bildExt;
+
+  if (!item.id || !item.titel) return null;
+  return item;
+}
+
+function katalogAusStartRows_() {
+  return KATALOG_START_ROWS.map(parseKatalogRow_).filter(Boolean).sort(function (a, b) {
+    return a.reihenfolge - b.reihenfolge;
+  });
+}
+
+function leseKatalog_() {
+  const sheet = getSpreadsheet_().getSheetByName('Katalog');
+  if (!sheet || sheet.getLastRow() < 2) {
+    return katalogAusStartRows_();
+  }
+
+  const values = sheet.getDataRange().getValues();
+  const items = [];
+
+  for (let i = 1; i < values.length; i++) {
+    const item = parseKatalogRow_(values[i]);
+    if (item) items.push(item);
+  }
+
+  if (!items.length) return katalogAusStartRows_();
+
+  return items.sort(function (a, b) {
+    return a.reihenfolge - b.reihenfolge;
+  });
 }
 
 function lesePreise_() {
