@@ -1,0 +1,598 @@
+const KATALOG_FALLBACK = [
+  {
+    "reihenfolge": 1,
+    "typ": "konsolen",
+    "id": "color-wario",
+    "titel": "Game Boy Color Wario Edition",
+    "bild": "assets/products/color-wario-float.png",
+    "klassen": "konsolen color",
+    "features": [
+      "Wario Edition – gelbes Retro-Design",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 2,
+    "typ": "konsolen",
+    "id": "classic",
+    "titel": "Nintendo Game Boy Classic",
+    "bild": "assets/products/classic-float.png",
+    "klassen": "konsolen classic",
+    "features": [
+      "Der klassische DMG-Look",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 3,
+    "typ": "konsolen",
+    "id": "pocket-orange",
+    "titel": "Game Boy Pocket Orange",
+    "bild": "assets/products/pocket-orange-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Knalliges Orange – fällt auf",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 4,
+    "typ": "konsolen",
+    "id": "pocket-squirtle",
+    "titel": "Game Boy Pocket Pokémon Schiggy Edition",
+    "bild": "assets/products/pocket-squirtle-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pokémon Schiggy Edition – transparent blau",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 5,
+    "typ": "konsolen",
+    "id": "pocket-charizard",
+    "titel": "Game Boy Pocket Pokémon Glurak Edition",
+    "bild": "assets/products/pocket-charizard-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pokémon Glurak Edition – transparenter Look",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 6,
+    "typ": "konsolen",
+    "id": "pocket-pikachu",
+    "titel": "Game Boy Pocket Pikachu Edition",
+    "bild": "assets/products/pocket-pikachu-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pikachu Edition – ikonisches Gelb",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 7,
+    "typ": "konsolen",
+    "id": "pocket-classic",
+    "titel": "Game Boy Pocket Classic Design",
+    "bild": "assets/products/pocket-classic-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pocket im Classic-Design",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 8,
+    "typ": "konsolen",
+    "id": "color-mario",
+    "titel": "Game Boy Color Mario Edition",
+    "bild": "assets/products/color-mario-float.png",
+    "klassen": "konsolen color",
+    "features": [
+      "Offizielle Mario-Scheibe",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 9,
+    "typ": "konsolen",
+    "id": "classic-black-ips",
+    "titel": "Game Boy Classic Black Button IPS V5",
+    "bild": "assets/products/classic-black-ips-float.png",
+    "klassen": "konsolen classic ips",
+    "features": [
+      "IPS V5 Display – hell, scharf & farbecht",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 10,
+    "typ": "konsolen",
+    "id": "classic-red",
+    "titel": "Game Boy Classic Red Button",
+    "bild": "assets/products/classic-red-float.png",
+    "klassen": "konsolen classic",
+    "features": [
+      "Weißes Gehäuse · rote Tasten",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 11,
+    "typ": "konsolen",
+    "id": "pocket-transparent",
+    "titel": "Game Boy Pocket Transparent",
+    "bild": "assets/products/pocket-transparent-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Transparent – Innere Technik sichtbar",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 12,
+    "typ": "konsolen",
+    "id": "color-pokemon",
+    "titel": "Game Boy Color Pokémon",
+    "bild": "assets/products/color-pokemon-float.png",
+    "klassen": "konsolen color",
+    "features": [
+      "Pokémon-Scheibe · weißes Gehäuse",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 13,
+    "typ": "konsolen",
+    "id": "color-charizard-orange",
+    "titel": "Game Boy Color Charizard Red Edition",
+    "bild": "assets/products/color-charizard-orange-float.png",
+    "klassen": "konsolen color",
+    "features": [
+      "Charizard Red Edition – Pokémon Design",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 14,
+    "typ": "konsolen",
+    "id": "color-yellow",
+    "titel": "Game Boy Color Pokémon Yellow Edition",
+    "bild": "assets/products/color-yellow-float.png",
+    "klassen": "konsolen color",
+    "features": [
+      "Pokémon Yellow Edition",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 15,
+    "typ": "konsolen",
+    "id": "classic-grau-ips",
+    "titel": "Game Boy Classic Grau IPS V5",
+    "bild": "assets/products/classic-grau-ips-float.png",
+    "klassen": "konsolen classic ips",
+    "features": [
+      "IPS V5 Display – hell, scharf & farbecht",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 16,
+    "typ": "konsolen",
+    "id": "gba-gengar",
+    "titel": "Game Boy Advance Gengar Edition",
+    "bild": "assets/products/gba-gengar-float.png",
+    "klassen": "konsolen gba ausverkauft",
+    "features": [
+      "Custom Gengar Design – transluzent",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 17,
+    "typ": "konsolen",
+    "id": "gba-charmander",
+    "titel": "Game Boy Advance Glumanda Edition",
+    "bild": "assets/products/gba-charmander-float.png",
+    "klassen": "konsolen gba ausverkauft",
+    "features": [
+      "Custom Glumanda Design – transluzent orange",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 18,
+    "typ": "konsolen",
+    "id": "gbasp-pokemon-g",
+    "titel": "Game Boy Advance SP Pokémon Groudon Edition",
+    "bild": "assets/products/GBASP_G_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Frisches Groudon-Austauschgehäuse – top Zustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 19,
+    "typ": "konsolen",
+    "id": "gbasp-pokemon-k",
+    "titel": "Game Boy Advance SP Pokémon Kyogre Edition",
+    "bild": "assets/products/GBASP_K_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Frisches Kyogre-Austauschgehäuse – top Zustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 20,
+    "typ": "konsolen",
+    "id": "gbasp-pokemon-r",
+    "titel": "Game Boy Advance SP Pokémon Rayquaza Edition",
+    "bild": "assets/products/GBASP_R_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Frisches Rayquaza-Austauschgehäuse – top Zustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 21,
+    "typ": "konsolen",
+    "id": "gbasp-blau",
+    "titel": "Game Boy Advance SP Blau",
+    "bild": "assets/products/GBASP_blau_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 22,
+    "typ": "konsolen",
+    "id": "gbasp-schwarz",
+    "titel": "Game Boy Advance SP Schwarz",
+    "bild": "assets/products/GBASP_black_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 23,
+    "typ": "konsolen",
+    "id": "gbasp-silber",
+    "titel": "Game Boy Advance SP Silber",
+    "bild": "assets/products/GBASP_silber_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 24,
+    "typ": "konsolen",
+    "id": "gbasp-mario",
+    "titel": "Game Boy Advance SP Mario Edition",
+    "bild": "assets/products/GBASP_mario_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja"
+  },
+  {
+    "reihenfolge": 25,
+    "typ": "spiel",
+    "id": "sm1",
+    "titel": "Super Mario Land",
+    "bild": "assets/products/SM1_Z3.webp",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Wartungsfrei – keine Speicherbatterie nötig",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Mario",
+    "startZustand": "z3",
+    "bildCode": "SM1"
+  },
+  {
+    "reihenfolge": 26,
+    "typ": "spiel",
+    "id": "sm2",
+    "titel": "Super Mario Land 2",
+    "bild": "assets/products/SM2_Z3.webp",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Mario",
+    "startZustand": "z3",
+    "bildCode": "SM2",
+    "bildExt": {
+      "z1": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 27,
+    "typ": "spiel",
+    "id": "sm3",
+    "titel": "Super Mario Land 3",
+    "bild": "assets/products/SM3_Z3.webp",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Mario",
+    "startZustand": "z3",
+    "bildCode": "SM3"
+  },
+  {
+    "reihenfolge": 28,
+    "typ": "spiel",
+    "id": "pb",
+    "titel": "Pokémon Blau",
+    "bild": "assets/products/PB_Z2.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z2",
+    "bildCode": "PB",
+    "bildExt": {
+      "z2": "jpeg",
+      "z4": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 29,
+    "typ": "spiel",
+    "id": "pr",
+    "titel": "Pokémon Rot",
+    "bild": "assets/products/PR_Z1.jpg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z1",
+    "bildCode": "PR",
+    "bildExt": {
+      "z1": "jpg",
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 30,
+    "typ": "spiel",
+    "id": "pg",
+    "titel": "Pokémon Gelb",
+    "bild": "assets/products/PG_Z4.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z4",
+    "bildCode": "PG",
+    "bildExt": {
+      "z4": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 31,
+    "typ": "spiel",
+    "id": "pk",
+    "titel": "Pokémon Kristall",
+    "bild": "assets/products/PK_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PK",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 32,
+    "typ": "spiel",
+    "id": "pt",
+    "titel": "Pokémon Trading Card",
+    "bild": "assets/products/PT_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PT",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 33,
+    "typ": "spiel",
+    "id": "dbz",
+    "titel": "Dragon Ball Z",
+    "bild": "assets/products/DBZ_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Klassiker",
+    "startZustand": "z3",
+    "bildCode": "DBZ",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 34,
+    "typ": "spiel",
+    "id": "zla",
+    "titel": "Zelda: Link's Awakening",
+    "bild": "assets/products/ZLA_Z2.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Zelda",
+    "startZustand": "z2",
+    "bildCode": "ZLA",
+    "bildExt": {
+      "z2": "jpeg",
+      "z3": "jpg"
+    }
+  },
+  {
+    "reihenfolge": 35,
+    "typ": "spiel",
+    "id": "t",
+    "titel": "Tetris",
+    "bild": "assets/products/T_Z2.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Wartungsfrei – keine Speicherbatterie nötig",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Klassiker",
+    "startZustand": "z2",
+    "bildCode": "T",
+    "bildExt": {
+      "z2": "jpeg",
+      "z3": "jpeg"
+    }
+  }
+];
