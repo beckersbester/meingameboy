@@ -37,7 +37,7 @@ function buildWarenkorbModal() {
         '<p class="warenkorb-leer" id="warenkorb-leer">Dein Warenkorb ist noch leer.</p>' +
         '<ul class="warenkorb-liste" id="warenkorb-liste"></ul>' +
         '<div class="warenkorb-summary" id="warenkorb-summary" hidden>' +
-          '<p class="warenkorb-rabatt-info">Immer 5&nbsp;% günstiger im Webshop · ab 2 Artikeln nochmal 5&nbsp;% auf den Warenkorb mit Code <strong>GAMEBOY5</strong></p>' +
+          '<p class="warenkorb-rabatt-info">Immer 5&nbsp;% günstiger im Webshop.<br>Ab 2 Artikeln nochmal 5&nbsp;% mit Code <strong>GAMEBOY5</strong>.</p>' +
           '<label class="warenkorb-rabatt-label">Code für Kombi-Rabatt (ab 2 Artikeln)' +
             '<div class="warenkorb-rabatt-row">' +
               '<input type="text" id="warenkorb-rabatt" placeholder="GAMEBOY5" autocapitalize="characters">' +
@@ -46,8 +46,7 @@ function buildWarenkorbModal() {
           '</label>' +
           '<p class="warenkorb-rabatt-hinweis" id="warenkorb-rabatt-hinweis" aria-live="polite"></p>' +
           '<div class="warenkorb-preise-box" id="warenkorb-preise-box">' +
-            '<p class="warenkorb-zwischensumme">Listenpreis: <strong id="warenkorb-zwischensumme">0,00 €</strong></p>' +
-            '<p class="warenkorb-rabatt-zeile" id="warenkorb-rabatt-zeile" hidden>Rabatt (<span id="warenkorb-rabatt-prozent">0&nbsp;%</span>): <strong id="warenkorb-rabatt-betrag">−0,00 €</strong></p>' +
+            '<p class="warenkorb-rabatt-zeile" id="warenkorb-rabatt-zeile" hidden>Kombi-Rabatt <span id="warenkorb-rabatt-prozent">GAMEBOY5</span>: <strong id="warenkorb-rabatt-betrag">−0,00 €</strong></p>' +
             '<p class="warenkorb-endpreis">Du zahlst: <strong id="warenkorb-endpreis">0,00 €</strong></p>' +
           '</div>' +
           '<button type="button" class="button button-checkout" id="warenkorb-checkout">Zur Kasse mit PayPal</button>' +

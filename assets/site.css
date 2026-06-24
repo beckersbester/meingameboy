@@ -100,22 +100,28 @@ header .tagline .tagline-zweite{
   opacity:.95;
 }
 
-header .tagline.tagline-split{
-  flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:center;
-  row-gap:.35em;
-  min-height:auto;
+.aktions-details{
+  margin:0 0 18px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 
-header .tagline.tagline-split span{
-  white-space:nowrap;
+.aktions-details p{
+  margin:0;
+  padding:8px 12px;
+  border-radius:10px;
+  background:rgba(7,8,23,.35);
+  border:1px solid rgba(0,245,212,.22);
+  color:#e8e8e8;
+  font-size:14px;
+  line-height:1.5;
 }
 
-header .tagline.tagline-split span:not(:last-child)::after{
-  content:' ·';
-  white-space:pre;
+.perk-detail{
+  display:block;
+  margin-top:2px;
+  line-height:1.45;
 }
 
 .site-nav{
@@ -282,26 +288,6 @@ header .tagline.tagline-split span:not(:last-child)::after{
   color:#00f5d4;
   font-size:15px;
   font-weight:bold;
-  line-height:1.45;
-}
-
-.aktions-punkte{
-  list-style:none;
-  margin:0 0 18px;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.aktions-punkte li{
-  margin:0;
-  padding:8px 12px;
-  border-radius:10px;
-  background:rgba(7,8,23,.35);
-  border:1px solid rgba(0,245,212,.22);
-  color:#e8e8e8;
-  font-size:14px;
   line-height:1.45;
 }
 
@@ -1500,7 +1486,6 @@ footer{
   header h1 .site-domain{white-space:nowrap}
   .badge{font-size:9px;padding:8px 14px;margin-bottom:12px}
   header .tagline{font-size:11px;padding:0 10px;margin-top:10px;line-height:1.55;min-height:4.65em}
-  header .tagline.tagline-split{min-height:3.1em}
   header .tagline .tagline-zweite{margin-top:6px;font-size:1em}
   .kauf-erfolg-banner{
     max-width:100%;
@@ -1533,8 +1518,8 @@ footer{
   }
   .aktions-headline{font-size:10px;margin-bottom:8px}
   .aktions-lead{font-size:14px;margin-bottom:12px}
-  .aktions-punkte{gap:6px;margin-bottom:14px}
-  .aktions-punkte li{font-size:13px;padding:7px 10px}
+  .aktions-details{gap:6px;margin-bottom:14px}
+  .aktions-details p{font-size:13px;padding:7px 10px}
   .aktions-code{font-size:8px}
   .aktions-cta{width:100%;max-width:280px;padding:11px 16px}
   .site-hinweis-urlaub{font-size:13px;padding:12px 14px;margin-bottom:16px}

@@ -164,10 +164,10 @@
   }
 
   function funMessageText(score) {
-    if (score >= 100) return 'RGB-Meister! Der Webshop-Preis ist schon 5 % günstiger – ab 2 Artikeln mit GAMEBOY5 nochmal 5 %.';
-    if (score >= 85) return 'Starke Leistung! Im Webshop sparst du immer 5 % – GAMEBOY5 gibt ab 2 Artikeln extra 5 %.';
-    if (score >= 60) return 'Nicht schlecht! Webshop: 5 % auf alles, schön gerundet.';
-    return 'Weiter üben – oder shoppen: 5 % Webshop-Rabatt ist immer aktiv.';
+    if (score >= 100) return 'RGB-Meister! Perfekte Farbe – Respekt.';
+    if (score >= 85) return 'Starke Leistung! Du hast ein gutes Auge für Retro-Farben.';
+    if (score >= 60) return 'Nicht schlecht – noch Luft nach oben.';
+    return 'Weiter üben – nächste Runde wird besser!';
   }
 
   function showFunResult(score) {

@@ -277,7 +277,7 @@ const RABATT_START = [
 ];
 
 const WEB_RABATT_FAKTOR = 0.95;
-const KOMBI_RABATT_FAKTOR = 0.95;
+const KOMBI_RABATT_PROZENT = 5;
 const KOMBI_RABATT_CODE = 'GAMEBOY5';
 const KOMBI_MIN_ARTIKEL = 2;
 
@@ -505,8 +505,31 @@ function websiteEinzelpreis_(listenpreis, produktId) {
   return rundeShopPreis_(round2_(listenpreis * WEB_RABATT_FAKTOR), produktId);
 }
 
-function kombiEinzelpreis_(websitePreis, produktId) {
-  return rundeShopPreis_(round2_(websitePreis * KOMBI_RABATT_FAKTOR), produktId);
+function verteileKombiRabatt_(lines, websiteSubtotal, targetTotal) {
+  if (websiteSubtotal <= 0) return lines;
+
+  const factor = targetTotal / websiteSubtotal;
+  let running = 0;
+  const lastIndex = lines.length - 1;
+
+  return lines.map(function (line, index) {
+    const lineWeb = round2_(line.websiteUnitPrice * line.qty);
+    let lineTotal;
+
+    if (index === lastIndex) {
+      lineTotal = round2_(targetTotal - running);
+    } else {
+      lineTotal = round2_(lineWeb * factor);
+      running = round2_(running + lineTotal);
+    }
+
+    return {
+      produktId: line.produktId,
+      name: line.name,
+      qty: line.qty,
+      unitPrice: round2_(lineTotal / line.qty)
+    };
+  });
 }
 
 function formatEuro_(value) {
@@ -515,27 +538,21 @@ function formatEuro_(value) {
 
 function buildRabattHinweis_(priced, rabattCode, artikelAnzahl) {
   const code = String(rabattCode || '').trim().toUpperCase();
-  const webSpar = round2_(priced.listSubtotal - priced.websiteSubtotal);
-  const gesamtSpar = round2_(priced.discount);
+
+  if (!code) return '';
 
   if (code === KOMBI_RABATT_CODE && !priced.kombiAktiv) {
     if (artikelAnzahl < KOMBI_MIN_ARTIKEL) {
-      return 'CODE GAMEBOY5 gilt ab ' + KOMBI_MIN_ARTIKEL + ' Artikeln – Webshop-Preis (5 %) ist bereits aktiv.';
+      return 'CODE GAMEBOY5 gilt ab ' + KOMBI_MIN_ARTIKEL + ' Artikeln.';
     }
     return 'CODE GAMEBOY5 ist ungültig oder nicht aktiv.';
   }
 
   if (priced.kombiAktiv) {
-    return 'Webshop-Preis inkl. 5 % (−' + formatEuro_(webSpar) + ') + CODE GAMEBOY5 extra 5 % – gesamt sparst du ' + formatEuro_(gesamtSpar) + '.';
+    return 'CODE GAMEBOY5 – nochmal 5 % auf den Warenkorb (−' + formatEuro_(priced.discount) + ').';
   }
 
-  let hint = 'Webshop-Preis: immer 5 % günstiger – du sparst ' + formatEuro_(webSpar) + '.';
-  if (artikelAnzahl < KOMBI_MIN_ARTIKEL) {
-    hint += ' Noch ' + (KOMBI_MIN_ARTIKEL - artikelAnzahl) + ' Artikel für nochmal 5 % auf den Warenkorb mit CODE GAMEBOY5.';
-  } else {
-    hint += ' Ab 2 Artikeln: nochmal 5 % auf den Warenkorb mit CODE GAMEBOY5.';
-  }
-  return hint;
+  return '';
 }
 
 function handleQuote_(params) {
@@ -595,43 +612,40 @@ function berechneWarenkorbPreise_(lines, rabattCode) {
   const code = String(rabattCode || '').trim().toUpperCase();
   const kombiAktiv = artikelAnzahl >= KOMBI_MIN_ARTIKEL && code === KOMBI_RABATT_CODE;
 
-  const listSubtotal = round2_(lines.reduce(function (sum, line) {
-    return sum + round2_(line.unitPrice) * line.qty;
-  }, 0));
-
   let websiteSubtotal = 0;
-  const pricedLines = lines.map(function (line) {
+  const baseLines = lines.map(function (line) {
     const listUnit = round2_(line.unitPrice);
     const webUnit = websiteEinzelpreis_(listUnit, line.produktId);
     websiteSubtotal = round2_(websiteSubtotal + webUnit * line.qty);
-    const finalUnit = kombiAktiv ? kombiEinzelpreis_(webUnit, line.produktId) : webUnit;
     return {
       produktId: line.produktId,
       name: line.name,
       qty: line.qty,
-      unitPrice: finalUnit
+      websiteUnitPrice: webUnit,
+      unitPrice: webUnit
     };
   });
 
-  const total = round2_(pricedLines.reduce(function (sum, line) {
-    return sum + line.unitPrice * line.qty;
-  }, 0));
+  let kombiDiscount = 0;
+  let total = websiteSubtotal;
+  let pricedLines = baseLines;
 
-  const discount = round2_(listSubtotal - total);
-  let rabattProzent = 5;
-  if (kombiAktiv) rabattProzent = 10;
+  if (kombiAktiv) {
+    kombiDiscount = round2_(websiteSubtotal * KOMBI_RABATT_PROZENT / 100);
+    total = round2_(websiteSubtotal - kombiDiscount);
+    pricedLines = verteileKombiRabatt_(baseLines, websiteSubtotal, total);
+  }
 
   return {
     lines: pricedLines,
-    subtotal: listSubtotal,
-    listSubtotal: listSubtotal,
+    subtotal: websiteSubtotal,
     websiteSubtotal: websiteSubtotal,
-    discount: discount,
+    discount: kombiDiscount,
     total: total,
     kombiAktiv: kombiAktiv,
-    rabattCode: kombiAktiv ? KOMBI_RABATT_CODE : 'WEBSHOP',
-    rabattProzent: rabattProzent,
-    rabattTyp: 'prozent'
+    rabattCode: kombiAktiv ? KOMBI_RABATT_CODE : '',
+    rabattProzent: kombiAktiv ? KOMBI_RABATT_PROZENT : null,
+    rabattTyp: kombiAktiv ? 'prozent' : ''
   };
 }
 

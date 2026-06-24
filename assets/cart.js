@@ -7,8 +7,8 @@ const ShopCart = {
   bestandLoaded: false,
   namen: {},
   toastTimer: null,
-  quotePending: false,
   rabattApplied: false,
+  kombiAktiv: false,
 
   init: function () {
     try {
@@ -227,6 +227,7 @@ const ShopCart = {
   remove: function (produktId) {
     this.items = this.items.filter(function (item) { return item.produktId !== produktId; });
     this.rabattApplied = false;
+    this.kombiAktiv = false;
     this.save();
   },
 
@@ -244,12 +245,14 @@ const ShopCart = {
 
     item.qty = next;
     this.rabattApplied = false;
+    this.kombiAktiv = false;
     this.save();
   },
 
   clear: function () {
     this.items = [];
     this.rabattApplied = false;
+    this.kombiAktiv = false;
     this.save();
   },
 
@@ -324,6 +327,7 @@ const ShopCart = {
       });
       rabattInput.addEventListener('input', function () {
         ShopCart.rabattApplied = false;
+        ShopCart.kombiAktiv = false;
         ShopCart.refreshQuote();
       });
     }
@@ -350,12 +354,17 @@ const ShopCart = {
     document.body.classList.remove('modal-open');
   },
 
-  localQuote: function (rabattCode) {
+  localQuote: function (rabattCode, applyKombi) {
     if (typeof ShopPreise === 'undefined') {
       return { ok: false, error: 'Preisberechnung nicht verfügbar.' };
     }
 
-    const priced = ShopPreise.berechneWarenkorb(this.quoteLines(), rabattCode || this.getRabattCodeInput());
+    const code = String(rabattCode || this.getRabattCodeInput()).trim().toUpperCase();
+    const priced = ShopPreise.berechneWarenkorb(
+      this.quoteLines(),
+      applyKombi ? code : ''
+    );
+
     return {
       ok: true,
       subtotal: priced.subtotal,
@@ -363,22 +372,20 @@ const ShopCart = {
       total: priced.total,
       rabattProzent: priced.rabattProzent,
       rabattTyp: priced.rabattTyp,
-      rabattGueltig: priced.rabattGueltig,
-      rabattHinweis: priced.rabattHinweis
+      rabattGueltig: applyKombi ? priced.rabattGueltig : null,
+      rabattHinweis: applyKombi ? priced.rabattHinweis : ''
     };
   },
 
   applyQuote: function (data) {
-    const subtotalEl = document.getElementById('warenkorb-zwischensumme');
     const endpreisEl = document.getElementById('warenkorb-endpreis');
     const rabattZeile = document.getElementById('warenkorb-rabatt-zeile');
     const rabattBetragEl = document.getElementById('warenkorb-rabatt-betrag');
-    const rabattProzentEl = document.getElementById('warenkorb-rabatt-prozent');
     const rabattHinweisEl = document.getElementById('warenkorb-rabatt-hinweis');
 
     if (!data.ok) {
       if (typeof ShopPreise !== 'undefined') {
-        this.applyQuote(this.localQuote());
+        this.applyQuote(this.localQuote(this.getRabattCodeInput()));
       } else if (rabattHinweisEl) {
         rabattHinweisEl.textContent = data.error || 'Preis konnte nicht berechnet werden.';
         rabattHinweisEl.className = 'warenkorb-rabatt-hinweis is-error';
@@ -386,27 +393,17 @@ const ShopCart = {
       return;
     }
 
-    const subtotal = Number(data.subtotal) || 0;
     const discount = Number(data.discount) || 0;
     const total = Number(data.total) || 0;
 
-    if (subtotalEl) subtotalEl.textContent = formatCartPreis(subtotal);
     if (endpreisEl) endpreisEl.textContent = formatCartPreis(total);
 
     if (rabattZeile && rabattBetragEl) {
       if (discount > 0.004) {
         rabattZeile.hidden = false;
-        let prozent = Number(data.rabattProzent);
-        if ((!prozent || prozent <= 0) && subtotal > 0) {
-          prozent = Math.round(discount / subtotal * 100);
-        }
-        if (rabattProzentEl) {
-          rabattProzentEl.textContent = prozent > 0 ? prozent + ' %' : 'Rabatt';
-        }
         rabattBetragEl.textContent = '−' + discount.toFixed(2).replace('.', ',') + ' €';
       } else {
         rabattZeile.hidden = true;
-        if (rabattProzentEl) rabattProzentEl.textContent = '0 %';
       }
     }
 
@@ -419,66 +416,23 @@ const ShopCart = {
 
     if (data.rabattGueltig === true) {
       this.rabattApplied = true;
+      this.kombiAktiv = true;
     } else if (!this.getRabattCodeInput()) {
       this.rabattApplied = true;
+      this.kombiAktiv = false;
     } else {
       this.rabattApplied = false;
+      this.kombiAktiv = false;
     }
   },
 
   confirmRabatt: function () {
-    this.refreshQuote(true);
+    this.applyQuote(this.localQuote(this.getRabattCodeInput(), true));
   },
 
-  refreshQuote: function (fromConfirm) {
+  refreshQuote: function () {
     if (this.items.length === 0) return;
-
-    const code = this.getRabattCodeInput();
-    const checkBtn = document.getElementById('warenkorb-rabatt-check');
-
-    if (fromConfirm && checkBtn) {
-      checkBtn.disabled = true;
-      checkBtn.textContent = 'Prüfe …';
-    }
-
-    const finish = function (data) {
-      if (checkBtn) {
-        checkBtn.disabled = false;
-        checkBtn.textContent = 'Code prüfen';
-      }
-      ShopCart.quotePending = false;
-      ShopCart.applyQuote(data);
-    };
-
-    if (!SITE_API_URL) {
-      finish(this.localQuote(code));
-      return;
-    }
-
-    if (this.quotePending) return;
-    this.quotePending = true;
-
-    const params = new URLSearchParams({
-      action: 'quote',
-      cart: JSON.stringify(this.cartPayload()),
-      rabatt: code
-    });
-
-    fetch(SITE_API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
-    })
-      .then(function (response) { return response.json(); })
-      .then(finish)
-      .catch(function () {
-        finish(ShopCart.localQuote(code));
-        const hinweis = document.getElementById('warenkorb-rabatt-hinweis');
-        if (hinweis) {
-          hinweis.textContent = 'Offline-Schätzung – beim Checkout wird der Preis erneut geprüft.';
-          hinweis.className = 'warenkorb-rabatt-hinweis';
-        }
-      });
+    this.applyQuote(this.localQuote('', false));
   },
 
   renderModal: function () {
@@ -497,6 +451,7 @@ const ShopCart = {
     empty.hidden = true;
     summary.hidden = false;
     this.rabattApplied = false;
+    this.kombiAktiv = false;
 
     this.items.forEach(function (item) {
       const preis = ShopCart.getWebshopPreis(item.produktId) || item.preis || 0;
@@ -544,6 +499,11 @@ const ShopCart = {
 
     if (code && !this.rabattApplied) {
       this.notify('Bitte zuerst „Code prüfen“ klicken.', true);
+      return;
+    }
+
+    if (code && this.rabattApplied && !this.kombiAktiv) {
+      this.notify('CODE GAMEBOY5 gilt ab 2 Artikeln.', true);
       return;
     }
 
