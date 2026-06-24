@@ -100,6 +100,24 @@ header .tagline .tagline-zweite{
   opacity:.95;
 }
 
+header .tagline.tagline-split{
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  row-gap:.35em;
+  min-height:auto;
+}
+
+header .tagline.tagline-split span{
+  white-space:nowrap;
+}
+
+header .tagline.tagline-split span:not(:last-child)::after{
+  content:' ·';
+  white-space:pre;
+}
+
 .site-nav{
   display:flex;
   justify-content:center;
@@ -247,6 +265,108 @@ header .tagline .tagline-zweite{
   font-weight:bold;
   letter-spacing:.14em;
   font-family:'Press Start 2P',monospace;
+}
+
+.aktions-headline{
+  display:block;
+  font-family:'Press Start 2P',monospace;
+  font-size:13px;
+  color:#fff;
+  line-height:1.65;
+  margin:0 0 10px;
+  text-shadow:0 0 20px rgba(0,245,212,.35);
+}
+
+.aktions-lead{
+  margin:0 0 14px;
+  color:#00f5d4;
+  font-size:15px;
+  font-weight:bold;
+  line-height:1.45;
+}
+
+.aktions-punkte{
+  list-style:none;
+  margin:0 0 18px;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.aktions-punkte li{
+  margin:0;
+  padding:8px 12px;
+  border-radius:10px;
+  background:rgba(7,8,23,.35);
+  border:1px solid rgba(0,245,212,.22);
+  color:#e8e8e8;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.aktions-code{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:6px;
+  background:rgba(255,79,163,.2);
+  border:1px solid rgba(255,79,163,.55);
+  color:#fff;
+  font-family:'Press Start 2P',monospace;
+  font-size:9px;
+  letter-spacing:.04em;
+  vertical-align:middle;
+}
+
+.aktions-cta{
+  display:inline-block;
+  margin-top:4px;
+  padding:12px 22px;
+  font-size:13px;
+}
+
+.site-hinweis-urlaub{
+  margin:0 auto 20px;
+  max-width:680px;
+  padding:14px 18px;
+  border-radius:12px;
+  border:2px solid rgba(255,180,0,.55);
+  background:linear-gradient(135deg,rgba(255,180,0,.16),rgba(255,79,163,.1));
+  color:#ffe8a3;
+  font-size:14px;
+  line-height:1.55;
+  text-align:center;
+}
+
+.site-hinweis-urlaub strong{
+  display:block;
+  margin-bottom:4px;
+  font-family:'Press Start 2P',monospace;
+  font-size:9px;
+  color:#ffb400;
+  letter-spacing:.06em;
+}
+
+.site-hinweis-kontakt{
+  margin:28px auto 0;
+  max-width:680px;
+  padding:20px 22px;
+  border-radius:14px;
+  border:2px solid rgba(0,245,212,.35);
+  background:linear-gradient(160deg,rgba(13,16,36,.95),rgba(18,21,48,.95));
+  text-align:center;
+}
+
+.site-hinweis-kontakt p{
+  margin:0 0 14px;
+  color:#ccc;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.site-hinweis-kontakt .button{
+  font-size:13px;
+  padding:11px 20px;
 }
 
 .aktions-banner strong{
@@ -1031,6 +1151,19 @@ header .tagline .tagline-zweite{
   word-break:break-all;
 }
 
+.spiel-fun-msg{
+  margin:0 auto 18px;
+  max-width:520px;
+  padding:12px 14px;
+  border-radius:10px;
+  background:rgba(255,79,163,.1);
+  border:1px solid rgba(255,79,163,.35);
+  color:#ddd;
+  font-size:14px;
+  line-height:1.55;
+  text-align:center;
+}
+
 .spiel-rabatt-box{
   margin:20px auto 16px;
   max-width:420px;
@@ -1367,6 +1500,7 @@ footer{
   header h1 .site-domain{white-space:nowrap}
   .badge{font-size:9px;padding:8px 14px;margin-bottom:12px}
   header .tagline{font-size:11px;padding:0 10px;margin-top:10px;line-height:1.55;min-height:4.65em}
+  header .tagline.tagline-split{min-height:3.1em}
   header .tagline .tagline-zweite{margin-top:6px;font-size:1em}
   .kauf-erfolg-banner{
     max-width:100%;
@@ -1397,6 +1531,16 @@ footer{
     padding:4px 10px;
     margin-bottom:8px;
   }
+  .aktions-headline{font-size:10px;margin-bottom:8px}
+  .aktions-lead{font-size:14px;margin-bottom:12px}
+  .aktions-punkte{gap:6px;margin-bottom:14px}
+  .aktions-punkte li{font-size:13px;padding:7px 10px}
+  .aktions-code{font-size:8px}
+  .aktions-cta{width:100%;max-width:280px;padding:11px 16px}
+  .site-hinweis-urlaub{font-size:13px;padding:12px 14px;margin-bottom:16px}
+  .site-hinweis-urlaub strong{font-size:8px}
+  .site-hinweis-kontakt{padding:16px 14px;margin-top:22px}
+  .site-hinweis-kontakt p{font-size:14px}
   .aktions-banner strong{
     font-size:10px;
     margin-bottom:6px;
@@ -1568,6 +1712,18 @@ footer{
   margin:0 0 8px;
   font-size:15px;
   color:#ccc;
+}
+
+.warenkorb-rabatt-info{
+  margin:0 0 10px;
+  padding:10px 12px;
+  border-radius:8px;
+  background:rgba(0,245,212,.08);
+  border:1px solid rgba(0,245,212,.25);
+  color:#bbb;
+  font-size:13px;
+  line-height:1.55;
+  text-align:center;
 }
 
 .warenkorb-rabatt-zeile{

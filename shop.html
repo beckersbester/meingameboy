@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop – meingameboy.de</title>
-<link rel="stylesheet" href="assets/site.css?v=20260643">
+<link rel="stylesheet" href="assets/site.css?v=20260646">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -1254,7 +1254,7 @@ h2{
 <header>
   <div class="badge">RESTORE GAMING</div>
   <h1><a href="index.html">meingameboy.de</a></h1>
-  <p class="tagline">Alle Angebote · Warenkorb · Rabattcode · Versand gratis</p>
+  <p class="tagline tagline-split"><span>Alle Angebote</span><span>5&nbsp;% Webshop-Rabatt</span><span>Versand gratis</span></p>
 </header>
 
 <div class="container wide">
@@ -1266,7 +1266,7 @@ h2{
 </div>
 
 <div class="perks">
-  <div class="perk"><strong>5&nbsp;% Rabatt</strong>Code GAMEBOY5 im Warenkorb</div>
+  <div class="perk"><strong>Nochmal 5&nbsp;%</strong>Ab 2 Artikeln · Code GAMEBOY5 im Warenkorb</div>
   <div class="perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf</div>
   <div class="perk"><strong>30 Tage Rückgabe</strong>Ohne Risiko</div>
   <div class="perk"><strong>PayPal-Schutz</strong>Sicher bezahlen</div>
@@ -1355,7 +1355,8 @@ h2{
 
 <footer></footer>
 
-<script src="assets/site.js?v=20260640"></script>
+<script src="assets/preise.js?v=20260646"></script>
+<script src="assets/site.js?v=20260646"></script>
 <script>
 window.fetchShopApiData = function () {
   if (typeof SITE_API_URL === 'undefined' || !SITE_API_URL) {
@@ -1370,7 +1371,7 @@ window.fetchShopApiData = function () {
 };
 window.fetchShopApiData();
 </script>
-<script src="assets/cart.js?v=20260642"></script>
+<script src="assets/cart.js?v=20260646"></script>
 <script>
 const LAGER_API_URL = typeof SITE_API_URL !== 'undefined' ? SITE_API_URL : '';
 
@@ -2535,7 +2536,7 @@ window.applyShopPreise = function (preise, bestand) {
 const BESTAND_DEFAULT = {
   'color-wario': 1,
   'classic': 1,
-  'pocket-orange': 1,
+  'pocket-orange': 0,
   'pocket-squirtle': 2,
   'pocket-charizard': 1,
   'pocket-pikachu': 2,
@@ -2595,7 +2596,7 @@ const BESTAND_DEFAULT = {
   'spiel-dbz-z4': 0,
   'spiel-zla-z1': 0,
   'spiel-zla-z2': 1,
-  'spiel-zla-z3': 1,
+  'spiel-zla-z3': 0,
   'spiel-zla-z4': 0,
   'spiel-t-z1': 0,
   'spiel-t-z2': 2,
@@ -2643,12 +2644,26 @@ function mergeBestandDaten(fetched) {
 }
 
 function renderPreisBlock(block, preisOverride) {
-  const uvpText = block.dataset.uvp;
-  const preis = preisOverride != null ? Number(preisOverride) : parsePreis(uvpText);
-  block.dataset.preis = String(preis);
-  block.innerHTML =
-    '<span class="preis-label preis-label-neu">Preis</span>' +
-    '<span class="preis-aktuell">' + formatPreis(preis) + '</span>';
+  const produkt = block.closest('.produkt');
+  const produktId = produkt ? produkt.dataset.produktId : '';
+  const listPreis = preisOverride != null ? Number(preisOverride) : parsePreis(block.dataset.uvp);
+  let shopPreis = listPreis;
+
+  if (typeof ShopPreise !== 'undefined' && produktId) {
+    shopPreis = ShopPreise.websiteEinzelpreis(listPreis, produktId);
+  }
+
+  block.dataset.listpreis = String(listPreis);
+  block.dataset.preis = String(shopPreis);
+
+  let html = '';
+  if (listPreis > shopPreis + 0.004) {
+    html += '<span class="preis-alt">' + formatPreis(listPreis) + '</span>';
+    html += '<span class="preis-label preis-label-alt">Listenpreis</span>';
+  }
+  html += '<span class="preis-label preis-label-neu">Webshop-Preis</span>';
+  html += '<span class="preis-aktuell">' + formatPreis(shopPreis) + '</span>';
+  block.innerHTML = html;
 }
 
 function updateSpielZustandSelect(produkt) {

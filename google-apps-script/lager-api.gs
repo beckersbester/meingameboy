@@ -18,7 +18,7 @@ const PREIS_TOLERANZ = 0.02;
 const BESTAND_START = {
   'color-wario': 1,
   'classic': 1,
-  'pocket-orange': 1,
+  'pocket-orange': 0,
   'pocket-squirtle': 2,
   'pocket-charizard': 1,
   'pocket-pikachu': 2,
@@ -78,7 +78,7 @@ const BESTAND_START = {
   'spiel-dbz-z4': 0,
   'spiel-zla-z1': 0,
   'spiel-zla-z2': 1,
-  'spiel-zla-z3': 1,
+  'spiel-zla-z3': 0,
   'spiel-zla-z4': 0,
   'spiel-t-z1': 0,
   'spiel-t-z2': 2,
@@ -273,18 +273,13 @@ const KATALOG_START_ROWS = [
 
 const RABATT_START = [
   ['code', 'typ', 'wert', 'aktiv', 'notiz'],
-  ['GAMEBOY5', 'prozent', 5, 'ja', 'Standard-Rabatt 5 %'],
-  ['PIXELDK', 'prozent', 1, 'ja', 'RGB-Checker Mini-Game'],
-  ['WARIOWX', 'prozent', 2, 'ja', 'RGB-Checker Mini-Game'],
-  ['MARIOGB', 'prozent', 3, 'ja', 'RGB-Checker Mini-Game'],
-  ['LANDONE', 'prozent', 4, 'ja', 'RGB-Checker Mini-Game'],
-  ['DMGSCOR', 'prozent', 5, 'ja', 'RGB-Checker Mini-Game'],
-  ['LINKCAB', 'prozent', 6, 'ja', 'RGB-Checker Mini-Game'],
-  ['KONAMIX', 'prozent', 7, 'ja', 'RGB-Checker Mini-Game'],
-  ['POCKETX', 'prozent', 8, 'ja', 'RGB-Checker Mini-Game'],
-  ['RETROFX', 'prozent', 9, 'ja', 'RGB-Checker Mini-Game'],
-  ['FULLRGB', 'prozent', 10, 'ja', 'RGB-Checker Mini-Game']
+  ['GAMEBOY5', 'prozent', 5, 'ja', 'Extra 5 % ab 2 Artikeln (zusätzlich zum Webshop-Preis)']
 ];
+
+const WEB_RABATT_FAKTOR = 0.95;
+const KOMBI_RABATT_FAKTOR = 0.95;
+const KOMBI_RABATT_CODE = 'GAMEBOY5';
+const KOMBI_MIN_ARTIKEL = 2;
 
 function getSpreadsheet_() {
   if (!SPREADSHEET_ID || SPREADSHEET_ID.indexOf('HIER_') === 0) {
@@ -475,16 +470,72 @@ function buildValidatedCart_(cart) {
   });
 }
 
-function buildRabattHinweis_(rabattCode, priced) {
-  if (!rabattCode) return '';
-  if (priced.rabattCode) {
-    const prozentText = priced.rabattProzent != null ? ' (' + priced.rabattProzent + ' % Rabatt)' : '';
-    if (priced.discount > 0) {
-      return 'Code ' + priced.rabattCode + ' erkannt' + prozentText + ' – du sparst ' + priced.discount.toFixed(2).replace('.', ',') + ' €.';
-    }
-    return 'Code ' + priced.rabattCode + ' erkannt' + prozentText + '.';
+function zaehleWarenkorbArtikel_(lines) {
+  return lines.reduce(function (sum, line) {
+    return sum + line.qty;
+  }, 0);
+}
+
+function istSpielProdukt_(produktId) {
+  return String(produktId || '').indexOf('spiel-') === 0;
+}
+
+function abrundenAuf99_(betrag) {
+  const b = round2_(betrag);
+  const euro = Math.floor(b);
+  if (round2_(b - euro) >= 0.99) return round2_(euro + 0.99);
+  if (euro < 1) return 0.99;
+  return round2_(euro - 1 + 0.99);
+}
+
+function abrundenAuf9Cent_(betrag) {
+  const maxCents = Math.floor(round2_(betrag) * 100 + 1e-9);
+  for (let c = maxCents; c >= 9; c--) {
+    if (c % 10 === 9) return round2_(c / 100);
   }
-  return 'Code „' + rabattCode + '“ ist ungültig oder nicht aktiv.';
+  return 0.09;
+}
+
+function rundeShopPreis_(betrag, produktId) {
+  if (istSpielProdukt_(produktId)) return abrundenAuf9Cent_(betrag);
+  return abrundenAuf99_(betrag);
+}
+
+function websiteEinzelpreis_(listenpreis, produktId) {
+  return rundeShopPreis_(round2_(listenpreis * WEB_RABATT_FAKTOR), produktId);
+}
+
+function kombiEinzelpreis_(websitePreis, produktId) {
+  return rundeShopPreis_(round2_(websitePreis * KOMBI_RABATT_FAKTOR), produktId);
+}
+
+function formatEuro_(value) {
+  return Number(value).toFixed(2).replace('.', ',') + ' €';
+}
+
+function buildRabattHinweis_(priced, rabattCode, artikelAnzahl) {
+  const code = String(rabattCode || '').trim().toUpperCase();
+  const webSpar = round2_(priced.listSubtotal - priced.websiteSubtotal);
+  const gesamtSpar = round2_(priced.discount);
+
+  if (code === KOMBI_RABATT_CODE && !priced.kombiAktiv) {
+    if (artikelAnzahl < KOMBI_MIN_ARTIKEL) {
+      return 'CODE GAMEBOY5 gilt ab ' + KOMBI_MIN_ARTIKEL + ' Artikeln – Webshop-Preis (5 %) ist bereits aktiv.';
+    }
+    return 'CODE GAMEBOY5 ist ungültig oder nicht aktiv.';
+  }
+
+  if (priced.kombiAktiv) {
+    return 'Webshop-Preis inkl. 5 % (−' + formatEuro_(webSpar) + ') + CODE GAMEBOY5 extra 5 % – gesamt sparst du ' + formatEuro_(gesamtSpar) + '.';
+  }
+
+  let hint = 'Webshop-Preis: immer 5 % günstiger – du sparst ' + formatEuro_(webSpar) + '.';
+  if (artikelAnzahl < KOMBI_MIN_ARTIKEL) {
+    hint += ' Noch ' + (KOMBI_MIN_ARTIKEL - artikelAnzahl) + ' Artikel für nochmal 5 % auf den Warenkorb mit CODE GAMEBOY5.';
+  } else {
+    hint += ' Ab 2 Artikeln: nochmal 5 % auf den Warenkorb mit CODE GAMEBOY5.';
+  }
+  return hint;
 }
 
 function handleQuote_(params) {
@@ -497,16 +548,17 @@ function handleQuote_(params) {
     const lines = buildValidatedCart_(cart);
     const rabattCode = String(params.rabatt || '').trim().toUpperCase();
     const priced = berechneWarenkorbPreise_(lines, rabattCode);
+    const artikelAnzahl = zaehleWarenkorbArtikel_(lines);
 
     return jsonResponse_({
       ok: true,
       subtotal: priced.subtotal,
       discount: priced.discount,
       total: priced.total,
-      rabattGueltig: rabattCode ? !!priced.rabattCode : null,
+      rabattGueltig: rabattCode ? !!priced.kombiAktiv : null,
       rabattProzent: priced.rabattProzent,
       rabattTyp: priced.rabattTyp || '',
-      rabattHinweis: buildRabattHinweis_(rabattCode, priced)
+      rabattHinweis: buildRabattHinweis_(priced, rabattCode, artikelAnzahl)
     });
   } catch (err) {
     return jsonResponse_({ ok: false, error: String(err.message || err) });
@@ -519,6 +571,7 @@ function handleCheckout_(params) {
     const rabattCode = String(params.rabatt || '').trim().toUpperCase();
     const lines = buildValidatedCart_(cart);
     const priced = berechneWarenkorbPreise_(lines, rabattCode);
+    const artikelAnzahl = zaehleWarenkorbArtikel_(lines);
     const paypalUrl = buildPayPalCartUrl_(priced.lines, priced.rabattCode);
 
     return jsonResponse_({
@@ -530,7 +583,7 @@ function handleCheckout_(params) {
       rabattCode: priced.rabattCode || '',
       rabattProzent: priced.rabattProzent,
       rabattTyp: priced.rabattTyp || '',
-      rabattHinweis: buildRabattHinweis_(rabattCode, priced)
+      rabattHinweis: buildRabattHinweis_(priced, rabattCode, artikelAnzahl)
     });
   } catch (err) {
     return jsonResponse_({ ok: false, error: String(err.message || err) });
@@ -538,56 +591,47 @@ function handleCheckout_(params) {
 }
 
 function berechneWarenkorbPreise_(lines, rabattCode) {
-  const subtotal = round2_(lines.reduce(function (sum, line) {
-    return sum + line.unitPrice * line.qty;
+  const artikelAnzahl = zaehleWarenkorbArtikel_(lines);
+  const code = String(rabattCode || '').trim().toUpperCase();
+  const kombiAktiv = artikelAnzahl >= KOMBI_MIN_ARTIKEL && code === KOMBI_RABATT_CODE;
+
+  const listSubtotal = round2_(lines.reduce(function (sum, line) {
+    return sum + round2_(line.unitPrice) * line.qty;
   }, 0));
 
-  let discount = 0;
-  let appliedCode = '';
-  let rabattProzent = null;
-  let rabattTyp = '';
-  const rabatt = lookupRabatt_(rabattCode);
-
-  if (rabatt) {
-    appliedCode = rabatt.code;
-    rabattTyp = rabatt.typ;
-    if (rabatt.typ === 'prozent') {
-      rabattProzent = normalizeProzentWert_(rabatt.wert);
-      discount = round2_(subtotal * rabattProzent / 100);
-    } else if (rabatt.typ === 'fest') {
-      discount = round2_(Math.min(subtotal, rabatt.wert));
-    }
-  }
-
-  const targetTotal = round2_(subtotal - discount);
-  const factor = subtotal > 0 ? targetTotal / subtotal : 1;
-
-  const discountedLines = lines.map(function (line) {
+  let websiteSubtotal = 0;
+  const pricedLines = lines.map(function (line) {
+    const listUnit = round2_(line.unitPrice);
+    const webUnit = websiteEinzelpreis_(listUnit, line.produktId);
+    websiteSubtotal = round2_(websiteSubtotal + webUnit * line.qty);
+    const finalUnit = kombiAktiv ? kombiEinzelpreis_(webUnit, line.produktId) : webUnit;
     return {
       produktId: line.produktId,
       name: line.name,
       qty: line.qty,
-      unitPrice: round2_(line.unitPrice * factor)
+      unitPrice: finalUnit
     };
   });
 
-  const total = round2_(discountedLines.reduce(function (sum, line) {
+  const total = round2_(pricedLines.reduce(function (sum, line) {
     return sum + line.unitPrice * line.qty;
   }, 0));
 
-  const actualDiscount = round2_(subtotal - total);
-  if (actualDiscount > 0 && subtotal > 0 && (!rabattProzent || rabattProzent <= 0)) {
-    rabattProzent = Math.round(actualDiscount / subtotal * 100);
-  }
+  const discount = round2_(listSubtotal - total);
+  let rabattProzent = 5;
+  if (kombiAktiv) rabattProzent = 10;
 
   return {
-    lines: discountedLines,
-    subtotal: subtotal,
-    discount: actualDiscount,
+    lines: pricedLines,
+    subtotal: listSubtotal,
+    listSubtotal: listSubtotal,
+    websiteSubtotal: websiteSubtotal,
+    discount: discount,
     total: total,
-    rabattCode: appliedCode,
+    kombiAktiv: kombiAktiv,
+    rabattCode: kombiAktiv ? KOMBI_RABATT_CODE : 'WEBSHOP',
     rabattProzent: rabattProzent,
-    rabattTyp: rabattTyp
+    rabattTyp: 'prozent'
   };
 }
 
@@ -644,8 +688,7 @@ function handlePaypalIpn_(params) {
     return textResponse_('NO ITEM');
   }
 
-  const rabattCode = String(params.custom || '').trim().toUpperCase();
-  const validation = validiereIpnBetrag_(items, rabattCode, parseFloat(params.mc_gross));
+  const validation = validiereIpnBetrag_(items, parseFloat(params.mc_gross));
 
   if (!validation.ok) {
     verdaechtigMerken_(txnId, validation.grund, params.mc_gross, validation.erwartet);
@@ -698,7 +741,7 @@ function parseIpnItems_(params) {
   }];
 }
 
-function validiereIpnBetrag_(ipnItems, rabattCode, paidTotal) {
+function validiereIpnBetrag_(ipnItems, paidTotal) {
   const preise = lesePreise_();
   const lines = [];
 
@@ -715,14 +758,14 @@ function validiereIpnBetrag_(ipnItems, rabattCode, paidTotal) {
     });
   }
 
-  const priced = berechneWarenkorbPreise_(lines, rabattCode);
+  const priced = berechneWarenkorbPreise_(lines, String(params.custom || '').trim().toUpperCase());
   const expectedLineTotal = round2_(priced.total);
   const paid = round2_(paidTotal);
 
   if (Math.abs(paid - expectedLineTotal) > PREIS_TOLERANZ) {
     return {
       ok: false,
-      grund: 'Betrag stimmt nicht (Rabatt: ' + (rabattCode || 'keiner') + ')',
+      grund: 'Betrag stimmt nicht (Rabatt: ' + (priced.rabattCode || 'keiner') + ')',
       erwartet: String(expectedLineTotal)
     };
   }

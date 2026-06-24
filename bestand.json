@@ -1,7 +1,7 @@
 {
   "color-wario": 1,
   "classic": 1,
-  "pocket-orange": 1,
+  "pocket-orange": 0,
   "pocket-squirtle": 2,
   "pocket-charizard": 1,
   "pocket-pikachu": 2,
@@ -61,7 +61,7 @@
   "spiel-dbz-z4": 0,
   "spiel-zla-z1": 0,
   "spiel-zla-z2": 1,
-  "spiel-zla-z3": 1,
+  "spiel-zla-z3": 0,
   "spiel-zla-z4": 0,
   "spiel-t-z1": 0,
   "spiel-t-z2": 2,

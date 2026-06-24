@@ -33,19 +33,20 @@ function buildWarenkorbModal() {
       '<div class="modal modal-wide" role="dialog" aria-labelledby="warenkorb-titel">' +
         '<button type="button" class="modal-close" id="warenkorb-close" aria-label="Schließen">&times;</button>' +
         '<h2 id="warenkorb-titel">Warenkorb</h2>' +
-        '<p class="modal-intro">Artikel hinzufügen, Rabattcode eingeben – sicher bezahlen über PayPal.</p>' +
+        '<p class="modal-intro">Webshop-Preis inkl. 5&nbsp;% – sicher bezahlen über PayPal.</p>' +
         '<p class="warenkorb-leer" id="warenkorb-leer">Dein Warenkorb ist noch leer.</p>' +
         '<ul class="warenkorb-liste" id="warenkorb-liste"></ul>' +
         '<div class="warenkorb-summary" id="warenkorb-summary" hidden>' +
-          '<label class="warenkorb-rabatt-label">Rabattcode (optional)' +
+          '<p class="warenkorb-rabatt-info">Immer 5&nbsp;% günstiger im Webshop · ab 2 Artikeln nochmal 5&nbsp;% auf den Warenkorb mit Code <strong>GAMEBOY5</strong></p>' +
+          '<label class="warenkorb-rabatt-label">Code für Kombi-Rabatt (ab 2 Artikeln)' +
             '<div class="warenkorb-rabatt-row">' +
-              '<input type="text" id="warenkorb-rabatt" placeholder="z.B. GAMEBOY5" autocapitalize="characters">' +
+              '<input type="text" id="warenkorb-rabatt" placeholder="GAMEBOY5" autocapitalize="characters">' +
               '<button type="button" class="button button-rabatt-check" id="warenkorb-rabatt-check">Code prüfen</button>' +
             '</div>' +
           '</label>' +
-          '<p class="warenkorb-rabatt-hinweis" id="warenkorb-rabatt-hinweis" aria-live="polite">Code eingeben und auf „Code prüfen“ klicken.</p>' +
+          '<p class="warenkorb-rabatt-hinweis" id="warenkorb-rabatt-hinweis" aria-live="polite"></p>' +
           '<div class="warenkorb-preise-box" id="warenkorb-preise-box">' +
-            '<p class="warenkorb-zwischensumme">Zwischensumme: <strong id="warenkorb-zwischensumme">0,00 €</strong></p>' +
+            '<p class="warenkorb-zwischensumme">Listenpreis: <strong id="warenkorb-zwischensumme">0,00 €</strong></p>' +
             '<p class="warenkorb-rabatt-zeile" id="warenkorb-rabatt-zeile" hidden>Rabatt (<span id="warenkorb-rabatt-prozent">0&nbsp;%</span>): <strong id="warenkorb-rabatt-betrag">−0,00 €</strong></p>' +
             '<p class="warenkorb-endpreis">Du zahlst: <strong id="warenkorb-endpreis">0,00 €</strong></p>' +
           '</div>' +
@@ -121,6 +122,9 @@ function initSiteNav() {
   document.body.insertAdjacentHTML('beforeend', buildWarenkorbModal());
 
   document.getElementById('kontakt-open').addEventListener('click', openKontaktModal);
+  document.querySelectorAll('[data-kontakt-open]').forEach(function (btn) {
+    btn.addEventListener('click', openKontaktModal);
+  });
   document.getElementById('kontakt-close').addEventListener('click', closeKontaktModal);
   document.getElementById('kontakt-modal').addEventListener('click', function (e) {
     if (e.target.id === 'kontakt-modal') closeKontaktModal();

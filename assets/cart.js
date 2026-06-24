@@ -7,6 +7,7 @@ const ShopCart = {
   bestandLoaded: false,
   namen: {},
   toastTimer: null,
+  quotePending: false,
   rabattApplied: false,
 
   init: function () {
@@ -143,16 +144,27 @@ const ShopCart = {
     }
   },
 
-  getPreis: function (produktId) {
+  getListenpreis: function (produktId) {
     if (this.preise[produktId] != null) return Number(this.preise[produktId]);
     const block = document.querySelector('.produkt[data-produkt-id="' + produktId + '"] .preis-block');
-    if (block && block.dataset.preis) return parseFloat(block.dataset.preis);
-    const variant = document.querySelector('.produkt.spiel-variante[data-spiel]');
-    if (variant && variant.dataset.produktId === produktId && variant.querySelector('.preis-block')) {
-      return parseFloat(variant.querySelector('.preis-block').dataset.preis);
+    if (block && block.dataset.listpreis) return parseFloat(block.dataset.listpreis);
+    if (block && block.dataset.uvp) {
+      return parseFloat(String(block.dataset.uvp).replace(',', '.').replace(/[^\d.]/g, '')) || 0;
     }
     const item = this.items.find(function (entry) { return entry.produktId === produktId; });
-    return item ? item.preis : 0;
+    return item ? (item.listPreis || item.preis || 0) : 0;
+  },
+
+  getWebshopPreis: function (produktId) {
+    const list = this.getListenpreis(produktId);
+    if (typeof ShopPreise !== 'undefined') {
+      return ShopPreise.websiteEinzelpreis(list, produktId);
+    }
+    return list;
+  },
+
+  getPreis: function (produktId) {
+    return this.getWebshopPreis(produktId);
   },
 
   ensureToast: function () {
@@ -203,6 +215,7 @@ const ShopCart = {
         produktId: produktId,
         name: name,
         preis: preis,
+        listPreis: this.getListenpreis(produktId) || preis,
         qty: 1
       });
     }
@@ -246,15 +259,35 @@ const ShopCart = {
 
   subtotal: function () {
     return this.items.reduce(function (sum, item) {
-      const preis = ShopCart.getPreis(item.produktId) || item.preis || 0;
-      return sum + preis * item.qty;
+      return sum + ShopCart.getListenpreis(item.produktId) * item.qty;
     }, 0);
+  },
+
+  quoteLines: function () {
+    return this.items.map(function (item) {
+      return {
+        produktId: item.produktId,
+        name: item.name,
+        qty: item.qty,
+        unitPrice: ShopCart.getListenpreis(item.produktId)
+      };
+    });
+  },
+
+  getRabattCodeInput: function () {
+    const input = document.getElementById('warenkorb-rabatt');
+    return input ? input.value.trim().toUpperCase() : '';
   },
 
   cartPayload: function () {
     return this.items.map(function (item) {
       return { produktId: item.produktId, qty: item.qty };
     });
+  },
+
+  isModalOpen: function () {
+    const modal = document.getElementById('warenkorb-modal');
+    return !!(modal && modal.classList.contains('open'));
   },
 
   renderBadge: function () {
@@ -291,7 +324,7 @@ const ShopCart = {
       });
       rabattInput.addEventListener('input', function () {
         ShopCart.rabattApplied = false;
-        ShopCart.resetRabattDisplay();
+        ShopCart.refreshQuote();
       });
     }
 
@@ -317,30 +350,22 @@ const ShopCart = {
     document.body.classList.remove('modal-open');
   },
 
-  resetRabattDisplay: function () {
-    const rabattZeile = document.getElementById('warenkorb-rabatt-zeile');
-    const rabattHinweisEl = document.getElementById('warenkorb-rabatt-hinweis');
-    const endpreisEl = document.getElementById('warenkorb-endpreis');
-    const subtotal = this.subtotal();
-
-    if (rabattZeile) rabattZeile.hidden = true;
-    if (endpreisEl) endpreisEl.textContent = formatCartPreis(subtotal);
-    if (rabattHinweisEl) {
-      rabattHinweisEl.textContent = 'Code eingeben und auf „Code prüfen“ klicken.';
-      rabattHinweisEl.className = 'warenkorb-rabatt-hinweis';
+  localQuote: function (rabattCode) {
+    if (typeof ShopPreise === 'undefined') {
+      return { ok: false, error: 'Preisberechnung nicht verfügbar.' };
     }
-    this.updateLocalTotals();
-  },
 
-  updateLocalTotals: function () {
-    const subtotalEl = document.getElementById('warenkorb-zwischensumme');
-    const endpreisEl = document.getElementById('warenkorb-endpreis');
-    const subtotal = this.subtotal();
-
-    if (subtotalEl) subtotalEl.textContent = formatCartPreis(subtotal);
-    if (endpreisEl && !this.rabattApplied) {
-      endpreisEl.textContent = formatCartPreis(subtotal);
-    }
+    const priced = ShopPreise.berechneWarenkorb(this.quoteLines(), rabattCode || this.getRabattCodeInput());
+    return {
+      ok: true,
+      subtotal: priced.subtotal,
+      discount: priced.discount,
+      total: priced.total,
+      rabattProzent: priced.rabattProzent,
+      rabattTyp: priced.rabattTyp,
+      rabattGueltig: priced.rabattGueltig,
+      rabattHinweis: priced.rabattHinweis
+    };
   },
 
   applyQuote: function (data) {
@@ -350,25 +375,16 @@ const ShopCart = {
     const rabattBetragEl = document.getElementById('warenkorb-rabatt-betrag');
     const rabattProzentEl = document.getElementById('warenkorb-rabatt-prozent');
     const rabattHinweisEl = document.getElementById('warenkorb-rabatt-hinweis');
-    const checkBtn = document.getElementById('warenkorb-rabatt-check');
-
-    if (checkBtn) {
-      checkBtn.disabled = false;
-      checkBtn.textContent = 'Code prüfen';
-    }
 
     if (!data.ok) {
-      this.rabattApplied = false;
-      this.updateLocalTotals();
-      if (rabattHinweisEl) {
-        rabattHinweisEl.textContent = data.error || 'Code konnte nicht geprüft werden.';
+      if (typeof ShopPreise !== 'undefined') {
+        this.applyQuote(this.localQuote());
+      } else if (rabattHinweisEl) {
+        rabattHinweisEl.textContent = data.error || 'Preis konnte nicht berechnet werden.';
         rabattHinweisEl.className = 'warenkorb-rabatt-hinweis is-error';
       }
-      if (rabattZeile) rabattZeile.hidden = true;
       return;
     }
-
-    this.rabattApplied = true;
 
     const subtotal = Number(data.subtotal) || 0;
     const discount = Number(data.discount) || 0;
@@ -385,13 +401,7 @@ const ShopCart = {
           prozent = Math.round(discount / subtotal * 100);
         }
         if (rabattProzentEl) {
-          if (data.rabattTyp === 'fest' && (!prozent || prozent <= 0)) {
-            rabattProzentEl.textContent = 'Festbetrag';
-          } else if (prozent > 0) {
-            rabattProzentEl.textContent = prozent + ' %';
-          } else {
-            rabattProzentEl.textContent = 'Rabatt';
-          }
+          rabattProzentEl.textContent = prozent > 0 ? prozent + ' %' : 'Rabatt';
         }
         rabattBetragEl.textContent = '−' + discount.toFixed(2).replace('.', ',') + ' €';
       } else {
@@ -401,43 +411,52 @@ const ShopCart = {
     }
 
     if (rabattHinweisEl) {
-      if (data.rabattHinweis) {
-        rabattHinweisEl.textContent = data.rabattHinweis;
-      } else {
-        rabattHinweisEl.textContent = 'Kein Rabatt – du zahlst den normalen Preis.';
-      }
+      rabattHinweisEl.textContent = data.rabattHinweis || '';
       rabattHinweisEl.className = 'warenkorb-rabatt-hinweis';
       if (data.rabattGueltig === true) rabattHinweisEl.classList.add('is-ok');
       if (data.rabattGueltig === false) rabattHinweisEl.classList.add('is-error');
     }
+
+    if (data.rabattGueltig === true) {
+      this.rabattApplied = true;
+    } else if (!this.getRabattCodeInput()) {
+      this.rabattApplied = true;
+    } else {
+      this.rabattApplied = false;
+    }
   },
 
   confirmRabatt: function () {
+    this.refreshQuote(true);
+  },
+
+  refreshQuote: function (fromConfirm) {
     if (this.items.length === 0) return;
 
-    const rabattInput = document.getElementById('warenkorb-rabatt');
+    const code = this.getRabattCodeInput();
     const checkBtn = document.getElementById('warenkorb-rabatt-check');
-    const code = rabattInput ? rabattInput.value.trim() : '';
 
-    if (!code) {
-      this.resetRabattDisplay();
-      const hinweis = document.getElementById('warenkorb-rabatt-hinweis');
-      if (hinweis) {
-        hinweis.textContent = 'Bitte zuerst einen Code eingeben.';
-        hinweis.className = 'warenkorb-rabatt-hinweis is-error';
-      }
-      return;
-    }
-
-    if (!SITE_API_URL) {
-      this.notify('Code-Prüfung derzeit nicht verfügbar.', true);
-      return;
-    }
-
-    if (checkBtn) {
+    if (fromConfirm && checkBtn) {
       checkBtn.disabled = true;
       checkBtn.textContent = 'Prüfe …';
     }
+
+    const finish = function (data) {
+      if (checkBtn) {
+        checkBtn.disabled = false;
+        checkBtn.textContent = 'Code prüfen';
+      }
+      ShopCart.quotePending = false;
+      ShopCart.applyQuote(data);
+    };
+
+    if (!SITE_API_URL) {
+      finish(this.localQuote(code));
+      return;
+    }
+
+    if (this.quotePending) return;
+    this.quotePending = true;
 
     const params = new URLSearchParams({
       action: 'quote',
@@ -451,17 +470,13 @@ const ShopCart = {
       body: params.toString()
     })
       .then(function (response) { return response.json(); })
-      .then(this.applyQuote.bind(this))
+      .then(finish)
       .catch(function () {
-        ShopCart.rabattApplied = false;
-        if (checkBtn) {
-          checkBtn.disabled = false;
-          checkBtn.textContent = 'Code prüfen';
-        }
+        finish(ShopCart.localQuote(code));
         const hinweis = document.getElementById('warenkorb-rabatt-hinweis');
         if (hinweis) {
-          hinweis.textContent = 'Verbindungsfehler – bitte später erneut versuchen.';
-          hinweis.className = 'warenkorb-rabatt-hinweis is-error';
+          hinweis.textContent = 'Offline-Schätzung – beim Checkout wird der Preis erneut geprüft.';
+          hinweis.className = 'warenkorb-rabatt-hinweis';
         }
       });
   },
@@ -476,7 +491,6 @@ const ShopCart = {
     if (this.items.length === 0) {
       empty.hidden = false;
       summary.hidden = true;
-      this.rabattApplied = false;
       return;
     }
 
@@ -485,7 +499,7 @@ const ShopCart = {
     this.rabattApplied = false;
 
     this.items.forEach(function (item) {
-      const preis = ShopCart.getPreis(item.produktId) || item.preis || 0;
+      const preis = ShopCart.getWebshopPreis(item.produktId) || item.preis || 0;
       const maxQty = ShopCart.getMaxQty(item.produktId);
       const stockHint = maxQty > 0 && maxQty < 99 ? ' · max. ' + maxQty + ' verfügbar' : '';
       const li = document.createElement('li');
@@ -516,13 +530,12 @@ const ShopCart = {
       });
     });
 
-    this.resetRabattDisplay();
+    this.refreshQuote();
   },
 
   checkout: function () {
-    const rabattInput = document.getElementById('warenkorb-rabatt');
     const button = document.getElementById('warenkorb-checkout');
-    const code = rabattInput ? rabattInput.value.trim() : '';
+    const code = this.getRabattCodeInput();
 
     if (this.items.length === 0) {
       this.notify('Dein Warenkorb ist leer.', true);
