@@ -4,22 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop – meingameboy.de</title>
-<link rel="stylesheet" href="assets/site.css?v=20260650">
+<link rel="stylesheet" href="assets/site.css?v=20260657">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  background:#070817;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  background-image:
-    radial-gradient(ellipse at 20% 0%, rgba(255,79,163,.12), transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(0,245,212,.08), transparent 50%);
-}
 
 .container{
   max-width:min(1300px,100%);
@@ -30,7 +20,7 @@ body{
 
 h2{
   text-align:center;
-  color:#00f5d4;
+  color:#00b4a0;
   font-family:'Press Start 2P',monospace;
   font-size:22px;
   margin:25px 0 10px;
@@ -38,7 +28,7 @@ h2{
 
 .shop-beschreibung{
   text-align:center;
-  color:#bbb;
+  color:#5c6078;
   font-size:15px;
   line-height:1.6;
   max-width:640px;
@@ -58,8 +48,8 @@ h2{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  border:2px solid #ff4fa3;
-  color:#ff4fa3;
+  border:2px solid #E91E81;
+  color:#E91E81;
   padding:10px 16px;
   border-radius:999px;
   font-size:13px;
@@ -69,7 +59,7 @@ h2{
 }
 
 .zurueck:hover{
-  background:#ff4fa3;
+  background:#E91E81;
   color:#070817;
 }
 
@@ -94,15 +84,15 @@ h2{
   font-weight:bold;
   letter-spacing:.04em;
   text-transform:uppercase;
-  color:#ff4fa3;
+  color:#E91E81;
 }
 
 .shop-filter select{
   appearance:none;
   -webkit-appearance:none;
-  border:2px solid #00f5d4;
-  color:#fff;
-  background:#0d1024 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2300f5d4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 14px center;
+  border:2px solid #00b4a0;
+  color:#1B1444;
+  background:#ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2300b4a0' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 14px center;
   padding:10px 36px 10px 14px;
   border-radius:999px;
   font-size:13px;
@@ -115,8 +105,8 @@ h2{
 .shop-filter select:hover,
 .shop-filter select:focus{
   outline:none;
-  background-color:#101530;
-  box-shadow:0 0 16px rgba(0,245,212,.35);
+  background-color:#eef1f8;
+  box-shadow:0 0 0 3px rgba(0,180,160,.15);
 }
 
 .shop-filter select.is-filter-off{
@@ -128,7 +118,7 @@ h2{
   flex:1 1 100%;
   margin:-8px 0 0;
   text-align:center;
-  color:#888;
+  color:#7b8099;
   font-size:13px;
   line-height:1.5;
 }
@@ -147,12 +137,12 @@ h2{
   display:flex;
   flex-direction:column;
   height:100%;
-  background:linear-gradient(160deg,#0d1024 0%,#121530 100%);
-  border:2px solid rgba(255,79,163,.45);
+  background:linear-gradient(160deg,#ffffff 0%,#eef1f8 100%);
+  border:1px solid rgba(233,30,129,.2);
   border-radius:14px;
   padding:18px;
   text-align:center;
-  box-shadow:0 0 20px rgba(255,79,163,.2);
+  box-shadow:0 0 20px rgba(27,20,68,.06);
   transition:.3s ease;
   overflow:hidden;
 }
@@ -161,7 +151,7 @@ h2{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(135deg,rgba(255,79,163,.06),transparent 40%,rgba(0,245,212,.05));
+  background:linear-gradient(135deg,rgba(233,30,129,.06),transparent 40%,rgba(0,180,160,.05));
   pointer-events:none;
   opacity:0;
   transition:opacity .3s;
@@ -173,8 +163,8 @@ h2{
 
 .produkt:hover{
   transform:translateY(-8px);
-  border-color:#00f5d4;
-  box-shadow:0 12px 40px rgba(0,245,212,.25),0 0 30px rgba(255,79,163,.35);
+  border-color:#00b4a0;
+  box-shadow:0 12px 40px rgba(0,180,160,.25),0 0 30px rgba(233,30,129,.35);
 }
 
 .produkt.ausverkauft{
@@ -183,19 +173,21 @@ h2{
 
 .produkt.ausverkauft:hover{
   transform:none;
-  box-shadow:0 0 18px rgba(255,79,163,.25);
+  box-shadow:0 0 18px rgba(233,30,129,.25);
 }
 
 .status-ausverkauft{
   display:inline-block;
   margin:10px 0 0;
-  padding:6px 12px;
-  border-radius:8px;
-  background:#555;
-  color:#ddd;
+  padding:7px 14px;
+  border-radius:2px;
+  background:#6b7280;
+  border:2px solid #555;
+  color:#fff;
   font-size:12px;
   font-weight:bold;
-  letter-spacing:.04em;
+  font-family:Arial,sans-serif;
+  letter-spacing:.06em;
   text-transform:uppercase;
 }
 
@@ -203,17 +195,17 @@ h2{
   margin:10px 0 0;
   padding:6px 12px;
   border-radius:8px;
-  background:rgba(0,245,212,.1);
-  border:1px solid rgba(0,245,212,.35);
-  color:#00f5d4;
+  background:rgba(0,180,160,.1);
+  border:1px solid rgba(0,180,160,.35);
+  color:#00b4a0;
   font-size:13px;
   font-weight:bold;
 }
 
 .lager-info.lager-knapp{
-  background:rgba(255,79,163,.12);
-  border-color:rgba(255,79,163,.45);
-  color:#ff4fa3;
+  background:rgba(233,30,129,.12);
+  border-color:rgba(233,30,129,.45);
+  color:#E91E81;
 }
 
 .button-ausverkauft{
@@ -221,13 +213,14 @@ h2{
   width:100%;
   margin-top:12px;
   box-sizing:border-box;
-  border:2px solid #555;
-  color:#888;
+  border:2px solid #888;
+  color:#454a62;
   padding:10px 16px;
-  border-radius:6px;
+  border-radius:2px;
   font-weight:bold;
+  font-family:Arial,sans-serif;
   cursor:not-allowed;
-  background:#1a1d30;
+  background:#e5e7eb;
 }
 
 .produkt a:not(.button){
@@ -267,12 +260,16 @@ h2{
   background:transparent !important;
   padding:0 !important;
   border-radius:0 !important;
-  filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) drop-shadow(0 4px 10px rgba(0,245,212,.15));
+  filter:
+    drop-shadow(0 16px 22px rgba(27,20,68,.28))
+    drop-shadow(0 6px 14px rgba(233,30,129,.22));
   animation:produktSchweben 4.5s ease-in-out infinite;
 }
 
 .produkt:hover .produkt-bild--float img{
-  filter:drop-shadow(0 18px 32px rgba(0,0,0,.65)) drop-shadow(0 8px 16px rgba(0,245,212,.25));
+  filter:
+    drop-shadow(0 20px 28px rgba(27,20,68,.34))
+    drop-shadow(0 8px 18px rgba(0,180,160,.28));
 }
 
 @keyframes produktSchweben{
@@ -286,6 +283,7 @@ h2{
   font-size:17px;
   line-height:1.4;
   min-height:2.8em;
+  color:#1B1444;
   display:-webkit-box;
   -webkit-line-clamp:2;
   -webkit-box-orient:vertical;
@@ -297,7 +295,7 @@ h2{
   flex:1 1 auto;
   padding:0;
   margin:12px 0 0;
-  color:#ddd;
+  color:#5c6078;
   line-height:1.7;
   font-size:14px;
   text-align:left;
@@ -305,7 +303,7 @@ h2{
 
 .features li::before{
   content:"✓ ";
-  color:#00f5d4;
+  color:#00b4a0;
   font-weight:bold;
 }
 
@@ -320,7 +318,7 @@ h2{
 
 .zustand-wahl span{
   font-size:11px;
-  color:#888;
+  color:#7b8099;
   font-weight:bold;
   letter-spacing:.06em;
   text-transform:uppercase;
@@ -330,9 +328,9 @@ h2{
   width:100%;
   padding:10px 12px;
   border-radius:8px;
-  border:2px solid rgba(0,245,212,.35);
-  background:#0b0e20;
-  color:#fff;
+  border:2px solid rgba(0,180,160,.35);
+  background:#ffffff;
+  color:#1B1444;
   font-size:14px;
   font-family:inherit;
   cursor:pointer;
@@ -340,8 +338,8 @@ h2{
 
 .zustand-select:focus{
   outline:none;
-  border-color:#00f5d4;
-  box-shadow:0 0 12px rgba(0,245,212,.25);
+  border-color:#00b4a0;
+  box-shadow:0 0 12px rgba(0,180,160,.25);
 }
 
 .produkt.spiel-variante.ausverkauft .zustand-select{
@@ -350,21 +348,21 @@ h2{
 }
 
 .preis{
-  color:#00f5d4;
+  color:#00b4a0;
   font-size:24px;
   font-weight:bold;
   margin:0;
   margin-top:auto;
   padding-top:16px;
-  border-top:1px solid rgba(255,79,163,.25);
+  border-top:1px solid rgba(233,30,129,.25);
 }
 
 .preis-block{
   margin-top:auto;
   padding:16px 12px 12px;
-  border-top:1px solid rgba(255,79,163,.3);
+  border-top:1px solid rgba(233,30,129,.2);
   text-align:center;
-  background:rgba(0,0,0,.2);
+  background:rgba(0,180,160,.06);
   border-radius:0 0 10px 10px;
   margin-left:-18px;
   margin-right:-18px;
@@ -381,11 +379,11 @@ h2{
 }
 
 .preis-label-alt{
-  color:#888;
+  color:#7b8099;
 }
 
 .preis-label-neu{
-  color:#ff4fa3;
+  color:#E91E81;
   margin-top:10px;
 }
 
@@ -399,11 +397,11 @@ h2{
 
 .preis-aktuell{
   display:block;
-  color:#00f5d4;
+  color:#00b4a0;
   font-size:28px;
   font-weight:bold;
   line-height:1.2;
-  text-shadow:0 0 18px rgba(0,245,212,.45);
+  text-shadow:0 0 18px rgba(0,180,160,.45);
 }
 
 .preis-hinweis{
@@ -411,17 +409,17 @@ h2{
   margin-top:10px;
   padding:5px 12px;
   border-radius:999px;
-  background:linear-gradient(90deg,rgba(255,79,163,.25),rgba(0,245,212,.2));
-  border:1px solid rgba(255,79,163,.45);
-  color:#fff;
+  background:rgba(233,30,129,.1);
+  border:1px solid rgba(233,30,129,.3);
+  color:#1B1444;
   font-size:11px;
   font-weight:bold;
   letter-spacing:.04em;
 }
 
 @keyframes bannerGlow{
-  0%,100%{box-shadow:0 0 24px rgba(255,79,163,.35),0 0 40px rgba(0,245,212,.15)}
-  50%{box-shadow:0 0 36px rgba(255,79,163,.55),0 0 60px rgba(0,245,212,.25)}
+  0%,100%{box-shadow:0 0 24px rgba(233,30,129,.35),0 0 40px rgba(0,180,160,.15)}
+  50%{box-shadow:0 0 36px rgba(233,30,129,.55),0 0 60px rgba(0,180,160,.25)}
 }
 
 .aktions-banner{
@@ -430,8 +428,8 @@ h2{
   margin:0 0 22px;
   padding:24px 26px;
   border-radius:16px;
-  border:2px solid #ff4fa3;
-  background:linear-gradient(135deg,rgba(255,79,163,.22),rgba(0,245,212,.14));
+  border:2px solid #E91E81;
+  background:linear-gradient(135deg,rgba(233,30,129,.22),rgba(0,180,160,.14));
   animation:bannerGlow 3s ease-in-out infinite;
   overflow:hidden;
 }
@@ -457,7 +455,7 @@ h2{
   margin-bottom:12px;
   padding:5px 14px;
   border-radius:999px;
-  background:#00f5d4;
+  background:#00b4a0;
   color:#070817;
   font-size:10px;
   font-weight:bold;
@@ -470,16 +468,16 @@ h2{
   display:block;
   font-family:'Press Start 2P',monospace;
   font-size:15px;
-  color:#fff;
+  color:#1B1444;
   margin-bottom:12px;
   line-height:1.7;
-  text-shadow:0 0 20px rgba(255,79,163,.8);
+  text-shadow:none;
 }
 
 .aktions-banner span,
 .aktions-text{
   position:relative;
-  color:#eee;
+  color:#454a62;
   font-size:15px;
   line-height:1.65;
   margin:0;
@@ -499,16 +497,16 @@ h2{
   text-align:center;
   padding:14px 16px;
   border-radius:12px;
-  border:2px solid rgba(0,245,212,.35);
-  background:rgba(0,245,212,.06);
-  color:#ddd;
+  border:2px solid rgba(0,180,160,.35);
+  background:rgba(0,180,160,.06);
+  color:#5c6078;
   font-size:13px;
   line-height:1.55;
 }
 
 .kauf-perk strong{
   display:block;
-  color:#00f5d4;
+  color:#00b4a0;
   font-size:12px;
   letter-spacing:.06em;
   text-transform:uppercase;
@@ -520,8 +518,8 @@ h2{
   margin:32px auto;
   padding:18px 20px;
   border-radius:14px;
-  border:2px solid rgba(255,79,163,.35);
-  background:rgba(255,79,163,.06);
+  border:2px solid rgba(233,30,129,.35);
+  background:rgba(233,30,129,.06);
 }
 
 .verkaeufe-box h3{
@@ -529,7 +527,7 @@ h2{
   text-align:center;
   font-family:'Press Start 2P',monospace;
   font-size:11px;
-  color:#ff4fa3;
+  color:#E91E81;
   line-height:1.6;
 }
 
@@ -544,9 +542,9 @@ h2{
   align-items:center;
   gap:14px;
   padding:12px 0;
-  border-bottom:1px solid rgba(255,79,163,.2);
+  border-bottom:1px solid rgba(233,30,129,.2);
   font-size:14px;
-  color:#ddd;
+  color:#5c6078;
 }
 
 .verkaeufe-liste li:last-child{
@@ -573,13 +571,13 @@ h2{
 }
 
 .verkaeufe-name{
-  color:#fff;
+  color:#1B1444;
   font-weight:bold;
   line-height:1.4;
 }
 
 .verkaeufe-datum{
-  color:#888;
+  color:#7b8099;
   font-size:12px;
 }
 
@@ -587,14 +585,14 @@ h2{
   position:absolute;
   top:12px;
   left:12px;
-  background:linear-gradient(135deg,#ff4fa3,#c93d8a);
+  background:linear-gradient(135deg,#E91E81,#c93d8a);
   color:#fff;
   padding:7px 11px;
   border-radius:8px;
   font-size:10px;
   font-weight:bold;
   letter-spacing:.04em;
-  box-shadow:0 0 16px rgba(255,79,163,.8);
+  box-shadow:0 0 16px rgba(233,30,129,.8);
   z-index:5;
   border:1px solid rgba(255,255,255,.25);
 }
@@ -610,32 +608,32 @@ h2{
   position:absolute;
   top:12px;
   right:12px;
-  background:#ff4fa3;
+  background:#E91E81;
   color:white;
   padding:6px 10px;
   border-radius:8px;
   font-size:11px;
   font-weight:bold;
-  box-shadow:0 0 12px rgba(255,79,163,.7);
+  box-shadow:0 0 12px rgba(233,30,129,.7);
   z-index:5;
 }
 
 .badge-konsolen{
-  background:#00f5d4;
+  background:#00b4a0;
   color:#070817;
-  box-shadow:0 0 12px rgba(0,245,212,.7);
+  box-shadow:0 0 12px rgba(0,180,160,.7);
 }
 
 .badge-spiel{
-  background:#ff4fa3;
+  background:#E91E81;
   color:#fff;
-  box-shadow:0 0 12px rgba(255,79,163,.7);
+  box-shadow:0 0 12px rgba(233,30,129,.7);
 }
 
 .button{
   display:inline-block;
-  border:2px solid #ff4fa3;
-  color:#ff4fa3;
+  border:2px solid #E91E81;
+  color:#E91E81;
   padding:10px 16px;
   border-radius:6px;
   text-decoration:none;
@@ -644,7 +642,7 @@ h2{
 }
 
 .button:hover{
-  background:#ff4fa3;
+  background:#E91E81;
   color:#070817;
 }
 
@@ -694,16 +692,16 @@ h2{
 }
 
 .info-box{
-  background:#0d1024;
-  border:2px solid #00f5d4;
+  background:#ffffff;
+  border:2px solid #00b4a0;
   border-radius:14px;
   padding:30px;
-  box-shadow:0 0 22px rgba(0,245,212,.25);
+  box-shadow:0 0 22px rgba(0,180,160,.25);
 }
 
 .info-box.pink{
-  border-color:#ff4fa3;
-  box-shadow:0 0 22px rgba(255,79,163,.3);
+  border-color:#E91E81;
+  box-shadow:0 0 22px rgba(233,30,129,.3);
 }
 
 .info-box h2{
@@ -726,22 +724,23 @@ h2{
 }
 
 .vorteil{
-  background:#0b0e20;
+  background:#eef1f8;
   padding:20px;
   border-radius:12px;
+  border:1px solid rgba(27,20,68,.1);
 }
 
 .vorteil strong{
-  color:#00f5d4;
+  color:#00b4a0;
 }
 
 .about-box{
-  background:linear-gradient(135deg,#0d1024,#141836);
-  border:2px solid #ff4fa3;
+  background:linear-gradient(135deg,#ffffff,#eef1f8);
+  border:2px solid #E91E81;
   border-radius:16px;
   padding:32px;
   margin-top:35px;
-  box-shadow:0 0 24px rgba(255,79,163,.25);
+  box-shadow:0 4px 24px rgba(233,30,129,.12);
 }
 
 .about-box h2{
@@ -751,7 +750,7 @@ h2{
 }
 
 .about-box p{
-  color:#ddd;
+  color:#5c6078;
   line-height:1.75;
   max-width:900px;
   margin:0;
@@ -762,7 +761,7 @@ h2{
 }
 
 .about-box .about-highlight{
-  color:#00f5d4;
+  color:#00b4a0;
   font-weight:bold;
 }
 
@@ -773,7 +772,7 @@ h2{
 
 .bewertungen-intro{
   text-align:center;
-  color:#bbb;
+  color:#1B1444;
   font-size:15px;
   line-height:1.65;
   max-width:640px;
@@ -792,15 +791,15 @@ h2{
   text-align:center;
   padding:18px 14px;
   border-radius:14px;
-  border:2px solid rgba(0,245,212,.35);
-  background:rgba(0,245,212,.06);
+  border:2px solid rgba(0,180,160,.35);
+  background:rgba(0,180,160,.06);
 }
 
 .bewertung-stat strong{
   display:block;
   font-family:'Press Start 2P',monospace;
   font-size:18px;
-  color:#00f5d4;
+  color:#00b4a0;
   margin-bottom:8px;
   line-height:1.4;
 }
@@ -812,12 +811,12 @@ h2{
 }
 
 .bewertung-stat.highlight{
-  border-color:#ff4fa3;
-  background:rgba(255,79,163,.1);
+  border-color:#E91E81;
+  background:rgba(233,30,129,.1);
 }
 
 .bewertung-stat.highlight strong{
-  color:#ff4fa3;
+  color:#E91E81;
 }
 
 .bewertungen-details{
@@ -858,9 +857,9 @@ h2{
   margin:0;
   padding:16px 15px;
   border-radius:12px;
-  border:1px solid rgba(255,79,163,.35);
-  background:linear-gradient(160deg,#0d1024,#121530);
-  box-shadow:0 0 14px rgba(255,79,163,.12);
+  border:1px solid rgba(233,30,129,.35);
+  background:linear-gradient(160deg,#ffffff,#eef1f8);
+  box-shadow:0 0 14px rgba(233,30,129,.12);
 }
 
 .bewertung-karte .stars{
@@ -880,12 +879,12 @@ h2{
 
 .bewertung-meta{
   padding-top:10px;
-  border-top:1px solid rgba(255,79,163,.2);
+  border-top:1px solid rgba(233,30,129,.2);
   font-size:12px;
 }
 
 .bewertung-user{
-  color:#00f5d4;
+  color:#00b4a0;
   font-weight:bold;
 }
 
@@ -901,21 +900,21 @@ h2{
   right:18px;
   bottom:18px;
   z-index:999;
-  background:#ff4fa3;
+  background:#E91E81;
   color:#070817;
   padding:14px 18px;
   border-radius:999px;
   text-decoration:none;
   font-weight:bold;
-  box-shadow:0 0 22px rgba(255,79,163,.8);
+  box-shadow:0 0 22px rgba(233,30,129,.8);
   border:2px solid #fff;
   transition:.2s;
 }
 
 .sticky-contact:hover{
   transform:scale(1.05);
-  background:#00f5d4;
-  box-shadow:0 0 22px rgba(0,245,212,.8);
+  background:#00b4a0;
+  box-shadow:0 0 22px rgba(0,180,160,.8);
 }
 
 .keine-treffer{
@@ -1037,7 +1036,7 @@ h2{
 
   .produkt:hover{
     transform:none;
-    box-shadow:0 0 20px rgba(255,79,163,.25);
+    box-shadow:0 0 20px rgba(233,30,129,.25);
   }
 
   .produkt::before{display:none}
@@ -1144,7 +1143,7 @@ h2{
 
 .versand-titel{
   text-align:center;
-  color:#00f5d4;
+  color:#00b4a0;
   font-family:'Press Start 2P',monospace;
   font-size:14px;
   line-height:1.7;
@@ -1156,15 +1155,15 @@ h2{
   margin:0 0 28px;
   padding:16px 20px;
   border-radius:14px;
-  background:rgba(0,245,212,.08);
-  border:1px solid rgba(0,245,212,.35);
-  color:#ddd;
+  background:rgba(0,180,160,.08);
+  border:1px solid rgba(0,180,160,.35);
+  color:#5c6078;
   font-size:15px;
   line-height:1.6;
 }
 
 .versand-hinweis strong{
-  color:#00f5d4;
+  color:#00b4a0;
 }
 
 .versand-grid{
@@ -1176,17 +1175,17 @@ h2{
 .versand-karte{
   position:relative;
   padding:24px 22px 22px;
-  border-radius:16px;
-  background:linear-gradient(145deg,rgba(18,22,48,.95),rgba(10,12,28,.98));
-  border:2px solid rgba(0,245,212,.45);
-  box-shadow:0 8px 28px rgba(0,0,0,.35);
+  border-radius:4px;
+  background:linear-gradient(160deg,#ffffff,#eef1f8);
+  border:2px solid rgba(233,30,129,.35);
+  box-shadow:4px 4px 0 rgba(0,180,160,.22);
   transition:.2s;
 }
 
 .versand-karte:hover{
-  border-color:#00f5d4;
-  box-shadow:0 12px 36px rgba(0,245,212,.18);
-  transform:translateY(-4px);
+  border-color:#00b4a0;
+  box-shadow:6px 6px 0 rgba(233,30,129,.25), 0 0 20px rgba(0,180,160,.15);
+  transform:translate(-2px,-2px);
 }
 
 .versand-karte-icon{
@@ -1196,24 +1195,26 @@ h2{
   width:44px;
   height:44px;
   margin-bottom:14px;
-  border-radius:12px;
-  background:rgba(0,245,212,.12);
-  border:1px solid rgba(0,245,212,.45);
+  border-radius:4px;
+  background:rgba(233,30,129,.08);
+  border:2px solid rgba(233,30,129,.35);
   font-size:22px;
   line-height:1;
+  box-shadow:2px 2px 0 rgba(0,180,160,.25);
 }
 
 .versand-karte h3{
   margin:0 0 10px;
-  color:#00f5d4;
+  color:#E91E81;
   font-family:'Press Start 2P',monospace;
   font-size:11px;
   line-height:1.7;
+  text-shadow:1px 1px 0 rgba(0,180,160,.2);
 }
 
 .versand-karte p{
   margin:0 0 14px;
-  color:#ccc;
+  color:#454a62;
   font-size:14px;
   line-height:1.65;
 }
@@ -1227,8 +1228,8 @@ h2{
 .versand-karte li{
   position:relative;
   padding:8px 0 8px 22px;
-  border-top:1px solid rgba(255,255,255,.08);
-  color:#fff;
+  border-top:1px solid rgba(27,20,68,.1);
+  color:#454a62;
   font-size:14px;
   line-height:1.5;
 }
@@ -1237,8 +1238,12 @@ h2{
   content:'▸';
   position:absolute;
   left:0;
-  color:#00f5d4;
+  color:#00b4a0;
   font-weight:bold;
+}
+
+.versand-karte li strong{
+  color:#1B1444;
 }
 
 @media (max-width:640px){
@@ -1252,9 +1257,13 @@ h2{
 <body data-page="shop">
 
 <header>
-  <div class="badge">RESTORE GAMING</div>
-  <h1><a href="index.html">meingameboy.de</a></h1>
-  <p class="tagline">Alle Angebote mit 5&nbsp;% Webshop-Rabatt<span class="tagline-zweite">Versand gratis</span></p>
+  <div class="site-brand">
+    <a class="site-logo" href="index.html" aria-label="meingameboy.de Startseite"><img src="assets/logo.png" alt="" width="280" height="280"></a>
+    <div class="site-brand-text">
+      <p class="site-title"><a href="index.html">meingameboy<span class="site-domain">.de</span></a></p>
+      <p class="tagline">Alle Angebote mit 5&nbsp;% Webshop-Rabatt<span class="tagline-zweite">Versand gratis</span></p>
+    </div>
+  </div>
 </header>
 
 <div class="container wide">
@@ -2546,7 +2555,7 @@ const BESTAND_DEFAULT = {
   'classic-red': 1,
   'pocket-transparent': 1,
   'color-pokemon': 1,
-  'color-charizard-orange': 1,
+  'color-charizard-orange': 0,
   'color-yellow': 3,
   'classic-grau-ips': 1,
   'gba-gengar': 0,
@@ -2555,7 +2564,7 @@ const BESTAND_DEFAULT = {
   'gbasp-pokemon-k': 1,
   'gbasp-pokemon-r': 1,
   'gbasp-blau': 1,
-  'gbasp-schwarz': 1,
+  'gbasp-schwarz': 0,
   'gbasp-silber': 1,
   'gbasp-mario': 1,
   'spiel-sm1-z1': 1,
@@ -2564,7 +2573,7 @@ const BESTAND_DEFAULT = {
   'spiel-sm1-z4': 0,
   'spiel-sm2-z1': 1,
   'spiel-sm2-z2': 0,
-  'spiel-sm2-z3': 1,
+  'spiel-sm2-z3': 0,
   'spiel-sm2-z4': 1,
   'spiel-sm3-z1': 1,
   'spiel-sm3-z2': 1,
@@ -2599,8 +2608,8 @@ const BESTAND_DEFAULT = {
   'spiel-zla-z3': 0,
   'spiel-zla-z4': 0,
   'spiel-t-z1': 0,
-  'spiel-t-z2': 2,
-  'spiel-t-z3': 1,
+  'spiel-t-z2': 1,
+  'spiel-t-z3': 0,
   'spiel-t-z4': 0
 };
 

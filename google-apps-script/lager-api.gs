@@ -28,7 +28,7 @@ const BESTAND_START = {
   'classic-red': 1,
   'pocket-transparent': 1,
   'color-pokemon': 1,
-  'color-charizard-orange': 1,
+  'color-charizard-orange': 0,
   'color-yellow': 3,
   'classic-grau-ips': 1,
   'gba-gengar': 0,
@@ -37,7 +37,7 @@ const BESTAND_START = {
   'gbasp-pokemon-k': 1,
   'gbasp-pokemon-r': 1,
   'gbasp-blau': 1,
-  'gbasp-schwarz': 1,
+  'gbasp-schwarz': 0,
   'gbasp-silber': 1,
   'gbasp-mario': 1,
   'spiel-sm1-z1': 1,
@@ -46,7 +46,7 @@ const BESTAND_START = {
   'spiel-sm1-z4': 0,
   'spiel-sm2-z1': 1,
   'spiel-sm2-z2': 0,
-  'spiel-sm2-z3': 1,
+  'spiel-sm2-z3': 0,
   'spiel-sm2-z4': 1,
   'spiel-sm3-z1': 1,
   'spiel-sm3-z2': 1,
@@ -81,8 +81,8 @@ const BESTAND_START = {
   'spiel-zla-z3': 0,
   'spiel-zla-z4': 0,
   'spiel-t-z1': 0,
-  'spiel-t-z2': 2,
-  'spiel-t-z3': 1,
+  'spiel-t-z2': 1,
+  'spiel-t-z3': 0,
   'spiel-t-z4': 0
 };
 

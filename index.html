@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/logo.png" type="image/png">
 <title>meingameboy.de – Restore Gaming</title>
-<link rel="stylesheet" href="assets/site.css?v=20260650">
+<link rel="stylesheet" href="assets/site.css?v=20260657">
 <style>
 .kategorie-auswahl{
   display:grid;
@@ -12,112 +13,160 @@
   gap:24px;
   max-width:720px;
   margin:0 auto;
+  align-items:start;
 }
 
 .kategorie-karte{
   display:flex;
   flex-direction:column;
+  align-items:stretch;
   text-decoration:none;
   color:inherit;
-  background:linear-gradient(160deg,#0d1024,#121530);
-  border:2px solid rgba(255,79,163,.5);
-  border-radius:14px;
+  background:linear-gradient(160deg,#ffffff,#eef1f8);
+  border:2px solid rgba(233,30,129,.35);
+  border-radius:4px;
   overflow:hidden;
-  transition:.3s ease;
-  box-shadow:0 0 20px rgba(255,79,163,.2);
+  transition:.25s ease;
+  box-shadow:4px 4px 0 rgba(0,180,160,.22);
 }
 
 .kategorie-karte:hover{
-  transform:translateY(-8px);
-  border-color:#00f5d4;
-  box-shadow:0 12px 36px rgba(0,245,212,.35);
+  transform:translate(-2px,-2px);
+  border-color:#E91E81;
+  box-shadow:6px 6px 0 rgba(233,30,129,.35), 0 0 20px rgba(0,180,160,.2);
 }
 
 .kategorie-karte-body{
-  padding:18px 16px 20px;
+  padding:16px 16px 18px;
   flex:1;
   display:flex;
   flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
 }
 
 .kategorie-karte h3{
-  margin:0 0 8px;
+  margin:0 0 6px;
   font-family:'Press Start 2P',monospace;
   font-size:11px;
-  color:#00f5d4;
+  color:#1B1444;
   line-height:1.55;
 }
 
 .kategorie-karte p{
-  margin:0 0 12px;
+  margin:0 0 10px;
   font-size:14px;
   line-height:1.5;
-  color:#aaa;
-  flex:1;
+  color:#454a62;
 }
 
 .kategorie-karte .count{
   display:inline-block;
-  padding:4px 10px;
-  border-radius:999px;
-  background:rgba(255,79,163,.15);
-  border:1px solid rgba(255,79,163,.4);
-  color:#ff4fa3;
+  padding:5px 12px;
+  border-radius:2px;
+  background:rgba(233,30,129,.1);
+  border:2px solid rgba(233,30,129,.35);
+  color:#E91E81;
   font-size:11px;
   font-weight:bold;
+  font-family:Arial,sans-serif;
+  letter-spacing:.04em;
+  line-height:1.2;
+  white-space:nowrap;
 }
 
 .kategorie-karte.kategorie-alle{
   grid-column:1 / -1;
-  border-color:#00f5d4;
-  box-shadow:0 0 28px rgba(0,245,212,.3);
+  align-self:start;
+  align-items:flex-start;
+  border-color:rgba(0,180,160,.55);
+  box-shadow:4px 4px 0 rgba(233,30,129,.2);
+}
+
+.kategorie-karte.kategorie-alle .kategorie-karte-body{
+  flex:0 1 auto;
+}
+
+.kategorie-karte.kategorie-alle .kategorie-bild--float{
+  padding-top:8px;
+  height:auto;
+  min-height:0;
+  align-items:flex-start;
+  align-content:flex-start;
+}
+
+.kategorie-karte.kategorie-alle .kategorie-bild--float img{
+  max-width:95% !important;
+  height:auto !important;
+  max-height:200px !important;
+  object-position:top center !important;
+  transform-origin:top center;
+  animation:produktSchwebenOben 5s ease-in-out infinite;
 }
 
 @media(min-width:601px){
-  .kategorie-karte.kategorie-alle{flex-direction:row;align-items:stretch}
+  .kategorie-karte.kategorie-alle{
+    flex-direction:row;
+    align-items:flex-start;
+  }
   .kategorie-karte.kategorie-alle .kategorie-bild--float{
     width:50%;
-    height:auto;
-    min-height:220px;
-    max-height:260px;
     flex-shrink:0;
+    align-self:flex-start;
   }
-  .kategorie-karte.kategorie-alle .kategorie-karte-body{width:50%;padding:28px 24px;display:flex;flex-direction:column;justify-content:center}
+  .kategorie-karte.kategorie-alle .kategorie-karte-body{
+    width:50%;
+    flex:0 0 auto;
+    align-self:flex-start;
+    padding:16px 24px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:flex-start;
+  }
   .kategorie-karte.kategorie-alle h3{font-size:14px}
 }
 
 @media(max-width:600px){
   .kategorie-auswahl{grid-template-columns:1fr;gap:18px}
-  .kategorie-karte:hover{transform:none}
+  .kategorie-karte:hover{transform:none;box-shadow:4px 4px 0 rgba(0,180,160,.22)}
+  .kategorie-karte.kategorie-alle .kategorie-bild--float img{
+    max-height:180px !important;
+  }
 }
 
-/* Schweb-Bilder – Fallback falls site.css gecacht/fehlt */
 .kategorie-bild--float{
   height:220px;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
-  background:linear-gradient(160deg,#0d1024,#121530);
+  padding-top:10px;
+  background:
+    linear-gradient(180deg, rgba(233,30,129,.06), transparent 40%),
+    linear-gradient(160deg,#ffffff,#eef1f8);
   overflow:visible;
 }
 
 .kategorie-bild--float img{
   width:auto !important;
-  max-width:88% !important;
-  height:200px !important;
+  max-width:90% !important;
+  height:190px !important;
   object-fit:contain !important;
+  object-position:top center !important;
   background:transparent !important;
   padding:0 !important;
-  filter:drop-shadow(0 12px 18px rgba(0,0,0,.5)) drop-shadow(0 4px 8px rgba(0,245,212,.12));
+  filter:
+    drop-shadow(0 16px 22px rgba(27,20,68,.28))
+    drop-shadow(0 6px 14px rgba(233,30,129,.22));
   animation:produktSchweben 5s ease-in-out infinite;
 }
 
-.kategorie-karte.kategorie-alle .kategorie-bild--float img{
-  max-width:94% !important;
-  height:210px !important;
+@keyframes produktSchweben{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
 }
 
-@keyframes produktSchweben{
+@keyframes produktSchwebenOben{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-10px)}
 }
@@ -126,9 +175,13 @@
 <body data-page="start">
 
 <header>
-  <div class="badge">RESTORE GAMING</div>
-  <h1><a href="index.html">meingameboy<span class="site-domain">.de</span></a></h1>
-  <p class="tagline">Geprüfte Game Boys &amp; Spiele<span class="tagline-zweite">Versand gratis</span></p>
+  <div class="site-brand">
+    <a class="site-logo" href="index.html" aria-label="meingameboy.de Startseite"><img src="assets/logo.png" alt="" width="280" height="280"></a>
+    <div class="site-brand-text">
+      <p class="site-title"><a href="index.html">meingameboy<span class="site-domain">.de</span></a></p>
+      <p class="tagline">Geprüfte Game Boys, Spiele &amp; mehr<span class="tagline-zweite">Versand gratis</span></p>
+    </div>
+  </div>
 </header>
 
 <div class="container">
@@ -141,7 +194,7 @@
 <div class="page-hero">
   <p class="section-label">Willkommen</p>
   <h2 class="section-title">Dein Retro-Shop</h2>
-  <p class="section-intro">Geprüfte Game Boys &amp; Spiele – fair kalkuliert, per Warenkorb &amp; PayPal.</p>
+  <p class="section-intro">Geprüfte Game Boys, Spiele &amp; mehr – fair kalkuliert, per Warenkorb &amp; PayPal.</p>
 </div>
 
 <div class="aktions-banner">
@@ -156,10 +209,10 @@
 </div>
 
 <div class="perks">
-  <div class="perk"><strong>Kostenloser Versand</strong>Bei jedem Kauf inklusive</div>
-  <div class="perk"><strong>30 Tage Rückgabe</strong>Ohne Risiko bestellen</div>
-  <div class="perk"><strong>PayPal-Schutz</strong>Sicher bezahlen</div>
-  <div class="perk"><strong>Sofort spielbereit</strong>Geprüft &amp; gereinigt</div>
+  <div class="perk"><strong>Kostenloser Versand</strong><span class="perk-detail">Bei jedem Kauf inklusive</span></div>
+  <div class="perk"><strong>30 Tage Rückgabe</strong><span class="perk-detail">Ohne Risiko bestellen</span></div>
+  <div class="perk"><strong>PayPal-Schutz</strong><span class="perk-detail">Sicher bezahlen</span></div>
+  <div class="perk"><strong>Sofort spielbereit</strong><span class="perk-detail">Geprüft &amp; gereinigt</span></div>
 </div>
 
 <div class="page-hero" style="margin-bottom:24px">
@@ -168,63 +221,67 @@
 </div>
 
 <div class="kategorie-auswahl">
-
-  <a href="shop.html?kategorie=all" class="kategorie-karte kategorie-alle">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/All-float.png" alt="Alle Angebote">
-    </div>
+  <a href="shop.html" class="kategorie-karte kategorie-alle">
+    <div class="kategorie-bild--float"><img src="assets/products/All-float.png" alt="Alle Angebote"></div>
     <div class="kategorie-karte-body">
       <h3>Alle Angebote</h3>
-      <p>Konsolen &amp; Spiele – alles auf einen Blick</p>
-      <span class="count">35 Angebote</span>
-    </div>
-  </a>
-
-  <a href="shop.html?kategorie=konsolen" class="kategorie-karte">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/classic-float.png" alt="Game Boy Konsolen">
-    </div>
-    <div class="kategorie-karte-body">
-      <h3>Game Boy Konsolen</h3>
       <p>Classic, Pocket, Color, Advance &amp; SP – geprüft &amp; spielbereit</p>
-      <span class="count">24 Angebote</span>
+      <span class="count">Zum Shop →</span>
     </div>
   </a>
-
-  <a href="shop.html?kategorie=spiele" class="kategorie-karte">
-    <div class="kategorie-bild--float">
-      <img src="assets/products/SM3_Z4-float.png" alt="Game Boy Spiele">
-    </div>
+  <a href="shop.html?kategorie=classic" class="kategorie-karte">
+    <div class="kategorie-bild--float"><img src="assets/products/classic-float.png" alt="Game Boy Classic"></div>
     <div class="kategorie-karte-body">
-      <h3>Game Boy Spiele</h3>
-      <p>Pokémon, Zelda, Mario &amp; mehr – Zustand frei wählbar</p>
-      <span class="count">11 Spiele</span>
+      <h3>Game Boy Classic</h3>
+      <p>Der graue Klassiker – Dot-Matrix &amp; Stereo-Sound</p>
+      <span class="count">Im Shop</span>
     </div>
   </a>
-
+  <a href="shop.html?kategorie=pocket" class="kategorie-karte">
+    <div class="kategorie-bild--float"><img src="assets/products/pocket-classic-float.png" alt="Game Boy Pocket"></div>
+    <div class="kategorie-karte-body">
+      <h3>Game Boy Pocket</h3>
+      <p>Kompakt, leicht – perfekt für unterwegs</p>
+      <span class="count">Im Shop</span>
+    </div>
+  </a>
+  <a href="shop.html?kategorie=color" class="kategorie-karte">
+    <div class="kategorie-bild--float"><img src="assets/products/color-mario-float.png" alt="Game Boy Color"></div>
+    <div class="kategorie-karte-body">
+      <h3>Game Boy Color</h3>
+      <p>Farbiges Gaming – Pokémon &amp; Zelda in Farbe</p>
+      <span class="count">Im Shop</span>
+    </div>
+  </a>
+  <a href="shop.html?kategorie=gba" class="kategorie-karte">
+    <div class="kategorie-bild--float"><img src="assets/products/gba-gengar-float.png" alt="Game Boy Advance"></div>
+    <div class="kategorie-karte-body">
+      <h3>Game Boy Advance</h3>
+      <p>32-Bit Power – breites Spielangebot</p>
+      <span class="count">Im Shop</span>
+    </div>
+  </a>
+  <a href="shop.html?kategorie=gbasp" class="kategorie-karte">
+    <div class="kategorie-bild--float"><img src="assets/products/GBASP_mario_float.png" alt="Game Boy Advance SP"></div>
+    <div class="kategorie-karte-body">
+      <h3>Game Boy Advance SP</h3>
+      <p>Klappbar mit Frontlicht – Mario &amp; Pokémon Editionen</p>
+      <span class="count">Im Shop</span>
+    </div>
+  </a>
+  <a href="shop.html?kategorie=spiele" class="kategorie-karte">
+    <div class="kategorie-bild--float"><img src="assets/products/SM3_Z4-float.png" alt="Game Boy Spiele"></div>
+    <div class="kategorie-karte-body">
+      <h3>Spiele</h3>
+      <p>Super Mario, Pokémon, Zelda &amp; mehr – Originalmodule</p>
+      <span class="count">Im Shop</span>
+    </div>
+  </a>
 </div>
 
 <div class="site-hinweis-kontakt">
-  <p>Interesse an einem Artikel, den du hier nicht findest? Schreib mir einfach – ich melde mich umgehend.</p>
+  <p>Suchst du etwas, das gerade nicht im Shop ist? Schreib mir – oft kann ich dir weiterhelfen.</p>
   <button type="button" class="button" data-kontakt-open>Kontakt aufnehmen</button>
-</div>
-
-<div class="teaser-grid">
-  <a href="verkaeufe.html" class="teaser-card pink">
-    <h3>Kürzlich verkauft</h3>
-    <p>Sieh, welche Konsolen gerade weggegangen sind – ein gutes Zeichen für beliebte Angebote.</p>
-    <span class="teaser-link">Ansehen →</span>
-  </a>
-  <a href="bewertungen.html" class="teaser-card">
-    <h3>Bewertungen</h3>
-    <p>2.000+ verkaufte Artikel, 100&nbsp;% positiv in den letzten 12 Monaten – echte Kundenstimmen.</p>
-    <span class="teaser-link">Ansehen →</span>
-  </a>
-  <a href="ueber-uns.html" class="teaser-card">
-    <h3>Über mich</h3>
-    <p>Warum ich bewusst auf teure Shop-Plattformen verzichte – und was das für dich bedeutet.</p>
-    <span class="teaser-link">Mehr erfahren →</span>
-  </a>
 </div>
 
 </div>
