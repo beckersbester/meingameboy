@@ -68,12 +68,29 @@ const PRODUKT_NAMEN = {
   'spiel-t-z1': 'Tetris – Akzeptabel',
   'spiel-t-z2': 'Tetris – Gut',
   'spiel-t-z3': 'Tetris – Sehr gut',
-  'spiel-t-z4': 'Tetris – Neuwertig'
+  'spiel-t-z4': 'Tetris – Neuwertig',
+  'spiel-pfe-z1': 'Pokémon Feuerrote Edition – Akzeptabel',
+  'spiel-pfe-z2': 'Pokémon Feuerrote Edition – Gut',
+  'spiel-pfe-z3': 'Pokémon Feuerrote Edition – Sehr gut',
+  'spiel-pfe-z4': 'Pokémon Feuerrote Edition – Neuwertig',
+  'spiel-pse-z1': 'Pokémon Saphir-Edition – Akzeptabel',
+  'spiel-pse-z2': 'Pokémon Saphir-Edition – Gut',
+  'spiel-pse-z3': 'Pokémon Saphir-Edition – Sehr gut',
+  'spiel-pse-z4': 'Pokémon Saphir-Edition – Neuwertig',
+  'spiel-pre-z1': 'Pokémon Rubin-Edition – Akzeptabel',
+  'spiel-pre-z2': 'Pokémon Rubin-Edition – Gut',
+  'spiel-pre-z3': 'Pokémon Rubin-Edition – Sehr gut',
+  'spiel-pre-z4': 'Pokémon Rubin-Edition – Neuwertig',
+  'spiel-pbe-z1': 'Pokémon Blattgrüne Edition – Akzeptabel',
+  'spiel-pbe-z2': 'Pokémon Blattgrüne Edition – Gut',
+  'spiel-pbe-z3': 'Pokémon Blattgrüne Edition – Sehr gut',
+  'spiel-pbe-z4': 'Pokémon Blattgrüne Edition – Neuwertig'
 };
 
 const SPIEL_BILD_CODE = {
   sm1: 'SM1', sm2: 'SM2', sm3: 'SM3',
   pb: 'PB', pr: 'PR', pg: 'PG', pk: 'PK', pt: 'PT',
+  pfe: 'PFE', pse: 'PSE', pre: 'PRE', pbe: 'PBE',
   dbz: 'DBZ', zla: 'ZLA', t: 'T'
 };
 
@@ -86,7 +103,8 @@ const SPIEL_BILD_EXT = {
   'pt-z3': 'jpeg',
   'dbz-z3': 'jpeg',
   'zla-z2': 'jpeg', 'zla-z3': 'jpg',
-  't-z2': 'jpeg', 't-z3': 'jpeg'
+  't-z2': 'jpeg', 't-z3': 'jpeg',
+  'pfe-z3': 'jpeg', 'pse-z3': 'jpeg', 'pre-z3': 'jpeg', 'pbe-z3': 'jpeg'
 };
 
 function spielBildPfadLager(spiel, zKey) {
@@ -163,7 +181,23 @@ const PRODUKT_BILDER = {
   'spiel-t-z1': spielBildPfadLager('t', 'z1'),
   'spiel-t-z2': spielBildPfadLager('t', 'z2'),
   'spiel-t-z3': spielBildPfadLager('t', 'z3'),
-  'spiel-t-z4': spielBildPfadLager('t', 'z4')
+  'spiel-t-z4': spielBildPfadLager('t', 'z4'),
+  'spiel-pfe-z1': spielBildPfadLager('pfe', 'z1'),
+  'spiel-pfe-z2': spielBildPfadLager('pfe', 'z2'),
+  'spiel-pfe-z3': spielBildPfadLager('pfe', 'z3'),
+  'spiel-pfe-z4': spielBildPfadLager('pfe', 'z4'),
+  'spiel-pse-z1': spielBildPfadLager('pse', 'z1'),
+  'spiel-pse-z2': spielBildPfadLager('pse', 'z2'),
+  'spiel-pse-z3': spielBildPfadLager('pse', 'z3'),
+  'spiel-pse-z4': spielBildPfadLager('pse', 'z4'),
+  'spiel-pre-z1': spielBildPfadLager('pre', 'z1'),
+  'spiel-pre-z2': spielBildPfadLager('pre', 'z2'),
+  'spiel-pre-z3': spielBildPfadLager('pre', 'z3'),
+  'spiel-pre-z4': spielBildPfadLager('pre', 'z4'),
+  'spiel-pbe-z1': spielBildPfadLager('pbe', 'z1'),
+  'spiel-pbe-z2': spielBildPfadLager('pbe', 'z2'),
+  'spiel-pbe-z3': spielBildPfadLager('pbe', 'z3'),
+  'spiel-pbe-z4': spielBildPfadLager('pbe', 'z4')
 };
 
 const VERKAUFE_DEFAULT = [
