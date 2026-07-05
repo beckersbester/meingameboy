@@ -66,5 +66,21 @@
   "spiel-t-z1": 0,
   "spiel-t-z2": 1,
   "spiel-t-z3": 0,
-  "spiel-t-z4": 0
+  "spiel-t-z4": 0,
+  "spiel-pfe-z1": 0,
+  "spiel-pfe-z2": 0,
+  "spiel-pfe-z3": 1,
+  "spiel-pfe-z4": 0,
+  "spiel-pse-z1": 0,
+  "spiel-pse-z2": 0,
+  "spiel-pse-z3": 1,
+  "spiel-pse-z4": 0,
+  "spiel-pre-z1": 0,
+  "spiel-pre-z2": 0,
+  "spiel-pre-z3": 1,
+  "spiel-pre-z4": 0,
+  "spiel-pbe-z1": 0,
+  "spiel-pbe-z2": 0,
+  "spiel-pbe-z3": 1,
+  "spiel-pbe-z4": 0
 }

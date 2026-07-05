@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop – meingameboy.de</title>
+<meta name="description" content="Game Boy Shop – Classic, Pocket, Color, Advance, SP &amp; Originalmodule. 5&nbsp;% Webshop-Rabatt, Versand gratis, PayPal-Checkout.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://meingameboy.de/shop.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://meingameboy.de/shop.html">
+<meta property="og:title" content="Game Boy Shop – Konsolen &amp; Spiele | meingameboy.de">
+<meta property="og:description" content="Geprüfte Game Boys und Spiele kaufen – Versand gratis, sicher bezahlen.">
+<meta property="og:image" content="https://meingameboy.de/assets/logo.png">
+<title>Game Boy Shop – Konsolen &amp; Spiele | meingameboy.de</title>
 <link rel="stylesheet" href="assets/site.css?v=20260657">
 
 <style>
@@ -1980,6 +1988,90 @@ const KATALOG_FALLBACK = [
       "z2": "jpeg",
       "z3": "jpeg"
     }
+  },
+  {
+    "reihenfolge": 36,
+    "typ": "spiel",
+    "id": "pfe",
+    "titel": "Pokémon Feuerrote Edition",
+    "bild": "assets/products/PFE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PFE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 37,
+    "typ": "spiel",
+    "id": "pse",
+    "titel": "Pokémon Saphir-Edition",
+    "bild": "assets/products/PSE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PSE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 38,
+    "typ": "spiel",
+    "id": "pre",
+    "titel": "Pokémon Rubin-Edition",
+    "bild": "assets/products/PRE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PRE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 39,
+    "typ": "spiel",
+    "id": "pbe",
+    "titel": "Pokémon Blattgrüne Edition",
+    "bild": "assets/products/PBE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PBE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
   }
 ];
 
@@ -2009,7 +2101,7 @@ const kategorieBeschreibung = {
   gba: 'Der Game Boy Advance – horizontal, farbenfroh und ideal für Pokémon-Custom-Designs.',
   gbasp: 'Das klappbare Advance SP – AGS-001 Display, USB-Ladekabel inklusive.',
   ips: 'Game Boy Classic mit IPS V5 Display – heller, schärfer und noch besser zum Spielen.',
-  pokemon: 'Pokémon Blau, Rot, Gelb, Kristall & Trading Card – Originalmodule.',
+  pokemon: 'Pokémon Blau, Rot, Gelb, Kristall, Feuerrot, Saphir, Rubin, Blattgrün & Trading Card – Originalmodule.',
   mario: 'Super Mario Land 1, 2 & 3 – Originalmodule, Zustand frei wählbar.',
   zelda: 'Zelda: Link\'s Awakening – Originalmodule, Zustand frei wählbar.',
   sonstiges: 'Dragon Ball Z, Tetris & weitere Klassiker – Originalmodule.'
@@ -2018,6 +2110,7 @@ const kategorieBeschreibung = {
 const SPIEL_SERIE = {
   sm1: 'mario', sm2: 'mario', sm3: 'mario',
   pb: 'pokemon', pr: 'pokemon', pg: 'pokemon', pk: 'pokemon', pt: 'pokemon',
+  pfe: 'pokemon', pse: 'pokemon', pre: 'pokemon', pbe: 'pokemon',
   zla: 'zelda',
   dbz: 'sonstiges', t: 'sonstiges'
 };
@@ -2074,7 +2167,11 @@ const SPIEL_PREISE = {
   pt: { z1: '12,99 €', z2: '15,99 €', z3: '18,99 €', z4: '29,99 €' },
   dbz: { z1: '12,99 €', z2: '15,99 €', z3: '18,99 €', z4: '29,99 €' },
   zla: { z1: '33,99 €', z2: '38,99 €', z3: '48,99 €', z4: '68,99 €' },
-  t: { z1: '12,99 €', z2: '15,99 €', z3: '19,99 €', z4: '29,99 €' }
+  t: { z1: '12,99 €', z2: '15,99 €', z3: '19,99 €', z4: '29,99 €' },
+  pfe: { z1: '94,99 €', z2: '109,99 €', z3: '129,99 €', z4: '199,99 €' },
+  pse: { z1: '54,99 €', z2: '64,99 €', z3: '74,99 €', z4: '99,99 €' },
+  pre: { z1: '54,99 €', z2: '64,99 €', z3: '74,99 €', z4: '99,99 €' },
+  pbe: { z1: '94,99 €', z2: '109,99 €', z3: '129,99 €', z4: '199,99 €' }
 };
 
 const SPIEL_ZUSTAND_PRIO = ['z4', 'z3', 'z2', 'z1'];
@@ -2610,7 +2707,23 @@ const BESTAND_DEFAULT = {
   'spiel-t-z1': 0,
   'spiel-t-z2': 1,
   'spiel-t-z3': 0,
-  'spiel-t-z4': 0
+  'spiel-t-z4': 0,
+  'spiel-pfe-z1': 0,
+  'spiel-pfe-z2': 0,
+  'spiel-pfe-z3': 1,
+  'spiel-pfe-z4': 0,
+  'spiel-pse-z1': 0,
+  'spiel-pse-z2': 0,
+  'spiel-pse-z3': 1,
+  'spiel-pse-z4': 0,
+  'spiel-pre-z1': 0,
+  'spiel-pre-z2': 0,
+  'spiel-pre-z3': 1,
+  'spiel-pre-z4': 0,
+  'spiel-pbe-z1': 0,
+  'spiel-pbe-z2': 0,
+  'spiel-pbe-z3': 1,
+  'spiel-pbe-z4': 0
 };
 
 function spielProduktId(spiel, zKey) {

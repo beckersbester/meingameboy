@@ -594,5 +594,89 @@
       "z2": "jpeg",
       "z3": "jpeg"
     }
+  },
+  {
+    "reihenfolge": 36,
+    "typ": "spiel",
+    "id": "pfe",
+    "titel": "Pokémon Feuerrote Edition",
+    "bild": "assets/products/PFE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PFE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 37,
+    "typ": "spiel",
+    "id": "pse",
+    "titel": "Pokémon Saphir-Edition",
+    "bild": "assets/products/PSE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PSE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 38,
+    "typ": "spiel",
+    "id": "pre",
+    "titel": "Pokémon Rubin-Edition",
+    "bild": "assets/products/PRE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PRE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 39,
+    "typ": "spiel",
+    "id": "pbe",
+    "titel": "Pokémon Blattgrüne Edition",
+    "bild": "assets/products/PBE_S3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PBE",
+    "bildExt": {
+      "z3": "jpeg"
+    }
   }
 ]

@@ -83,7 +83,23 @@ const BESTAND_START = {
   'spiel-t-z1': 0,
   'spiel-t-z2': 1,
   'spiel-t-z3': 0,
-  'spiel-t-z4': 0
+  'spiel-t-z4': 0,
+  'spiel-pfe-z1': 0,
+  'spiel-pfe-z2': 0,
+  'spiel-pfe-z3': 1,
+  'spiel-pfe-z4': 0,
+  'spiel-pse-z1': 0,
+  'spiel-pse-z2': 0,
+  'spiel-pse-z3': 1,
+  'spiel-pse-z4': 0,
+  'spiel-pre-z1': 0,
+  'spiel-pre-z2': 0,
+  'spiel-pre-z3': 1,
+  'spiel-pre-z4': 0,
+  'spiel-pbe-z1': 0,
+  'spiel-pbe-z2': 0,
+  'spiel-pbe-z3': 1,
+  'spiel-pbe-z4': 0
 };
 
 const PREISE_START = {
@@ -154,7 +170,23 @@ const PREISE_START = {
   'spiel-t-z1': 12.99,
   'spiel-t-z2': 15.99,
   'spiel-t-z3': 19.99,
-  'spiel-t-z4': 29.99
+  'spiel-t-z4': 29.99,
+  'spiel-pfe-z1': 94.99,
+  'spiel-pfe-z2': 109.99,
+  'spiel-pfe-z3': 129.99,
+  'spiel-pfe-z4': 199.99,
+  'spiel-pse-z1': 54.99,
+  'spiel-pse-z2': 64.99,
+  'spiel-pse-z3': 74.99,
+  'spiel-pse-z4': 99.99,
+  'spiel-pre-z1': 54.99,
+  'spiel-pre-z2': 64.99,
+  'spiel-pre-z3': 74.99,
+  'spiel-pre-z4': 99.99,
+  'spiel-pbe-z1': 94.99,
+  'spiel-pbe-z2': 109.99,
+  'spiel-pbe-z3': 129.99,
+  'spiel-pbe-z4': 199.99
 };
 
 const PRODUKT_NAMEN = {
@@ -225,7 +257,23 @@ const PRODUKT_NAMEN = {
   'spiel-t-z1': 'Tetris – Akzeptabel',
   'spiel-t-z2': 'Tetris – Gut',
   'spiel-t-z3': 'Tetris – Sehr gut',
-  'spiel-t-z4': 'Tetris – Neuwertig'
+  'spiel-t-z4': 'Tetris – Neuwertig',
+  'spiel-pfe-z1': 'Pokémon Feuerrote Edition – Akzeptabel',
+  'spiel-pfe-z2': 'Pokémon Feuerrote Edition – Gut',
+  'spiel-pfe-z3': 'Pokémon Feuerrote Edition – Sehr gut',
+  'spiel-pfe-z4': 'Pokémon Feuerrote Edition – Neuwertig',
+  'spiel-pse-z1': 'Pokémon Saphir-Edition – Akzeptabel',
+  'spiel-pse-z2': 'Pokémon Saphir-Edition – Gut',
+  'spiel-pse-z3': 'Pokémon Saphir-Edition – Sehr gut',
+  'spiel-pse-z4': 'Pokémon Saphir-Edition – Neuwertig',
+  'spiel-pre-z1': 'Pokémon Rubin-Edition – Akzeptabel',
+  'spiel-pre-z2': 'Pokémon Rubin-Edition – Gut',
+  'spiel-pre-z3': 'Pokémon Rubin-Edition – Sehr gut',
+  'spiel-pre-z4': 'Pokémon Rubin-Edition – Neuwertig',
+  'spiel-pbe-z1': 'Pokémon Blattgrüne Edition – Akzeptabel',
+  'spiel-pbe-z2': 'Pokémon Blattgrüne Edition – Gut',
+  'spiel-pbe-z3': 'Pokémon Blattgrüne Edition – Sehr gut',
+  'spiel-pbe-z4': 'Pokémon Blattgrüne Edition – Neuwertig'
 };
 
 const KATALOG_HEADERS = [
@@ -268,7 +316,11 @@ const KATALOG_START_ROWS = [
   [32, "spiel", "pt", "Pokémon Trading Card", "assets/products/PT_Z3.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "PT", "z3:jpeg", "ja"],
   [33, "spiel", "dbz", "Dragon Ball Z", "assets/products/DBZ_Z3.jpeg", "spiele spiel-variante", "Klassiker", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "DBZ", "z3:jpeg", "ja"],
   [34, "spiel", "zla", "Zelda: Link's Awakening", "assets/products/ZLA_Z2.jpeg", "spiele spiel-variante", "Zelda", "Original Game Boy Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z2", "ZLA", "z2:jpeg|z3:jpg", "ja"],
-  [35, "spiel", "t", "Tetris", "assets/products/T_Z2.jpeg", "spiele spiel-variante", "Klassiker", "Original Game Boy Modul|Wartungsfrei – keine Speicherbatterie nötig|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z2", "T", "z2:jpeg|z3:jpeg", "ja"]
+  [35, "spiel", "t", "Tetris", "assets/products/T_Z2.jpeg", "spiele spiel-variante", "Klassiker", "Original Game Boy Modul|Wartungsfrei – keine Speicherbatterie nötig|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z2", "T", "z2:jpeg|z3:jpeg", "ja"],
+  [36, "spiel", "pfe", "Pokémon Feuerrote Edition", "assets/products/PFE_S3.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Advance Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "PFE", "z3:jpeg", "ja"],
+  [37, "spiel", "pse", "Pokémon Saphir-Edition", "assets/products/PSE_S3.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Advance Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "PSE", "z3:jpeg", "ja"],
+  [38, "spiel", "pre", "Pokémon Rubin-Edition", "assets/products/PRE_S3.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Advance Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "PRE", "z3:jpeg", "ja"],
+  [39, "spiel", "pbe", "Pokémon Blattgrüne Edition", "assets/products/PBE_S3.jpeg", "spiele spiel-variante", "Pokémon", "Original Game Boy Advance Modul|Speichert (neue Batterie)|Technisch geprüft · sofort spielbereit|Kostenloser Versand", "z3", "PBE", "z3:jpeg", "ja"]
 ];
 
 const RABATT_START = [
