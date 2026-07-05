@@ -84,26 +84,37 @@ const PRODUKT_NAMEN = {
   'spiel-pbe-z1': 'Pokémon Blattgrüne Edition – Akzeptabel',
   'spiel-pbe-z2': 'Pokémon Blattgrüne Edition – Gut',
   'spiel-pbe-z3': 'Pokémon Blattgrüne Edition – Sehr gut',
-  'spiel-pbe-z4': 'Pokémon Blattgrüne Edition – Neuwertig'
+  'spiel-pbe-z4': 'Pokémon Blattgrüne Edition – Neuwertig',
+  'spiel-pgo-z1': 'Pokémon Gold – Akzeptabel',
+  'spiel-pgo-z2': 'Pokémon Gold – Gut',
+  'spiel-pgo-z3': 'Pokémon Gold – Sehr gut',
+  'spiel-pgo-z4': 'Pokémon Gold – Neuwertig',
+  'spiel-psi-z1': 'Pokémon Silber – Akzeptabel',
+  'spiel-psi-z2': 'Pokémon Silber – Gut',
+  'spiel-psi-z3': 'Pokémon Silber – Sehr gut',
+  'spiel-psi-z4': 'Pokémon Silber – Neuwertig'
 };
 
 const SPIEL_BILD_CODE = {
   sm1: 'SM1', sm2: 'SM2', sm3: 'SM3',
   pb: 'PB', pr: 'PR', pg: 'PG', pk: 'PK', pt: 'PT',
+  pgo: 'PGO', psi: 'PSI',
   pfe: 'PFE', pse: 'PSE', pre: 'PRE', pbe: 'PBE',
   dbz: 'DBZ', zla: 'ZLA', t: 'T'
 };
 
 const SPIEL_BILD_EXT = {
   'sm2-z1': 'jpeg',
-  'pb-z2': 'jpeg', 'pb-z4': 'jpeg',
-  'pr-z1': 'jpg', 'pr-z3': 'jpeg',
-  'pg-z4': 'jpeg',
-  'pk-z3': 'jpeg',
+  'pb-z2': 'jpeg', 'pb-z3': 'jpeg', 'pb-z4': 'jpeg',
+  'pr-z1': 'jpeg', 'pr-z2': 'jpeg', 'pr-z3': 'jpeg',
+  'pg-z2': 'webp', 'pg-z3': 'webp', 'pg-z4': 'webp',
+  'pk-z2': 'jpeg', 'pk-z3': 'jpeg', 'pk-z4': 'jpeg',
   'pt-z3': 'jpeg',
   'dbz-z3': 'jpeg',
   'zla-z2': 'jpeg', 'zla-z3': 'jpg',
   't-z2': 'jpeg', 't-z3': 'jpeg',
+  'pgo-z2': 'jpeg', 'pgo-z3': 'jpeg',
+  'psi-z1': 'jpeg', 'psi-z2': 'jpeg', 'psi-z3': 'jpeg',
   'pfe-z3': 'jpeg', 'pse-z3': 'jpeg', 'pre-z3': 'jpeg', 'pbe-z3': 'jpeg'
 };
 
@@ -197,7 +208,15 @@ const PRODUKT_BILDER = {
   'spiel-pbe-z1': spielBildPfadLager('pbe', 'z1'),
   'spiel-pbe-z2': spielBildPfadLager('pbe', 'z2'),
   'spiel-pbe-z3': spielBildPfadLager('pbe', 'z3'),
-  'spiel-pbe-z4': spielBildPfadLager('pbe', 'z4')
+  'spiel-pbe-z4': spielBildPfadLager('pbe', 'z4'),
+  'spiel-pgo-z1': spielBildPfadLager('pgo', 'z1'),
+  'spiel-pgo-z2': spielBildPfadLager('pgo', 'z2'),
+  'spiel-pgo-z3': spielBildPfadLager('pgo', 'z3'),
+  'spiel-pgo-z4': spielBildPfadLager('pgo', 'z4'),
+  'spiel-psi-z1': spielBildPfadLager('psi', 'z1'),
+  'spiel-psi-z2': spielBildPfadLager('psi', 'z2'),
+  'spiel-psi-z3': spielBildPfadLager('psi', 'z3'),
+  'spiel-psi-z4': spielBildPfadLager('psi', 'z4'),
 };
 
 const VERKAUFE_DEFAULT = [
