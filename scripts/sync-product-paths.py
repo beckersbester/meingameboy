@@ -24,9 +24,9 @@ SPIEL_SORT = {
     "pgo": (2000, 2),
     "psi": (2000, 3),
     "pk": (2001, 1),
+    "dbz": (2002, 1),
     "pre": (2003, 1),
     "pse": (2003, 2),
-    "dbz": (2003, 3),
     "pfe": (2004, 1),
     "pbe": (2004, 2),
 }
@@ -106,6 +106,9 @@ def sync_katalog():
         start = preferred_z(ext_map, item.get("startZustand"))
         item["startZustand"] = start
         item["bild"] = variant_map[start]["path"]
+        sort_meta = SPIEL_SORT.get(item.get("id", ""))
+        if sort_meta:
+            item["erscheinungsjahr"] = sort_meta[0]
 
     konsolen = [i for i in katalog if i.get("typ") == "konsolen"]
     spiele = [i for i in katalog if i.get("typ") == "spiel"]
@@ -133,9 +136,16 @@ def rebuild_sheet_rows(katalog):
             item.get("bild", ""), item.get("klassen", ""), item.get("badge", ""),
             "|".join(item.get("features") or []), item.get("startZustand", ""),
             item.get("bildCode", ""), bild_ext, item.get("aktiv", "ja"),
+            item.get("erscheinungsjahr", "") if item.get("typ") == "spiel" else "",
         ])
     gs_lines = ["  [" + ", ".join(json.dumps(c, ensure_ascii=False) for c in row) + "]" for row in rows]
     gs_block = "const KATALOG_START_ROWS = [\n" + ",\n".join(gs_lines) + "\n];"
+    headers_block = (
+        "const KATALOG_HEADERS = [\n"
+        "  'reihenfolge', 'typ', 'id', 'titel', 'bild', 'klassen', 'badge',\n"
+        "  'features', 'startZustand', 'bildCode', 'bildExt', 'aktiv', 'erscheinungsjahr'\n"
+        "];"
+    )
     (ROOT / "scripts" / "katalog-sheet-rows.json").write_text(
         json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
@@ -143,8 +153,10 @@ def rebuild_sheet_rows(katalog):
     header = start_txt.read_text(encoding="utf-8").split("const KATALOG_START_ROWS")[0]
     start_txt.write_text(header + gs_block + "\n", encoding="utf-8")
     api = ROOT / "google-apps-script" / "lager-api.gs"
+    api_text = api.read_text(encoding="utf-8")
+    api_text = re.sub(r"const KATALOG_HEADERS = \[[\s\S]*?\];", headers_block, api_text, count=1)
     api.write_text(
-        re.sub(r"const KATALOG_START_ROWS = \[[\s\S]*?\];", gs_block, api.read_text(encoding="utf-8"), count=1),
+        re.sub(r"const KATALOG_START_ROWS = \[[\s\S]*?\];", gs_block, api_text, count=1),
         encoding="utf-8",
     )
 

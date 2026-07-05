@@ -19,8 +19,15 @@ Z_LABEL = {"z1": "Akzeptabel", "z2": "Gut", "z3": "Sehr gut", "z4": "Neuwertig"}
 SPIEL_ORDER = [
     "t", "sm1", "sm2", "zla", "sm3",
     "pb", "pr", "pg", "pt", "pgo", "psi", "pk",
-    "pre", "pse", "dbz", "pfe", "pbe",
+    "dbz", "pre", "pse", "pfe", "pbe",
 ]
+
+SPIEL_JAHRE = {sid: meta[0] for sid, meta in {
+    "t": (1990, 1), "sm1": (1990, 2), "sm2": (1992, 1), "zla": (1993, 1), "sm3": (1994, 1),
+    "pb": (1998, 1), "pr": (1998, 2), "pg": (1999, 1), "pt": (2000, 1), "pgo": (2000, 2),
+    "psi": (2000, 3), "pk": (2001, 1), "dbz": (2002, 1), "pre": (2003, 1), "pse": (2003, 2),
+    "pfe": (2004, 1), "pbe": (2004, 2),
+}.items()}
 
 
 def spiel_entry(reihenfolge, sid, meta):
@@ -37,6 +44,7 @@ def spiel_entry(reihenfolge, sid, meta):
         "startZustand": meta["startZustand"],
         "bildCode": meta["code"],
         "bildExt": meta["bildExt"],
+        "erscheinungsjahr": SPIEL_JAHRE.get(sid),
     }
 
 

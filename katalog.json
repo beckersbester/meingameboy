@@ -390,7 +390,8 @@
     "bildPfade": {
       "z2": "assets/products/Games/T_Z2.jpeg",
       "z3": "assets/products/Games/T_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1990
   },
   {
     "reihenfolge": 26,
@@ -418,7 +419,8 @@
       "z1": "assets/products/Games/SM1_Z1.webp",
       "z2": "assets/products/Games/SM1_Z2.webp",
       "z3": "assets/products/Games/SM1_Z3.webp"
-    }
+    },
+    "erscheinungsjahr": 1990
   },
   {
     "reihenfolge": 27,
@@ -446,7 +448,8 @@
       "z1": "assets/products/Games/SM2_Z1.jpeg",
       "z3": "assets/products/Games/SM2_Z3.webp",
       "z4": "assets/products/Games/SM2_Z4.webp"
-    }
+    },
+    "erscheinungsjahr": 1992
   },
   {
     "reihenfolge": 28,
@@ -472,7 +475,8 @@
     "bildPfade": {
       "z2": "assets/products/Games/ZLA_Z2.jpeg",
       "z3": "assets/products/Games/ZLA_Z3.jpg"
-    }
+    },
+    "erscheinungsjahr": 1993
   },
   {
     "reihenfolge": 29,
@@ -502,7 +506,8 @@
       "z2": "assets/products/Games/SM3_Z2.webp",
       "z3": "assets/products/Games/SM3_Z3.webp",
       "z4": "assets/products/Games/SM3_Z4.webp"
-    }
+    },
+    "erscheinungsjahr": 1994
   },
   {
     "reihenfolge": 30,
@@ -530,7 +535,8 @@
       "z2": "assets/products/Games/PB_Z2.jpeg",
       "z3": "assets/products/Games/PB_Z3.jpeg",
       "z4": "assets/products/Games/PB_Z4.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1998
   },
   {
     "reihenfolge": 31,
@@ -558,7 +564,8 @@
       "z1": "assets/products/Games/PR_Z1.jpeg",
       "z2": "assets/products/Games/PR_Z2.jpeg",
       "z3": "assets/products/Games/PR_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1998
   },
   {
     "reihenfolge": 32,
@@ -586,7 +593,8 @@
       "z2": "assets/products/Games/PG_Z2.jpeg",
       "z3": "assets/products/Games/PG_Z3.jpeg",
       "z4": "assets/products/Games/PG_Z4.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1999
   },
   {
     "reihenfolge": 33,
@@ -610,7 +618,8 @@
     },
     "bildPfade": {
       "z3": "assets/products/Games/PT_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2000
   },
   {
     "reihenfolge": 34,
@@ -636,7 +645,8 @@
     "bildPfade": {
       "z2": "assets/products/Games/PGO_Z2.jpeg",
       "z3": "assets/products/Games/PGO_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2000
   },
   {
     "reihenfolge": 35,
@@ -664,7 +674,8 @@
       "z1": "assets/products/Games/PSI_Z1.jpeg",
       "z2": "assets/products/Games/PSI_Z2.jpeg",
       "z3": "assets/products/Games/PSI_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2000
   },
   {
     "reihenfolge": 36,
@@ -692,58 +703,11 @@
       "z2": "assets/products/Games/PK_Z2.jpeg",
       "z3": "assets/products/Games/PK_Z3.jpeg",
       "z4": "assets/products/Games/PK_Z4.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2001
   },
   {
     "reihenfolge": 37,
-    "typ": "spiel",
-    "id": "pre",
-    "titel": "Pokémon Rubin-Edition",
-    "bild": "assets/products/Games/PRE_Z3.jpeg",
-    "klassen": "spiele spiel-variante",
-    "features": [
-      "Original Game Boy Advance Modul",
-      "Speichert (neue Batterie)",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja",
-    "badge": "Pokémon",
-    "startZustand": "z3",
-    "bildCode": "PRE",
-    "bildExt": {
-      "z3": "jpeg"
-    },
-    "bildPfade": {
-      "z3": "assets/products/Games/PRE_Z3.jpeg"
-    }
-  },
-  {
-    "reihenfolge": 38,
-    "typ": "spiel",
-    "id": "pse",
-    "titel": "Pokémon Saphir-Edition",
-    "bild": "assets/products/Games/PSE_Z3.jpeg",
-    "klassen": "spiele spiel-variante",
-    "features": [
-      "Original Game Boy Advance Modul",
-      "Speichert (neue Batterie)",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja",
-    "badge": "Pokémon",
-    "startZustand": "z3",
-    "bildCode": "PSE",
-    "bildExt": {
-      "z3": "jpeg"
-    },
-    "bildPfade": {
-      "z3": "assets/products/Games/PSE_Z3.jpeg"
-    }
-  },
-  {
-    "reihenfolge": 39,
     "typ": "spiel",
     "id": "dbz",
     "titel": "Dragon Ball Z",
@@ -764,7 +728,58 @@
     },
     "bildPfade": {
       "z3": "assets/products/Games/DBZ_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2002
+  },
+  {
+    "reihenfolge": 38,
+    "typ": "spiel",
+    "id": "pre",
+    "titel": "Pokémon Rubin-Edition",
+    "bild": "assets/products/Games/PRE_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PRE",
+    "bildExt": {
+      "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PRE_Z3.jpeg"
+    },
+    "erscheinungsjahr": 2003
+  },
+  {
+    "reihenfolge": 39,
+    "typ": "spiel",
+    "id": "pse",
+    "titel": "Pokémon Saphir-Edition",
+    "bild": "assets/products/Games/PSE_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PSE",
+    "bildExt": {
+      "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PSE_Z3.jpeg"
+    },
+    "erscheinungsjahr": 2003
   },
   {
     "reihenfolge": 40,
@@ -788,7 +803,8 @@
     },
     "bildPfade": {
       "z3": "assets/products/Games/PFE_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2004
   },
   {
     "reihenfolge": 41,
@@ -812,6 +828,7 @@
     },
     "bildPfade": {
       "z3": "assets/products/Games/PBE_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2004
   }
 ]

@@ -298,6 +298,22 @@ h2{
   overflow:hidden;
 }
 
+.produkt.spiel-variante h3{
+  display:block;
+  -webkit-line-clamp:unset;
+  -webkit-box-orient:unset;
+  min-height:0;
+}
+
+.produkt.spiel-variante h3 .spiel-jahr{
+  display:block;
+  margin-top:3px;
+  font-size:12px;
+  font-weight:500;
+  color:#8a8ea8;
+  line-height:1.2;
+}
+
 .features{
   list-style:none;
   flex:1 1 auto;
@@ -1317,7 +1333,7 @@ h2{
   <label class="shop-filter">
     <span>Sortierung</span>
     <select id="filter-sort" aria-label="Sortierung">
-      <option value="default">Standard</option>
+      <option value="default" selected>Erscheinungsjahr</option>
       <option value="low">Preis aufsteigend</option>
       <option value="high">Preis absteigend</option>
     </select>
@@ -1784,7 +1800,8 @@ const KATALOG_FALLBACK = [
     "bildPfade": {
       "z2": "assets/products/Games/T_Z2.jpeg",
       "z3": "assets/products/Games/T_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1990
   },
   {
     "reihenfolge": 26,
@@ -1812,7 +1829,8 @@ const KATALOG_FALLBACK = [
       "z1": "assets/products/Games/SM1_Z1.webp",
       "z2": "assets/products/Games/SM1_Z2.webp",
       "z3": "assets/products/Games/SM1_Z3.webp"
-    }
+    },
+    "erscheinungsjahr": 1990
   },
   {
     "reihenfolge": 27,
@@ -1840,7 +1858,8 @@ const KATALOG_FALLBACK = [
       "z1": "assets/products/Games/SM2_Z1.jpeg",
       "z3": "assets/products/Games/SM2_Z3.webp",
       "z4": "assets/products/Games/SM2_Z4.webp"
-    }
+    },
+    "erscheinungsjahr": 1992
   },
   {
     "reihenfolge": 28,
@@ -1866,7 +1885,8 @@ const KATALOG_FALLBACK = [
     "bildPfade": {
       "z2": "assets/products/Games/ZLA_Z2.jpeg",
       "z3": "assets/products/Games/ZLA_Z3.jpg"
-    }
+    },
+    "erscheinungsjahr": 1993
   },
   {
     "reihenfolge": 29,
@@ -1896,7 +1916,8 @@ const KATALOG_FALLBACK = [
       "z2": "assets/products/Games/SM3_Z2.webp",
       "z3": "assets/products/Games/SM3_Z3.webp",
       "z4": "assets/products/Games/SM3_Z4.webp"
-    }
+    },
+    "erscheinungsjahr": 1994
   },
   {
     "reihenfolge": 30,
@@ -1924,7 +1945,8 @@ const KATALOG_FALLBACK = [
       "z2": "assets/products/Games/PB_Z2.jpeg",
       "z3": "assets/products/Games/PB_Z3.jpeg",
       "z4": "assets/products/Games/PB_Z4.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1998
   },
   {
     "reihenfolge": 31,
@@ -1952,7 +1974,8 @@ const KATALOG_FALLBACK = [
       "z1": "assets/products/Games/PR_Z1.jpeg",
       "z2": "assets/products/Games/PR_Z2.jpeg",
       "z3": "assets/products/Games/PR_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1998
   },
   {
     "reihenfolge": 32,
@@ -1980,7 +2003,8 @@ const KATALOG_FALLBACK = [
       "z2": "assets/products/Games/PG_Z2.jpeg",
       "z3": "assets/products/Games/PG_Z3.jpeg",
       "z4": "assets/products/Games/PG_Z4.jpeg"
-    }
+    },
+    "erscheinungsjahr": 1999
   },
   {
     "reihenfolge": 33,
@@ -2004,7 +2028,8 @@ const KATALOG_FALLBACK = [
     },
     "bildPfade": {
       "z3": "assets/products/Games/PT_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2000
   },
   {
     "reihenfolge": 34,
@@ -2030,7 +2055,8 @@ const KATALOG_FALLBACK = [
     "bildPfade": {
       "z2": "assets/products/Games/PGO_Z2.jpeg",
       "z3": "assets/products/Games/PGO_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2000
   },
   {
     "reihenfolge": 35,
@@ -2058,7 +2084,8 @@ const KATALOG_FALLBACK = [
       "z1": "assets/products/Games/PSI_Z1.jpeg",
       "z2": "assets/products/Games/PSI_Z2.jpeg",
       "z3": "assets/products/Games/PSI_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2000
   },
   {
     "reihenfolge": 36,
@@ -2086,58 +2113,11 @@ const KATALOG_FALLBACK = [
       "z2": "assets/products/Games/PK_Z2.jpeg",
       "z3": "assets/products/Games/PK_Z3.jpeg",
       "z4": "assets/products/Games/PK_Z4.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2001
   },
   {
     "reihenfolge": 37,
-    "typ": "spiel",
-    "id": "pre",
-    "titel": "Pokémon Rubin-Edition",
-    "bild": "assets/products/Games/PRE_Z3.jpeg",
-    "klassen": "spiele spiel-variante",
-    "features": [
-      "Original Game Boy Advance Modul",
-      "Speichert (neue Batterie)",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja",
-    "badge": "Pokémon",
-    "startZustand": "z3",
-    "bildCode": "PRE",
-    "bildExt": {
-      "z3": "jpeg"
-    },
-    "bildPfade": {
-      "z3": "assets/products/Games/PRE_Z3.jpeg"
-    }
-  },
-  {
-    "reihenfolge": 38,
-    "typ": "spiel",
-    "id": "pse",
-    "titel": "Pokémon Saphir-Edition",
-    "bild": "assets/products/Games/PSE_Z3.jpeg",
-    "klassen": "spiele spiel-variante",
-    "features": [
-      "Original Game Boy Advance Modul",
-      "Speichert (neue Batterie)",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja",
-    "badge": "Pokémon",
-    "startZustand": "z3",
-    "bildCode": "PSE",
-    "bildExt": {
-      "z3": "jpeg"
-    },
-    "bildPfade": {
-      "z3": "assets/products/Games/PSE_Z3.jpeg"
-    }
-  },
-  {
-    "reihenfolge": 39,
     "typ": "spiel",
     "id": "dbz",
     "titel": "Dragon Ball Z",
@@ -2158,7 +2138,58 @@ const KATALOG_FALLBACK = [
     },
     "bildPfade": {
       "z3": "assets/products/Games/DBZ_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2002
+  },
+  {
+    "reihenfolge": 38,
+    "typ": "spiel",
+    "id": "pre",
+    "titel": "Pokémon Rubin-Edition",
+    "bild": "assets/products/Games/PRE_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PRE",
+    "bildExt": {
+      "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PRE_Z3.jpeg"
+    },
+    "erscheinungsjahr": 2003
+  },
+  {
+    "reihenfolge": 39,
+    "typ": "spiel",
+    "id": "pse",
+    "titel": "Pokémon Saphir-Edition",
+    "bild": "assets/products/Games/PSE_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Advance Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PSE",
+    "bildExt": {
+      "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PSE_Z3.jpeg"
+    },
+    "erscheinungsjahr": 2003
   },
   {
     "reihenfolge": 40,
@@ -2182,7 +2213,8 @@ const KATALOG_FALLBACK = [
     },
     "bildPfade": {
       "z3": "assets/products/Games/PFE_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2004
   },
   {
     "reihenfolge": 41,
@@ -2206,7 +2238,8 @@ const KATALOG_FALLBACK = [
     },
     "bildPfade": {
       "z3": "assets/products/Games/PBE_Z3.jpeg"
-    }
+    },
+    "erscheinungsjahr": 2004
   }
 ];
 
@@ -2344,6 +2377,12 @@ const SPIEL_PREISE = {
 
 const SPIEL_ZUSTAND_PRIO = ['z4', 'z3', 'z2', 'z1'];
 
+const SPIEL_JAHRE = {
+  t: 1990, sm1: 1990, sm2: 1992, zla: 1993, sm3: 1994,
+  pb: 1998, pr: 1998, pg: 1999, pt: 2000, pgo: 2000, psi: 2000,
+  pk: 2001, dbz: 2002, pre: 2003, pse: 2003, pfe: 2004, pbe: 2004
+};
+
 let shopKatalog = [];
 let SPIEL_BILD_CODE = {};
 let SPIEL_BILD_EXT = {};
@@ -2367,6 +2406,17 @@ function enrichKatalogBildPfade(item) {
   item.bildPfade = pfade;
 }
 
+function katalogItemSort(a, b) {
+  if (a.typ === 'konsolen' && b.typ === 'spiel') return -1;
+  if (a.typ === 'spiel' && b.typ === 'konsolen') return 1;
+  if (a.typ === 'spiel' && b.typ === 'spiel') {
+    const ya = Number(a.erscheinungsjahr) || SPIEL_JAHRE[a.id] || 9999;
+    const yb = Number(b.erscheinungsjahr) || SPIEL_JAHRE[b.id] || 9999;
+    if (ya !== yb) return ya - yb;
+  }
+  return (a.reihenfolge || 0) - (b.reihenfolge || 0);
+}
+
 function applySpielKatalogMeta(katalog) {
   SPIEL_BILD_CODE = {};
   SPIEL_BILD_EXT = {};
@@ -2374,6 +2424,9 @@ function applySpielKatalogMeta(katalog) {
   shopKatalog = Array.isArray(katalog) ? katalog.slice() : [];
   shopKatalog.forEach(function (item) {
     if (item.typ !== 'spiel') return;
+    if (!item.erscheinungsjahr && SPIEL_JAHRE[item.id]) {
+      item.erscheinungsjahr = SPIEL_JAHRE[item.id];
+    }
     enrichKatalogBildPfade(item);
     if (item.bildCode) SPIEL_BILD_CODE[item.id] = item.bildCode;
     if (item.bildExt) {
@@ -2475,6 +2528,13 @@ function buildSpielKarte(item) {
 
   const h3 = document.createElement('h3');
   h3.textContent = item.titel;
+  if (item.erscheinungsjahr) {
+    const jahr = document.createElement('span');
+    jahr.className = 'spiel-jahr';
+    jahr.textContent = String(item.erscheinungsjahr);
+    h3.appendChild(jahr);
+    div.dataset.erscheinungsjahr = String(item.erscheinungsjahr);
+  }
 
   const label = document.createElement('label');
   label.className = 'zustand-wahl';
@@ -2524,9 +2584,7 @@ function renderShopKatalog(katalog) {
     node.remove();
   });
 
-  (katalog || []).slice().sort(function (a, b) {
-    return (a.reihenfolge || 0) - (b.reihenfolge || 0);
-  }).forEach(function (item) {
+  (katalog || []).slice().sort(katalogItemSort).forEach(function (item) {
     if (String(item.aktiv || 'ja').toLowerCase() === 'nein') return;
     const karte = item.typ === 'spiel' ? buildSpielKarte(item) : buildKonsolenKarte(item);
     container.insertBefore(karte, empty);
@@ -3264,7 +3322,21 @@ function sortProducts(direction) {
   const empty = document.getElementById('keine-treffer');
 
   if (direction === 'default') {
-    originalProductOrder.forEach(function (product) {
+    const products = Array.from(container.querySelectorAll('.produkt'));
+    products.sort(function (a, b) {
+      const aSpiel = a.classList.contains('spiel-variante');
+      const bSpiel = b.classList.contains('spiel-variante');
+      if (aSpiel && !bSpiel) return 1;
+      if (!aSpiel && bSpiel) return -1;
+      if (aSpiel && bSpiel) {
+        const ya = Number(a.dataset.erscheinungsjahr) || SPIEL_JAHRE[a.dataset.spiel] || 9999;
+        const yb = Number(b.dataset.erscheinungsjahr) || SPIEL_JAHRE[b.dataset.spiel] || 9999;
+        if (ya !== yb) return ya - yb;
+        return (a.dataset.spiel || '').localeCompare(b.dataset.spiel || '');
+      }
+      return originalProductOrder.indexOf(a) - originalProductOrder.indexOf(b);
+    });
+    products.forEach(function (product) {
       container.insertBefore(product, empty);
     });
     return;
