@@ -144,7 +144,7 @@ const SPIEL_BILD_EXT = {
 };
 
 const SPIEL_BILD_PFAD = {
-  'dbz-z3': 'assets/products/Gameboy/DBZ_Z3.jpeg',
+  'dbz-z3': 'assets/products/Games/DBZ_Z3.jpeg',
   'pb-z2': 'assets/products/Games/PB_Z2.jpeg',
   'pb-z3': 'assets/products/Games/PB_Z3.jpeg',
   'pb-z4': 'assets/products/Games/PB_Z4.jpeg',
@@ -186,7 +186,7 @@ const SPIEL_BILD_PFAD = {
 function spielBildRelPath(spiel, zKey, code, ext) {
   const key = spiel + '-' + zKey;
   if (SPIEL_BILD_PFAD[key]) return SPIEL_BILD_PFAD[key];
-  return 'assets/products/Games/' + code + '_' + zKey.toUpperCase() + '.' + ext;
+  return spielBildRelPath(spiel, zKey, code, ext);
 }
 
 function spielBildPfadLager(spiel, zKey) {
