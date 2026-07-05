@@ -3,11 +3,11 @@
     "code": "PB",
     "titel": "Pokémon Blau",
     "startZustand": "z4",
-    "bild": "assets/products/PB_Z4.jpeg",
+    "bild": "assets/products/PB_Z4.webp",
     "bildExt": {
-      "z2": "jpeg",
-      "z3": "jpeg",
-      "z4": "jpeg"
+      "z2": "webp",
+      "z3": "webp",
+      "z4": "webp"
     },
     "preise": {
       "z1": "34,99 €",
@@ -26,11 +26,11 @@
     "code": "PR",
     "titel": "Pokémon Rot",
     "startZustand": "z3",
-    "bild": "assets/products/PR_Z3.jpeg",
+    "bild": "assets/products/PR_Z3.webp",
     "bildExt": {
-      "z1": "jpeg",
-      "z2": "jpeg",
-      "z3": "jpeg"
+      "z1": "webp",
+      "z2": "webp",
+      "z3": "webp"
     },
     "preise": {
       "z1": "34,99 €",
@@ -72,10 +72,10 @@
     "code": "PGO",
     "titel": "Pokémon Gold",
     "startZustand": "z3",
-    "bild": "assets/products/PGO_Z3.jpeg",
+    "bild": "assets/products/PGO_Z3.webp",
     "bildExt": {
-      "z2": "jpeg",
-      "z3": "jpeg"
+      "z2": "webp",
+      "z3": "webp"
     },
     "preise": {
       "z1": "39,99 €",
@@ -94,11 +94,11 @@
     "code": "PSI",
     "titel": "Pokémon Silber",
     "startZustand": "z3",
-    "bild": "assets/products/PSI_Z3.jpeg",
+    "bild": "assets/products/PSI_Z3.webp",
     "bildExt": {
-      "z1": "jpeg",
-      "z2": "jpeg",
-      "z3": "jpeg"
+      "z1": "webp",
+      "z2": "webp",
+      "z3": "webp"
     },
     "preise": {
       "z1": "39,99 €",
@@ -117,11 +117,11 @@
     "code": "PK",
     "titel": "Pokémon Kristall",
     "startZustand": "z4",
-    "bild": "assets/products/PK_Z4.jpeg",
+    "bild": "assets/products/PK_Z4.webp",
     "bildExt": {
-      "z2": "jpeg",
-      "z3": "jpeg",
-      "z4": "jpeg"
+      "z2": "webp",
+      "z3": "webp",
+      "z4": "webp"
     },
     "preise": {
       "z1": "94,99 €",

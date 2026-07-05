@@ -174,6 +174,8 @@ async def scrape_one(page, item_id):
         if v.get("stock", 0) <= 0:
             v["image"] = None
             continue
+        if v.get("image"):
+            continue
         label = Z_TO_COND[z]
         try:
             if await select_condition(page, label):

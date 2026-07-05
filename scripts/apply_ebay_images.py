@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "scripts" / "ebay_sync_data.json"
-PRODUCTS = ROOT / "assets" / "products"
+PRODUCTS = ROOT / "assets" / "products" / "Games"
 PRIO = ["z4", "z3", "z2", "z1"]
 
 
@@ -52,7 +52,9 @@ def main():
         bild_ext = {}
         start = preferred_z(variants)
         for z in ["z1", "z2", "z3", "z4"]:
-            v = variants[z]
+            v = variants.get(z)
+            if not v:
+                continue
             url = v.get("image")
             if url:
                 ext = ext_from_url(url)
@@ -68,7 +70,7 @@ def main():
             "code": code,
             "titel": item["titel"],
             "startZustand": start,
-            "bild": f"assets/products/{code}_{start.upper()}.{start_ext}",
+            "bild": f"assets/products/Games/{code}_{start.upper()}.{start_ext}",
             "bildExt": bild_ext,
             "preise": {z: fmt_price(variants[z]["price"]) for z in variants if variants[z].get("price") is not None},
             "bestand": {f"spiel-{sid}-{z}": variants[z]["stock"] for z in variants},

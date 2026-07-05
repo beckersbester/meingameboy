@@ -4,7 +4,7 @@
     "typ": "konsolen",
     "id": "color-wario",
     "titel": "Game Boy Color Wario Edition",
-    "bild": "assets/products/color-wario-float.png",
+    "bild": "assets/products/Gameboy/color-wario-float.png",
     "klassen": "konsolen color",
     "features": [
       "Wario Edition – gelbes Retro-Design",
@@ -19,7 +19,7 @@
     "typ": "konsolen",
     "id": "classic",
     "titel": "Nintendo Game Boy Classic",
-    "bild": "assets/products/classic-float.png",
+    "bild": "assets/products/Gameboy/classic-float.png",
     "klassen": "konsolen classic",
     "features": [
       "Der klassische DMG-Look",
@@ -34,7 +34,7 @@
     "typ": "konsolen",
     "id": "pocket-orange",
     "titel": "Game Boy Pocket Orange",
-    "bild": "assets/products/pocket-orange-float.png",
+    "bild": "assets/products/Gameboy/pocket-orange-float.png",
     "klassen": "konsolen pocket",
     "features": [
       "Knalliges Orange – fällt auf",
@@ -49,7 +49,7 @@
     "typ": "konsolen",
     "id": "pocket-squirtle",
     "titel": "Game Boy Pocket Pokémon Schiggy Edition",
-    "bild": "assets/products/pocket-squirtle-float.png",
+    "bild": "assets/products/Gameboy/pocket-squirtle-float.png",
     "klassen": "konsolen pocket",
     "features": [
       "Pokémon Schiggy Edition – transparent blau",
@@ -64,7 +64,7 @@
     "typ": "konsolen",
     "id": "pocket-charizard",
     "titel": "Game Boy Pocket Pokémon Glurak Edition",
-    "bild": "assets/products/pocket-charizard-float.png",
+    "bild": "assets/products/Gameboy/pocket-charizard-float.png",
     "klassen": "konsolen pocket",
     "features": [
       "Pokémon Glurak Edition – transparenter Look",
@@ -79,7 +79,7 @@
     "typ": "konsolen",
     "id": "pocket-pikachu",
     "titel": "Game Boy Pocket Pikachu Edition",
-    "bild": "assets/products/pocket-pikachu-float.png",
+    "bild": "assets/products/Gameboy/pocket-pikachu-float.png",
     "klassen": "konsolen pocket",
     "features": [
       "Pikachu Edition – ikonisches Gelb",
@@ -94,7 +94,7 @@
     "typ": "konsolen",
     "id": "pocket-classic",
     "titel": "Game Boy Pocket Classic Design",
-    "bild": "assets/products/pocket-classic-float.png",
+    "bild": "assets/products/Gameboy/pocket-classic-float.png",
     "klassen": "konsolen pocket",
     "features": [
       "Pocket im Classic-Design",
@@ -109,7 +109,7 @@
     "typ": "konsolen",
     "id": "color-mario",
     "titel": "Game Boy Color Mario Edition",
-    "bild": "assets/products/color-mario-float.png",
+    "bild": "assets/products/Gameboy/color-mario-float.png",
     "klassen": "konsolen color",
     "features": [
       "Offizielle Mario-Scheibe",
@@ -124,7 +124,7 @@
     "typ": "konsolen",
     "id": "classic-black-ips",
     "titel": "Game Boy Classic Black Button IPS V5",
-    "bild": "assets/products/classic-black-ips-float.png",
+    "bild": "assets/products/Gameboy/classic-black-ips-float.png",
     "klassen": "konsolen classic ips",
     "features": [
       "IPS V5 Display – hell, scharf & farbecht",
@@ -139,7 +139,7 @@
     "typ": "konsolen",
     "id": "classic-red",
     "titel": "Game Boy Classic Red Button",
-    "bild": "assets/products/classic-red-float.png",
+    "bild": "assets/products/Gameboy/classic-red-float.png",
     "klassen": "konsolen classic",
     "features": [
       "Weißes Gehäuse · rote Tasten",
@@ -154,7 +154,7 @@
     "typ": "konsolen",
     "id": "pocket-transparent",
     "titel": "Game Boy Pocket Transparent",
-    "bild": "assets/products/pocket-transparent-float.png",
+    "bild": "assets/products/Gameboy/pocket-transparent-float.png",
     "klassen": "konsolen pocket",
     "features": [
       "Transparent – Innere Technik sichtbar",
@@ -169,7 +169,7 @@
     "typ": "konsolen",
     "id": "color-pokemon",
     "titel": "Game Boy Color Pokémon",
-    "bild": "assets/products/color-pokemon-float.png",
+    "bild": "assets/products/Gameboy/color-pokemon-float.png",
     "klassen": "konsolen color",
     "features": [
       "Pokémon-Scheibe · weißes Gehäuse",
@@ -184,7 +184,7 @@
     "typ": "konsolen",
     "id": "color-charizard-orange",
     "titel": "Game Boy Color Charizard Red Edition",
-    "bild": "assets/products/color-charizard-orange-float.png",
+    "bild": "assets/products/Gameboy/color-charizard-orange-float.png",
     "klassen": "konsolen color",
     "features": [
       "Charizard Red Edition – Pokémon Design",
@@ -199,7 +199,7 @@
     "typ": "konsolen",
     "id": "color-yellow",
     "titel": "Game Boy Color Pokémon Yellow Edition",
-    "bild": "assets/products/color-yellow-float.png",
+    "bild": "assets/products/Gameboy/color-yellow-float.png",
     "klassen": "konsolen color",
     "features": [
       "Pokémon Yellow Edition",
@@ -214,7 +214,7 @@
     "typ": "konsolen",
     "id": "classic-grau-ips",
     "titel": "Game Boy Classic Grau IPS V5",
-    "bild": "assets/products/classic-grau-ips-float.png",
+    "bild": "assets/products/Gameboy/classic-grau-ips-float.png",
     "klassen": "konsolen classic ips",
     "features": [
       "IPS V5 Display – hell, scharf & farbecht",
@@ -229,7 +229,7 @@
     "typ": "konsolen",
     "id": "gba-gengar",
     "titel": "Game Boy Advance Gengar Edition",
-    "bild": "assets/products/gba-gengar-float.png",
+    "bild": "assets/products/Gameboy/gba-gengar-float.png",
     "klassen": "konsolen gba ausverkauft",
     "features": [
       "Custom Gengar Design – transluzent",
@@ -244,7 +244,7 @@
     "typ": "konsolen",
     "id": "gba-charmander",
     "titel": "Game Boy Advance Glumanda Edition",
-    "bild": "assets/products/gba-charmander-float.png",
+    "bild": "assets/products/Gameboy/gba-charmander-float.png",
     "klassen": "konsolen gba ausverkauft",
     "features": [
       "Custom Glumanda Design – transluzent orange",
@@ -259,7 +259,7 @@
     "typ": "konsolen",
     "id": "gbasp-pokemon-g",
     "titel": "Game Boy Advance SP Pokémon Groudon Edition",
-    "bild": "assets/products/GBASP_G_float.png",
+    "bild": "assets/products/Gameboy/GBASP_G_float.png",
     "klassen": "konsolen gbasp",
     "features": [
       "Frisches Groudon-Austauschgehäuse – top Zustand",
@@ -275,7 +275,7 @@
     "typ": "konsolen",
     "id": "gbasp-pokemon-k",
     "titel": "Game Boy Advance SP Pokémon Kyogre Edition",
-    "bild": "assets/products/GBASP_K_float.png",
+    "bild": "assets/products/Gameboy/GBASP_K_float.png",
     "klassen": "konsolen gbasp",
     "features": [
       "Frisches Kyogre-Austauschgehäuse – top Zustand",
@@ -291,7 +291,7 @@
     "typ": "konsolen",
     "id": "gbasp-pokemon-r",
     "titel": "Game Boy Advance SP Pokémon Rayquaza Edition",
-    "bild": "assets/products/GBASP_R_float.png",
+    "bild": "assets/products/Gameboy/GBASP_R_float.png",
     "klassen": "konsolen gbasp",
     "features": [
       "Frisches Rayquaza-Austauschgehäuse – top Zustand",
@@ -307,7 +307,7 @@
     "typ": "konsolen",
     "id": "gbasp-blau",
     "titel": "Game Boy Advance SP Blau",
-    "bild": "assets/products/GBASP_blau_float.png",
+    "bild": "assets/products/Gameboy/GBASP_blau_float.png",
     "klassen": "konsolen gbasp",
     "features": [
       "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
@@ -323,7 +323,7 @@
     "typ": "konsolen",
     "id": "gbasp-schwarz",
     "titel": "Game Boy Advance SP Schwarz",
-    "bild": "assets/products/GBASP_black_float.png",
+    "bild": "assets/products/Gameboy/GBASP_black_float.png",
     "klassen": "konsolen gbasp",
     "features": [
       "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
@@ -339,7 +339,7 @@
     "typ": "konsolen",
     "id": "gbasp-silber",
     "titel": "Game Boy Advance SP Silber",
-    "bild": "assets/products/GBASP_silber_float.png",
+    "bild": "assets/products/Gameboy/GBASP_silber_float.png",
     "klassen": "konsolen gbasp",
     "features": [
       "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
@@ -355,7 +355,7 @@
     "typ": "konsolen",
     "id": "gbasp-mario",
     "titel": "Game Boy Advance SP Mario Edition",
-    "bild": "assets/products/GBASP_mario_float.png",
+    "bild": "assets/products/Gameboy/GBASP_mario_float.png",
     "klassen": "konsolen gbasp",
     "features": [
       "Original Nintendo-Gehäuse · guter Gebrauchtzustand",
@@ -371,7 +371,7 @@
     "typ": "spiel",
     "id": "sm1",
     "titel": "Super Mario Land",
-    "bild": "assets/products/SM1_Z3.webp",
+    "bild": "assets/products/Games/SM1_Z3.webp",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -382,14 +382,24 @@
     "aktiv": "ja",
     "badge": "Mario",
     "startZustand": "z3",
-    "bildCode": "SM1"
+    "bildCode": "SM1",
+    "bildExt": {
+      "z1": "webp",
+      "z2": "webp",
+      "z3": "webp"
+    },
+    "bildPfade": {
+      "z1": "assets/products/Games/SM1_Z1.webp",
+      "z2": "assets/products/Games/SM1_Z2.webp",
+      "z3": "assets/products/Games/SM1_Z3.webp"
+    }
   },
   {
     "reihenfolge": 26,
     "typ": "spiel",
     "id": "sm2",
     "titel": "Super Mario Land 2",
-    "bild": "assets/products/SM2_Z3.webp",
+    "bild": "assets/products/Games/SM2_Z4.webp",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -399,10 +409,17 @@
     ],
     "aktiv": "ja",
     "badge": "Mario",
-    "startZustand": "z3",
+    "startZustand": "z4",
     "bildCode": "SM2",
     "bildExt": {
-      "z1": "jpeg"
+      "z1": "jpeg",
+      "z3": "webp",
+      "z4": "webp"
+    },
+    "bildPfade": {
+      "z1": "assets/products/Games/SM2_Z1.jpeg",
+      "z3": "assets/products/Games/SM2_Z3.webp",
+      "z4": "assets/products/Games/SM2_Z4.webp"
     }
   },
   {
@@ -410,7 +427,7 @@
     "typ": "spiel",
     "id": "sm3",
     "titel": "Super Mario Land 3",
-    "bild": "assets/products/SM3_Z3.webp",
+    "bild": "assets/products/Games/SM3_Z4.webp",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -420,15 +437,27 @@
     ],
     "aktiv": "ja",
     "badge": "Mario",
-    "startZustand": "z3",
-    "bildCode": "SM3"
+    "startZustand": "z4",
+    "bildCode": "SM3",
+    "bildExt": {
+      "z1": "webp",
+      "z2": "webp",
+      "z3": "webp",
+      "z4": "webp"
+    },
+    "bildPfade": {
+      "z1": "assets/products/Games/SM3_Z1.webp",
+      "z2": "assets/products/Games/SM3_Z2.webp",
+      "z3": "assets/products/Games/SM3_Z3.webp",
+      "z4": "assets/products/Games/SM3_Z4.webp"
+    }
   },
   {
     "reihenfolge": 28,
     "typ": "spiel",
     "id": "pb",
     "titel": "Pokémon Blau",
-    "bild": "assets/products/PB_Z4.jpeg",
+    "bild": "assets/products/Games/PB_Z4.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -444,6 +473,11 @@
       "z2": "jpeg",
       "z3": "jpeg",
       "z4": "jpeg"
+    },
+    "bildPfade": {
+      "z2": "assets/products/Games/PB_Z2.jpeg",
+      "z3": "assets/products/Games/PB_Z3.jpeg",
+      "z4": "assets/products/Games/PB_Z4.jpeg"
     }
   },
   {
@@ -451,7 +485,7 @@
     "typ": "spiel",
     "id": "pr",
     "titel": "Pokémon Rot",
-    "bild": "assets/products/PR_Z3.jpeg",
+    "bild": "assets/products/Games/PR_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -467,6 +501,11 @@
       "z1": "jpeg",
       "z2": "jpeg",
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z1": "assets/products/Games/PR_Z1.jpeg",
+      "z2": "assets/products/Games/PR_Z2.jpeg",
+      "z3": "assets/products/Games/PR_Z3.jpeg"
     }
   },
   {
@@ -474,7 +513,7 @@
     "typ": "spiel",
     "id": "pg",
     "titel": "Pokémon Gelb",
-    "bild": "assets/products/PG_Z4.webp",
+    "bild": "assets/products/Games/PG_Z4.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -487,9 +526,14 @@
     "startZustand": "z4",
     "bildCode": "PG",
     "bildExt": {
-      "z2": "webp",
-      "z3": "webp",
-      "z4": "webp"
+      "z2": "jpeg",
+      "z3": "jpeg",
+      "z4": "jpeg"
+    },
+    "bildPfade": {
+      "z2": "assets/products/Games/PG_Z2.jpeg",
+      "z3": "assets/products/Games/PG_Z3.jpeg",
+      "z4": "assets/products/Games/PG_Z4.jpeg"
     }
   },
   {
@@ -497,7 +541,7 @@
     "typ": "spiel",
     "id": "pgo",
     "titel": "Pokémon Gold",
-    "bild": "assets/products/PGO_Z3.jpeg",
+    "bild": "assets/products/Games/PGO_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -512,6 +556,10 @@
     "bildExt": {
       "z2": "jpeg",
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z2": "assets/products/Games/PGO_Z2.jpeg",
+      "z3": "assets/products/Games/PGO_Z3.jpeg"
     }
   },
   {
@@ -519,7 +567,7 @@
     "typ": "spiel",
     "id": "psi",
     "titel": "Pokémon Silber",
-    "bild": "assets/products/PSI_Z3.jpeg",
+    "bild": "assets/products/Games/PSI_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -535,6 +583,11 @@
       "z1": "jpeg",
       "z2": "jpeg",
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z1": "assets/products/Games/PSI_Z1.jpeg",
+      "z2": "assets/products/Games/PSI_Z2.jpeg",
+      "z3": "assets/products/Games/PSI_Z3.jpeg"
     }
   },
   {
@@ -542,7 +595,7 @@
     "typ": "spiel",
     "id": "pk",
     "titel": "Pokémon Kristall",
-    "bild": "assets/products/PK_Z4.jpeg",
+    "bild": "assets/products/Games/PK_Z4.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -558,6 +611,11 @@
       "z2": "jpeg",
       "z3": "jpeg",
       "z4": "jpeg"
+    },
+    "bildPfade": {
+      "z2": "assets/products/Games/PK_Z2.jpeg",
+      "z3": "assets/products/Games/PK_Z3.jpeg",
+      "z4": "assets/products/Games/PK_Z4.jpeg"
     }
   },
   {
@@ -565,7 +623,7 @@
     "typ": "spiel",
     "id": "pt",
     "titel": "Pokémon Trading Card",
-    "bild": "assets/products/PT_Z3.jpeg",
+    "bild": "assets/products/Games/PT_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -579,6 +637,9 @@
     "bildCode": "PT",
     "bildExt": {
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PT_Z3.jpeg"
     }
   },
   {
@@ -586,7 +647,7 @@
     "typ": "spiel",
     "id": "dbz",
     "titel": "Dragon Ball Z",
-    "bild": "assets/products/DBZ_Z3.jpeg",
+    "bild": "assets/products/Gameboy/DBZ_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -600,6 +661,9 @@
     "bildCode": "DBZ",
     "bildExt": {
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Gameboy/DBZ_Z3.jpeg"
     }
   },
   {
@@ -607,7 +671,7 @@
     "typ": "spiel",
     "id": "zla",
     "titel": "Zelda: Link's Awakening",
-    "bild": "assets/products/ZLA_Z2.jpeg",
+    "bild": "assets/products/Games/ZLA_Z3.jpg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -617,11 +681,15 @@
     ],
     "aktiv": "ja",
     "badge": "Zelda",
-    "startZustand": "z2",
+    "startZustand": "z3",
     "bildCode": "ZLA",
     "bildExt": {
       "z2": "jpeg",
       "z3": "jpg"
+    },
+    "bildPfade": {
+      "z2": "assets/products/Games/ZLA_Z2.jpeg",
+      "z3": "assets/products/Games/ZLA_Z3.jpg"
     }
   },
   {
@@ -629,7 +697,7 @@
     "typ": "spiel",
     "id": "t",
     "titel": "Tetris",
-    "bild": "assets/products/T_Z2.jpeg",
+    "bild": "assets/products/Games/T_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -639,11 +707,15 @@
     ],
     "aktiv": "ja",
     "badge": "Klassiker",
-    "startZustand": "z2",
+    "startZustand": "z3",
     "bildCode": "T",
     "bildExt": {
       "z2": "jpeg",
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z2": "assets/products/Games/T_Z2.jpeg",
+      "z3": "assets/products/Games/T_Z3.jpeg"
     }
   },
   {
@@ -651,7 +723,7 @@
     "typ": "spiel",
     "id": "pfe",
     "titel": "Pokémon Feuerrote Edition",
-    "bild": "assets/products/PFE_Z3.jpeg",
+    "bild": "assets/products/Games/PFE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
@@ -665,6 +737,9 @@
     "bildCode": "PFE",
     "bildExt": {
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PFE_Z3.jpeg"
     }
   },
   {
@@ -672,7 +747,7 @@
     "typ": "spiel",
     "id": "pse",
     "titel": "Pokémon Saphir-Edition",
-    "bild": "assets/products/PSE_Z3.jpeg",
+    "bild": "assets/products/Games/PSE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
@@ -686,6 +761,9 @@
     "bildCode": "PSE",
     "bildExt": {
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PSE_Z3.jpeg"
     }
   },
   {
@@ -693,7 +771,7 @@
     "typ": "spiel",
     "id": "pre",
     "titel": "Pokémon Rubin-Edition",
-    "bild": "assets/products/PRE_Z3.jpeg",
+    "bild": "assets/products/Games/PRE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
@@ -707,6 +785,9 @@
     "bildCode": "PRE",
     "bildExt": {
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PRE_Z3.jpeg"
     }
   },
   {
@@ -714,7 +795,7 @@
     "typ": "spiel",
     "id": "pbe",
     "titel": "Pokémon Blattgrüne Edition",
-    "bild": "assets/products/PBE_Z3.jpeg",
+    "bild": "assets/products/Games/PBE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
@@ -728,6 +809,9 @@
     "bildCode": "PBE",
     "bildExt": {
       "z3": "jpeg"
+    },
+    "bildPfade": {
+      "z3": "assets/products/Games/PBE_Z3.jpeg"
     }
   }
 ]

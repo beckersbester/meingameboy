@@ -105,7 +105,10 @@ def patch_bestand_map(text, marker):
                 if re.search(rf"  '{re.escape(key)}': \d+,?\n", block):
                     block = re.sub(rf"  '{re.escape(key)}': \d+,?\n", f"  '{key}': {val},\n", block, count=1)
                 else:
-                    block = block.rstrip() + f"\n  '{key}': {val},"
+                    block = block.rstrip().rstrip(",")
+                    if not block.endswith("{"):
+                        block += ","
+                    block += f"\n  '{key}': {val},"
         return block + "\n"
 
     return patch_block(text, marker, "\n};", mutator)
@@ -114,7 +117,14 @@ def patch_bestand_map(text, marker):
 def patch_shop_html():
     text = (ROOT / "shop.html").read_text(encoding="utf-8")
     text = patch_shop_preise(text)
-    text = patch_bestand_map(text, "const BESTAND_DEFAULT = {")
+    bestand = json.loads((ROOT / "bestand.json").read_text(encoding="utf-8"))
+    bestand_block = "\n".join(f"  '{k}': {v}," for k, v in sorted(bestand.items(), key=lambda x: x[0])) + "\n"
+    text = re.sub(
+        r"const BESTAND_DEFAULT = \{[\s\S]*?\n\};",
+        "const BESTAND_DEFAULT = {\n" + bestand_block + "};",
+        text,
+        count=1,
+    )
     if "pgo: 'pokemon'" not in text:
         text = text.replace(
             "  pbe: 'pokemon',",

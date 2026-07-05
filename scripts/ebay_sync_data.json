@@ -5,9 +5,9 @@
     "titel": "Pokémon Blau",
     "variants": {
       "z1": { "price": 34.99, "stock": 0, "image": null },
-      "z2": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/znwAAeSwmhpqHfVF/s-l1600.jpg" },
-      "z3": { "price": 49.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/znwAAeSwmhpqHfVF/s-l1600.jpg" },
-      "z4": { "price": 99.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/znwAAeSwmhpqHfVF/s-l1600.jpg" }
+      "z2": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/LSUAAeSwJY1qSqiB/s-l1600.webp" },
+      "z3": { "price": 49.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/LSUAAeSwJY1qSqiB/s-l1600.webp" },
+      "z4": { "price": 99.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/LSUAAeSwJY1qSqiB/s-l1600.webp" }
     }
   },
   "298482300934": {
@@ -15,10 +15,26 @@
     "bildCode": "PR",
     "titel": "Pokémon Rot",
     "variants": {
-      "z1": { "price": 34.99, "stock": 1, "image": "https://i.ebayimg.com/thumbs/images/g/iYMAAOSwhElm4Ipt/s-l1600.jpg" },
-      "z2": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/thumbs/images/g/iYMAAOSwhElm4Ipt/s-l1600.jpg" },
-      "z3": { "price": 49.99, "stock": 1, "image": "https://i.ebayimg.com/thumbs/images/g/iYMAAOSwhElm4Ipt/s-l1600.jpg" },
-      "z4": { "price": 99.99, "stock": 0, "image": null }
+      "z1": {
+        "price": 34.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/WLgAAeSw5q1qSqtK/s-l1600.webp"
+      },
+      "z2": {
+        "price": 39.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/WLgAAeSw5q1qSqtK/s-l1600.webp"
+      },
+      "z3": {
+        "price": 49.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/WLgAAeSw5q1qSqtK/s-l1600.webp"
+      },
+      "z4": {
+        "price": 99.99,
+        "stock": 0,
+        "image": null
+      }
     }
   },
   "298482317876": {
@@ -26,10 +42,26 @@
     "bildCode": "PG",
     "titel": "Pokémon Gelb",
     "variants": {
-      "z1": { "price": 34.99, "stock": 0, "image": null },
-      "z2": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp" },
-      "z3": { "price": 49.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp" },
-      "z4": { "price": 99.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp" }
+      "z1": {
+        "price": 34.99,
+        "stock": 0,
+        "image": null
+      },
+      "z2": {
+        "price": 39.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp"
+      },
+      "z3": {
+        "price": 49.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp"
+      },
+      "z4": {
+        "price": 99.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp"
+      }
     }
   },
   "298482323551": {
@@ -37,10 +69,26 @@
     "bildCode": "PGO",
     "titel": "Pokémon Gold",
     "variants": {
-      "z1": { "price": 39.99, "stock": 0, "image": null },
-      "z2": { "price": 44.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/UmkAAeSwHC5qH2ZS/s-l1600.jpg" },
-      "z3": { "price": 54.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/UmkAAeSwHC5qH2ZS/s-l1600.jpg" },
-      "z4": { "price": 99.99, "stock": 0, "image": null }
+      "z1": {
+        "price": 39.99,
+        "stock": 0,
+        "image": null
+      },
+      "z2": {
+        "price": 44.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/Q8QAAeSw505qSq21/s-l1600.webp"
+      },
+      "z3": {
+        "price": 54.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/Q8QAAeSw505qSq21/s-l1600.webp"
+      },
+      "z4": {
+        "price": 99.99,
+        "stock": 0,
+        "image": null
+      }
     }
   },
   "298482326596": {
@@ -48,10 +96,26 @@
     "bildCode": "PSI",
     "titel": "Pokémon Silber",
     "variants": {
-      "z1": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/5JQAAeSwvGZqHwEH/s-l1600.jpg" },
-      "z2": { "price": 44.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/5JQAAeSwvGZqHwEH/s-l1600.jpg" },
-      "z3": { "price": 54.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/5JQAAeSwvGZqHwEH/s-l1600.jpg" },
-      "z4": { "price": 99.99, "stock": 0, "image": null }
+      "z1": {
+        "price": 39.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/~2cAAeSwVSNqSq7M/s-l1600.webp"
+      },
+      "z2": {
+        "price": 44.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/~2cAAeSwVSNqSq7M/s-l1600.webp"
+      },
+      "z3": {
+        "price": 54.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/~2cAAeSwVSNqSq7M/s-l1600.webp"
+      },
+      "z4": {
+        "price": 99.99,
+        "stock": 0,
+        "image": null
+      }
     }
   },
   "298482343251": {
@@ -59,10 +123,26 @@
     "bildCode": "PK",
     "titel": "Pokémon Kristall",
     "variants": {
-      "z1": { "price": 94.99, "stock": 0, "image": null },
-      "z2": { "price": 104.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/7cYAAeSwc8pqJ8~H/s-l1600.jpg" },
-      "z3": { "price": 119.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/7cYAAeSwc8pqJ8~H/s-l1600.jpg" },
-      "z4": { "price": 169.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/7cYAAeSwc8pqJ8~H/s-l1600.jpg" }
+      "z1": {
+        "price": 94.99,
+        "stock": 0,
+        "image": null
+      },
+      "z2": {
+        "price": 104.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/864AAeSwyehqSrBa/s-l1600.webp"
+      },
+      "z3": {
+        "price": 119.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/864AAeSwyehqSrBa/s-l1600.webp"
+      },
+      "z4": {
+        "price": 169.99,
+        "stock": 1,
+        "image": "https://i.ebayimg.com/images/g/864AAeSwyehqSrBa/s-l1600.webp"
+      }
     }
   }
 }
