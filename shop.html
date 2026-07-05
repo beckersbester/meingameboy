@@ -2349,6 +2349,24 @@ let SPIEL_BILD_CODE = {};
 let SPIEL_BILD_EXT = {};
 let SPIEL_BILD_PFAD = {};
 
+function enrichKatalogBildPfade(item) {
+  if (item.typ !== 'spiel' || item.bildPfade || !item.bild || !item.bildExt) return;
+  const pfade = {};
+  const bild = item.bild;
+  const m = bild.match(/^(.+_)(Z[1-4])(\.[^./]+)$/i);
+  Object.keys(item.bildExt).forEach(function (zKey) {
+    const ext = item.bildExt[zKey];
+    if (m && zKey.toUpperCase() === m[2].toUpperCase()) {
+      pfade[zKey] = bild;
+    } else if (m) {
+      pfade[zKey] = m[1] + zKey.toUpperCase() + '.' + ext;
+    } else {
+      pfade[zKey] = bild;
+    }
+  });
+  item.bildPfade = pfade;
+}
+
 function applySpielKatalogMeta(katalog) {
   SPIEL_BILD_CODE = {};
   SPIEL_BILD_EXT = {};
@@ -2356,6 +2374,7 @@ function applySpielKatalogMeta(katalog) {
   shopKatalog = Array.isArray(katalog) ? katalog.slice() : [];
   shopKatalog.forEach(function (item) {
     if (item.typ !== 'spiel') return;
+    enrichKatalogBildPfade(item);
     if (item.bildCode) SPIEL_BILD_CODE[item.id] = item.bildCode;
     if (item.bildExt) {
       Object.keys(item.bildExt).forEach(function (zKey) {
@@ -2371,6 +2390,18 @@ function applySpielKatalogMeta(katalog) {
       SPIEL_SERIE[item.id] = BADGE_TO_SERIE[item.badge];
     }
   });
+}
+
+function applyShopKatalog(katalog) {
+  applySpielKatalogMeta(katalog);
+  renderShopKatalog(katalog);
+  cacheProductOrder();
+  initKonsolenBadges();
+  renderPreise();
+  initSpielVarianten();
+  renderBestand();
+  if (typeof ShopCart !== 'undefined') ShopCart.syncBestand(bestandDaten);
+  applyShopFilters();
 }
 
 function buildFeaturesList(features) {
@@ -2514,17 +2545,20 @@ async function bootstrapShop() {
     ? window.fetchShopApiData()
     : Promise.resolve(null);
 
-  const katalog = getShopKatalog();
-  applySpielKatalogMeta(katalog);
-  renderShopKatalog(katalog);
-  initShop(true);
+  applyShopKatalog(getShopKatalog());
+  initShopFilters();
+  showShopPostLoadHints();
 
   void (async function () {
     const data = await apiPromise;
+    if (data && Array.isArray(data.katalog) && data.katalog.length) {
+      applyShopKatalog(data.katalog);
+    }
     if (data) {
       if (data.bestand) mergeBestandDaten(data.bestand);
       if (data.preise) shopPreise = data.preise;
       window.applyShopPreise(data.preise || {}, data.bestand || bestandDaten);
+      renderBestand();
       applyShopFilters();
     } else {
       await ladeBestandAusJson();
@@ -3251,17 +3285,7 @@ function sortProducts(direction) {
 
 const params = new URLSearchParams(window.location.search);
 
-function initShop(skipRemoteRefresh) {
-  cacheProductOrder();
-  initShopFilters();
-  initKonsolenBadges();
-  renderPreise();
-  initSpielVarianten();
-  renderBestand();
-  if (typeof ShopCart !== 'undefined') ShopCart.syncBestand(bestandDaten);
-  applyShopFilters();
-  if (!skipRemoteRefresh) aktualisiereLagerDaten();
-
+function showShopPostLoadHints() {
   if (params.get('kauf') === 'erfolg') {
     if (typeof ShopCart !== 'undefined') ShopCart.clear();
     const hinweis = document.createElement('div');
@@ -3274,6 +3298,13 @@ function initShop(skipRemoteRefresh) {
     const versand = document.getElementById('versand');
     if (versand) versand.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+}
+
+function initShop(skipRemoteRefresh) {
+  applyShopKatalog(getShopKatalog());
+  initShopFilters();
+  showShopPostLoadHints();
+  if (!skipRemoteRefresh) aktualisiereLagerDaten();
 }
 
 bootstrapShop();
