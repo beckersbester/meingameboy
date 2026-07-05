@@ -10,6 +10,27 @@ GAMEBOY = ROOT / "assets" / "products" / "Gameboy"
 FLOAT = ROOT / "assets" / "products" / "float"
 PRIO = ["z4", "z3", "z2", "z1"]
 
+# Erscheinungsjahr (EU), zweites Feld = Reihenfolge bei gleichem Jahr
+SPIEL_SORT = {
+    "t": (1990, 1),
+    "sm1": (1990, 2),
+    "sm2": (1992, 1),
+    "zla": (1993, 1),
+    "sm3": (1994, 1),
+    "pb": (1998, 1),
+    "pr": (1998, 2),
+    "pg": (1999, 1),
+    "pt": (2000, 1),
+    "pgo": (2000, 2),
+    "psi": (2000, 3),
+    "pk": (2001, 1),
+    "pre": (2003, 1),
+    "pse": (2003, 2),
+    "dbz": (2003, 3),
+    "pfe": (2004, 1),
+    "pbe": (2004, 2),
+}
+
 
 def ext_name(path: Path) -> str:
     return path.suffix.lower().lstrip(".")
@@ -31,7 +52,8 @@ def rel_asset(path: Path) -> str:
 def scan_game_images():
     """Return {CODE: {z1: (ext, rel_path), ...}}."""
     by_code = {}
-    for folder in (GAMES, GAMEBOY):
+    # Gameboy zuerst, Games überschreibt (Spiele liegen in Games/)
+    for folder in (GAMEBOY, GAMES):
         if not folder.is_dir():
             continue
         for f in folder.iterdir():
@@ -84,6 +106,15 @@ def sync_katalog():
         start = preferred_z(ext_map, item.get("startZustand"))
         item["startZustand"] = start
         item["bild"] = variant_map[start]["path"]
+
+    konsolen = [i for i in katalog if i.get("typ") == "konsolen"]
+    spiele = [i for i in katalog if i.get("typ") == "spiel"]
+    spiele.sort(key=lambda i: SPIEL_SORT.get(i.get("id", ""), (9999, 9999)))
+    n = len(konsolen) + 1
+    for item in spiele:
+        item["reihenfolge"] = n
+        n += 1
+    katalog = konsolen + spiele
 
     (ROOT / "katalog.json").write_text(
         json.dumps(katalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -147,7 +178,7 @@ def patch_lager_js(katalog):
         text = text.replace(ext_block, ext_block + "\n\n" + pfad_block, 1)
 
     if "function spielBildRelPath" not in text:
-    helper = (
+        helper = (
             "function spielBildRelPath(spiel, zKey, code, ext) {\n"
             "  const key = spiel + '-' + zKey;\n"
             "  if (SPIEL_BILD_PFAD[key]) return SPIEL_BILD_PFAD[key];\n"

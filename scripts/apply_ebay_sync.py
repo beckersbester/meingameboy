@@ -17,8 +17,9 @@ SPIEL_FEATURES = [
 NEW_IDS = {"pgo", "psi"}
 Z_LABEL = {"z1": "Akzeptabel", "z2": "Gut", "z3": "Sehr gut", "z4": "Neuwertig"}
 SPIEL_ORDER = [
-    "sm1", "sm2", "sm3", "pb", "pr", "pg", "pgo", "psi", "pk", "pt",
-    "dbz", "zla", "t", "pfe", "pse", "pre", "pbe",
+    "t", "sm1", "sm2", "zla", "sm3",
+    "pb", "pr", "pg", "pt", "pgo", "psi", "pk",
+    "pre", "pse", "dbz", "pfe", "pbe",
 ]
 
 
