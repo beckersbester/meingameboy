@@ -1,0 +1,68 @@
+{
+  "298482294642": {
+    "shopId": "pb",
+    "bildCode": "PB",
+    "titel": "Pokémon Blau",
+    "variants": {
+      "z1": { "price": 34.99, "stock": 0, "image": null },
+      "z2": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/znwAAeSwmhpqHfVF/s-l1600.jpg" },
+      "z3": { "price": 49.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/znwAAeSwmhpqHfVF/s-l1600.jpg" },
+      "z4": { "price": 99.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/znwAAeSwmhpqHfVF/s-l1600.jpg" }
+    }
+  },
+  "298482300934": {
+    "shopId": "pr",
+    "bildCode": "PR",
+    "titel": "Pokémon Rot",
+    "variants": {
+      "z1": { "price": 34.99, "stock": 1, "image": "https://i.ebayimg.com/thumbs/images/g/iYMAAOSwhElm4Ipt/s-l1600.jpg" },
+      "z2": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/thumbs/images/g/iYMAAOSwhElm4Ipt/s-l1600.jpg" },
+      "z3": { "price": 49.99, "stock": 1, "image": "https://i.ebayimg.com/thumbs/images/g/iYMAAOSwhElm4Ipt/s-l1600.jpg" },
+      "z4": { "price": 99.99, "stock": 0, "image": null }
+    }
+  },
+  "298482317876": {
+    "shopId": "pg",
+    "bildCode": "PG",
+    "titel": "Pokémon Gelb",
+    "variants": {
+      "z1": { "price": 34.99, "stock": 0, "image": null },
+      "z2": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp" },
+      "z3": { "price": 49.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp" },
+      "z4": { "price": 99.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/W7sAAeSwro9qSqxk/s-l1600.webp" }
+    }
+  },
+  "298482323551": {
+    "shopId": "pgo",
+    "bildCode": "PGO",
+    "titel": "Pokémon Gold",
+    "variants": {
+      "z1": { "price": 39.99, "stock": 0, "image": null },
+      "z2": { "price": 44.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/UmkAAeSwHC5qH2ZS/s-l1600.jpg" },
+      "z3": { "price": 54.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/UmkAAeSwHC5qH2ZS/s-l1600.jpg" },
+      "z4": { "price": 99.99, "stock": 0, "image": null }
+    }
+  },
+  "298482326596": {
+    "shopId": "psi",
+    "bildCode": "PSI",
+    "titel": "Pokémon Silber",
+    "variants": {
+      "z1": { "price": 39.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/5JQAAeSwvGZqHwEH/s-l1600.jpg" },
+      "z2": { "price": 44.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/5JQAAeSwvGZqHwEH/s-l1600.jpg" },
+      "z3": { "price": 54.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/5JQAAeSwvGZqHwEH/s-l1600.jpg" },
+      "z4": { "price": 99.99, "stock": 0, "image": null }
+    }
+  },
+  "298482343251": {
+    "shopId": "pk",
+    "bildCode": "PK",
+    "titel": "Pokémon Kristall",
+    "variants": {
+      "z1": { "price": 94.99, "stock": 0, "image": null },
+      "z2": { "price": 104.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/7cYAAeSwc8pqJ8~H/s-l1600.jpg" },
+      "z3": { "price": 119.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/7cYAAeSwc8pqJ8~H/s-l1600.jpg" },
+      "z4": { "price": 169.99, "stock": 1, "image": "https://i.ebayimg.com/images/g/7cYAAeSwc8pqJ8~H/s-l1600.jpg" }
+    }
+  }
+}

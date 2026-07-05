@@ -428,7 +428,7 @@
     "typ": "spiel",
     "id": "pb",
     "titel": "Pokémon Blau",
-    "bild": "assets/products/PB_Z2.jpeg",
+    "bild": "assets/products/PB_Z4.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -438,10 +438,11 @@
     ],
     "aktiv": "ja",
     "badge": "Pokémon",
-    "startZustand": "z2",
+    "startZustand": "z4",
     "bildCode": "PB",
     "bildExt": {
       "z2": "jpeg",
+      "z3": "jpeg",
       "z4": "jpeg"
     }
   },
@@ -450,7 +451,7 @@
     "typ": "spiel",
     "id": "pr",
     "titel": "Pokémon Rot",
-    "bild": "assets/products/PR_Z1.jpg",
+    "bild": "assets/products/PR_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -460,10 +461,11 @@
     ],
     "aktiv": "ja",
     "badge": "Pokémon",
-    "startZustand": "z1",
+    "startZustand": "z3",
     "bildCode": "PR",
     "bildExt": {
-      "z1": "jpg",
+      "z1": "jpeg",
+      "z2": "jpeg",
       "z3": "jpeg"
     }
   },
@@ -472,7 +474,7 @@
     "typ": "spiel",
     "id": "pg",
     "titel": "Pokémon Gelb",
-    "bild": "assets/products/PG_Z4.jpeg",
+    "bild": "assets/products/PG_Z4.webp",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -485,15 +487,17 @@
     "startZustand": "z4",
     "bildCode": "PG",
     "bildExt": {
-      "z4": "jpeg"
+      "z2": "webp",
+      "z3": "webp",
+      "z4": "webp"
     }
   },
   {
     "reihenfolge": 31,
     "typ": "spiel",
-    "id": "pk",
-    "titel": "Pokémon Kristall",
-    "bild": "assets/products/PK_Z3.jpeg",
+    "id": "pgo",
+    "titel": "Pokémon Gold",
+    "bild": "assets/products/PGO_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Modul",
@@ -504,13 +508,60 @@
     "aktiv": "ja",
     "badge": "Pokémon",
     "startZustand": "z3",
-    "bildCode": "PK",
+    "bildCode": "PGO",
     "bildExt": {
+      "z2": "jpeg",
       "z3": "jpeg"
     }
   },
   {
     "reihenfolge": 32,
+    "typ": "spiel",
+    "id": "psi",
+    "titel": "Pokémon Silber",
+    "bild": "assets/products/PSI_Z3.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z3",
+    "bildCode": "PSI",
+    "bildExt": {
+      "z1": "jpeg",
+      "z2": "jpeg",
+      "z3": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 33,
+    "typ": "spiel",
+    "id": "pk",
+    "titel": "Pokémon Kristall",
+    "bild": "assets/products/PK_Z4.jpeg",
+    "klassen": "spiele spiel-variante",
+    "features": [
+      "Original Game Boy Modul",
+      "Speichert (neue Batterie)",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "badge": "Pokémon",
+    "startZustand": "z4",
+    "bildCode": "PK",
+    "bildExt": {
+      "z2": "jpeg",
+      "z3": "jpeg",
+      "z4": "jpeg"
+    }
+  },
+  {
+    "reihenfolge": 34,
     "typ": "spiel",
     "id": "pt",
     "titel": "Pokémon Trading Card",
@@ -531,7 +582,7 @@
     }
   },
   {
-    "reihenfolge": 33,
+    "reihenfolge": 35,
     "typ": "spiel",
     "id": "dbz",
     "titel": "Dragon Ball Z",
@@ -552,7 +603,7 @@
     }
   },
   {
-    "reihenfolge": 34,
+    "reihenfolge": 36,
     "typ": "spiel",
     "id": "zla",
     "titel": "Zelda: Link's Awakening",
@@ -574,7 +625,7 @@
     }
   },
   {
-    "reihenfolge": 35,
+    "reihenfolge": 37,
     "typ": "spiel",
     "id": "t",
     "titel": "Tetris",
@@ -596,11 +647,11 @@
     }
   },
   {
-    "reihenfolge": 36,
+    "reihenfolge": 38,
     "typ": "spiel",
     "id": "pfe",
     "titel": "Pokémon Feuerrote Edition",
-    "bild": "assets/products/PFE_S3.jpeg",
+    "bild": "assets/products/PFE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
@@ -617,11 +668,11 @@
     }
   },
   {
-    "reihenfolge": 37,
+    "reihenfolge": 39,
     "typ": "spiel",
     "id": "pse",
     "titel": "Pokémon Saphir-Edition",
-    "bild": "assets/products/PSE_S3.jpeg",
+    "bild": "assets/products/PSE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
@@ -638,11 +689,11 @@
     }
   },
   {
-    "reihenfolge": 38,
+    "reihenfolge": 40,
     "typ": "spiel",
     "id": "pre",
     "titel": "Pokémon Rubin-Edition",
-    "bild": "assets/products/PRE_S3.jpeg",
+    "bild": "assets/products/PRE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
@@ -659,11 +710,11 @@
     }
   },
   {
-    "reihenfolge": 39,
+    "reihenfolge": 41,
     "typ": "spiel",
     "id": "pbe",
     "titel": "Pokémon Blattgrüne Edition",
-    "bild": "assets/products/PBE_S3.jpeg",
+    "bild": "assets/products/PBE_Z3.jpeg",
     "klassen": "spiele spiel-variante",
     "features": [
       "Original Game Boy Advance Modul",
