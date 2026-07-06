@@ -2,21 +2,6 @@
   {
     "reihenfolge": 1,
     "typ": "konsolen",
-    "id": "color-wario",
-    "titel": "Game Boy Color Wario Edition",
-    "bild": "assets/products/Gameboy/color-wario-float.png",
-    "klassen": "konsolen color",
-    "features": [
-      "Wario Edition – gelbes Retro-Design",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 2,
-    "typ": "konsolen",
     "id": "classic",
     "titel": "Nintendo Game Boy Classic",
     "bild": "assets/products/Gameboy/classic-float.png",
@@ -27,115 +12,11 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 1990
   },
   {
-    "reihenfolge": 3,
-    "typ": "konsolen",
-    "id": "pocket-orange",
-    "titel": "Game Boy Pocket Orange",
-    "bild": "assets/products/Gameboy/pocket-orange-float.png",
-    "klassen": "konsolen pocket",
-    "features": [
-      "Knalliges Orange – fällt auf",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 4,
-    "typ": "konsolen",
-    "id": "pocket-squirtle",
-    "titel": "Game Boy Pocket Pokémon Schiggy Edition",
-    "bild": "assets/products/Gameboy/pocket-squirtle-float.png",
-    "klassen": "konsolen pocket",
-    "features": [
-      "Pokémon Schiggy Edition – transparent blau",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 5,
-    "typ": "konsolen",
-    "id": "pocket-charizard",
-    "titel": "Game Boy Pocket Pokémon Glurak Edition",
-    "bild": "assets/products/Gameboy/pocket-charizard-float.png",
-    "klassen": "konsolen pocket",
-    "features": [
-      "Pokémon Glurak Edition – transparenter Look",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 6,
-    "typ": "konsolen",
-    "id": "pocket-pikachu",
-    "titel": "Game Boy Pocket Pikachu Edition",
-    "bild": "assets/products/Gameboy/pocket-pikachu-float.png",
-    "klassen": "konsolen pocket",
-    "features": [
-      "Pikachu Edition – ikonisches Gelb",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 7,
-    "typ": "konsolen",
-    "id": "pocket-classic",
-    "titel": "Game Boy Pocket Classic Design",
-    "bild": "assets/products/Gameboy/pocket-classic-float.png",
-    "klassen": "konsolen pocket",
-    "features": [
-      "Pocket im Classic-Design",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 8,
-    "typ": "konsolen",
-    "id": "color-mario",
-    "titel": "Game Boy Color Mario Edition",
-    "bild": "assets/products/Gameboy/color-mario-float.png",
-    "klassen": "konsolen color",
-    "features": [
-      "Offizielle Mario-Scheibe",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 9,
-    "typ": "konsolen",
-    "id": "classic-black-ips",
-    "titel": "Game Boy Classic Black Button IPS V5",
-    "bild": "assets/products/Gameboy/classic-black-ips-float.png",
-    "klassen": "konsolen classic ips",
-    "features": [
-      "IPS V5 Display – hell, scharf & farbecht",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 10,
+    "reihenfolge": 2,
     "typ": "konsolen",
     "id": "classic-red",
     "titel": "Game Boy Classic Red Button",
@@ -147,10 +28,75 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 1990
   },
   {
-    "reihenfolge": 11,
+    "reihenfolge": 3,
+    "typ": "konsolen",
+    "id": "classic-black-ips",
+    "titel": "Game Boy Classic Black Button IPS V5",
+    "bild": "assets/products/Gameboy/classic-black-ips-float.png",
+    "klassen": "konsolen classic ips",
+    "features": [
+      "IPS V5 Display – hell, scharf & farbecht",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1990
+  },
+  {
+    "reihenfolge": 4,
+    "typ": "konsolen",
+    "id": "classic-grau-ips",
+    "titel": "Game Boy Classic Grau IPS V5",
+    "bild": "assets/products/Gameboy/classic-grau-ips-float.png",
+    "klassen": "konsolen classic ips",
+    "features": [
+      "IPS V5 Display – hell, scharf & farbecht",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1990
+  },
+  {
+    "reihenfolge": 5,
+    "typ": "konsolen",
+    "id": "pocket-classic",
+    "titel": "Game Boy Pocket Classic Design",
+    "bild": "assets/products/Gameboy/pocket-classic-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pocket im Classic-Design",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1996
+  },
+  {
+    "reihenfolge": 6,
+    "typ": "konsolen",
+    "id": "pocket-orange",
+    "titel": "Game Boy Pocket Orange",
+    "bild": "assets/products/Gameboy/pocket-orange-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Knalliges Orange – fällt auf",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1996
+  },
+  {
+    "reihenfolge": 7,
     "typ": "konsolen",
     "id": "pocket-transparent",
     "titel": "Game Boy Pocket Transparent",
@@ -162,7 +108,72 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 1996
+  },
+  {
+    "reihenfolge": 8,
+    "typ": "konsolen",
+    "id": "pocket-pikachu",
+    "titel": "Game Boy Pocket Pikachu Edition",
+    "bild": "assets/products/Gameboy/pocket-pikachu-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pikachu Edition – ikonisches Gelb",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1996
+  },
+  {
+    "reihenfolge": 9,
+    "typ": "konsolen",
+    "id": "pocket-charizard",
+    "titel": "Game Boy Pocket Pokémon Glurak Edition",
+    "bild": "assets/products/Gameboy/pocket-charizard-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pokémon Glurak Edition – transparenter Look",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1996
+  },
+  {
+    "reihenfolge": 10,
+    "typ": "konsolen",
+    "id": "pocket-squirtle",
+    "titel": "Game Boy Pocket Pokémon Schiggy Edition",
+    "bild": "assets/products/Gameboy/pocket-squirtle-float.png",
+    "klassen": "konsolen pocket",
+    "features": [
+      "Pokémon Schiggy Edition – transparent blau",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1996
+  },
+  {
+    "reihenfolge": 11,
+    "typ": "konsolen",
+    "id": "color-mario",
+    "titel": "Game Boy Color Mario Edition",
+    "bild": "assets/products/Gameboy/color-mario-float.png",
+    "klassen": "konsolen color",
+    "features": [
+      "Offizielle Mario-Scheibe",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1998
   },
   {
     "reihenfolge": 12,
@@ -177,25 +188,11 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 1998
   },
   {
     "reihenfolge": 13,
-    "typ": "konsolen",
-    "id": "color-charizard-orange",
-    "titel": "Game Boy Color Charizard Red Edition",
-    "bild": "assets/products/Gameboy/color-charizard-orange-float.png",
-    "klassen": "konsolen color",
-    "features": [
-      "Charizard Red Edition – Pokémon Design",
-      "Neues Austauschgehäuse & frische Display-Scheibe",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 14,
     "typ": "konsolen",
     "id": "color-yellow",
     "titel": "Game Boy Color Pokémon Yellow Edition",
@@ -207,22 +204,40 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 1998
   },
   {
-    "reihenfolge": 15,
+    "reihenfolge": 14,
     "typ": "konsolen",
-    "id": "classic-grau-ips",
-    "titel": "Game Boy Classic Grau IPS V5",
-    "bild": "assets/products/Gameboy/classic-grau-ips-float.png",
-    "klassen": "konsolen classic ips",
+    "id": "color-wario",
+    "titel": "Game Boy Color Wario Edition",
+    "bild": "assets/products/Gameboy/color-wario-float.png",
+    "klassen": "konsolen color",
     "features": [
-      "IPS V5 Display – hell, scharf & farbecht",
+      "Wario Edition – gelbes Retro-Design",
       "Neues Austauschgehäuse & frische Display-Scheibe",
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 1998
+  },
+  {
+    "reihenfolge": 15,
+    "typ": "konsolen",
+    "id": "color-charizard-orange",
+    "titel": "Game Boy Color Charizard Red Edition",
+    "bild": "assets/products/Gameboy/color-charizard-orange-float.png",
+    "klassen": "konsolen color",
+    "features": [
+      "Charizard Red Edition – Pokémon Design",
+      "Neues Austauschgehäuse & frische Display-Scheibe",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1998
   },
   {
     "reihenfolge": 16,
@@ -237,7 +252,8 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 2001
   },
   {
     "reihenfolge": 17,
@@ -252,58 +268,11 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 2001
   },
   {
     "reihenfolge": 18,
-    "typ": "konsolen",
-    "id": "gbasp-pokemon-g",
-    "titel": "Game Boy Advance SP Pokémon Groudon Edition",
-    "bild": "assets/products/Gameboy/GBASP_G_float.png",
-    "klassen": "konsolen gbasp",
-    "features": [
-      "Frisches Groudon-Austauschgehäuse – top Zustand",
-      "AGS-001 Original-Display",
-      "USB-Ladekabel inklusive",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 19,
-    "typ": "konsolen",
-    "id": "gbasp-pokemon-k",
-    "titel": "Game Boy Advance SP Pokémon Kyogre Edition",
-    "bild": "assets/products/Gameboy/GBASP_K_float.png",
-    "klassen": "konsolen gbasp",
-    "features": [
-      "Frisches Kyogre-Austauschgehäuse – top Zustand",
-      "AGS-001 Original-Display",
-      "USB-Ladekabel inklusive",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 20,
-    "typ": "konsolen",
-    "id": "gbasp-pokemon-r",
-    "titel": "Game Boy Advance SP Pokémon Rayquaza Edition",
-    "bild": "assets/products/Gameboy/GBASP_R_float.png",
-    "klassen": "konsolen gbasp",
-    "features": [
-      "Frisches Rayquaza-Austauschgehäuse – top Zustand",
-      "AGS-001 Original-Display",
-      "USB-Ladekabel inklusive",
-      "Technisch geprüft · sofort spielbereit",
-      "Kostenloser Versand"
-    ],
-    "aktiv": "ja"
-  },
-  {
-    "reihenfolge": 21,
     "typ": "konsolen",
     "id": "gbasp-blau",
     "titel": "Game Boy Advance SP Blau",
@@ -316,10 +285,11 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 22,
+    "reihenfolge": 19,
     "typ": "konsolen",
     "id": "gbasp-schwarz",
     "titel": "Game Boy Advance SP Schwarz",
@@ -332,10 +302,11 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 23,
+    "reihenfolge": 20,
     "typ": "konsolen",
     "id": "gbasp-silber",
     "titel": "Game Boy Advance SP Silber",
@@ -348,10 +319,11 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 24,
+    "reihenfolge": 21,
     "typ": "konsolen",
     "id": "gbasp-mario",
     "titel": "Game Boy Advance SP Mario Edition",
@@ -364,7 +336,59 @@
       "Technisch geprüft · sofort spielbereit",
       "Kostenloser Versand"
     ],
-    "aktiv": "ja"
+    "aktiv": "ja",
+    "erscheinungsjahr": 2003
+  },
+  {
+    "reihenfolge": 22,
+    "typ": "konsolen",
+    "id": "gbasp-pokemon-g",
+    "titel": "Game Boy Advance SP Pokémon Groudon Edition",
+    "bild": "assets/products/Gameboy/GBASP_G_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Frisches Groudon-Austauschgehäuse – top Zustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 2003
+  },
+  {
+    "reihenfolge": 23,
+    "typ": "konsolen",
+    "id": "gbasp-pokemon-k",
+    "titel": "Game Boy Advance SP Pokémon Kyogre Edition",
+    "bild": "assets/products/Gameboy/GBASP_K_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Frisches Kyogre-Austauschgehäuse – top Zustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 2003
+  },
+  {
+    "reihenfolge": 24,
+    "typ": "konsolen",
+    "id": "gbasp-pokemon-r",
+    "titel": "Game Boy Advance SP Pokémon Rayquaza Edition",
+    "bild": "assets/products/Gameboy/GBASP_R_float.png",
+    "klassen": "konsolen gbasp",
+    "features": [
+      "Frisches Rayquaza-Austauschgehäuse – top Zustand",
+      "AGS-001 Original-Display",
+      "USB-Ladekabel inklusive",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 2003
   },
   {
     "reihenfolge": 25,
