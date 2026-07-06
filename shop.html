@@ -2658,6 +2658,10 @@ async function bootstrapShop() {
     ? window.fetchShopApiData()
     : Promise.resolve(null);
 
+  const filters = readFiltersFromUrl();
+  shopFilterKonsolen = filters.konsolen;
+  shopFilterSpiele = filters.spiele;
+
   applyShopKatalog(getShopKatalog());
   initShopFilters();
   showShopPostLoadHints();
@@ -2871,9 +2875,6 @@ function updateShopUrl() {
 }
 
 function initShopFilters() {
-  const filters = readFiltersFromUrl();
-  shopFilterKonsolen = filters.konsolen;
-  shopFilterSpiele = filters.spiele;
   syncFilterSelects();
 
   document.getElementById('filter-konsolen').addEventListener('change', function () {
@@ -2897,6 +2898,8 @@ function initShopFilters() {
   document.getElementById('filter-sort').addEventListener('change', function () {
     sortProducts(this.value);
   });
+
+  applyShopFilters();
 }
 
 function cacheProductOrder() {
@@ -3429,6 +3432,9 @@ function showShopPostLoadHints() {
 }
 
 function initShop(skipRemoteRefresh) {
+  const filters = readFiltersFromUrl();
+  shopFilterKonsolen = filters.konsolen;
+  shopFilterSpiele = filters.spiele;
   applyShopKatalog(getShopKatalog());
   initShopFilters();
   showShopPostLoadHints();
