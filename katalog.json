@@ -392,6 +392,23 @@
   },
   {
     "reihenfolge": 25,
+    "typ": "konsolen",
+    "id": "ps2-slim-ovp",
+    "titel": "SONY PS2 PlayStation 2 Slim Konsole in OVP + 2 Controller Memory Card",
+    "bild": "assets/products/Weitere/PS2_SLIM_OVP.jpeg",
+    "klassen": "konsolen weitere ps2",
+    "features": [
+      "PlayStation 2 Slim in Originalverpackung (OVP)",
+      "2× original DualShock 2 Controller",
+      "Memory Card im Lieferumfang",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 2004
+  },
+  {
+    "reihenfolge": 26,
     "typ": "spiel",
     "id": "t",
     "titel": "Tetris",
@@ -418,7 +435,7 @@
     "erscheinungsjahr": 1990
   },
   {
-    "reihenfolge": 26,
+    "reihenfolge": 27,
     "typ": "spiel",
     "id": "sm1",
     "titel": "Super Mario Land",
@@ -447,7 +464,7 @@
     "erscheinungsjahr": 1990
   },
   {
-    "reihenfolge": 27,
+    "reihenfolge": 28,
     "typ": "spiel",
     "id": "sm2",
     "titel": "Super Mario Land 2",
@@ -476,7 +493,7 @@
     "erscheinungsjahr": 1992
   },
   {
-    "reihenfolge": 28,
+    "reihenfolge": 29,
     "typ": "spiel",
     "id": "zla",
     "titel": "Zelda: Link's Awakening",
@@ -503,7 +520,7 @@
     "erscheinungsjahr": 1993
   },
   {
-    "reihenfolge": 29,
+    "reihenfolge": 30,
     "typ": "spiel",
     "id": "sm3",
     "titel": "Super Mario Land 3",
@@ -534,7 +551,7 @@
     "erscheinungsjahr": 1994
   },
   {
-    "reihenfolge": 30,
+    "reihenfolge": 31,
     "typ": "spiel",
     "id": "pb",
     "titel": "Pokémon Blau",
@@ -563,7 +580,7 @@
     "erscheinungsjahr": 1998
   },
   {
-    "reihenfolge": 31,
+    "reihenfolge": 32,
     "typ": "spiel",
     "id": "pr",
     "titel": "Pokémon Rot",
@@ -592,7 +609,7 @@
     "erscheinungsjahr": 1998
   },
   {
-    "reihenfolge": 32,
+    "reihenfolge": 33,
     "typ": "spiel",
     "id": "pg",
     "titel": "Pokémon Gelb",
@@ -621,7 +638,7 @@
     "erscheinungsjahr": 1999
   },
   {
-    "reihenfolge": 33,
+    "reihenfolge": 34,
     "typ": "spiel",
     "id": "pt",
     "titel": "Pokémon Trading Card",
@@ -646,7 +663,7 @@
     "erscheinungsjahr": 2000
   },
   {
-    "reihenfolge": 34,
+    "reihenfolge": 35,
     "typ": "spiel",
     "id": "pgo",
     "titel": "Pokémon Gold",
@@ -673,7 +690,7 @@
     "erscheinungsjahr": 2000
   },
   {
-    "reihenfolge": 35,
+    "reihenfolge": 36,
     "typ": "spiel",
     "id": "psi",
     "titel": "Pokémon Silber",
@@ -702,7 +719,7 @@
     "erscheinungsjahr": 2000
   },
   {
-    "reihenfolge": 36,
+    "reihenfolge": 37,
     "typ": "spiel",
     "id": "pk",
     "titel": "Pokémon Kristall",
@@ -731,7 +748,7 @@
     "erscheinungsjahr": 2001
   },
   {
-    "reihenfolge": 37,
+    "reihenfolge": 38,
     "typ": "spiel",
     "id": "dbz",
     "titel": "Dragon Ball Z",
@@ -756,7 +773,7 @@
     "erscheinungsjahr": 2002
   },
   {
-    "reihenfolge": 38,
+    "reihenfolge": 39,
     "typ": "spiel",
     "id": "pre",
     "titel": "Pokémon Rubin-Edition",
@@ -781,7 +798,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 39,
+    "reihenfolge": 40,
     "typ": "spiel",
     "id": "pse",
     "titel": "Pokémon Saphir-Edition",
@@ -806,7 +823,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 40,
+    "reihenfolge": 41,
     "typ": "spiel",
     "id": "pfe",
     "titel": "Pokémon Feuerrote Edition",
@@ -831,7 +848,7 @@
     "erscheinungsjahr": 2004
   },
   {
-    "reihenfolge": 41,
+    "reihenfolge": 42,
     "typ": "spiel",
     "id": "pbe",
     "titel": "Pokémon Blattgrüne Edition",
