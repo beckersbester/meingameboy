@@ -12,7 +12,7 @@
 <meta property="og:description" content="Geprüfte Game Boys und Spiele kaufen – Versand gratis, sicher bezahlen.">
 <meta property="og:image" content="https://meingameboy.de/assets/logo.png">
 <title>Game Boy Shop – Konsolen &amp; Spiele | meingameboy.de</title>
-<link rel="stylesheet" href="assets/site.css?v=20260657">
+<link rel="stylesheet" href="assets/site.css?v=20260823">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -1318,8 +1318,10 @@ h2{
       <option value="gba">Advance</option>
       <option value="gbasp">Advance SP</option>
       <option value="ips">IPS V5</option>
-      <option value="weitere">Weitere Konsolen</option>
-      <option value="ps2">PlayStation 2</option>
+      <optgroup label="Weitere Konsolen">
+        <option value="weitere">Alle Weitere Konsolen</option>
+        <option value="ps2">PlayStation 2</option>
+      </optgroup>
     </select>
   </label>
   <label class="shop-filter">
@@ -2307,7 +2309,7 @@ const kategorieTitel = {
 
 const kategorieBeschreibung = {
   all: 'Konsolen & Spiele – alle Angebote auf einen Blick.',
-  konsolen: 'Classic, Pocket, Color, Advance & SP – professionell aufbereitete Konsolen.',
+  konsolen: 'Classic, Pocket, Color, Advance, SP & Weitere Konsolen – professionell aufbereitet.',
   spiele: 'Super Mario Land, Pokémon, Zelda & mehr – Originalmodule, Zustand frei wählbar.',
   classic: 'Der legendäre Original-Game Boy – klassisch, robust und voller Retro-Charme.',
   pocket: 'Der schlanke Game Boy Pocket – kompakt, stylisch, auch als Pokémon- & Sonderedition.',
@@ -2679,12 +2681,44 @@ function getShopKatalog() {
 }
 
 function mergeKatalogWithFallback(apiKatalog) {
-  const merged = (apiKatalog || []).slice();
-  const ids = new Set(merged.map(function (item) { return item.id; }));
-  (KATALOG_FALLBACK || []).forEach(function (item) {
-    if (!ids.has(item.id)) merged.push(item);
+  const apiMap = new Map();
+  (apiKatalog || []).forEach(function (item) {
+    if (item && item.id) apiMap.set(item.id, item);
   });
+  const merged = [];
+  const seen = new Set();
+
+  (KATALOG_FALLBACK || []).forEach(function (fallbackItem) {
+    const apiItem = apiMap.get(fallbackItem.id);
+    if (!apiItem || String(apiItem.aktiv || 'ja').toLowerCase() === 'nein') {
+      merged.push(fallbackItem);
+    } else {
+      merged.push(Object.assign({}, fallbackItem, apiItem, {
+        klassen: fallbackItem.klassen || apiItem.klassen,
+        titel: fallbackItem.titel || apiItem.titel,
+        bild: fallbackItem.bild || apiItem.bild,
+        features: (fallbackItem.features && fallbackItem.features.length)
+          ? fallbackItem.features
+          : apiItem.features,
+        erscheinungsjahr: fallbackItem.erscheinungsjahr || apiItem.erscheinungsjahr,
+        reihenfolge: fallbackItem.reihenfolge || apiItem.reihenfolge
+      }));
+    }
+    seen.add(fallbackItem.id);
+  });
+
+  (apiKatalog || []).forEach(function (item) {
+    if (!item || !item.id || seen.has(item.id)) return;
+    if (String(item.aktiv || 'ja').toLowerCase() === 'nein') return;
+    merged.push(item);
+  });
+
   return merged.sort(katalogItemSort);
+}
+
+function getEffectiveShopKatalog(apiKatalog) {
+  if (!apiKatalog || !apiKatalog.length) return getShopKatalog();
+  return mergeKatalogWithFallback(apiKatalog);
 }
 
 async function bootstrapShop() {
@@ -2703,7 +2737,7 @@ async function bootstrapShop() {
   void (async function () {
     const data = await apiPromise;
     if (data && Array.isArray(data.katalog) && data.katalog.length) {
-      applyShopKatalog(mergeKatalogWithFallback(data.katalog));
+      applyShopKatalog(getEffectiveShopKatalog(data.katalog));
     }
     if (data) {
       if (data.bestand) mergeBestandDaten(data.bestand);
@@ -2730,7 +2764,7 @@ const KONSOLEN_BADGE_LABEL = {
   weitere: 'Weitere Konsolen'
 };
 
-const KONSOLEN_BADGE_PRIO = ['ps2', 'ips', 'gbasp', 'gba', 'color', 'pocket', 'classic'];
+const KONSOLEN_BADGE_PRIO = ['weitere', 'ps2', 'ips', 'gbasp', 'gba', 'color', 'pocket', 'classic'];
 
 function getKonsolenBadgeLabel(produkt) {
   for (let i = 0; i < KONSOLEN_BADGE_PRIO.length; i++) {
@@ -2987,20 +3021,28 @@ let shopPreise = {};
 
 window.applyShopPreise = function (preise, bestand) {
   if (bestand) mergeBestandDaten(bestand);
-  if (preise) shopPreise = preise;
-  if (preise) {
-    Object.keys(preise).forEach(function (id) {
-      const produkt = document.querySelector('.produkt[data-produkt-id="' + id + '"]');
-      if (produkt) {
-        const block = produkt.querySelector('.preis-block');
-        if (block) renderPreisBlock(block, Number(preise[id]));
-      }
-    });
-  }
+  shopPreise = Object.assign({}, buildFallbackShopPreise(), preise || {});
+  Object.keys(shopPreise).forEach(function (id) {
+    const produkt = document.querySelector('.produkt[data-produkt-id="' + id + '"]');
+    if (produkt) {
+      const block = produkt.querySelector('.preis-block');
+      if (block) renderPreisBlock(block, Number(shopPreise[id]));
+    }
+  });
+  document.querySelectorAll('.produkt.spiel-variante').forEach(function (produkt) {
+    const spiel = produkt.dataset.spiel;
+    const zKey = produkt.dataset.aktiveVariante || produkt.querySelector('.zustand-select')?.value || 'z3';
+    const produktId = spielProduktId(spiel, zKey);
+    const block = produkt.querySelector('.preis-block');
+    if (block && shopPreise[produktId] != null) {
+      renderPreisBlock(block, Number(shopPreise[produktId]));
+    }
+  });
   renderSpielVarianten();
   renderBestand();
   if (typeof ShopCart !== 'undefined') {
     ShopCart.syncBestand(bestandDaten);
+    ShopCart.preise = Object.assign({}, shopPreise);
   }
 };
 
@@ -3139,6 +3181,24 @@ function bevorzugteSpielVariante(spiel) {
 
 function mergeBestandDaten(fetched) {
   bestandDaten = Object.assign({}, BESTAND_DEFAULT, fetched || {});
+  Object.keys(BESTAND_DEFAULT).forEach(function (id) {
+    if (!fetched || !Object.prototype.hasOwnProperty.call(fetched, id)) {
+      bestandDaten[id] = BESTAND_DEFAULT[id];
+    }
+  });
+}
+
+function buildFallbackShopPreise() {
+  const preise = {};
+  Object.keys(KONSOLEN_UVP).forEach(function (id) {
+    preise[id] = parsePreis(KONSOLEN_UVP[id]);
+  });
+  Object.keys(SPIEL_PREISE).forEach(function (spiel) {
+    Object.keys(SPIEL_PREISE[spiel]).forEach(function (zKey) {
+      preise['spiel-' + spiel + '-' + zKey] = parsePreis(SPIEL_PREISE[spiel][zKey]);
+    });
+  });
+  return preise;
 }
 
 function renderPreisBlock(block, preisOverride) {
