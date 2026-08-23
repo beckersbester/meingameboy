@@ -2678,6 +2678,15 @@ function getShopKatalog() {
   return [];
 }
 
+function mergeKatalogWithFallback(apiKatalog) {
+  const merged = (apiKatalog || []).slice();
+  const ids = new Set(merged.map(function (item) { return item.id; }));
+  (KATALOG_FALLBACK || []).forEach(function (item) {
+    if (!ids.has(item.id)) merged.push(item);
+  });
+  return merged.sort(katalogItemSort);
+}
+
 async function bootstrapShop() {
   const apiPromise = typeof window.fetchShopApiData === 'function'
     ? window.fetchShopApiData()
@@ -2694,7 +2703,7 @@ async function bootstrapShop() {
   void (async function () {
     const data = await apiPromise;
     if (data && Array.isArray(data.katalog) && data.katalog.length) {
-      applyShopKatalog(data.katalog);
+      applyShopKatalog(mergeKatalogWithFallback(data.katalog));
     }
     if (data) {
       if (data.bestand) mergeBestandDaten(data.bestand);

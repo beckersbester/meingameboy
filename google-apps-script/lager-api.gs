@@ -960,7 +960,7 @@ function parseKatalogRow_(row) {
   if (Object.keys(bildExt).length) item.bildExt = bildExt;
 
   const jahr = Number(row[12]) || 0;
-  if (jahr > 0 && item.typ === 'spiel') item.erscheinungsjahr = jahr;
+  if (jahr > 0) item.erscheinungsjahr = jahr;
 
   if (!item.id || !item.titel) return null;
   return item;
