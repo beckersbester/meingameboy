@@ -242,6 +242,22 @@
   {
     "reihenfolge": 16,
     "typ": "konsolen",
+    "id": "color-pikachu-ovp",
+    "titel": "Nintendo Gameboy Color Pokémon Pikachu Edition OVP & Anleit. - selten neuwertig",
+    "bild": "assets/products/Gameboy/GBC_Pikachu_OVP.jpeg",
+    "klassen": "konsolen color",
+    "features": [
+      "Originalverpackung (OVP) inkl. Anleitungen",
+      "Pokémon Pikachu Special Edition – selten neuwertig",
+      "Technisch geprüft · sofort spielbereit",
+      "Kostenloser Versand"
+    ],
+    "aktiv": "ja",
+    "erscheinungsjahr": 1999
+  },
+  {
+    "reihenfolge": 17,
+    "typ": "konsolen",
     "id": "gba-gengar",
     "titel": "Game Boy Advance Gengar Edition",
     "bild": "assets/products/Gameboy/gba-gengar-float.png",
@@ -256,7 +272,7 @@
     "erscheinungsjahr": 2001
   },
   {
-    "reihenfolge": 17,
+    "reihenfolge": 18,
     "typ": "konsolen",
     "id": "gba-charmander",
     "titel": "Game Boy Advance Glumanda Edition",
@@ -272,7 +288,7 @@
     "erscheinungsjahr": 2001
   },
   {
-    "reihenfolge": 18,
+    "reihenfolge": 19,
     "typ": "konsolen",
     "id": "gbasp-blau",
     "titel": "Game Boy Advance SP Blau",
@@ -289,7 +305,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 19,
+    "reihenfolge": 20,
     "typ": "konsolen",
     "id": "gbasp-schwarz",
     "titel": "Game Boy Advance SP Schwarz",
@@ -306,7 +322,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 20,
+    "reihenfolge": 21,
     "typ": "konsolen",
     "id": "gbasp-silber",
     "titel": "Game Boy Advance SP Silber",
@@ -323,7 +339,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 21,
+    "reihenfolge": 22,
     "typ": "konsolen",
     "id": "gbasp-mario",
     "titel": "Game Boy Advance SP Mario Edition",
@@ -340,7 +356,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 22,
+    "reihenfolge": 23,
     "typ": "konsolen",
     "id": "gbasp-pokemon-g",
     "titel": "Game Boy Advance SP Pokémon Groudon Edition",
@@ -357,7 +373,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 23,
+    "reihenfolge": 24,
     "typ": "konsolen",
     "id": "gbasp-pokemon-k",
     "titel": "Game Boy Advance SP Pokémon Kyogre Edition",
@@ -374,7 +390,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 24,
+    "reihenfolge": 25,
     "typ": "konsolen",
     "id": "gbasp-pokemon-r",
     "titel": "Game Boy Advance SP Pokémon Rayquaza Edition",
@@ -391,7 +407,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 25,
+    "reihenfolge": 26,
     "typ": "konsolen",
     "id": "ps2-slim-ovp",
     "titel": "SONY PS2 PlayStation 2 Slim Konsole in OVP + 2 Controller Memory Card",
@@ -408,7 +424,7 @@
     "erscheinungsjahr": 2004
   },
   {
-    "reihenfolge": 26,
+    "reihenfolge": 27,
     "typ": "spiel",
     "id": "t",
     "titel": "Tetris",
@@ -435,7 +451,7 @@
     "erscheinungsjahr": 1990
   },
   {
-    "reihenfolge": 27,
+    "reihenfolge": 28,
     "typ": "spiel",
     "id": "sm1",
     "titel": "Super Mario Land",
@@ -464,7 +480,7 @@
     "erscheinungsjahr": 1990
   },
   {
-    "reihenfolge": 28,
+    "reihenfolge": 29,
     "typ": "spiel",
     "id": "sm2",
     "titel": "Super Mario Land 2",
@@ -493,7 +509,7 @@
     "erscheinungsjahr": 1992
   },
   {
-    "reihenfolge": 29,
+    "reihenfolge": 30,
     "typ": "spiel",
     "id": "zla",
     "titel": "Zelda: Link's Awakening",
@@ -520,7 +536,7 @@
     "erscheinungsjahr": 1993
   },
   {
-    "reihenfolge": 30,
+    "reihenfolge": 31,
     "typ": "spiel",
     "id": "sm3",
     "titel": "Super Mario Land 3",
@@ -551,7 +567,7 @@
     "erscheinungsjahr": 1994
   },
   {
-    "reihenfolge": 31,
+    "reihenfolge": 32,
     "typ": "spiel",
     "id": "pb",
     "titel": "Pokémon Blau",
@@ -580,7 +596,7 @@
     "erscheinungsjahr": 1998
   },
   {
-    "reihenfolge": 32,
+    "reihenfolge": 33,
     "typ": "spiel",
     "id": "pr",
     "titel": "Pokémon Rot",
@@ -609,7 +625,7 @@
     "erscheinungsjahr": 1998
   },
   {
-    "reihenfolge": 33,
+    "reihenfolge": 34,
     "typ": "spiel",
     "id": "pg",
     "titel": "Pokémon Gelb",
@@ -638,7 +654,7 @@
     "erscheinungsjahr": 1999
   },
   {
-    "reihenfolge": 34,
+    "reihenfolge": 35,
     "typ": "spiel",
     "id": "pt",
     "titel": "Pokémon Trading Card",
@@ -663,7 +679,7 @@
     "erscheinungsjahr": 2000
   },
   {
-    "reihenfolge": 35,
+    "reihenfolge": 36,
     "typ": "spiel",
     "id": "pgo",
     "titel": "Pokémon Gold",
@@ -690,7 +706,7 @@
     "erscheinungsjahr": 2000
   },
   {
-    "reihenfolge": 36,
+    "reihenfolge": 37,
     "typ": "spiel",
     "id": "psi",
     "titel": "Pokémon Silber",
@@ -719,7 +735,7 @@
     "erscheinungsjahr": 2000
   },
   {
-    "reihenfolge": 37,
+    "reihenfolge": 38,
     "typ": "spiel",
     "id": "pk",
     "titel": "Pokémon Kristall",
@@ -748,7 +764,7 @@
     "erscheinungsjahr": 2001
   },
   {
-    "reihenfolge": 38,
+    "reihenfolge": 39,
     "typ": "spiel",
     "id": "dbz",
     "titel": "Dragon Ball Z",
@@ -773,7 +789,7 @@
     "erscheinungsjahr": 2002
   },
   {
-    "reihenfolge": 39,
+    "reihenfolge": 40,
     "typ": "spiel",
     "id": "pre",
     "titel": "Pokémon Rubin-Edition",
@@ -798,7 +814,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 40,
+    "reihenfolge": 41,
     "typ": "spiel",
     "id": "pse",
     "titel": "Pokémon Saphir-Edition",
@@ -823,7 +839,7 @@
     "erscheinungsjahr": 2003
   },
   {
-    "reihenfolge": 41,
+    "reihenfolge": 42,
     "typ": "spiel",
     "id": "pfe",
     "titel": "Pokémon Feuerrote Edition",
@@ -848,7 +864,7 @@
     "erscheinungsjahr": 2004
   },
   {
-    "reihenfolge": 42,
+    "reihenfolge": 43,
     "typ": "spiel",
     "id": "pbe",
     "titel": "Pokémon Blattgrüne Edition",

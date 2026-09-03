@@ -12,6 +12,7 @@
   "pocket-transparent": 1,
   "color-pokemon": 1,
   "color-charizard-orange": 0,
+  "color-pikachu-ovp": 1,
   "color-yellow": 3,
   "classic-grau-ips": 1,
   "gba-gengar": 0,
@@ -91,5 +92,5 @@
   "spiel-psi-z2": 1,
   "spiel-psi-z3": 1,
   "spiel-psi-z4": 0,
-  "ps2-slim-ovp": 1
+  "ps2-slim-ovp": 0
 }
